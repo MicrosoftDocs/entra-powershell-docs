@@ -74,6 +74,14 @@ Get-EntraUser -Filter "startsWith(DisplayName,'Ada')"
 
 Selecting the required properties by using the `-Property` parameter to only get required properties.
 
+### Define the page size
+
+For requests that return many objects, increase the page size to its maximum value of 999 using `-top` parameter.
+
+```powershell
+Get-EntraUser -All -Top 999
+```
+
 ## Maintenance
 
 Apply the following maintenance best practices to ensure your Microsoft Entra PowerShell module and scripts are up to date and functioning optimally:
