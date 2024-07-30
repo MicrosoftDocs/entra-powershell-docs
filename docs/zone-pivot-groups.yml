@@ -23,3 +23,12 @@ groups:
     title: Azure AD Preview
   - id: msonline
     title: MSOnline
+## Zone pivot for custom apps with PowerShell and UI options
+- id: entra-powershell-create-custom-app
+  title: Create custom application
+  prompt: Choose an option
+  pivots:
+  - id: powershell
+    title: Microsoft Entra PowerShell
+  - id: ui
+    title: Microsoft Entra Admin Center
