@@ -250,7 +250,7 @@ You need to set up Microsoft Graph permissions for the new application to connec
     - If you need to sign in to the app to manage your resources in Microsoft Entra ID, select **Delegated permissions**.
     - If you want the app to access Microsoft Entra resources on its own without user interaction, select **Application permissions**
 1. Search for the required permission for example, `User.Read.All`.
-1. Select **Grand admin consent for TenantName**. Select **Yes**. Ensure the status shows a green checkmark.
+1. Select **Grant admin consent for TenantName**. Select **Yes**. Ensure the status shows a green checkmark.
 
 :::zone-end
 
