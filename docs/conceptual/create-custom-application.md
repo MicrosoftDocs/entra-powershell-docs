@@ -29,7 +29,7 @@ To create a custom application and grant it permissions, you need:
 
    ```powershell
     # Connect to Entra with required scopes
-    Connect-Entra -Scopes 'AppRoleAssignment.ReadWrite.All', 'Application.ReadWrite.All', 'User.Read.All', 'Group.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
+    Connect-Entra -Scopes 'AppRoleAssignment.ReadWrite.All', 'Application.ReadWrite.All', 'User.Read.All', 'Group.Read.All', 'DelegatedPermissionGrant.ReadWrite.All', 'AuditLog.Read.All'
 
     # Define application name and redirect URI
     $AppName = "Entra PowerShell 3"
