@@ -118,7 +118,7 @@ To create a custom application and grant it permissions, you need:
 
    ```powershell
     # Connect to Entra with required scopes
-    Connect-Entra -Scopes 'AppRoleAssignment.ReadWrite.All', 'Application.ReadWrite.All', 'User.Read.All', 'Group.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
+    Connect-Entra -Scopes 'AppRoleAssignment.ReadWrite.All', 'Application.ReadWrite.All', 'User.Read.All', 'Group.Read.All', 'DelegatedPermissionGrant.ReadWrite.All', 'AuditLog.Read.All'
 
     # Define application name and redirect URI
     $AppName = "Entra PowerShell Five"
@@ -259,7 +259,7 @@ You need to set up Microsoft Graph permissions for the new application to connec
 You can now use the newly created app by connecting with:
 
 ```powershell
-Connect-Entra -ClientId <your-new-app-id>
+Connect-Entra -ClientId <your-new-app-Id> -TenantId <your-tenant-Id>
 ```
 
 For more connection options, see the [Connect-Entra][connect-entra-command] command details.
