@@ -259,7 +259,7 @@ You need to set up Microsoft Graph permissions for the new application to connec
 You can now use the newly created app by connecting with:
 
 ```powershell
-Connect-Entra -ClientId <your-new-app-Id> -TenantId <your-tenant-Id>
+Connect-Entra -ClientId <Your_APPLICATION_Id_Here> -TenantId <Your_TENANT_Id_Here>
 ```
 
 For more connection options, see the [Connect-Entra][connect-entra-command] command details.
