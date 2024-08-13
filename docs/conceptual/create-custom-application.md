@@ -114,7 +114,7 @@ To create a custom application and grant it permissions, you need:
     Get-EntraOAuth2PermissionGrant -All | Where-Object { $_.Id -eq $PermissionGrant.Id }
    ```
 
-# [Application PowerShell](#tab/application)
+# [Application Permissions](#tab/application)
 
    ```powershell
     # Connect to Entra with required scopes
