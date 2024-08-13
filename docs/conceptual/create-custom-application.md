@@ -168,7 +168,7 @@ To create a custom application and grant it permissions, you need:
 
     # Create resource access object
     $ResourceAccess = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
-    $ResourceAccess.Id = ((Get-EntraServicePrincipal -ObjectId $GraphServicePrincipal.ObjectId).Oauth2PermissionScopes | Where-Object { $_.Value -eq $DelegatedPermission }).Id
+    $ResourceAccess.Id = ((Get-EntraServicePrincipal -ObjectId $GraphServicePrincipal.ObjectId).AppRoles | Where-Object { $_.Value -eq $ApplicationPermission}).Id
     $ResourceAccess.Type = 'Scope'
 
     # Create required resource access object
