@@ -1,11 +1,11 @@
 ---
 title: Manage apps
-description: Learn how to register, configure and update apps in Microsoft Entra PowerShell.
+description: Learn how to register, configure, and update apps in Microsoft Entra PowerShell.
 
 author: csmulligan
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 09/18/2024
 ms.author: cmulligan
 ms.reviewer: stevemutungi
 
@@ -82,7 +82,9 @@ Set-EntraApplication @appParams
 For more information, see [Set-EntraApplication][set-entraapplication].
 
 ## Limit app sign-in to only assigned identities
+
 Limiting app sign-ins to only assigned identities using Microsoft Entra PowerShell ensures that only authorized users can access your applications, thereby enhancing security and control.
+
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All'
 $servicePrincipalParams = @{
@@ -145,6 +147,15 @@ This example shows how to add an owner to a service principal.
 - `-ObjectId` - specifies the unique identifier (ObjectId) of the service principal to which you want to add an owner.
 
 - `-RefObjectId` - specifies the unique identifier (ObjectId) of the user or group that you want to add as an owner of the specified service principal.
+
+### Get a list of all applications without user assignment
+
+To get a list of all applications that don't require user assignment, use the following command.
+
+```powershell
+Connect-Entra -Scopes 'Application.ReadWrite.All'
+Get-MgServicePrincipal -Filter 'appRoleAssignmentRequired ne true' -ConsistencyLevel Eventual -CountVariable $count
+```
 
 ## Related content
 
