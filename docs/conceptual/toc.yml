@@ -33,6 +33,8 @@ items:
     href: manage-groups.md
   - name: Manage apps
     href: manage-apps.md
+  - name: Manage roles
+    href: manage-roles.md
   - name: Assign app roles to a service principal
     href: create-assign-app-roles.md
   - name: Create custom application
