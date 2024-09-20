@@ -226,6 +226,18 @@ Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $Licenses
 
 The following example shows how to assign a `FLOW_FREE` license to a user with ObjectId `SawyerM@contoso.com`.
 
+1. List disabled users with active licenses.
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+$disabledUsersWithLicenses = Get-EntraBetaUser -Filter "accountEnabled eq false" -All | Where-Object {
+    $_.AssignedLicenses -ne $null -and $_.AssignedLicenses.Count -gt 0
+}
+$disabledUsersWithLicenses | Select-Object Id, DisplayName, UserPrincipalName, AccountEnabled | Format-Table -AutoSize
+```
+
+This example demonstrates how to retrieve disabled users with active licenses.
+
 1. Remove a license from a user.
 
 ```powershell
