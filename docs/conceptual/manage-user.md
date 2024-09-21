@@ -238,6 +238,18 @@ $disabledUsersWithLicenses | Select-Object Id, DisplayName, UserPrincipalName, A
 
 This example demonstrates how to retrieve disabled users with active licenses.
 
+1. List guest users with active licenses.
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+$disabledUsersWithLicenses = Get-EntraBetaUser -Filter "accountEnabled eq false" -All | Where-Object {
+    $_.AssignedLicenses -ne $null -and $_.AssignedLicenses.Count -gt 0
+}
+$disabledUsersWithLicenses | Select-Object Id, DisplayName, UserPrincipalName, AccountEnabled | Format-Table -AutoSize
+```
+
+This example demonstrates how to retrieve guest users with active licenses.
+
 1. Remove a license from a user.
 
 ```powershell
@@ -248,23 +260,6 @@ $SkuId = (Get-EntraUserLicenseDetail -ObjectId $UserPrincipalName).SkuId
 $Licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $Licenses.RemoveLicenses = $SkuId
 Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $Licenses
-```
-
-```Output
-Name                           Value
-----                           -----
-preferredLanguage
-givenName
-@odata.context                 https://graph.microsoft.com/v1.0/$metadata#users/$entity
-id                             hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
-mail                           SawyerM@contoso.com
-userPrincipalName              SawyerM@contoso.com
-jobTitle
-displayName                    Sawyer Miller
-officeLocation
-surname
-mobilePhone
-businessPhones                 {}
 ```
 
 This example shows how to remove a license from a user.
