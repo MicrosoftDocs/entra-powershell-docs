@@ -8,7 +8,7 @@
     },
     "inclusionCriteria": {
         "omitPullRequestTitles": false,
-        "minAdditionsToFile": 10,
+        "minAdditionsToFile": 2,
         "maxFilesChanged": 50,
         
     },
