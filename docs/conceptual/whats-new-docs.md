@@ -22,7 +22,7 @@ This article lists all new articles that were added or had significant updates i
 
 **Updated articles**
 
-- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md) - Updated the cmdlet map with new cmdlet equivalents in Microsoft Entra PowerShell.
+- [Azure AD  PowerShell cmdlet map][cmdlet-map] - Updated the cmdlet map with new cmdlet equivalents in Microsoft Entra PowerShell.
 
 ### July 2024
 

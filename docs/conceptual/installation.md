@@ -110,9 +110,6 @@ To install the `Beta` module, run the following command.
 Install-Module -Name Microsoft.Graph.Entra.Beta -Repository PSGallery -AllowPrerelease
 ```
 
-> [!IMPORTANT]
-> We recommend using Microsoft Entra PowerShell v1.0 (GA) module for script writing. If you need to test or adopt features not yet available in v1.0, you might use the Beta module. However, the cmdlets in the Beta version can change unexpectedly, which makes it unsuitable for production as it could break existing scripts.
-
 :::zone-end
 
 :::zone pivot="linux"
