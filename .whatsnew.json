@@ -9,7 +9,7 @@
     "inclusionCriteria": {
         "omitPullRequestTitles": false,
         "minAdditionsToFile": 10,
-        "maxFilesChanged": 50,
+        "maxFilesChanged": 50
         
     },
     "areas": [
