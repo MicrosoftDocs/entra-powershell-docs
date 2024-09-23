@@ -26,12 +26,12 @@ This article lists all new articles that were added or had significant updates i
 
 ### July 2024
 
-#### New articles
+**New articles**
 
 - [Azure AD  PowerShell cmdlet map][cmdlet-map] -  Find the equivalent cmdlets in Microsoft Entra PowerShell for deprecated Azure AD, Azure AD Preview, and MSOnline PowerShell modules to accelerate migration.
 - [Assign app roles to a service principal][assign-app-roles] - Assign app roles in Microsoft Entra PowerShell to automate application consent.
 
-#### Updated articles
+**Updated articles**
 
 - The [reference TOC](/powershell/module/microsoft.graph.entra) is updated to group cmdlets for easier navigation.
 
