@@ -22,7 +22,7 @@ This article details the process of running your existing AzureAD PowerShell scr
 
 The `Enable-EntraAzureADAlias` cmdlet enables compatibility mode through aliases. By default, Enable-EntraAzureADAlias only enables compatibility aliases for the current Microsoft Entra PowerShell session. For more information, see the [Enable-EntraAzureADAlias][enable-entraazureadalias] reference documentation.
 
-To use Microsoft Entra PowerShell with your existing AzureAD PowerShell scripts, replace the `Connect-AzureAD` command with the three lines provided.
+To use Microsoft Entra PowerShell with your existing AzureAD PowerShell scripts, replace the `Connect-AzureAD` command with the three provided lines. These three lines will be the beginning of your migrated AzureAD PowerShell script.
 
 ```powershell
 Import-Module -Name Microsoft.Graph.Entra
@@ -34,9 +34,7 @@ Enable-EntraAzureADAlias #enable aliasing
 
 In this example, you want to run a script that exports apps with expiring secrets using Microsoft Entra PowerShell. This example assumes that the Microsoft Entra PowerShell module is already [installed][installation].
 
-<!--Check this example. I got the feedback: I don't understand this interaction. You are making a statement, not asking a question.
-
-Use the -Prompt parameter of Read-Host. -->
+The following example script is the original AzureAD PowerShell script.
 
 ```powershell
 Connect-AzureAD
@@ -60,7 +58,9 @@ foreach ($app in $Applications) {
 
 ```
 
-To use your script with the Microsoft Entra PowerShell module, replace the `Connect-AzureAD` cmdlet with the three lines provided in the snippet. You don’t need to rewrite the entire script. This code snippet is shortened for simplicity.
+To use your script with the Microsoft Entra PowerShell module, replace the `Connect-AzureAD` cmdlet with the three lines provided in the snippet. You don’t need to rewrite the entire script. 
+
+The following script is the migrated script.
 
 ```powershell
 Import-Module -Name Microsoft.Graph.Entra
