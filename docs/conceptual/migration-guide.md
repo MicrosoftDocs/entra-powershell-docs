@@ -5,7 +5,7 @@ description: Learn about how to migrate from Azure AD PowerShell to Microsoft En
 author: csmulligan
 manager: CelesteDG
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 09/24/2024
 ms.author: cmulligan
 
 #Customer intent: As an IT admin, I want to learn how to transition my existing scripts from Azure AD PowerShell to Microsoft Entra PowerShell for the best usability benefits.
