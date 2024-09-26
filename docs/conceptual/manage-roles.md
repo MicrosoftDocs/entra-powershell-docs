@@ -24,9 +24,9 @@ A role is a collection of permissions. Microsoft Entra roles control access to M
 
 
 
-## List role definitons
+## List role definition
 
-A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically just called a role. Microsoft Entra ID has over 60 built-in roles or you can create your own custom roles. If you ever wondered "What the do these roles really do?", you can see a detailed list of permissions for each of the roles.
+A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically called a role. Microsoft Entra ID has over 60 built-in roles or you can create your own custom roles. If you ever wondered "What these roles really do?", you can see a detailed list of permissions for each of the roles.
 
 Follow these steps to list Microsoft Entra roles using PowerShell.
 
@@ -108,11 +108,11 @@ BSub0kaAukSHWB4mGC_PMgzOWSgXj8FHusA4iaaTyaI-1 ffffffff-aaaa-bbbb-6666-7777777777
 
 ### List Microsoft Entra role assignments for a user
 
-A role can be assigned to a user directly or transitively via a group. This article describes how to list the Microsoft Entra roles assigned to a user
+A role can be assigned to a user directly or transitively via a group. This article describes how to list the Microsoft Entra roles assigned to a user.
 
 Follow these steps to list Microsoft Entra roles assigned to a user using PowerShell.
 
-1. Install Microsoft.Graph module using [Install-module](/powershell/azure/active-directory/install-adv2).
+1. Install Microsoft. Graph module using [Install-module](/powershell/azure/active-directory/install-adv2).
   
     ```powershell
     Install-module -name Microsoft.Graph
@@ -155,8 +155,6 @@ To grant access to users in Microsoft Entra ID, you assign Microsoft Entra roles
 
 ### Assign Microsoft Entra roles to users
 
-### Setup
-Sure, here is the YAML code translated to Markdown:
 
 ### Setup
 
@@ -194,7 +192,7 @@ Sure, here is the YAML code translated to Markdown:
 
 ### Assign a role as eligible using PIM
 
-If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see *An external link was removed to protect your privacy.*.
+If PIM is enabled, you have extra capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see *An external link was removed to protect your privacy.*.
 
 Steps:
 
@@ -204,7 +202,7 @@ Steps:
     $roledefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Billing Administrator'"
     ```
 
-- Use the following command to create a hash table to store all the necessary attributes required to assign the role to the user. The Principal ID will be the user ID to which you want to assign the role. In this example, the assignment will be valid only for **10 hours**.
+- Use the following command to create a hash table to store all the necessary attributes required to assign the role to the user. The Principal ID is the user ID to which you want to assign the role. In this example, the assignment is valid only for **10 hours**.
 
     ```powershell
     $params = @{
@@ -291,12 +289,7 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -BodyParameter $Pa
 Remove-MgRoleManagementDirectoryRoleAssignment -UnifiedRoleAssignmentId $roleAssignment.Id
 ```
 
-## Create a custom role 
-
-**Prompt [Try this prompt in Copilot for Microsoft 365](https://www.microsoft365.com/chat/entity1-d870f6cd-4aa5-4d42-9626-ab690c041429/eyJpZCI6IlZYTmxjbFl4ZkdoMGRIQnpPaTh2YzNWaWMzUnlZWFJsTFdsdWRDNXZabVpwWTJVdVkyOXRMM3hQU1VRNlpXSmtZekpoWW1VdE9HVmlNUzAwTURCaExUZ3dOR1l0WWpBek56QmpPVEkxTVdSa2ZHVmxabU0wTTJVM0xXRm1OV1V0TkdaalppMWhOamd4TFdSak1EQXlaV1poWldVMk5Id3lNREkwTFRBNUxUSTJWREE1T2pRd09qSTFMakl6T0RBeU56VmEiLCJzY2VuYXJpbyI6InNoYXJlTGluayIsInByb3BlcnRpZXMiOnsicHJvbXB0U291cmNlIjoidXNlciIsImNsaWNrVGltZXN0YW1wIjoiMjAyNC0wOS0yNlQwOTo0MDoyNS4yNDJaIn0sInZlcnNpb24iOjEuMX0)**
-translate this yml code to markdown: ### Sign in Use the [Connect-MgGraph](/powershell/module/microsoft.graph.authentication/connect-mggraph) command to sign in to your tenant. code: | ``` PowerShell Connect-MgGraph -Scopes "RoleManagement.ReadWrite.Directory" ``` ### Create the custom role Create a new role using the following PowerShell script: ``` PowerShell # Basic role information $displayName = "Application Support Administrator" $description = "Can manage basic aspects of application registrations." $templateId = (New-Guid).Guid # Set of permissions to grant $allowedResourceAction = @( "microsoft.directory/applications/basic/update", "microsoft.directory/applications/credentials/update" ) $rolePermissions = @(@{AllowedResourceActions= $allowedResourceAction}) # Create new custom admin role $customAdmin = New-MgRoleManagementDirectoryRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -IsEnabled -Description $description -TemplateId $templateId ``` ### Assign the custom role using PowerShell Assign the role using the below PowerShell script: ``` PowerShell # Get the user and role definition you want to link $user = Get-MgUser -Filter "userPrincipalName eq 'user@contoso.com'" $roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Application Support Administrator'" # Get app registration and construct resource scope for assignment. $appRegistration = Get-MgApplication -Filter "Displayname eq 'MyApp1'" $resourceScope = '/' + $appRegistration.objectId # Create a scoped role assignment $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId $resourcescope -RoleDefinitionId $roledefinition.Id -PrincipalId $user.Id ```
-**Response**
-Sure, here is the YAML code translated to Markdown:
+## Create a custom role
 
 ### Sign in
 
