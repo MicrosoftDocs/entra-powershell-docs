@@ -14,391 +14,193 @@ ms.reviewer: stevemutungi
 
 # Manage roles
 
-A role is a collection of permissions. Microsoft Entra roles control access to Microsoft Entra resources such as users, groups, and applications. This article describes how to manage Microsoft Entra roles using the Microsoft Entra PowerShell module.
+A role in Microsoft Entra is a set of permissions. Roles control access to resources such as users, groups, and applications. In this article, you learn how to use Microsoft Entra PowerShell to manage roles.
+
 
 ## Prerequisites
 
-<!--The sections are based on the how-tos in the https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/ . -->
+To manage roles with Microsoft Entra PowerShell, you need:
 
-## Setup
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Grant yourself the least privileged delegated permission indicated for the operation.
+- Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module](installation.md) guide to install the module.
 
-
-
-## List role definition
+## List role definitions
 
 A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically called a role. Microsoft Entra ID has over 60 built-in roles or you can create your own custom roles. If you ever wondered "What these roles really do?", you can see a detailed list of permissions for each of the roles.
 
-Follow these steps to list Microsoft Entra roles using PowerShell.
+To get all  the role definitions, run the following [Get-EntraDirectoryRoleDefinition](/powershell/module/microsoft.graph.entra/get-entradirectoryroledefinition) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
 
-1. Open a PowerShell window. If necessary, use [Install-Module](/powershell/module/powershellget/install-module) to install Microsoft Graph PowerShell. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
+```powershell
+Connect-Entra -Scopes 'RoleManagement.Read.Directory','EntitlementManagement.Read.All'
+Get-EntraDirectoryRoleDefinition
+```
 
-    ```powershell
-    Install-Module Microsoft.Graph -Scope CurrentUser
-    ```
-
-2. In a PowerShell window, use [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands#using-connect-mggraph) to sign in to your tenant.
-
-    ```powershell
-    Connect-MgGraph -Scopes "RoleManagement.Read.All"
-    ```
-
-3. Use [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition) to get all roles.
-
-    ```powershell
-    Get-MgRoleManagementDirectoryRoleDefinition
-    ```
-
-4. To view the list of permissions of a role, use the following cmdlet.
-
-    ```powershell
-    # Do this avoid truncation of the list of permissions
-    $FormatEnumerationLimit = -1
-    
-    (Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayName eq 'Conditional Access Administrator'").RolePermissions | Format-list
-    ```
+```Output
+DisplayName                                   Id                                   TemplateId                           Description
+-----------                                   --                                   ----------                           -----------
+Guest User                                    10dae51f-b6af-4016-8d66-8c2a99b929b3 10dae51f-b6af-4016-8d66-8c2a99b929b3 Default role for guest users. Can read a limited set of directory information.
+Restricted Guest User                         2af84b1e-32c8-42b7-82bc-daa82404023b 2af84b1e-32c8-42b7-82bc-daa82404023b Restricted role for guest users. Can read a limited set of directory information.
+```
 
 ## List role assignments 
 
-This article describes how to list roles you have assigned in Microsoft Entra ID. This section describes viewing assignments of a role with organization-wide scope. This article uses the [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](custom-assign-powershell.md).
-
-Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition) and [Get-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroleassignment) commands to list role assignments.
-
-The following example shows how to list the role assignments for the [Groups Administrator](permissions-reference.md#groups-administrator) role.
+This section describes how to list roles you have assigned in Microsoft Entra ID. To get all the role assignments, run the [Get-EntraDirectoryRoleAssignment](/powershell/module/microsoft.graph.entra/get-entradirectoryroleassignment) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
 
 ```powershell
-# Fetch list of all directory roles with template ID
-Get-MgRoleManagementDirectoryRoleDefinition
-
-# Fetch a specific directory role by ID
-$role = Get-MgRoleManagementDirectoryRoleDefinition -UnifiedRoleDefinitionId fdd7a751-b60b-444a-984c-02652fe8fa1c
-
-# Fetch membership for a role
-Get-MgRoleManagementDirectoryRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
+Connect-Entra -Scopes 'RoleManagement.Read.Directory','EntitlementManagement.Read.All'
+Get-EntraDirectoryRoleAssignment -All 
 ```
 
-```Example
-Id                                            PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScop
-                                                                                                                                         eId
---                                            -----------                          ----------------                     ---------------- -------
-lAPpYvVpN0KRkAEhdxReEH2Fs3EjKm1BvSKkcYVN2to-1 aaaaaaaa-bbbb-cccc-1111-222222222222 62e90394-69f5-4237-9190-012177145e10 /
-lAPpYvVpN0KRkAEhdxReEMdXLf2tIs1ClhpzQPsutrQ-1 bbbbbbbb-cccc-dddd-2222-333333333333 62e90394-69f5-4237-9190-012177145e10 /
+```Output
+Id                                      PrincipalId                           RoleDefinitionId                    DirectoryScopeId AppScopeId
+--                                      -----------                           ----------------                    ---------------- ----------
+00001111-aaaa-2222-bbbb-3333cccc4444          aaaaaaaa-bbbb-cccc-1111-222222222222  a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1  /                
+11112222-bbbb-3333-cccc-4444dddd5555          bbbbbbbb-cccc-dddd-2222-333333333333  a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1  /                
+22223333-cccc-4444-dddd-5555eeee6666          cccccccc-dddd-eeee-3333-444444444444  a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1  /                
+33334444-dddd-5555-eeee-6666ffff7777          dddddddd-eeee-ffff-4444-555555555555  a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1  /                
+44445555-eeee-6666-ffff-7777aaaa8888          eeeeeeee-ffff-aaaa-5555-666666666666  a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1  /                 
 ```
 
-The following example shows how to list all active role assignments across all roles, including built-in and custom roles (currently in Preview).
-
-```powershell
-$roles = Get-MgRoleManagementDirectoryRoleDefinition
-foreach ($role in $roles)
-{
-  Get-MgRoleManagementDirectoryRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
-}
-```
-
-```Example
-Id                                            PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScop
-                                                                                                                                         eId
---                                            -----------                          ----------------                     ---------------- -------
-lAPpYvVpN0KRkAEhdxReEH2Fs3EjKm1BvSKkcYVN2to-1 aaaaaaaa-bbbb-cccc-1111-222222222222 62e90394-69f5-4237-9190-012177145e10 /
-lAPpYvVpN0KRkAEhdxReEMdXLf2tIs1ClhpzQPsutrQ-1 bbbbbbbb-cccc-dddd-2222-333333333333 62e90394-69f5-4237-9190-012177145e10 /
-4-PYiFWPHkqVOpuYmLiHa3ibEcXLJYtFq5x3Kkj2TkA-1 cccccccc-dddd-eeee-3333-444444444444 88d8e3e3-8f55-4a1e-953a-9b9898b8876b /
-4-PYiFWPHkqVOpuYmLiHa2hXf3b8iY5KsVFjHNXFN4c-1 dddddddd-eeee-ffff-4444-555555555555 88d8e3e3-8f55-4a1e-953a-9b9898b8876b /
-BSub0kaAukSHWB4mGC_PModww03rMgNOkpK77ePhDnI-1 eeeeeeee-ffff-aaaa-5555-666666666666 d29b2b05-8046-44ba-8758-1e26182fcf32 /
-BSub0kaAukSHWB4mGC_PMgzOWSgXj8FHusA4iaaTyaI-1 ffffffff-aaaa-bbbb-6666-777777777777 d29b2b05-8046-44ba-8758-1e26182fcf32 /
-```
-
-### List Microsoft Entra role assignments for a user
-
-A role can be assigned to a user directly or transitively via a group. This article describes how to list the Microsoft Entra roles assigned to a user.
-
-Follow these steps to list Microsoft Entra roles assigned to a user using PowerShell.
-
-1. Install Microsoft. Graph module using [Install-module](/powershell/azure/active-directory/install-adv2).
-  
-    ```powershell
-    Install-module -name Microsoft.Graph
-    ```
-
-3. In a PowerShell window, Use [Connect-MgGraph](/powershell/microsoftgraph/get-started) to sign into and use Microsoft Graph PowerShell cmdlets.
-  
-      ```powershell
-      Connect-MgGraph
-      ```
-
-4. Use the [List transitiveRoleAssignments](/graph/api/rbacapplication-list-transitiveroleassignments) API to get roles assigned directly and transitively to a user.
-
-      ```powershell
-      $response = $null
-      $uri = "https://graph.microsoft.com/beta/roleManagement/directory/transitiveRoleAssignments?`$count=true&`$filter=principalId eq 'aaaaaaaa-bbbb-cccc-1111-222222222222'"
-      $method = 'GET'
-      $headers = @{'ConsistencyLevel' = 'eventual'}
-      
-      $response = (Invoke-MgGraphRequest -Uri $uri -Headers $headers -Method $method -Body $null).value
-      ```
-
-### View roles assigned to a group in Microsoft Entra ID
-
-### Get object ID of the group
-
-```powershell
-Get-MgGroup -Filter "DisplayName eq 'Contoso_Helpdesk_Administrators'"
-```
-
-### View role assignment to a group
-
-```powershell
-Get-MgRoleManagementDirectoryRoleAssignment -Filter "PrincipalId eq '<object id of group>'" 
-```
+The `PrincipalId` specifies the account the role is assigned to, and the `RoleDefinitionId` specifies the role assigned to the account.
 
 ## Assign roles
 
-To grant access to users in Microsoft Entra ID, you assign Microsoft Entra roles. A role is a collection of permissions. This article describes how to assign Microsoft Entra roles using the Microsoft Entra admin center and PowerShell.
+To grant access to users in Microsoft Entra ID, assign Microsoft Entra roles. This section explains how to assign Microsoft Entra roles to users and groups. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role to complete the following tasks.
 
 ### Assign Microsoft Entra roles to users
 
-
-### Setup
-
-1. Open a PowerShell window and use *An external link was removed to protect your privacy.* to import the Microsoft Graph PowerShell module. For more information, see *An external link was removed to protect your privacy.*.
-
-    ```powershell
-    Import-Module -Name Microsoft.Graph.Identity.Governance -Force
-    ```
-
-2. In a PowerShell window, use *An external link was removed to protect your privacy.* to sign in to your tenant.
-
-    ```powershell
-    Connect-MgGraph -Scopes "RoleManagement.ReadWrite.Directory"
-    ```
-
-3. Use *An external link was removed to protect your privacy.* to get the user you want to assign a role to.
-
-    ```powershell
-    $user = Get-MgUser -Filter "userPrincipalName eq 'johndoe@contoso.com'"
-    ```
-
-### Assign a role
-
-1. Use *An external link was removed to protect your privacy.* to get the role you want to assign.
-
-    ```powershell
-    $roledefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Billing Administrator'"
-    ```
-
-2. Use *An external link was removed to protect your privacy.* to assign the role.
-
-    ```powershell
-    $roleassignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roledefinition.Id -PrincipalId $user.Id
-    ```
-
-### Assign a role as eligible using PIM
-
-If PIM is enabled, you have extra capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see *An external link was removed to protect your privacy.*.
-
-Steps:
-
-- Use *An external link was removed to protect your privacy.* to get the role you want to assign.
-
-    ```powershell
-    $roledefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Billing Administrator'"
-    ```
-
-- Use the following command to create a hash table to store all the necessary attributes required to assign the role to the user. The Principal ID is the user ID to which you want to assign the role. In this example, the assignment is valid only for **10 hours**.
-
-    ```powershell
-    $params = @{
-      "PrincipalId" = "aaaaaaaa-bbbb-cccc-1111-222222222222"
-      "RoleDefinitionId" = "b0f54661-2d74-4c50-afa3-1ec803f12efe"
-      "Justification" = "Add eligible assignment"
-      "DirectoryScopeId" = "/"
-      "Action" = "AdminAssign"
-      "ScheduleInfo" = @{
-        "StartDateTime" = Get-Date
-        "Expiration" = @{
-          "Type" = "AfterDuration"
-          "Duration" = "PT10H"
-          }
-        }
-      }
-    ```
-
-- Use *An external link was removed to protect your privacy.* to assign the role as eligible. Once the role has been assigned, it will reflect in the Microsoft Entra admin center under **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles** > **Assignments** > **Eligible Assignments** section.
-
-    ```powershell
-    New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest -BodyParameter $params | Format-List Id, Status, Action, AppScopeId, DirectoryScopeId, RoleDefinitionId, IsValidationOnly, Justification, PrincipalId, CompletedDateTime, CreatedDateTime
-    ```
-
-### Assign Microsoft Entra roles to groups
-
-To simplify role management, you can assign Microsoft Entra roles to a group instead of individuals. 
-
-#### Create a role-assignable group
-
-Use the [New-AzureADMSGroup](/powershell/module/azuread/new-azureadmsgroup?branch=main) command to create a role-assignable group.
+1. First get the user you want to assign a role to, using the `Get-EntraUser` command.
 
 ```powershell
-$group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $false -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true 
-```
-
-#### Get the role definition you want to assign
-
-Use the [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition?branch=main) command to get a role definition.
-
-```powershell
-$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'" 
-```
-
-#### Create a role assignment
-
-Use the [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment?branch=main) command to assign the role.
-
-```powershell
-$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
-```
-
-## Remove role assignments from a group
-
-### Create a group that can be assigned to role
-
-```powershell
-$group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" `
-   -Description "This group is assigned to Helpdesk Administrator built-in role in Microsoft Entra ID." `
-   -MailNickname "contosohelpdeskadministrators" -IsAssignableToRole:$true `
-   -MailEnabled:$true -SecurityEnabled:$true
-```
-
-### Get the role definition you want to assign the group to
-
-```powershell
-$roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'"
-```
-
-### Create a role assignment
-
-```powershell
-$Params = @{
-   "directoryScopeId" = "/" 
-   "principalId" = $group.Id
-   "roleDefinitionId" = $roleDefinition.Id
-}
-$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -BodyParameter $Params
-```
-
-### Remove the role assignment
-
-```powershell
-Remove-MgRoleManagementDirectoryRoleAssignment -UnifiedRoleAssignmentId $roleAssignment.Id
-```
-
-## Create a custom role
-
-### Sign in
-
-Use the *An external link was removed to protect your privacy.* command to sign in to your tenant.
-
-```PowerShell
-Connect-MgGraph -Scopes "RoleManagement.ReadWrite.Directory"
-```
-
-### Create the custom role
-
-Create a new role using the following PowerShell script:
-
-```PowerShell
-# Basic role information
-$displayName = "Application Support Administrator"
-$description = "Can manage basic aspects of application registrations."
-$templateId = (New-Guid).Guid
-
-# Set of permissions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/applications/basic/update",
-    "microsoft.directory/applications/credentials/update"
-)
-$rolePermissions = @(@{AllowedResourceActions= $allowedResourceAction})
-
-# Create new custom admin role
-$customAdmin = New-MgRoleManagementDirectoryRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -IsEnabled -Description $description -TemplateId $templateId
-```
-
-### Assign the custom role using PowerShell
-
-Assign the role using the below PowerShell script:
-
-```PowerShell
-# Get the user and role definition you want to link
-$user = Get-MgUser -Filter "userPrincipalName eq 'user@contoso.com'"
-$roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Application Support Administrator'"
-
-# Get app registration and construct resource scope for assignment.
-$appRegistration = Get-MgApplication -Filter "Displayname eq 'MyApp1'"
-$resourceScope = '/' + $appRegistration.objectId
-
-# Create a scoped role assignment
-$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId $resourcescope -RoleDefinitionId $roledefinition.Id -PrincipalId $user.Id
-```
-
-## Clean up resources
-
-
-## Related content
-
-
-<!--Notes for myself:
-https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/manage-roles-portal#powershell
-
-
-
-To grant access to users in Microsoft Entra ID, you assign Microsoft Entra roles. A role is a collection of permissions. This article describes how to assign Microsoft Entra roles using the Microsoft Entra PowerShell.
-
-## Setup
-
-
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -ObjectId '0fc9516e-a386-49c5-b798-1bd678150390'
-Get-EntraDirectoryRoleDefinition
+Get-EntraUser -ObjectId 'SawyerM@contoso.com'
+```
 
+The `-ObjectId` Specifies the ID as a user principal name (UPN) or ObjectId.
 
+```Output
+DisplayName Id                                   Mail                                 UserPrincipalName
+----------- --                                   ----                                 -----------------
+Sawyer Miller bbbbbbbb-1111-2222-3333-cccccccccccc sawyerm@tenant.com sawyerm@tenant.com
+```
 
-## Assign a role
-Get-EntraDirectoryRoleDefinition
+2. Use the `Get-EntraDirectoryRoleDefinition` command to get the role you want to assign.
 
-Get-EntraDirectoryRoleDefinition -Id '10dae51f-b6af-4016-8d66-8c2a99b929b3'
+3. Use the `New-EntraDirectoryRoleAssignment` command to assign the role.
 
-Couldn't test it in the BAMI tenant: 
-
+```powershell
 Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory','EntitlementManagement.ReadWrite.All'
 $params = @{
-    RoleDefinitionId = '10dae51f-b6af-4016-8d66-8c2a99b929b3'
-    PrincipalId = '0fc9516e-a386-49c5-b798-1bd678150390'
+    RoleDefinitionId = 'a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'
+    PrincipalId = 'aaaaaaaa-bbbb-cccc-1111-222222222222'
     DirectoryScopeId = '/'
  }
 
 New-EntraDirectoryRoleAssignment @params
+```
 
-## Assign a role as eligible using PIM
+```Output
+Id                                            PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScopeId
+--                                            -----------                          ----------------                     ---------------- ----------
+A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u aaaaaaaa-bbbb-cccc-1111-222222222222 a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /
+```
 
-If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see PowerShell for Microsoft Entra roles in Privileged Identity Management.
+This command creates a new role assignment in Microsoft Entra ID.
 
+- `-RoleDefinitionId` parameter specifies the ID of the role definition that you want to assign. Role definitions describe the permissions that are granted to users or groups by the role. This is the Identifier of the `unifiedRoleDefinition` the assignment is for.
 
+- `-PrincipalId` parameter specifies the ID of the principal (user, group, or service principal) to whom the role is being assigned.
 
-Get-EntraDirectoryRoleDefinition -Id '10dae51f-b6af-4016-8d66-8c2a99b929b3'
+- `-DirectoryScopeId` parameter specifies the scope of the directory over which the role assignment is effective. The '/' value typically represents the root scope, meaning the role assignment is applicable across the entire directory.
 
-EligibilityScheduleRequest  ?? Do we have something similar in EntraPS?
+<!--Do we have a cmdlet similar to New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest to assign the role as eligible? For PIM?  https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/manage-roles-portal -->
 
+### Assign Microsoft Entra roles to groups
 
+To simplify role management, you can assign Microsoft Entra roles to a group instead of individuals. This way, you can manage role assignments for multiple users at once.
 
+1. Create a role-assignable group using the `IsAssignableToRole` parameter. 
 
-To list all the roles that are assigned to a specified user, use Get-EntraDirectoryRoleAssignment
-https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.entra/get-entradirectoryroleassignment?view=entra-powershell
+```powershell
+Connect-Entra -Scopes 'Group.ReadWrite.All','Group.Create'
+$params = @{
+    DisplayName = 'HelpDesk admin group2'
+    Description = 'Group assignable to role'
+    MailEnabled = $False
+    MailNickname = 'helpDeskAdminGroup'
+    SecurityEnabled = $True
+    IsAssignableToRole = $True
+}
 
-Get-EntraDirectoryRoleAssignment -Filter "principalId eq '0fc9516e-a386-49c5-b798-1bd678150390'"
+New-EntraGroup @params
+```
 
+```Output
+DisplayName           Id                                   MailNickname       Description              GroupTypes
+-----------           --                                   ------------       -----------              ----------
+HelpDesk admin group2 vvvvvvvv-8888-9999-0000-jjjjjjjjjjjj helpDeskAdminGroup Group assignable to role {}
+```
 
-Get-EntraDirectoryRoleDefinition
-https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.entra/get-entradirectoryroledefinition?view=entra-powershell
+2. Get the role definition you want to assign using the `Get-EntraDirectoryRoleDefinition` command. 
 
-Set-EntraDirectoryRoleDefinition
-https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.entra/set-entradirectoryroledefinition?view=entra-powershell
+3. Create a role assignment using the `New-EntraDirectoryRoleAssignment` command where the `PrincipalId` is the group ID.
 
- -->
+## Create a custom role
+
+This section explains how to create new custom roles in Microsoft Entra ID with Microsoft Entra PowerShell. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role to complete the following task.
+
+To create a new role, use the `New-EntraDirectoryRoleDefinition` cmdlet. 
+
+```powershell
+Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
+$RolePermissions = New-object Microsoft.Open.MSGraph.Model.RolePermission
+$RolePermissions.AllowedResourceActions =  @("microsoft.directory/applications/basic/read")
+
+$params = @{
+   RolePermissions = $RolePermissions
+   IsEnabled = $false
+   DisplayName = 'MyRoleDefinition'
+}
+
+New-EntraDirectoryRoleDefinition @params
+```
+
+```Output
+
+DisplayName      Id                                   TemplateId                           Description IsBuiltIn IsEnabled
+-----------      --                                   ----------                           ----------- --------- ---------
+MyRoleDefinition a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 93ff7659-04bd-4d97-8add-b6c992cce98e             False     False
+
+```
+
+Once you have created the role, you can assign it to users or groups using the `New-EntraDirectoryRoleAssignment` command.
+
+## Clean up resources
+
+This section explains how to delete roles in Microsoft Entra ID with Microsoft Entra PowerShell. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role to complete the following tasks.
+
+### Remove role assignments
+
+Use the `Remove-EntraDirectoryRoleAssignment` command to remove a role assignment.
+
+```powershell
+Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory','EntitlementManagement.ReadWrite.All'
+Remove-EntraDirectoryRoleAssignment -Id 'Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2'
+```
+
+This example removes the specified role assignment from Microsoft Entra ID. The `-Id` parameter specifies the role assignment ID.
+
+### Remove roles
+
+Use the `Remove-EntraDirectoryRoleDefinition` command to delete a role. The `-Id` parameter specifies the roleDefinition object ID (role ID).
+
+```powershell
+Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
+$DirectoryRoleDefinition = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Guest Inviter'"
+Remove-EntraDirectoryRoleDefinition -Id $DirectoryRoleDefinition.ObjectId
+```
+
+## Related content
+
+See the full list of Microsoft Entra PowerShell cmdlets for role management [here](/powershell/module/microsoft.graph.entra/?view=entra-powershell#role-management).
