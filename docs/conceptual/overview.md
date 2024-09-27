@@ -1,9 +1,8 @@
 ---
-title: Microsoft Entra PowerShell overview
-
-description: "Learn about the features of Microsoft Entra PowerShell that can help you derive insights and analytics, and build unique, intelligent apps in Microsoft Entra ID."
+title: What is Microsoft Entra PowerShell overview (preview)?
+description: "Learn about the features of Microsoft Entra PowerShell that help you derive insights and analytics, and build unique, intelligent apps in Microsoft Entra ID."
 ms.topic: overview
-ms.date: 06/26/2024
+ms.date: 09/27/2024
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
@@ -11,7 +10,7 @@ ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to learn about Microsoft Entra PowerShell, so that I can get started with using the module.
 ---
-# Microsoft Entra PowerShell overview (preview)
+# What is Microsoft Entra PowerShell overview (preview)?
 
 > [!IMPORTANT]
 > Microsoft Entra PowerShell cmdlets are currently in preview and might change. We recommend using these cmdlets for testing and development purposes only, and not in production applications at this time.
@@ -20,13 +19,13 @@ The Microsoft Entra PowerShell module is a scenario-focused command-line tool th
 
 ## Microsoft Graph PowerShell vs. Microsoft Entra PowerShell
 
-Microsoft Entra PowerShell is a part of our increased investment in Microsoft Graph PowerShell SDK. It brings high-quality and scenario-optimized Microsoft Entra resource management to the Microsoft Graph PowerShell SDK. Still, it keeps all the benefits of Microsoft Graph PowerShell SDK for authorization, connection management, error handling, and (low-level) API coverage. As Microsoft Entra PowerShell builds on the Microsoft Graph PowerShell SDK, it is completely interoperable.
+Microsoft Entra PowerShell is a part of our increased investment in Microsoft Graph PowerShell SDK. It brings high-quality and scenario-optimized Microsoft Entra resource management to the Microsoft Graph PowerShell SDK. Still, it keeps all the benefits of Microsoft Graph PowerShell SDK for authorization, connection management, error handling, and (low-level) API coverage. As Microsoft Entra PowerShell builds on the Microsoft Graph PowerShell SDK, it's interoperable.
 
 Microsoft Entra PowerShell provides the following benefits:
 
 - **Focus on usability and quality**: Microsoft Entra PowerShell offers human-readable parameters, deliberate parameter set specification, inline documentation, and core PowerShell fundamentals like pipelining.
 - **Backward compatibility with Azure AD PowerShell module**: Microsoft Entra PowerShell accelerates migration from the recently [announced Azure AD PowerShell module deprecation][azureAdModuleDeprecationLink].
-- **Flexible and granular authorization**: Consistent with Microsoft Graph PowerShell SDK, Microsoft Entra PowerShell enables administrative consent for the permissions you want to grant to the application and supports specifying your own application identity for maximum granularity in app permission assignment. You can also use certificate, Service Principal, or Managed Identity authentication patterns.
+- **Flexible and granular authorization**: Consistent with Microsoft Graph PowerShell SDK, Microsoft Entra PowerShell enables administrative consent for the permissions you want to grant to the application. It supports specifying your own application identity for maximum granularity in app permission assignment. You can also use certificate, Service Principal, or Managed Identity authentication patterns.
 - **Open source**: The Microsoft Entra PowerShell module is open source, allowing contributions from the community to create great PowerShell experiences and share them with everyone. Open source promotes collaboration and facilitates the development of innovative business solutions. You can view Microsoft's customizations and adapt them to meet your needs.
 
 ## Migrate from Azure AD PowerShell module
@@ -47,14 +46,18 @@ You can apply the [best practices guide][best-practices-guide] to optimize the u
 
 The following section outlines the known issues with the Microsoft Entra PowerShell module, along with recommended workarounds.
 
-|          Feature          |                                                                Issue                                                                 |                                   Workaround/Comments                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-| `-All` parameter          | We don't support `-All` Boolean parameter as was the case with Azure AD PowerShell module. `-All` is supported as a switch parameter. | Replace `-All:$true` with `-All` parameter in your scripts.                             |
-| `-SearchString` parameter | The parameter `-SearchString` might not work as expected.                                                                              |  |
+| Feature                   | Issue                                                                                                                                 | Workaround/Comments                                         |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| `-All` parameter          | We don't support `-All` Boolean parameter as was the case with Azure AD PowerShell module. `-All` is supported as a switch parameter. | Replace `-All:$true` with `-All` parameter in your scripts. |
+| `-SearchString` parameter | The parameter `-SearchString` might not work as expected.                                                                             |
+
+## External learning resources
+
+Watch John Savill's video where they give [an in-depth overview of how Microsoft Entra PowerShell works](https://www.youtube.com/watch?v=YOgpAkshmYI)
 
 ## Next steps
 
-- Create a free [Microsoft Entra ID account][free-entra-id].
+- Create a free [Microsoft Entra ID account][free-entra-id]
 - Got questions? Check out our [Frequently Asked Questions][faqs]
 
 [free-entra-id]: https://azure.microsoft.com/free/entra-id
