@@ -53,7 +53,7 @@ The following section outlines the known issues with the Microsoft Entra PowerSh
 
 ## External learning resources
 
-Watch John Savill's video where they give [an in-depth overview of how Microsoft Entra PowerShell works](https://www.youtube.com/watch?v=YOgpAkshmYI)
+Watch John Savill's video for an in-depth [overview of how Microsoft Entra PowerShell works](https://www.youtube.com/watch?v=YOgpAkshmYI).
 
 ## Next steps
 
