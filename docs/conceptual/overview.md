@@ -10,7 +10,7 @@ ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to learn about Microsoft Entra PowerShell, so that I can get started with using the module.
 ---
-# What is Microsoft Entra PowerShell overview (preview)?
+# What is Microsoft Entra PowerShell (preview)?
 
 > [!IMPORTANT]
 > Microsoft Entra PowerShell cmdlets are currently in preview and might change. We recommend using these cmdlets for testing and development purposes only, and not in production applications at this time.
