@@ -258,9 +258,11 @@ Managing devices using Entra PowerShell provides a robust and efficient way to e
 
 - [Frequently asked questions][faq]
 
-- [cloud-device-admin]:/role-based-access-control/permissions-reference.md#cloud-device-administrator  
-- [intune-admin]:/role-based-access-control/permissions-reference.md#intune-administrator  
-- [windows-365-admin]:/role-based-access-control/permissions-reference.md#windows-365-administrator
+<!-- link references -->
+
+- [cloud-device-admin]:/entra/identity/role-based-access-control/permissions-reference.md#cloud-device-administrator  
+- [intune-admin]:/entra/identity/role-based-access-control/permissions-reference.md#intune-administrator  
+- [windows-365-admin]:/entra/identity/role-based-access-control/permissions-reference.md#windows-365-administrator
 - [faq]:/entra/identity/devices/faq
 - [installation]: installation.md
 - [free-entra-id]: https://azure.microsoft.com/free/entra-id
