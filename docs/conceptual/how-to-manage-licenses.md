@@ -91,7 +91,7 @@ To view the licenses assigned to a user, run the following command:
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-$userLicenses = Get-EntraUserLicenseDetail -ObjectId 'GjeEdla@MicrosoftLearnSecurityDocs.onmicrosoft.com'
+$userLicenses = Get-EntraUserLicenseDetail -ObjectId 'GjeEdla@Contoso.com'
 $userLicenses
 ```
 
@@ -124,9 +124,11 @@ M365_AUDIT_PLATFORM                    Success
 To assign a license to a user, use the `Set-EntraUserLicense` cmdlet. The `Set-EntraUserLicense` cmdlet assigns licenses to a user by adding or removing licenses from the user's license assignment.
 
 ```powershell
+# Connect to Entra
 Connect-Entra -Scopes 'User.ReadWrite.All'
+
 # Define the user's object ID
-$User = Get-EntraUser -ObjectId 'AljosaH@MicrosoftLearnSecurityDocs.onmicrosoft.com'
+$User = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
 
 # Define the license plan to assign to the user
 $license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
@@ -142,17 +144,73 @@ Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $Licenses
 To confirm that the license is assigned to the user, run:
 
 ```powershell
-Get-EntraUserLicenseDetail -ObjectId 'AljosaH@MicrosoftLearnSecurityDocs.onmicrosoft.com'
+Get-EntraUserLicenseDetail -ObjectId 'AljosaH@Contoso.com'
 ```
 
 To confirm the service plans assigned to the user, run:
 
 ```powershell
-(Get-EntraUserLicenseDetail -ObjectId 'AljosaH@MicrosoftLearnSecurityDocs.onmicrosoft.com').ServicePlans
+(Get-EntraUserLicenseDetail -ObjectId 'AljosaH@Contoso.com').ServicePlans
 ```
 
 ### Assign a license to a user with some disabled plans
+
+The following PowerShell script demonstrates how to assign a license to a user in Microsoft Entra ID while disabling specific service plans. This approach can be useful when you want to assign a license but exclude certain features.
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+
+# Define the user's object ID
+$User = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
+
+
+# Retrieve the SkuId for the desired license plan
+$skuId = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'AAD_PREMIUM_P2' }).SkuId
+
+# Create a license assignment object with some plans disabled
+$licenseOptions = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
+$licenseOptions.SkuId =  $skuId
+$licenseOptions.DisabledPlans = @('EXCHANGE_S_FOUNDATION', 'MFA_PREMIUM')
+
+$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
+$licenses.AddLicenses = $licenseOptions
+
+# Assign the license to the user
+Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
+```
+
 ### Assign more than one license to a user
+
+To assign more than one license to a user, create an array of `AssignedLicense` objects and add them to the `AssignedLicenses` object.
+
+The following PowerShell script demonstrates how to assign multiple licenses to a user in Entra. In this example, the user is assigned the `EMSPREMIUM` and `O365_BUSINESS` license plans.
+
+```powershell
+
+# Connect to Entra
+Connect-Entra -Scopes 'Organization.ReadWrite.All'
+
+# Retrieve the SkuId for the desired license plans
+$skuId1 = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'EMSPREMIUM' }).SkuId
+$skuId2 = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'O365_BUSINESS' }).SkuId
+
+# Define the user to whom the licenses will be assigned
+$User = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
+
+# Create license assignment objects
+$license1 = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
+$license1.SkuId = $skuId1
+
+$license2 = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
+$license2.SkuId = $skuId2
+
+$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
+$licenses.AddLicenses = $license1, $license2
+
+# Assign the licenses to the user
+Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
+```
+
 ### Assign a license to a user by copying license from another user
 ### Bulk assign multiple licenses for multiple users at the same time
 
@@ -163,17 +221,17 @@ To remove a license assigned to a user, follow these steps:
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 # Define the user's object ID
-$User = Get-EntraUser -ObjectId 'AljosaH@MicrosoftLearnSecurityDocs.onmicrosoft.com'
+$User = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
 
 # Get the license assigned to the user
-$SkuId = (Get-EntraUserLicenseDetail -ObjectId AljosaH@MicrosoftLearnSecurityDocs.onmicrosoft.com).SkuId
+$SkuId = (Get-EntraUserLicenseDetail -ObjectId AljosaH@Contoso.com).SkuId
 
 #Define the license object
 $licensesToRemove = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licensesToRemove.RemoveLicenses = $SkuId
 
 #Remove the assigned license
-Set-EntraUserLicense -ObjectId 'AljosaH@MicrosoftLearnSecurityDocs.onmicrosoft.com' -AssignedLicenses $licensesToRemove
+Set-EntraUserLicense -ObjectId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
 ```
 
 ### List inactive users with active licenses
