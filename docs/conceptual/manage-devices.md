@@ -23,9 +23,9 @@ To manage devices with Microsoft Entra PowerShell, you need:
 
 - A Microsoft Entra user account. If you don't have one, you can [create an account for free][free-entra-id].
 - One of the following roles:  
-  - [Cloud Device Administrator](/entra/identity/role-based-access-control/permissions-reference.md#cloud-device-administrator) (read and modify)  
-  - [Intune Administrator](/entra/identity/role-based-access-control/permissions-reference.md#intune-administrator) (read only)  
-  - [Windows 365 Administrator](/entra/identity/role-based-access-control/permissions-reference.md#windows-365-administrator) (read only)
+  - [Cloud Device Administrator][cloud-device-admin] (read and modify)  
+  - [Intune Administrator][intune-admin] (read only)  
+  - [Windows 365 Administrator][windows-365-admin] (read only)  
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.  
 
 ## View and filter your devices  
@@ -260,6 +260,9 @@ Managing devices using Entra PowerShell provides a robust and efficient way to e
 
 <!-- link references -->
 
+- [cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator  
+- [intune-admin]: /entra/identity/role-based-access-control/permissions-reference#intune-administrator  
+- [windows-365-admin]: /entra/identity/role-based-access-control/permissions-reference#windows-365-administrator
 - [faq]: /entra/identity/devices/faq
 - [installation]: installation.md
 - [free-entra-id]: https://azure.microsoft.com/free/entra-id
