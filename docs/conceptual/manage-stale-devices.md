@@ -132,7 +132,7 @@ Managing devices using Microsoft Entra PowerShell provides a robust and efficien
 
 ## Next steps  
 
-- [Frequently asked questions][faq]
+- [Frequently asked questions about devices][faq]
 
 <!-- link references -->
 

@@ -134,7 +134,7 @@ Set-EntraDevice -ObjectId 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' -AccountEnabled
 
 ## Delete a Microsoft Entra device  
 
-To maintain a clean and secure environment, delete devices that are no longer in use. If a device is managed by another system, such as Microsoft Intune, ensure you wipe or retire it before deleting. See [How to manage stale devices](manage-stale-device.md) before you delete a device.  
+To maintain a clean and secure environment, delete devices that are no longer in use. If a device is managed by another system, such as Microsoft Intune, ensure you wipe or retire it before deleting. See [How to manage stale devices](manage-stale-devices.md) before you delete a device.  
 
 > [!IMPORTANT]
 >
@@ -181,7 +181,7 @@ Ensure to replace YourUsername with your actual username or the desired path whe
 
 ## Next steps  
 
-- [Frequently asked questions][faq]
+- [Manage stale devices][stale-devices]
 
 <!-- link references -->
 
@@ -191,3 +191,4 @@ Ensure to replace YourUsername with your actual username or the desired path whe
 - [faq]: /entra/identity/devices/faq
 - [installation]: installation.md
 - [free-entra-id]: https://azure.microsoft.com/free/entra-id
+- [stale-devices]: manage-stale-devices.md
