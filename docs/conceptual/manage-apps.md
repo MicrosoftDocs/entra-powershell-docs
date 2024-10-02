@@ -5,7 +5,7 @@ description: Learn how to register, configure, and update apps in Microsoft Entr
 author: csmulligan
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 10/02/2024
 ms.author: cmulligan
 ms.reviewer: stevemutungi
 
@@ -154,7 +154,15 @@ To get a list of all applications that don't require user assignment, use the fo
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All'
-Get-MgServicePrincipal -Filter 'appRoleAssignmentRequired ne true' -ConsistencyLevel Eventual -CountVariable $count
+Get-EntraServicePrincipal -All | Where-Object {$_.appRoleAssignmentRequired -ne 'true'}
+```
+
+```Output
+| DisplayName                          | Id                                     | AppId                                | SignInAudience       | ServicePrincipalType |
+|--------------------------------------|----------------------------------------|--------------------------------------|----------------------|----------------------|
+| Microsoft password reset service     | 00aa00aa-bb11-cc22-dd33-44ee44ee44ee   | 93625bc8-bfe2-437a-97e0-3d0060024faa | AzureADMultipleOrgs  | Application          |
+| Microsoft.Azure.SyncFabric           | 11bb11bb-cc22-dd33-ee44-55ff55ff55ff   | 00000014-0000-0000-c000-000000000000 | AzureADMultipleOrgs  | Application          |
+| Azure Security Insights              | 22cc22cc-dd33-ee44-ff55-66aa66aa66aa   | 98785600-1bb7-4fb9-b9fa-19afe2c8a360 | AzureADMultipleOrgs  | Application          |
 ```
 
 ## Related content
