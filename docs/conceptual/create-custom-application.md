@@ -21,14 +21,6 @@ To create a custom application and grant it permissions, you need:
 - One of the following roles: Cloud Application Administrator, or Application Administrator.
 - Required scopes (PowerShell): `AppRoleAssignment.ReadWrite.All`, `Application.ReadWrite.All`, `User.Read.All`, `Group.Read.All`, `DelegatedPermissionGrant.ReadWrite.All`
 
-## Prerequisites
-
-To create a custom application and grant it permissions, you need:
-
-- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][entraid-account].
-- One of the following roles: Cloud Application Administrator, or Application Administrator.
-- Required scopes (PowerShell): `AppRoleAssignment.ReadWrite.All`, `Application.ReadWrite.All`, `User.Read.All`, `Group.Read.All`, `DelegatedPermissionGrant.ReadWrite.All`
-
 ## Create an application in the Microsoft Entra admin center
 
 To create custom applications for connecting to Microsoft Entra ID using Microsoft Entra PowerShell, follow the steps in the following section. Use the custom application to isolate and limit the permissions granted for a Microsoft Entra resource.
