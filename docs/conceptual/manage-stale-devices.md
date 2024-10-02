@@ -1,6 +1,6 @@
 ---  
 title: Manage stale devices 
-description: Learn how to use Microsoft Entra PowerShell to manage stale devices and monitor related event information.  
+description: Learn how to manage and remove stale devices using Microsoft Entra PowerShell. This guide covers detection, cleanup processes, and best practices for efficient device management and compliance.
 ms.service: entra-id  
 ms.subservice: devices  
 ms.topic: how-to  
@@ -10,7 +10,7 @@ author: omondiatieno
 manager: celested  
 ms.reviewer: stevemutungi
 
-#customer-intent: As an IT admin, I want to have a comprehensive guide on managing device identities using Microsoft Entra PowerShell, so that I can ensure security and compliance within my organization. 
+#customer-intent: As an IT admin, I want to manage and remove stale devices using Microsoft Entra PowerShell so that I can focus resources on active devices, maintain compliance, and ensure efficient device management. 
 ---
 
 # Manage stale devices  
