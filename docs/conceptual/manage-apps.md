@@ -37,8 +37,7 @@ New-EntraApplication -DisplayName 'My new application'
 
 ```Output
 
-DisplayName        Id                                   AppId                                SignInAudience PublisherDo
-                                                                                                            main
+DisplayName        Id                                   AppId                                SignInAudience PublisherDomain
 -----------        --                                   -----                                -------------- -----------
 My new application aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb bbbbbbbb-1111-2222-3333-cccccccccccc MyOrg
 ```
@@ -54,9 +53,9 @@ New-EntraServicePrincipal  -AppId $MyApp.AppId
 ```
 
 ```Output
-DisplayName Id                                   AppId                                SignInAudience                     ServicePrincipalType
------------ --                                   -----                                --------------                     --------------------
-My new application    bbbbbbbb-1111-2222-3333-cccccccccccc 00001111-aaaa-2222-bbbb-3333cccc4444 MyOrg Application
+DisplayName Id       AppId                                SignInAudience                       ServicePrincipalType
+----------- --       -----                                --------------                       --------------------
+My new application   bbbbbbbb-1111-2222-3333-cccccccccccc 00001111-aaaa-2222-bbbb-3333cccc4444 MyOrg Application
 ```
 
 ## Configure basic properties for your app
