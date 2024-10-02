@@ -25,7 +25,7 @@ To create a custom application and grant it permissions, you need:
 
 To create custom applications for connecting to Microsoft Entra ID using Microsoft Entra PowerShell, follow the steps in the following section. Use the custom application to isolate and limit the permissions granted for a Microsoft Entra resource.
 
-# [Microsoft Entra PowerShell](#tab/entrapowershell)
+### [Microsoft Entra PowerShell](#tab/entrapowershell)
 
 ```powershell
 # Connect to Entra with required scopes
@@ -75,7 +75,7 @@ $GroupAppRoleAssignmentParams = @{
 New-EntraGroupAppRoleAssignment @GroupAppRoleAssignmentParams
 ```
 
-# [Microsoft Entra Admin Center](#tab/admincenter)
+### [Microsoft Entra Admin Center](#tab/admincenter)
 
 1. Sign in to the [Microsoft Entra admin center][entra-admin-portal] as at least a [Cloud Application Administrator][cloud-app-admin].
 1. Browse to **Identity** > **Applications** > **App registrations** and then select > **New Registration**.
@@ -99,11 +99,11 @@ To manage the resources that your application gets access to in your tenant, loc
 
 ---
 
-### Assign API permissions to the custom application
+## Assign API permissions to the custom application
 
 You need to set up Microsoft Graph permissions for the new application to connect to Microsoft Entra ID and manage Microsoft Entra resources.
 
-## [Microsoft Entra Admin Center](#tab/ui)
+### [Microsoft Entra Admin Center](#tab/ui)
 
 1. Browse to **Identity** > **Applications** > **App Registrations** > **All applications** and select the application you created.
 1. Under **API permissions**, select **Add a permission** > Select Microsoft APIs > Microsoft Graph.
@@ -113,7 +113,7 @@ You need to set up Microsoft Graph permissions for the new application to connec
 1. Search for the required permission for example, `User.Read.All`.
 1. Select **Grant admin consent for TenantName**. Select **Yes**. Ensure the status shows a green checkmark.
 
-## [Delegated permissions](#tab/delegated)
+### [Delegated permissions](#tab/delegated)
 
 ```powershell
 # Get Graph service principal
@@ -153,7 +153,7 @@ $PermissionGrantParams = @{
 New-EntraOauth2PermissionGrant @PermissionGrantParams
 ```
 
-## [Application permissions](#tab/application)
+### [Application permissions](#tab/application)
 
 ```powershell
 # Get Graph service principal
