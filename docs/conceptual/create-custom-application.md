@@ -8,8 +8,6 @@ author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
 ms.reviewer: stevemutungi
-zone_pivot_groups: entra-powershell-create-custom-app
-zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 #customer intent: As an IT admin, I want to create and configure a custom application in the Microsoft Entra ID so that I can manage permissions and access to Microsoft Entra resources securely.
 ---
 
@@ -113,11 +111,11 @@ To manage the resources that your application gets access to in your tenant, loc
 
 You need to set up Microsoft Graph permissions for the new application to connect to Microsoft Entra ID and manage Microsoft Entra resources.
 
-# [Entra PowerShell](#tab/entrapowershell)
+# [Microsoft Entra PowerShell](#tab/microsoftentrapowershell)
 
-Choose the type of permissions required (delegated or application permissions)
+Choose the type of permissions required (delegated or application permissions):
 
-# [Delegated permissions](#tab/delegated)
+## [Delegated permissions](#tab/delegated)
 
 ```powershell
 # Get Graph service principal
@@ -157,7 +155,7 @@ $PermissionGrantParams = @{
 New-EntraOauth2PermissionGrant @PermissionGrantParams
 ```
 
-# [Application permissions](#tab/application)
+## [Application permissions](#tab/application)
 
 ```powershell
 # Get Graph service principal
@@ -202,7 +200,7 @@ New-EntraServiceAppRoleAssignment @AppRoleAssignmentParams
 
 ---
 
-# [Microsoft Entra Admin Center](#tab/admincenter)
+# [Microsoft Entra Admin Center](#tab/ui)
 
 1. Browse to **Identity** > **Applications** > **App Registrations** > **All applications** and select the application you created.
 1. Under **API permissions**, select **Add a permission** > Select Microsoft APIs > Microsoft Graph.
