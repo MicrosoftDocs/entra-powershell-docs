@@ -25,7 +25,7 @@ To create a custom application and grant it permissions, you need:
 
 To create custom applications for connecting to Microsoft Entra ID using Microsoft Entra PowerShell, follow the steps in the following section. Use the custom application to isolate and limit the permissions granted for a Microsoft Entra resource.
 
-# [Entra PowerShell](#tab/entrapowershell)
+# [Microsoft Entra PowerShell](#tab/entrapowershell)
 
 ```powershell
 # Connect to Entra with required scopes
@@ -103,9 +103,15 @@ To manage the resources that your application gets access to in your tenant, loc
 
 You need to set up Microsoft Graph permissions for the new application to connect to Microsoft Entra ID and manage Microsoft Entra resources.
 
-# [Microsoft Entra PowerShell](#tab/microsoftentrapowershell)
+## [Microsoft Entra Admin Center](#tab/ui)
 
-Choose the type of permissions required (delegated or application permissions):
+1. Browse to **Identity** > **Applications** > **App Registrations** > **All applications** and select the application you created.
+1. Under **API permissions**, select **Add a permission** > Select Microsoft APIs > Microsoft Graph.
+1. Choose the type of permissions you require, either delegated or application permissions.
+    - If you need to sign in to the app to manage your resources in Microsoft Entra ID, select **Delegated permissions**.
+    - If you want the app to access Microsoft Entra resources on its own without user interaction, select **Application permissions**
+1. Search for the required permission for example, `User.Read.All`.
+1. Select **Grant admin consent for TenantName**. Select **Yes**. Ensure the status shows a green checkmark.
 
 ## [Delegated permissions](#tab/delegated)
 
@@ -189,18 +195,6 @@ $AppRoleAssignmentParams = @{
 
 New-EntraServiceAppRoleAssignment @AppRoleAssignmentParams
 ```
-
----
-
-# [Microsoft Entra Admin Center](#tab/ui)
-
-1. Browse to **Identity** > **Applications** > **App Registrations** > **All applications** and select the application you created.
-1. Under **API permissions**, select **Add a permission** > Select Microsoft APIs > Microsoft Graph.
-1. Choose the type of permissions you require, either delegated or application permissions.
-    - If you need to sign in to the app to manage your resources in Microsoft Entra ID, select **Delegated permissions**.
-    - If you want the app to access Microsoft Entra resources on its own without user interaction, select **Application permissions**
-1. Search for the required permission for example, `User.Read.All`.
-1. Select **Grant admin consent for TenantName**. Select **Yes**. Ensure the status shows a green checkmark.
 
 ---
 
