@@ -15,7 +15,7 @@ ms.reviewer: stevemutungi
    
 # Manage devices in Microsoft Entra ID  
 
-Microsoft Entra PowerShell provides powerful cmdlets to manage device identities and monitor related event information. Effective device management is crucial for ensuring security, compliance, and smooth operations within an organization. With Microsoft Entra PowerShell, you can add, update, and remove devices as needed. You can also retrieve device information, view device details, and manage device settings. This article guides you through various aspects of device management using Entra PowerShell.  
+Microsoft Entra PowerShell offers powerful cmdlets for managing device identities and monitoring related events. Effective device management is essential for maintaining security, ensuring compliance, and supporting smooth operations within an organization. With Microsoft Entra PowerShell, you can add, update, and remove devices as needed, as well as retrieve device information, view detailed device data, and manage device settings. This article provides a comprehensive guide to managing devices using Microsoft Entra PowerShell.  
 
 ## Prerequisites  
 
@@ -26,13 +26,13 @@ To manage devices with Microsoft Entra PowerShell, you need:
   - [Cloud Device Administrator][cloud-device-admin] (read and modify)  
   - [Intune Administrator][intune-admin] (read only)  
   - [Windows 365 Administrator][windows-365-admin] (read only)  
-- Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.  
+- Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
 ## View and filter your devices  
 
-Use Microsoft Entra PowerShell to filter the device list by these attributes:  
+Use Microsoft Entra PowerShell to filter the device list by the following attributes:
 
-Device ID, Display Name, Enabled State, Compliant State, Join Type, Activity Timestamp, OS Type and OS Version, Device Type, MDM, Autopilot, Extension Attributes, Administrative Unit, Owner, Manufacturer, Model, Serial Number
+Device ID, Display Name, Enabled State, Compliance State, Join Type, Activity Timestamp, OS Type, OS Version, Device Type, MDM, Autopilot, Extension Attributes, Administrative Unit, Owner, Manufacturer, Model, and Serial Number.
 
 ### View all devices  
 
@@ -40,8 +40,17 @@ To view all devices, use the following cmdlet:
 
 ```powershell  
 Connect-Entra -Scopes 'Device.Read.All'  
-Get-EntraDevice  
+Get-EntraDevice -All | select-object AccountEnabled, DeviceId, OperatingSystem, ApproximateLastSignInDateTime
 ```  
+
+```output
+AccountEnabled DeviceId                             OperatingSystem ApproximateLastSignInDateTime
+-------------- --------                             --------------- -----------------------------
+         False aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Windows         10/2/2024 10:26:38 AM
+          True bbbbbbbb-1111-2222-3333-cccccccccccc Windows         9/30/2024 11:34:18 PM
+          True cccccccc-4444-5555-6666-dddddddddddd Windows         9/13/2024 5:46:08 PM
+          True dddddddd-5555-6666-7777-eeeeeeeeeeee Windows         9/13/2024 3:57:52 AM
+```
 
 ### Get a device by ID  
 
@@ -52,6 +61,13 @@ Connect-Entra -Scopes 'Device.Read.All'
 Get-EntraDevice -ObjectId 'bbbbbbbb-1111-2222-3333-cccccccccccc'  
 ```  
 
+```output
+
+DeletedDateTime Id                                   AccountEnabled ApproximateLastSignInDateTime ComplianceExpirationDateTime DeviceCategory DeviceId                             DeviceMetadata DeviceOwnership
+--------------- --                                   -------------- ----------------------------- ---------------------------- -------------- --------                             -------------- --------------
+                aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb False          10/2/2024 10:26:38 AM                                                     eeeeeeee-5555-6666-7777-ffffffffffff
+```
+
 ### Get a device by display name  
 
 To find devices by display name, use:  
@@ -61,11 +77,19 @@ Connect-Entra -Scopes 'Device.Read.All'
 Get-EntraDevice -Filter "startsWith(DisplayName,'Woodgrove')"  
 ```
 
+```output
+DeletedDateTime Id                                   AccountEnabled ApproximateLastSignInDateTime ComplianceExpirationDateTime DeviceCategory DeviceId                             DeviceMetadata DeviceOwnershi
+                                                                                                                                                                                                  p
+--------------- --                                   -------------- ----------------------------- ---------------------------- -------------- --------                             -------------- --------------
+                aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb True           10/1/2024 4:11:35 PM                                                      gggggggg-6666-7777-8888-hhhhhhhhhhhh
+                bbbbbbbb-1111-2222-3333-cccccccccccc False          10/2/2024 10:26:38 AM                                                     hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
+```
+
 This example demonstrates how to retrieve all devices whose display name starts with "Woodgrove."
 
-### Get a device by Join Type
+### Get the number of devices grouped by Join Type
 
-To find out all the types of devices joined to your directory using Entra PowerShell, you can use the `Get-EntraDevice` cmdlet and group the results by the `TrustType` property.
+To find out all the types of devices joined to your directory using Microsoft Entra PowerShell, you can use the `Get-EntraDevice` cmdlet and group the results by the `TrustType` property.
 
 ```powershell
 Connect-Entra -Scopes 'Device.Read.All'  
@@ -73,14 +97,26 @@ Get-EntraDevice -All | Group-Object -Property TrustType | Select-Object Name, Co
 ```
 
 - **Get-EntraDevice -All**: Retrieves all devices in your directory.  
-- **Group-Object -Property TrustType**: Groups the devices by the `TrustType` property, which indicates the type of join (e.g., Azure AD joined, Hybrid Azure AD joined, etc.).  
-- **Select-Object Name, Count**: Selects the name of each group (the type of join) and the count of devices in each group.  
+- **Group-Object -Property TrustType**: Groups the devices by the `TrustType` property, which indicates the type of join, for example, Microsoft Entra joined and Hybrid Microsoft Entra joined.  
+- **Select-Object Name, Count**: Selects the name of each group (the type of join) and the count of devices in each group.
+- `Join type` refers to how a device is connected, such as Microsoft Entra joined, Hybrid Microsoft Entra joined, and other types.
 
-This will give you a list of all device types and how many devices belong to each type.
+This cmdlet example produces a list of all device types and how many devices belong to each type.
+
+This example demonstrates how to retrieve the number of devices for each device type.
+
+```Ouput
+Name      Count
+----      -----
+             14
+EntraID      66
+ServerAd     18
+Workplace   393
+```
 
 ## Enable or disable a Microsoft Entra device  
 
-To enable or disable a device, set the `-AccountEnabled` property to either `true` or `false` using the `Set-EntraDevice` cmdlet.  
+To enable or disable a device, use the `Set-EntraDevice` cmdlet and set the `-AccountEnabled` property to `true` (enable) or `false` (disable).
 
 > [!IMPORTANT]
 >
@@ -89,16 +125,16 @@ To enable or disable a device, set the `-AccountEnabled` property to either `tru
 > - Disabling a device revokes the Primary Refresh Token (PRT) and any refresh tokens on the device.  
 > - Printers can't be enabled or disabled in Microsoft Entra ID.  
 
-Run the following cmdlet to enable a device:
+To enable a device, run the following cmdlet:
 
 ```powershell  
-Connect-Entra -Scopes 'Directory.AccessAsUser.All','Device.ReadWrite.All'  
+Connect-Entra -Scopes 'Device.ReadWrite.All'  
 Set-EntraDevice -ObjectId 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' -AccountEnabled $true  
 ```  
 
 ## Delete a Microsoft Entra device  
 
-Delete devices that are no longer in use to keep your environment clean and secure. If a device is managed in another management authority, like Microsoft Intune, ensure it's wiped or retired before you delete it. See [How to manage stale devices](#manage-stale-devices) before you delete a device.  
+To maintain a clean and secure environment, delete devices that are no longer in use. If a device is managed by another system, such as Microsoft Intune, ensure you wipe or retire it before deleting. See [How to manage stale devices](manage-stale-device.md) before you delete a device.  
 
 > [!IMPORTANT]
 >
@@ -111,14 +147,14 @@ Delete devices that are no longer in use to keep your environment clean and secu
 >   - Is a nonrecoverable activity. We don't recommend it unless it's required.  
 
 ```powershell  
-Connect-Entra -Scopes 'Directory.AccessAsUser.All','Device.ReadWrite.All'  
+Connect-Entra -Scopes 'Device.ReadWrite.All'  
 $Device = Get-EntraDevice -Filter "DisplayName eq 'Woodgrove Desktop'"  
 Remove-EntraDevice -ObjectId $Device.ObjectId  
 ```  
 
 ## Download devices  
 
-Cloud Device Administrators and Intune Administrators can export a CSV file that lists devices. You can apply filters to determine which devices to list. If you don't apply any filters, all devices are listed. An export task might run for as long as an hour, depending on your selections. If the export task exceeds 1 hour, it fails, and no file is output.  
+Cloud Device Administrators and Intune Administrators can export a CSV file listing devices. You can apply filters to refine the list of devices. If no filters are applied, all devices are included. The export task might take up to an hour to complete, depending on your selections. If the export task exceeds 1 hour, it fails, and no file is output.  
 
 The exported list includes these device identity attributes:  
 
@@ -135,124 +171,13 @@ The following filters can be applied for the export task:
 
 ### Download all devices
 
-To get all devices and store the returned data in a CSV file, run the following cmdlet:  
+To retrieve all devices and save the data to a CSV file, use the following cmdlet:
 
 ```PowerShell  
-Get-EntraDevice -All | select-object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime | export-csv devicelist-summary.csv -NoTypeInformation  
+Get-EntraDevice -All | Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime | Export-Csv "C:\Users\YourUsername\Downloads\deviceList.csv" -NoTypeInformation  
 ```
 
-### Download stale devices
-
-To get stale devices and store the returned data in a CSV file, run the following cmdlet:  
-
-```PowerShell  
-Get-EntraDevice -All | Where-Object { $_.AccountEnabled -eq $false } | Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime | Export-Csv disabled-devices.csv -NoTypeInformation   
-```
-
-## Manage stale devices  
-
-To complete the device lifecycle, registered devices should be unregistered when they aren't needed anymore. Due to lost, stolen, broken devices, or OS reinstallations, you typically have some stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so you can focus your resources on managing devices that actually require management.  
-
-### What is a stale device?  
-
-A stale device is a device registered with Microsoft Entra ID that hasn't accessed any cloud apps for a specific timeframe. Stale devices impact your ability to manage and support your devices and users in the tenant because:  
-
-- Duplicate devices can make it difficult for your helpdesk staff to identify which device is currently active.  
-- An increased number of devices creates unnecessary device writebacks, increasing the time for Microsoft Entra Connect syncs.  
-- As a general hygiene practice and to meet compliance, you might want to have a clean slate of devices.  
-
-Stale devices in Microsoft Entra ID can interfere with the general lifecycle policies for devices in your organization.  
-
-### Detect stale devices  
-
-Detecting stale devices requires a timestamp-related property. In Microsoft Entra PowerShell, this property is called **ApproximateLastSignInDateTime** or **activity timestamp**. If the delta between now and the value of the **activity timestamp** exceeds the timeframe you've defined for active devices, a device is considered stale.  
-
-To filter devices by the `ApproximateLastSignInDateTime`, use:  
-
-```PowerShell  
-$dt = (Get-Date).AddDays(-90)  
-Get-EntraDevice -All | Where-Object {$_.ApproximateLastSignInDateTime -le $dt}  
-```  
-
-### Clean up stale devices  
-
-A typical routine for cleaning up stale devices consists of the following steps:  
-
-1. Connect to Microsoft Entra ID using the `Connect-Entra` cmdlet.  
-2. Get the list of stale devices.  
-3. Disable the device using the `Set-EntraDevice` cmdlet (disable by using the `-AccountEnabled` option).  
-4. Wait for the grace period of however many days you choose before deleting the device.  
-5. Remove the device using the `Remove-EntraDevice` cmdlet.  
-
-#### Get the list of stale devices  
-
-Use the timestamp filter to get all devices that haven't logged on in 90 days and store the returned data in a CSV file.  
-
-```PowerShell  
-$dt = (Get-Date).AddDays(-90)  
-Get-EntraDevice -All | Where-Object {$_.ApproximateLastSignInDateTime -le $dt} | select-object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime | export-csv devicelist-olderthan-90days-summary.csv -NoTypeInformation  
-```  
-
-> [!WARNING]  
-> Some active devices may have a blank timestamp.  
-
-#### Disable stale devices  
-
-Using the same commands, you can pipe the output to the set command to disable the devices over a certain age.  
-
-```powershell  
-$dt = (Get-Date).AddDays(-90)  
-$params = @{ accountEnabled = $false }  
-$Devices = Get-EntraDevice -All | Where-Object {$_.ApproximateLastSignInDateTime -le $dt}  
-foreach ($Device in $Devices) {  
-    Update-EntraDevice -DeviceId $Device.Id -BodyParameter $params  
-}  
-```  
-
-### Delete stale devices  
-
-> [!CAUTION]  
-> The `Remove-EntraDevice` cmdlet doesn't provide a warning. Running this command will delete devices without prompting. **There is no way to recover deleted devices**.  
-
-Before you delete any devices, back up any BitLocker recovery keys you might need in the future. There's no way to recover BitLocker recovery keys after deleting the associated device.  
-
-Building on the [disable devices example](#disable-stale-devices), look for disabled devices, now inactive for 120 days, and pipe the output to `Remove-EntraDevice` to delete those devices.  
-
-```powershell  
-$dt = (Get-Date).AddDays(-120)  
-$Devices = Get-EntraDevice -All | Where-Object {($_.ApproximateLastSignInDateTime -le $dt) -and ($_.AccountEnabled -eq $false)}  
-foreach ($Device in $Devices) {  
-    Remove-EntraDevice -DeviceId $Device.Id  
-}  
-```  
-
-## What you should know  
-
-### Why is the timestamp not updated more frequently?  
-
-The timestamp is updated to support device lifecycle scenarios. This attribute isn't an audit. Use the sign-in audit logs for more frequent updates on the device. Some active devices might have a blank timestamp.  
-
-### Why should I worry about my BitLocker keys?  
-
-When configured, BitLocker keys for Windows 10 or newer devices are stored on the device object in Microsoft Entra ID. If you delete a stale device, you also delete the BitLocker keys stored on the device. Confirm that your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device.  
-
-### Why should I worry about Windows Autopilot devices?  
-
-When you delete a Microsoft Entra device associated with a Windows Autopilot object, the following scenarios can occur if the device will be repurposed in the future:  
-
-- With Windows Autopilot user-driven deployments without using pre-provisioning, a new Microsoft Entra device is created but isn’t tagged with the ZTDID.  
-- With Windows Autopilot self-deploying mode deployments, they'll fail because an associated Microsoft Entra device can’t be found. This failure is a security mechanism to ensure no "impostor" devices try to join Microsoft Entra ID with no credentials. The failure indicates a ZTDID mismatch.  
-- With Windows Autopilot pre-provisioning deployments, they fail because an associated Microsoft Entra device can’t be found. Pre-provisioning deployments use the same self-deploying mode process, enforcing the same security mechanisms.  
-
-### What happens when I disable a device?  
-
-Any authentication where a device is used to authenticate to Microsoft Entra ID is denied. Common examples are:  
-
-- **Microsoft Entra hybrid joined device** - Users might be able to use the device to sign in to their on-premises domain. However, they can't access Microsoft Entra resources such as Microsoft 365.  
-- **Microsoft Entra joined device** - Users can't use the device to sign in.  
-- **Mobile devices** - Users can't access Microsoft Entra resources such as Microsoft 365.  
-
-Managing devices using Entra PowerShell provides a robust and efficient way to ensure your organization's devices are secure and compliant. By following the steps and best practices outlined in this article, you can effectively manage your device environment and stay ahead of potential issues.  
+Ensure to replace YourUsername with your actual username or the desired path where you want to save the file. This example saves the CSV file directly to your Downloads folder.
 
 ## Next steps  
 
