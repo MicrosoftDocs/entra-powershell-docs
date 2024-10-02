@@ -53,8 +53,8 @@ Get-EntraDirectoryRoleAssignment -All
 ```
 
 ```Output
-Id                                      PrincipalId                           RoleDefinitionId                    DirectoryScopeId AppScopeId
---                                      -----------                           ----------------                    ---------------- ----------
+Id                                            PrincipalId                           RoleDefinitionId                      DirectoryScopeId AppScopeId
+--                                            -----------                           ----------------                      ---------------- ----------
 00001111-aaaa-2222-bbbb-3333cccc4444          aaaaaaaa-bbbb-cccc-1111-222222222222  a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1  /                
 11112222-bbbb-3333-cccc-4444dddd5555          bbbbbbbb-cccc-dddd-2222-333333333333  a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1  /                
 22223333-cccc-4444-dddd-5555eeee6666          cccccccc-dddd-eeee-3333-444444444444  a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1  /                
@@ -106,9 +106,9 @@ New-EntraDirectoryRoleAssignment @params
 ```
 
 ```Output
-Id                                            PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScopeId
---                                            -----------                          ----------------                     ---------------- ----------
-A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u aaaaaaaa-bbbb-cccc-1111-222222222222 a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /
+Id                                 PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScopeId
+--                                 -----------                          ----------------                     ---------------- ----------
+A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u     aaaaaaaa-bbbb-cccc-1111-222222222222 a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /
 ```
 
 This command creates a new role assignment in Microsoft Entra ID.
@@ -199,9 +199,9 @@ MyRoleDefinition a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 f5f5f5f5-aaaa-bbbb-cccc-d6
 
 ```
 
-To find more specification options when creating a custom role, go to the [New-EntraDirectoryRoleDefinition](/powershell/module/microsoft.graph.entra/new-entradirectoryroledefinition?view=entra-powershell#example-1-creates-a-new-role-definition) article.
+To find more specification options when creating a custom role, go to the [New-EntraDirectoryRoleDefinition](/powershell/module/microsoft.graph.entra/new-entradirectoryroledefinition#example-1-creates-a-new-role-definition) article.
 
-Once you have created the role, you can assign it to [users or groups](/powershell/entra-powershell/manage-roles#assign-roles).
+Once you have created the role, you can assign it to [users or groups](#assign-roles).
 
 ## Clean up resources
 
@@ -230,4 +230,4 @@ Remove-EntraDirectoryRoleDefinition -Id $DirectoryRoleDefinition.ObjectId
 
 ## Related content
 
-See the full list of Microsoft Entra PowerShell cmdlets for role management [here](/powershell/module/microsoft.graph.entra/?view=entra-powershell#role-management).
+See the full list of Microsoft Entra PowerShell cmdlets for role management [here](/powershell/module/microsoft.graph.entra/#role-management).
