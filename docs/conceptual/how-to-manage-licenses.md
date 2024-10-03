@@ -13,7 +13,7 @@ ms.reviewer: stevemutungi
 #customer intent: As an admin, I want to manage the assignment of Entra licenses to users using the Microsoft Entra PowerShell.
 ---
 
-# Manage licenses with Microsoft Entra PowerShell
+# Manage user licenses with Microsoft Entra PowerShell
 
 Most Microsoft Entra services require a license to access. Only users with active licenses can access and use the licensed Microsoft Entra services. Licenses are applied per tenant and can't be transferred to other tenants. You can use the Microsoft Entra PowerShell to manage licenses for your organization.
 
@@ -32,7 +32,7 @@ To successfully complete this guide, make sure you have the required prerequisit
 
     Select **Consent on behalf of your organization** before accepting in the sign-in dialog box.
 
-1. Users to assign licenses are created in your tenant and assigned a location. To find user accounts that don't have a UsageLocation, run this command:
+1. Users to assign licenses are created in your tenant and assigned a location. To find user accounts that don't have a `UsageLocation`, run this command:
 
    ```powershell
    Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -52,30 +52,21 @@ Get-EntraSubscribedSku | Select -Property Sku*, ConsumedUnits -ExpandProperty Pr
 ```
 
 ```Output
-Enabled              : 51
+Enabled              : 5
 LockedOut            : 0
 Suspended            : 0
 Warning              : 0
 AdditionalProperties :
-SkuId                : b05e124f-c7cc-45a0-a6aa-8cf78c946968
-SkuPartNumber        : EMSPREMIUM
-ConsumedUnits        : 51
-
-Enabled              : 1
-LockedOut            : 0
-Suspended            : 0
-Warning              : 0
-AdditionalProperties :
-SkuId                : 84a661c4-e949-4bd2-a560-ed7766fcaf2b
-SkuPartNumber        : AAD_PREMIUM_P2
-ConsumedUnits        : 0
+SkuId                : efccb6f7-5641-4e0e-bd10-b4976e1bf68e
+SkuPartNumber        : EMS
+ConsumedUnits        : 3
 ```
 
 - `SkuPartNumber`: The name for the license plan.
 - `Enabled`: Number of licenses that you purchased for a specific licensing plan.
 - `ConsumedUnits`: Number of licenses assigned to users from a specific licensing plan.
 
-## Get users assigned to a license
+### Get users assigned to a license
 
 To get all the users assigned to a specific license, use the `Get-EntraUser` cmdlet with the `AssignedLicenses` parameter. The `AssignedLicenses` parameter filters users based on the licenses assigned to them.
 
@@ -92,6 +83,8 @@ $usersWithLicense | Select-Object Id, DisplayName, UserPrincipalName, AccountEna
 ## Assign licenses to users
 
 Before assigning licenses to a user, you want to confirm the licenses that are already assigned to the user.
+
+### View licenses assigned to a user
 
 To view the licenses assigned to a user, run the following command:
 
@@ -272,7 +265,7 @@ foreach ($user in $users$users) {
  }
 ```
 
-### Remove licenses assigned to a user
+## Remove licenses assigned to a user
 
 To remove a license assigned to a user, follow these steps:
 
@@ -292,7 +285,7 @@ $licensesToRemove.RemoveLicenses = $SkuId
 Set-EntraUserLicense -ObjectId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
 ```
 
-### List inactive users with active licenses
+## List inactive users with active licenses
 
 Regularly auditing and managing licenses for inactive users in a Microsoft Entra tenant is a best practice that helps in cost management, security, compliance, resource optimization, and operational efficiency. To list inactive users with active licenses, run the following command:
 
