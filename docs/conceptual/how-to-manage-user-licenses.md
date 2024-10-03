@@ -265,6 +265,18 @@ foreach ($user in $users$users) {
  }
 ```
 
+## List inactive users with active licenses
+
+Regularly auditing and managing licenses for inactive users in a Microsoft Entra tenant is a best practice that helps in cost management, security, compliance, resource optimization, and operational efficiency. To list inactive users with active licenses, run the following command:
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+$disabledUsersWithLicenses = Get-EntraUser -Filter "accountEnabled eq false" -All | Where-Object {
+    $_.AssignedLicenses -ne $null -and $_.AssignedLicenses.Count -gt 0
+}
+$disabledUsersWithLicenses | Select-Object Id, DisplayName, UserPrincipalName, AccountEnabled | Format-Table -AutoSize
+```
+
 ## Remove licenses assigned to a user
 
 To remove a license assigned to a user, follow these steps:
@@ -285,14 +297,4 @@ $licensesToRemove.RemoveLicenses = $SkuId
 Set-EntraUserLicense -ObjectId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
 ```
 
-## List inactive users with active licenses
 
-Regularly auditing and managing licenses for inactive users in a Microsoft Entra tenant is a best practice that helps in cost management, security, compliance, resource optimization, and operational efficiency. To list inactive users with active licenses, run the following command:
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-$disabledUsersWithLicenses = Get-EntraUser -Filter "accountEnabled eq false" -All | Where-Object {
-    $_.AssignedLicenses -ne $null -and $_.AssignedLicenses.Count -gt 0
-}
-$disabledUsersWithLicenses | Select-Object Id, DisplayName, UserPrincipalName, AccountEnabled | Format-Table -AutoSize
-```
