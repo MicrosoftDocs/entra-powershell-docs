@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 09/23/2024
+ms.date: 10/03/2024
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
@@ -17,6 +17,15 @@ keywords: Microsoft Entra powershell, entra-powershell, manage entra resources u
 This article lists all new articles that were added or had significant updates in the last month. It also lists the new features in the Microsoft Entra PowerShell module, currently in public preview, to manage Microsoft Entra resources.
 
 ## What's new in docs
+
+### September 2024
+
+**Updated articles**
+
+- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md) - Fixed broken links following the renaming of some cmdlets.
+- [Manage groups](manage-groups.md) - Example improvements.
+- [Manage users](manage-user.md) - Example improvements.
+- [What is Microsoft Entra PowerShell (preview)?](overview.md) - Added link to an external video.
 
 ### August 2024
 
