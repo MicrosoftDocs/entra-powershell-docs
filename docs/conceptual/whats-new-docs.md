@@ -64,6 +64,16 @@ This article lists all new articles that were added or had significant updates i
 
 ## Module version history
 
+- [Version 0.17.0-preview][posh-0.17.0] - **October 2024**
+
+  - Introduced usability parameter switches for over 480 cmdlets.
+  - Added a new cmdlet: Set-EntraDirSyncEnabled.
+  - Resolved issue [#1106](https://github.com/microsoftgraph/entra-powershell/issues/1106) – corrected indentation errors.
+  - Resolved issue [#1110](https://github.com/microsoftgraph/entra-powershell/issues/1110) – added proper command examples to Help Synopsis.
+  - Resolved issue [#1112](https://github.com/microsoftgraph/entra-powershell/issues/1112) – provided missing parameter descriptions in Help Synopsis.
+  - Added unit tests for 48 cmdlets.
+  - Enriched examples for more than 15 cmdlets.
+
 - [Version 0.16.0-preview][posh-0.16.0] - **September 2024**
 
   - Added a new cmdlet: `Reset-EntraStrongAuthenticationMethodByUpn`.
@@ -127,6 +137,7 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-0.17.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.17.0-preview
 [posh-0.16.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.16.0-preview
 [posh-0.15.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.15.0-preview
 [posh-0.14.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.14.0-preview
