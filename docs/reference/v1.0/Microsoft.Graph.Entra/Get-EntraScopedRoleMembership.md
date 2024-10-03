@@ -1,5 +1,5 @@
 ---
-title: Get-EntraScopedRoleMembership
+title: Get-EntraScopedRoleMembership.
 description: This article provides details on the Get-EntraScopedRoleMembership command.
 
 ms.topic: reference
@@ -24,7 +24,7 @@ List Microsoft Entra role assignments with administrative unit scope.
 ## Syntax
 
 ```powershell
-Get-EntraScopedRoleMembership 
+Get-EntraScopedRoleMembership
  -AdministrativeUnitId <String>
  [-ScopedRoleMembershipId <String>]
  [-Property <String[]>]
