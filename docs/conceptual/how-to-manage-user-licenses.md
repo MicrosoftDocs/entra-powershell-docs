@@ -176,7 +176,7 @@ Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
 
 To assign more than one license to a user, create an array of `AssignedLicense` objects and add them to the `AssignedLicenses` object.
 
-The following PowerShell script demonstrates how to assign multiple licenses to a user in Entra. In this example, the user is assigned the `AAD_PREMIUM_P2` and `EMS` license plans.
+The following PowerShell script demonstrates how to assign multiple licenses to a user in Microsoft Entra ID. In this example, the user is assigned the `AAD_PREMIUM_P2` and `EMS` license plans.
 
 ```powershell
 
@@ -206,7 +206,7 @@ Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
 
 ### Assign a license to a user by copying license from another user
 
-You want to assign the same licenses from one user to another. To do this, first retrieve the license details from the existing user, then assign those licenses to the new user.
+You want to assign the same licenses from one user to another. You first retrieve the license details from the existing user, then assign those licenses to the new user.
 
 In this example, you loop through all licenses assigned to the existing user and assign them to the target user.
 
@@ -233,7 +233,7 @@ foreach ($license in $sourceUserLicenses) {
 
 ### Bulk assign multiple licenses for multiple users at the same time
 
-The following PowerShell script demonstrates how to bulk assign multiple licenses to multiple users simultaneously in Entra ID . You can specify the list of users to assign licenses as shown in the script or imports the user names from a CSV file. Importing from a csv file is useful for efficiently managing license assignments for large groups of users.
+The following PowerShell script demonstrates how to bulk assign multiple licenses to multiple users simultaneously in Microsoft Entra ID. You can specify the list of users to assign licenses as shown in the script or imports the user names from a CSV file. Importing from a csv file is useful for efficiently managing license assignments for large groups of users.
 
 ```powershell
 # Connect to Entra
