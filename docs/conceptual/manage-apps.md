@@ -153,7 +153,7 @@ To get a list of all applications that don't require user assignment, use the fo
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All'
-Get-EntraServicePrincipal -All | Where-Object {$_.appRoleAssignmentRequired -ne 'true'}
+Get-EntraServicePrincipal -All | Where-Object {$_.appRoleAssignmentRequired -ne 'True'}
 ```
 
 ```Output
