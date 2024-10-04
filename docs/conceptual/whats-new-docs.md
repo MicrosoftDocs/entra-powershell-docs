@@ -12,7 +12,7 @@ keywords: Microsoft Entra powershell, entra-powershell, manage entra resources u
 #customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module.
 ---
 
-# What's new in the Entra PowerShell module
+# What's new in the Microsoft Entra PowerShell module
 
 This article lists all new articles that were added or had significant updates in the last month. It also lists the new features in the Microsoft Entra PowerShell module, currently in public preview, to manage Microsoft Entra resources.
 
@@ -23,8 +23,8 @@ This article lists all new articles that were added or had significant updates i
 **Updated articles**
 
 - [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md) - Fixed broken links following the renaming of some cmdlets.
-- [Manage groups](manage-groups.md) - Example improvements.
-- [Manage users](manage-user.md) - Example improvements.
+- [Manage groups](manage-groups.md) - Added example improvements.
+- [Manage users](manage-user.md) - Added example improvements.
 - [What is Microsoft Entra PowerShell (preview)?](overview.md) - Added link to an external video.
 
 ### August 2024
@@ -60,7 +60,7 @@ This article lists all new articles that were added or had significant updates i
 - [Migration guide](migration-guide.md) - New article on how to migrate from Azure AD PowerShell to Microsoft Entra PowerShell.
 - [Troubleshoot common errors in Microsoft Entra PowerShell](troubleshooting.md) - New article on how to troubleshoot and fix common errors in Microsoft Entra PowerShell.
 - [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md) - Best practices for using the Microsoft Entra PowerShell module to boost performance, enhance security, and scale reliably.
-- [Versioning, release cadence, and breaking changes](entraps-versioning-release-cadence.md) - nderstand the versioning, release schedule, and breaking change policies to manage updates effectively and reduce the risk of disruptions.
+- [Versioning, release cadence, and breaking changes](entraps-versioning-release-cadence.md) - Understand the versioning, release schedule, and breaking change policies to manage updates effectively and reduce the risk of disruptions.
 
 ## Module version history
 
@@ -88,7 +88,7 @@ This article lists all new articles that were added or had significant updates i
 
 - [Version 0.14.0-preview][posh-0.14.0] - **August 2024**
 
-  - The `Get-EntraUser` cmdlet has been updated and no longer returns the `SignInActivity` by default. To retrieve sign-in activity, refer to [this example](/powershell/module/microsoft.graph.entra/get-entrauser#example-6-get-signinactivity-of-a-user).
+  - The `Get-EntraUser` cmdlet updated and no longer returns the `SignInActivity` by default. To retrieve sign-in activity, refer to [this example](/powershell/module/microsoft.graph.entra/get-entrauser#example-6-get-signinactivity-of-a-user).
   - Added 17 net new cmdlets (Custom Security attributes, Application template, Feature Rollout policy, Audit Directory logs, Audit sign in Logs, Administrative Unit)
   - Improved documentation for over 25 existing cmdlets.
   - Added documentation for more than 20 v1.0 cmdlets.
@@ -99,7 +99,7 @@ This article lists all new articles that were added or had significant updates i
 
 - [Version 0.13.0-preview][posh-0.13.0] - **August 2024**
 
-  - Added five net new cmdlets (Entra Policy, Application Password, Application Service Endpoints)
+  - Added five net new cmdlets (Microsoft Entra Policy, Application Password, Application Service Endpoints)
   - Documentation improvements for over 25 existing cmdlet references documentation.
   - Added over 50 Beta cmdlet references documentation.
   - Bug fix for `Get-EntraGroupMember` to return Service Principal as a member.
