@@ -68,9 +68,9 @@ This article lists all new articles that were added or had significant updates i
 
   - Introduced usability parameter switches for over 480 cmdlets.
   - Added a new cmdlet: `Set-EntraDirSyncEnabled`.
-  - Resolved issue [#1106](https://github.com/microsoftgraph/entra-powershell/issues/1106) – corrected indentation errors.
-  - Resolved issue [#1110](https://github.com/microsoftgraph/entra-powershell/issues/1110) – added proper command examples to Help Synopsis.
-  - Resolved issue [#1112](https://github.com/microsoftgraph/entra-powershell/issues/1112) – provided missing parameter descriptions in Help Synopsis.
+  - Resolved issue [#1106](https://github.com/microsoftgraph/entra-powershell/issues/1106) – Corrected indentation errors.
+  - Resolved issue [#1110](https://github.com/microsoftgraph/entra-powershell/issues/1110) – Added proper command examples to Help Synopsis.
+  - Resolved issue [#1112](https://github.com/microsoftgraph/entra-powershell/issues/1112) – Provided missing parameter descriptions in Help Synopsis.
   - Added unit tests for 48 cmdlets.
   - Enriched examples for more than 15 cmdlets.
 
