@@ -22,7 +22,7 @@ This article lists all new articles that were added or had significant updates i
 
 **Updated articles**
 
-- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md) - Fixed broken links following the renaming of some cmdlets.
+- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md) - Fixed broken links caused by the renaming of certain cmdlets.
 - [Manage groups](manage-groups.md) - Added example improvements.
 - [Manage users](manage-user.md) - Added example improvements.
 - [What is Microsoft Entra PowerShell (preview)?](overview.md) - Added link to an external video.
