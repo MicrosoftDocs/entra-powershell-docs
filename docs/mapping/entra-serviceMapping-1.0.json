@@ -1,6 +1,6 @@
 {
   "Add-EntraAdministrativeUnitMember": "Administrative units",
-  "Add-EntraLifecyclePolicyGroup":"Groups",
+  "Add-EntraLifecyclePolicyGroup": "Groups",
   "Get-EntraAccountSku": "Licenses and subscriptions",
   "Get-EntraAdministrativeUnit": "Administrative units",
   "Get-EntraAdministrativeUnitMember": "Administrative units",
@@ -108,7 +108,7 @@
   "Remove-EntraDirectoryRoleMember": "Directory",
   "Restore-EntraDeletedDirectoryObject": "Directory",
   "Set-EntraDirSyncConfiguration": "Directory",
-  "Set-EntraDirSyncEnabled":"Directory",
+  "Set-EntraDirSyncEnabled": "Directory",
   "Set-EntraDirSyncFeature": "Directory",
   "Get-EntraDomain": "Domains",
   "Get-EntraDomainFederationSettings": "Domains",
