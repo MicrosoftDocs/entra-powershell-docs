@@ -124,7 +124,6 @@ For a detailed guide on troubleshooting common errors, see:
 [device-code-flow]: /entra/identity-platform/v2-oauth2-device-code
 [ms-devicelogin]: https://microsoft.com/devicelogin
 [create-custom-app]: create-custom-application.md
-[entra-admin-center]: https://entra.microsoft.com
 [troubleshooting-guide]: troubleshooting.md#authentication-issues
 [token-endpoint]: /graph/auth-v2-user#3-request-an-access-token
 [passwordless-auth]: /azure/active-directory/authentication/concept-authentication-passwordless
