@@ -13,7 +13,7 @@ ms.reviewer: stevemutungi
 
 # Assign app roles to a service principal
 
-Application permissions in Microsoft Graph, also known as app roles, are assigned to service principals. These app roles enable the application to access data independently, without a signed-in user. This capability is particularly useful for implementing automation with Microsoft Entra PowerShell.
+Application permissions in Microsoft Graph, also known as app roles, are assigned to service principals. These app roles enable the application to access data independently, without a signed-in user. This capability is useful for implementing automation with Microsoft Entra PowerShell.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To assign app roles to a service principal, you need:
 
 You're an IT admin at Contoso, and your manager has tasked you with producing a daily report of all role activations in Privileged Identity Management, to be delivered via email. You decide to use Microsoft Entra PowerShell and Azure Automation to automate this task.
 
-In this article, you will learn how to connect to Microsoft Entra PowerShell in a delegated context and assign application permissions to a service principal to support your automation scenario. This process enables you to streamline the permission assignment, saving time and reducing the potential for errors.
+In this article, you learn how to connect to Microsoft Entra PowerShell in a delegated context and assign application permissions to a service principal to support your automation scenario. This process enables you to streamline the permission assignment, saving time and reducing the potential for errors.
 
 ## Connect to Microsoft Entra PowerShell
 
