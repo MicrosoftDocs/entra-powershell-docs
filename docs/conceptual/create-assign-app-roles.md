@@ -69,7 +69,6 @@ $params = @{
     Id          = $appRole.Id
     ObjectId    = $servicePrincipal.Id
 }
-
 New-EntraServiceAppRoleAssignment @params | Format-List
 ```
 
