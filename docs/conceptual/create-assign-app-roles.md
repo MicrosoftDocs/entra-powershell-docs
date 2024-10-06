@@ -4,7 +4,7 @@ description: Learn how to assign application permissions to a service principal 
 author: omondiatieno
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 10/05/2024
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -50,27 +50,27 @@ Use the following example to assign the `User.Read.All` permission to your servi
 
 ```powershell
 # Get service principal
-$ServicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Contos App 1'"
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Contos App 1'"
 
-$FilterParams = @{
+$filterParams = @{
     Filter = "AppId eq '00000003-0000-0000-c000-000000000000'"
 }
 
 # Get Graph App
-$GraphApp = Get-EntraServicePrincipal @FilterParams
+$graphApp = Get-EntraServicePrincipal @filterParams
 
 # Get App Role
-$AppRole = $GraphApp.AppRoles | Where-Object { $_.Value -eq 'User.Read.All' }
+$appRole = $graphApp.AppRoles | Where-Object { $_.Value -eq 'User.Read.All' }
 
 # Assign the permission
-$Params = @{
-    PrincipalId = $ServicePrincipal.Id
-    ResourceId  = $GraphApp.Id
-    Id          = $AppRole.Id
-    ObjectId    = $ServicePrincipal.Id
+$params = @{
+    PrincipalId = $servicePrincipal.Id
+    ResourceId  = $graphApp.Id
+    Id          = $appRole.Id
+    ObjectId    = $servicePrincipal.Id
 }
 
-New-EntraServiceAppRoleAssignment @Params | Format-List
+New-EntraServiceAppRoleAssignment @params | Format-List
 ```
 
 ```Output
@@ -92,30 +92,30 @@ AdditionalProperties : {[@odata.context,
 
 ```powershell
 # Define your required permissions
-$GetPermissions = 'Application.Read.All', 'User.Read.All'
+$getPermissions = 'Application.Read.All', 'User.Read.All'
 
 # Get service principal
-$ServicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'My Service Principal'"
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'My Service Principal'"
 
 # Get Graph App Id
-$GraphAppFilterParams = @{
+$graphAppFilterParams = @{
     Filter = "AppId eq '00000003-0000-0000-c000-000000000000'"
 }
-$GraphApp = (Get-EntraServicePrincipal @GraphAppFilterParams)
+$graphApp = (Get-EntraServicePrincipal @graphAppFilterParams)
 
 # Get App Roles
-$GraphAppRoles = $GraphApp.AppRoles | Where-Object { $_.Value -in $GetPermissions }
+$graphAppRoles = $graphApp.AppRoles | Where-Object { $_.Value -in $getPermissions }
 
 # Assign the permission to App
-foreach ($AppRole in $GraphAppRoles) {
-    $Params = @{
-        PrincipalId = $ServicePrincipal.Id
-        ResourceId  = $GraphApp.Id
-        Id          = $AppRole.Id
-        ObjectId    = $ServicePrincipal.Id
+foreach ($appRole in $graphAppRoles) {
+    $params = @{
+        PrincipalId = $servicePrincipal.Id
+        ResourceId  = $graphApp.Id
+        Id          = $appRole.Id
+        ObjectId    = $servicePrincipal.Id
     }
     
-    New-EntraServiceAppRoleAssignment @Params | Format-List
+    New-EntraServiceAppRoleAssignment @params | Format-List
 }
 ```
 
