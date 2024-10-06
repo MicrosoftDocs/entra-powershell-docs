@@ -3,7 +3,7 @@ title: "Microsoft Entra PowerShell best practices"
 description: "Learn how to optimize performance, enhance security, and ensure scalability when working with Microsoft Entra PowerShell."
 
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 10/05/2024
 ms.service: entra
 author: omondiatieno
 manager: CelesteDG
