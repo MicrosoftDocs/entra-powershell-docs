@@ -77,9 +77,9 @@ Connect-Entra -Scopes 'User.Read.All', 'Group.ReadWrite.All' -UseDeviceCode
 The next example assumes you already have an access token. See [How to get access token from the token endpoint.][token-endpoint]
 
 ```powershell
-$AccessToken = '{my-securely-acquired-token}'
-$SecureString = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
-Connect-Entra -AccessToken $SecureString
+$accessToken = '{my-securely-acquired-token}'
+$secureString = ConvertTo-SecureString -String $accessToken -AsPlainText -Force
+Connect-Entra -AccessToken $secureString
 ```
 
 ## Use passwordless authentication

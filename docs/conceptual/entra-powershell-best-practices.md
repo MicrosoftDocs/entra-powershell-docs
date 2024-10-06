@@ -55,10 +55,15 @@ Apply the following consent and authorization best practices in your app to enha
 
 - **Limit app sign-in to only assigned identities** - The `Assignment Required` property helps manage access to applications by ensuring only assigned users can sign in.
 
-    ```powershell
-    Connect-Entra -Scopes 'Application.ReadWrite.All'
-    Set-EntraServicePrincipal -ObjectId 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' -AppRoleAssignmentRequired $True
-    ```
+```powershell
+Connect-Entra -Scopes 'Application.ReadWrite.All'
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Contoso Demo App'"
+$parameters = @{
+    ServicePrincipalId = $servicePrincipal.Id
+    AppRoleAssignmentRequired = $True
+}
+Set-EntraServicePrincipal @parameters
+```
 
 ## Performance optimizations
 
