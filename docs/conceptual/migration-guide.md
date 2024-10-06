@@ -22,7 +22,7 @@ This article details the process of running your existing AzureAD PowerShell scr
 
 The `Enable-EntraAzureADAlias` cmdlet enables compatibility mode through aliases. By default, Enable-EntraAzureADAlias only enables compatibility aliases for the current Microsoft Entra PowerShell session. For more information, see the [Enable-EntraAzureADAlias][enable-entraazureadalias] reference documentation.
 
-To use Microsoft Entra PowerShell with your existing AzureAD PowerShell scripts, replace the `Connect-AzureAD` command with the three provided lines. These three lines will be the beginning of your migrated AzureAD PowerShell script.
+To use Microsoft Entra PowerShell with your existing AzureAD PowerShell scripts, replace the `Connect-AzureAD` command with the three provided lines. These three lines are the beginning of your migrated AzureAD PowerShell script.
 
 ```powershell
 Import-Module -Name Microsoft.Graph.Entra
@@ -93,7 +93,7 @@ When migrating from the Azure AD PowerShell module to Microsoft Graph endpoints,
 
 - Parameter `-Filter` might not work correctly.
 - Parameter `-SearchString` might not work correctly.
-- Output objects may differ slightly with AzureAD output objects.
+- Output objects can differ slightly with AzureAD output objects.
 
 ## Related content
 
