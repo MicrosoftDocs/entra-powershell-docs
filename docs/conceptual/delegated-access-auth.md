@@ -69,7 +69,7 @@ Connect-Entra -Scopes 'User.Read.All', 'Group.ReadWrite.All'
 The [device code flow][device-code-flow] instructs you to open a browser page at [microsoft.com/devicelogin][ms-devicelogin] and enter the code displayed in your PowerShell session.
 
 ```powershell
-Connect-MgGraph -Scopes 'User.Read.All', 'Group.ReadWrite.All' -UseDeviceCode
+Connect-Entra -Scopes 'User.Read.All', 'Group.ReadWrite.All' -UseDeviceCode
 ```
 
 ### Use your access token
