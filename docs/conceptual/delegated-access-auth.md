@@ -3,7 +3,7 @@ title: "Use delegated authentication"
 description: "Learn how to use the delegated access method of authentication to connect to Microsoft Entra PowerShell to manage your Microsoft Entra resources."
 
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 10/05/2024
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
