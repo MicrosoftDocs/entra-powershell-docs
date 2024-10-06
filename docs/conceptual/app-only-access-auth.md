@@ -83,8 +83,8 @@ Get-ChildItem Cert:\CurrentUser\My\$CertThumbprint | Select Subject
 ### Use a certificate
 
 ```powershell
-$Cert = Get-ChildItem Cert:\CurrentUser\My\$CertThumbprint
-Connect-Entra -ClientId 'YOUR_APP_ID' -TenantId 'YOUR_TENANT_ID' -Certificate $Cert
+$cert = Get-ChildItem Cert:\CurrentUser\My\$CertThumbprint
+Connect-Entra -ClientId 'YOUR_APP_ID' -TenantId 'YOUR_TENANT_ID' -Certificate $cert
 ```
 
 To use a certificate stored in your machine's certificate store or another
@@ -114,18 +114,18 @@ Client credentials grant is used to authenticate and authorize the app to access
 
 ```powershell
 # Define the Application (Client) ID and Secret
-$ApplicationClientId = '<application(client)ID>' # Application (Client) ID
-$ApplicationClientSecret = '<secret.value>' # Application Secret Value
-$TenantId = 'Tenant_Id' # Tenant ID
+$applicationClientId = '<application(client)ID>' # Application (Client) ID
+$applicationClientSecret = '<secret.value>' # Application Secret Value
+$tenantId = 'Tenant_Id' # Tenant ID
 
 # Convert the Client Secret to a Secure String
-$SecureClientSecret = ConvertTo-SecureString -String $ApplicationClientSecret -AsPlainText -Force
+$secureClientSecret = ConvertTo-SecureString -String $applicationClientSecret -AsPlainText -Force
 
 # Create a PSCredential Object Using the Client ID and Secure Client Secret
-$ClientSecretCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $ApplicationClientId, $SecureClientSecret
+$clientSecretCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $applicationClientId, $secureClientSecret
 
 # Connect to Microsoft Graph Using the Tenant ID and Client Secret Credential
-Connect-Entra -TenantId $TenantId -ClientSecretCredential $ClientSecretCredential
+Connect-Entra -TenantId $tenantId -ClientSecretCredential $clientSecretCredential
 ```
 
 To create or add a client secret, use the command [New-EntraServicePrincipalPasswordCredential][new-entraserviceprincipalpasswordcredential] or see: [Add a client secret][add-client-secret] in Microsoft Entra admin center.
