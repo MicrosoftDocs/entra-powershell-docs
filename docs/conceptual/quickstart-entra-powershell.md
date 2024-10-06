@@ -71,7 +71,7 @@ You can run the following command to get the details of one single user.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -ObjectId 'SawyerM@contoso.com'
+Get-EntraUser -UserId 'SawyerM@contoso.com'
 ```
 
 ## Data Collection

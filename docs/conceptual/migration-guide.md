@@ -38,23 +38,23 @@ The following example script is the original AzureAD PowerShell script.
 
 ```powershell
 Connect-AzureAD
-$Applications = Get-AzureADApplication -All $true
+$applications = Get-AzureADApplication -All $true
 $Logs = @()
 Write-Host "I would like to see the Applications with the Secrets and Certificates that expire in the next X amount of Days? <<Replace X with the number of days. The answer should be ONLY in Numbers>>" -ForegroundColor Green
 $Days = Read-Host
 
 Write-Host "Would you like to see Applications with already expired secrets or certificates as well? <<Answer with [Yes] [No]>>" -ForegroundColor Green
-$AlreadyExpired = Read-Host
+$alreadyExpired = Read-Host
 
 $now = Get-Date
 
-foreach ($app in $Applications) {
-    $AppName = $app.DisplayName
-    $AppID = $app.objectid
-    $ApplID = $app.AppId
-    $AppCreds = Get-AzureADApplication -ObjectId $AppID | Select-Object -Property PasswordCredentials, KeyCredentials
-    $secret = $AppCreds.PasswordCredentials
-    $cert = $AppCreds.KeyCredentials
+foreach ($app in $applications) {
+    $appName = $app.DisplayName
+    $appID = $app.objectid
+    $applID = $app.AppId
+    $appCreds = Get-AzureADApplication -ObjectId $appID | Select-Object -Property PasswordCredentials, KeyCredentials
+    $secret = $appCreds.PasswordCredentials
+    $cert = $appCreds.KeyCredentials
 
 ```
 
@@ -67,20 +67,20 @@ Import-Module -Name Microsoft.Graph.Entra
 Connect-MgGraph #Replaces Connect-AzureAD for auth
 Enable-EntraAzureADAlias #Activate aliasing
 
-$Applications = Get-AzureADApplication -All $true
-$Logs = @()
+$applications = Get-AzureADApplication -All $true
+$logs = @()
 Write-Host "I would like to see the Applications with the Secrets and Certificates that expire in the next X amount of Days? <<Replace X with the number of days. The answer should be ONLY in Numbers>>" -ForegroundColor Green
-$Days = Read-Host
+$days = Read-Host
 Write-Host "Would you like to see Applications with already expired secrets or certificates as well? <<Answer with [Yes] [No]>>" -ForegroundColor Green
-$AlreadyExpired = Read-Host
+$alreadyExpired = Read-Host
 $now = Get-Date
-foreach ($app in $Applications) {
-    $AppName = $app.DisplayName
-    $AppID = $app.Objectid
-    $ApplID = $app.AppId
-    $AppCreds = Get-AzureADApplication -ObjectId $AppID | Select-Object -Property PasswordCredentials, KeyCredentials
-    $secret = $AppCreds.PasswordCredentials
-    $cert = $AppCreds.KeyCredentials
+foreach ($app in $applications) {
+    $appName = $app.DisplayName
+    $appID = $app.Objectid
+    $applID = $app.AppId
+    $appCreds = Get-AzureADApplication -ObjectId $appID | Select-Object -Property PasswordCredentials, KeyCredentials
+    $secret = $appCreds.PasswordCredentials
+    $cert = $appCreds.KeyCredentials
 ```
 
 ## Test compatibility with Test-EntraScript command
