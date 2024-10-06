@@ -101,9 +101,9 @@ Set-EntraServicePrincipal @servicePrincipalParams
 
 ## Assign permissions to an app
 
-While you can assign permissions to an app through the Microsoft Entra admin center, you also assign permissions through Microsoft Entra PowerShell by updating the `requiredResourceAccess` property of the app object. You must pass in both existing and new permissions. Passing in only new permissions overwrites and removes the existing permissions that haven't yet been consented to.
+You assign permissions to an app through the Microsoft Entra admin center or by using Microsoft Entra PowerShell. In PowerShell, you update the app's `requiredResourceAccess` property, including both existing and new permissions. If you only pass in new permissions, it removes any existing permissions that haven't been consented to.
 
-Assigning permissions doesn't automatically grant them to the app. You must still grant admin consent using the Microsoft Entra admin center. 
+Assigning permissions doesn't automatically grant them to the app. You must still grant admin consent using the Microsoft Entra admin center.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All'
