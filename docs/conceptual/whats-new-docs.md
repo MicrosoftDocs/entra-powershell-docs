@@ -7,6 +7,10 @@ author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
 ms.reviewer: stevemutungi254
+
+zone_pivot_groups: entra-powershell-whats-new
+zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
+
 keywords: Microsoft Entra powershell, entra-powershell, manage entra resources using powershell, entra powershell new features, what's new in entra powershell
 
 #customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module.
@@ -15,6 +19,8 @@ keywords: Microsoft Entra powershell, entra-powershell, manage entra resources u
 # What's new in the Microsoft Entra PowerShell module
 
 This article lists all new articles that were added or had significant updates in the last month. It also lists the new features in the Microsoft Entra PowerShell module, currently in public preview, to manage Microsoft Entra resources.
+
+:::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
 
@@ -61,6 +67,10 @@ This article lists all new articles that were added or had significant updates i
 - [Troubleshoot common errors in Microsoft Entra PowerShell](troubleshooting.md) - New article on how to troubleshoot and fix common errors in Microsoft Entra PowerShell.
 - [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md) - Best practices for using the Microsoft Entra PowerShell module to boost performance, enhance security, and scale reliably.
 - [Versioning, release cadence, and breaking changes](entraps-versioning-release-cadence.md) - Understand the versioning, release schedule, and breaking change policies to manage updates effectively and reduce the risk of disruptions.
+
+:::zone-end
+
+:::zone pivot="module-version-history"
 
 ## Module version history
 
@@ -134,6 +144,8 @@ This article lists all new articles that were added or had significant updates i
   - Added the ability to autoinstall module dependencies.
   - Official public preview release version.
   - Added Connect-Entra examples.
+
+:::zone-end
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
