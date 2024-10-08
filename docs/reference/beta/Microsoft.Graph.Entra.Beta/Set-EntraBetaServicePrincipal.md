@@ -2,7 +2,7 @@
 title: Set-EntraBetaServicePrincipal
 description: This article provides details on the Set-EntraBetaServicePrincipal command.
 
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: reference
 ms.date: 06/10/2024
 ms.author: eunicewaweru
