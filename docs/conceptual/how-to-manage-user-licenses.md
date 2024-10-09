@@ -30,8 +30,6 @@ To successfully complete this guide, make sure you have the required prerequisit
     Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All'
     ```
 
-    Select **Consent on behalf of your organization** before accepting in the sign-in dialog box.
-
 1. Users to assign licenses are created in your tenant and assigned a location. To find user accounts that don't have a `UsageLocation`, run this command:
 
    ```powershell
@@ -90,7 +88,7 @@ To view the licenses assigned to a user, run the following command:
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-$userLicenses = Get-EntraUserLicenseDetail -ObjectId 'GjeEdla@Contoso.com'
+$userLicenses = Get-EntraUserLicenseDetail -UserId 'GjeEdla@Contoso.com'
 $userLicenses
 ```
 
@@ -127,7 +125,7 @@ To assign a license to a user, use the `Set-EntraUserLicense` cmdlet. The `Set-E
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
 # Define the user's object ID
-$User = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
+$User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Define the license plan to assign to the user
 $license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
@@ -137,13 +135,13 @@ $Licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $Licenses.AddLicenses = $license
 
 # Assign the license to the user
-Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $Licenses
+Set-EntraUserLicense -UserId $User.ObjectId -AssignedLicenses $Licenses
 ```
 
 To confirm that the license is assigned to the user, run:
 
 ```powershell
-Get-EntraUserLicenseDetail -ObjectId 'AljosaH@Contoso.com'
+Get-EntraUserLicenseDetail -UserId 'AljosaH@Contoso.com'
 ```
 
 ### Assign a license to a user with some disabled plans
@@ -154,7 +152,7 @@ The following PowerShell script demonstrates how to assign a license to a user i
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
 # Define the user's object ID
-$User = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
+$User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 
 # Retrieve the SkuId for the desired license plan
@@ -169,7 +167,7 @@ $licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licenses.AddLicenses = $licenseOptions
 
 # Assign the license to the user
-Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
+Set-EntraUserLicense -UserId $user.ObjectId -AssignedLicenses $licenses
 ```
 
 ### Assign more than one license to a user
@@ -188,7 +186,7 @@ $skuId1 = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'AAD_PRE
 $skuId2 = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'EMS' }).SkuId
 
 # Define the user to whom the licenses will be assigned
-$User = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
+$User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Create license assignment objects
 $license1 = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
@@ -201,7 +199,7 @@ $licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licenses.AddLicenses = $license1, $license2
 
 # Assign the licenses to the user
-Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
+Set-EntraUserLicense -UserId $user.ObjectId -AssignedLicenses $licenses
 ```
 
 ### Assign a license to a user by copying license from another user
@@ -215,8 +213,8 @@ In this example, you loop through all licenses assigned to the existing user and
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
 # Define the source and target users
-$licensedUser = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
-$targetUser = Get-EntraUser -ObjectId 'PalameeC@Contoso.com' 
+$licensedUser = Get-EntraUser -UserId 'AljosaH@Contoso.com'
+$targetUser = Get-EntraUser -UserId 'PalameeC@Contoso.com' 
 
 # Retrieve the source user and their licenses
 $sourceUserLicenses = $licensedUser.AssignedLicenses
@@ -227,7 +225,7 @@ foreach ($license in $sourceUserLicenses) {
     $assignedLicense = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
     $assignedLicense.SkuId = $license.SkuId
     $licensesToAssign.AddLicenses= $assignedLicense
-    Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $licensesToAssign
+    Set-EntraUserLicense -UserId $User.ObjectId -AssignedLicenses $licensesToAssign
 }
 ```
 
@@ -261,7 +259,7 @@ $licenses.AddLicenses = $license1, $license2
 
 # Assign the licenses to each user
 foreach ($user in $users$users) {
- Set-EntraUserLicense -ObjectId $user -AssignedLicenses $licenses
+ Set-EntraUserLicense -UserId $user -AssignedLicenses $licenses
  }
 ```
 
@@ -284,17 +282,17 @@ To remove a license assigned to a user, follow these steps:
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 # Define the user's object ID
-$User = Get-EntraUser -ObjectId 'AljosaH@Contoso.com'
+$User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Get the license assigned to the user
-$SkuId = (Get-EntraUserLicenseDetail -ObjectId AljosaH@Contoso.com).SkuId
+$SkuId = (Get-EntraUserLicenseDetail -UserId AljosaH@Contoso.com).SkuId
 
 #Define the license object
 $licensesToRemove = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licensesToRemove.RemoveLicenses = $SkuId
 
 #Remove the assigned license
-Set-EntraUserLicense -ObjectId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
+Set-EntraUserLicense -UserId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
 ```
 
 
