@@ -224,7 +224,7 @@ To create custom applications for connecting to Microsoft Entra ID using Microso
 >[!NOTE]
 > In the app's **Overview** section, copy the Application (client ID) and Directory (tenant) ID. You use the values when connecting to Microsoft Entra ID.
 
-### Enabling Assignment required feature
+### Enable Assignment required feature
 
 To manage the resources that your application gets access to in your tenant, locate the application's service principal in the **Enterprise applications** pane.
 
@@ -232,13 +232,13 @@ To manage the resources that your application gets access to in your tenant, loc
 1. Under **Manage**, select **Properties** and set **Assignment required?** to **Yes**.
 1. Select **Save**.
 
-### Assigning users and groups
+### Assign users and groups
 
 1. Under **Manage**, select **Users and groups**.
 1. Select **Add user/group** and add the users and groups permitted to use this application.
 1. Once you add all the users and groups, select **Assign**.
 
-## Assign API permissions to the custom application
+### Assign API permissions to the custom application
 
 You need to set up Microsoft Graph permissions for the new application to connect to Microsoft Entra ID and manage Microsoft Entra resources.
 
