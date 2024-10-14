@@ -117,8 +117,6 @@ $setAppParams = @{
 Set-EntraApplication @setAppParams
 ```
 
----
-
 #### [Application permissions](#tab/application)
 
 ```powershell
@@ -177,8 +175,6 @@ New-EntraOauth2PermissionGrant @permissionGrantParams
 ```
 
 See the [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with delegated permissions.
-
----
 
 #### [Application permissions](#tab/application)
 
