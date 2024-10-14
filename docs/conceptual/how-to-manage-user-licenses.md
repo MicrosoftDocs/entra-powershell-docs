@@ -135,7 +135,7 @@ $Licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $Licenses.AddLicenses = $license
 
 # Assign the license to the user
-Set-EntraUserLicense -UserId $User.ObjectId -AssignedLicenses $Licenses
+Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $Licenses
 ```
 
 To confirm that the license is assigned to the user, run:
@@ -167,7 +167,7 @@ $licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licenses.AddLicenses = $licenseOptions
 
 # Assign the license to the user
-Set-EntraUserLicense -UserId $user.ObjectId -AssignedLicenses $licenses
+Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
 ```
 
 ### Assign more than one license to a user
@@ -199,7 +199,7 @@ $licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licenses.AddLicenses = $license1, $license2
 
 # Assign the licenses to the user
-Set-EntraUserLicense -UserId $user.ObjectId -AssignedLicenses $licenses
+Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
 ```
 
 ### Assign a license to a user by copying license from another user
@@ -225,7 +225,7 @@ foreach ($license in $sourceUserLicenses) {
     $assignedLicense = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
     $assignedLicense.SkuId = $license.SkuId
     $licensesToAssign.AddLicenses= $assignedLicense
-    Set-EntraUserLicense -UserId $User.ObjectId -AssignedLicenses $licensesToAssign
+    Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $licensesToAssign
 }
 ```
 
@@ -259,7 +259,7 @@ $licenses.AddLicenses = $license1, $license2
 
 # Assign the licenses to each user
 foreach ($user in $users$users) {
- Set-EntraUserLicense -UserId $user -AssignedLicenses $licenses
+ Set-EntraUserLicense -ObjectId $user -AssignedLicenses $licenses
  }
 ```
 
@@ -292,7 +292,7 @@ $licensesToRemove = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLi
 $licensesToRemove.RemoveLicenses = $SkuId
 
 #Remove the assigned license
-Set-EntraUserLicense -UserId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
+Set-EntraUserLicense -ObjectId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
 ```
 
 
