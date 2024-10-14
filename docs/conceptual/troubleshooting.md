@@ -55,6 +55,14 @@ Import-Module PowerShellGet -MinimumVersion 2.0 -Force
 Import-PackageProvider PowerShellGet -MinimumVersion 2.0 -Force 
 ```
 
+### Function capacity 4096 has been exceeded for this scope
+
+In PowerShell 5.1, you might encounter the error: Function <cmdlet-name> cannot be created because function capacity 4096 has been exceeded for this scope. To resolve this, increase the function limit by running: $MaximumFunctionCount = 32768, then try importing the module again.
+
+```powershell
+$MaximumFunctionCount = 32768
+```
+
 ### Commands already available in the module
 
 **Error**: `The following commands are already available on this system:'Enable-EntraAzureADAlias,Get-EntraUnsupportedCommand,Test-EntraScript'`.
