@@ -79,7 +79,7 @@ New-EntraGroupAppRoleAssignment @GroupAppRoleAssignmentParams
 
 1. Sign in to the [Microsoft Entra admin center][entra-admin-portal] as at least a [Cloud Application Administrator][cloud-app-admin].
 1. Browse to **Identity** > **Applications** > **App registrations** and then select **New Registration**.
-1. Enter a name for your application, for example *Microsoft Entra PowerShell App*.
+1. Enter a name for your application, for example *Entra PowerShell Five*.
 1. For **Supported account types**, select **Accounts in this organization directory**.
 1. For **Redirect URI** select:
         - **Public client/native** from the drop-down
