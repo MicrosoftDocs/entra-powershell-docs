@@ -1,7 +1,7 @@
 ---
 title: New-EntraInvitation
-title: New-EntraInvitation
 description: This article provides details on the New-EntraInvitation command.
+
 
 ms.topic: reference
 ms.date: 06/26/2024
@@ -21,30 +21,29 @@ schema: 2.0.0
 
 ## Synopsis
 
-
 This cmdlet is used to invite a new external user to your directory.
 
 ## Syntax
 
 ```powershell
-New-EntraInvitation 
- [-InvitedUser <User>] 
- [-InvitedUserType <String>] 
+New-EntraInvitation
+ [-InvitedUser <User>]
+ [-InvitedUserType <String>]
  -InvitedUserEmailAddress <String>
- [-SendInvitationMessage <Boolean>] 
+ [-SendInvitationMessage <Boolean>]
 -InviteRedirectUrl <String>
- [-InvitedUserMessageInfo <InvitedUserMessageInfo>] [-InvitedUserDisplayName <String>] 
+ [-InvitedUserMessageInfo <InvitedUserMessageInfo>] [-InvitedUserDisplayName <String>]
  [<CommonParameters>]
 ```
 
 ## Description
-
 
 This cmdlet is used to invite a new external user to your directory.
 
 Invitation adds an external user to the organization. When creating a new invitation, you have several options available:
 
 - On invitation creation, Microsoft Graph can automatically send an invitation email directly to the invited user, or your app can use the inviteRedeemUrl returned in the response to craft your own invitation (through your communication mechanism of choice) to the invited user. If you decide to have Microsoft Graph send an invitation email automatically, you can specify the content and language of the email by using invitedUserMessageInfo.
+
 - When the user is invited, a user entity (of userType Guest) is created and can be used to control access to resources. The invited user has to go through the redemption process to access any resources they have been invited to.
 
 To reset the redemption status for a guest user, the User.ReadWrite.All permission is the minimum required.
@@ -53,7 +52,6 @@ For delegated scenarios, the signed-in user must have at least one of the follow
 
 ## Examples
 
-### Example 1: Invite a new external user to your directory
 ### Example 1: Invite a new external user to your directory
 
 ```powershell
@@ -68,28 +66,17 @@ New-EntraInvitation @params
 ```
 
 ```Output
-Id                      : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-InviteRedeemUrl         : https://login.microsoftonline.com/redeem?...
-InviteRedirectUrl       : https://myapps.onmicrosoft.com/
-InvitedUser             : @{AboutMe=; AccountEnabled=; Activities=; AgeGroup=; AgreementAcceptances=; AppRoleAssignments=; AssignedLicenses=;
-                          UserType=}
-InvitedUserDisplayName  :
-InvitedUserEmailAddress : someexternaluser@externaldomain.com
-InvitedUserMessageInfo  : @{CcRecipients=System.Object[]; CustomizedMessageBody=; MessageLanguage=}
-InvitedUserType         : Guest
-ResetRedemption         : False
-SendInvitationMessage   : True
-Status                  : PendingAcceptance
-ObjectId                : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-AdditionalProperties    : @{@odata.context=https://graph.microsoft.com/v1.0/$metadata#invitations/$entity}
+Id                                   InviteRedeemUrl
+--                                   ---------------
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitations.microsoft.com%2fredeem%2f%3ftenant%3dd5aec55f-2d12-4442-8d2f-cc…
 ```
 
+This example sent an email to the user who's email address is in the `-InvitedUserEmailAddress` parameter.
 
-This example sent an email to the user who's email address is in the -InvitedUserEmailAddress parameter.
+When the user accepts the invitation, they're forwarded to the url as specified in the `-InviteRedirectUrl` parameter.
 
-When the user accepts the invitation, they're forwarded to the url as specified in the -InviteRedirectUrl parameter.
+- `-SendInvitationMessage` Parameter indicates whether or not an invitation message will be sent to the invited user.
 
-### Example 2: Invite a new external user to your directory with InvitedUserDisplayName parameter
 ### Example 2: Invite a new external user to your directory with InvitedUserDisplayName parameter
 
 ```powershell
@@ -105,27 +92,18 @@ New-EntraInvitation @params
 ```
 
 ```Output
-Id                      : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-InviteRedeemUrl         : https://login.microsoftonline.com/redeem?...
-InviteRedirectUrl       : https://myapps.onmicrosoft.com/
-InvitedUser             : @{AboutMe=; AccountEnabled=; Activities=; AgeGroup=; AgreementAcceptances=; AppRoleAssignments=; AssignedLicenses=;
-                          UserType=}
-InvitedUserDisplayName  : microsoftuser
-InvitedUserEmailAddress : someexternaluser@externaldomain.com
-InvitedUserMessageInfo  : @{CcRecipients=System.Object[]; CustomizedMessageBody=; MessageLanguage=}
-InvitedUserType         : Guest
-ResetRedemption         : False
-SendInvitationMessage   : True
-Status                  : PendingAcceptance
-ObjectId                : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-AdditionalProperties    : @{@odata.context=https://graph.microsoft.com/v1.0/$metadata#invitations/$entity}
-
+Id                                   InviteRedeemUrl
+--                                   ---------------
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitations.microsoft.com%2fredeem%2f%3ftenant%3dd5aec55f-2d12-4442-8d2f-cc…
 ```
 
+This example demonstrates how to invite a new external user to your directory with `-InvitedUserDisplayName` parameter.
 
-This example demonstrates how to invite a new external user to your directory with InvitedUserDisplayName parameter.
+- `-InvitedUserEmailAddress`Parameter specifies the Email address to which the invitation is sent.
+- `-SendInvitationMessage` Parameter indicates whether or not an invitation message will be sent to the invited user
+- `-InviteRedirectUrl` Parameter specifies The URL to which the invited user is forwarded after accepting the invitation.
+- `-InvitedUserDisplayName`Parameter specifies the  display name of the user.
 
-### Example 3: Invite a new external user to your directory with InvitedUserMessageInfo parameter
 ### Example 3: Invite a new external user to your directory with InvitedUserMessageInfo parameter
 
 ```powershell
@@ -144,26 +122,18 @@ New-EntraInvitation @params
 ```
 
 ```Output
-Id                      : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-InviteRedeemUrl         : https://login.microsoftonline.com/redeem?...
-InviteRedirectUrl       : https://myapps.microsoft.com/
-InvitedUser             : @{AboutMe=; AccountEnabled=; Activities=; AgeGroup=; AgreementAcceptances=; AppRoleAssignments=; AssignedLicenses=;
-                          UserType=}
-InvitedUserDisplayName  :
-InvitedUserEmailAddress : someexternaluser@externaldomain.com
-InvitedUserMessageInfo  : @{CcRecipients=System.Object[]; CustomizedMessageBody=Hi there, how are you; MessageLanguage=EN}
-InvitedUserType         : Guest
-ResetRedemption         : False
-SendInvitationMessage   : True
-Status                  : PendingAcceptance
-ObjectId                : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-AdditionalProperties    : @{@odata.context=https://graph.microsoft.com/v1.0/$metadata#invitations/$entity}
+Id                                   InviteRedeemUrl
+--                                   ---------------
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitations.microsoft.com%2fredeem%2f%3ftenant%3dd5aec55f-2d12-4442-8d2f-cc…
 ```
-
 
 This example demonstrates how to invite a new external user to your directory with InvitedUserMessageInfo parameter.
 
-### Example 4: Invite a new external user to your directory with InvitedUserType parameter
+- `-InvitedUserEmailAddress`Parameter specifies the Email address to which the invitation is sent.
+- `-SendInvitationMessage` Parameter indicates whether or not an invitation message will be sent to the invited user.
+- `-InviteRedirectUrl` Parameter specifies The URL to which the invited user is forwarded after accepting the invitation.
+- `-InvitedUserMessageInfo`Parameter specifies addition information to specify how the invitation message is sent.
+
 ### Example 4: Invite a new external user to your directory with InvitedUserType parameter
 
 ```powershell
@@ -179,29 +149,16 @@ New-EntraInvitation @params
 ```
 
 ```Output
-Id                      : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-InviteRedeemUrl         : https://login.microsoftonline.com/redeem?...
-InviteRedirectUrl       : https://myapps.microsoft.com/
-InvitedUser             : @{AboutMe=; AccountEnabled=; Activities=; AgeGroup=; AgreementAcceptances=; AppRoleAssignments=; AssignedLicenses=;
-                          UserType=}
-InvitedUserDisplayName  :
-InvitedUserEmailAddress : someexternaluser@externaldomain.com
-InvitedUserMessageInfo  : @{CcRecipients=System.Object[]; CustomizedMessageBody=; MessageLanguage=}
-InvitedUserType         : Guest
-ResetRedemption         : False
-SendInvitationMessage   : True
-Status                  : PendingAcceptance
-ObjectId                : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-AdditionalProperties    : @{@odata.context=https://graph.microsoft.com/v1.0/$metadata#invitations/$entity}
+Id                                   InviteRedeemUrl
+--                                   ---------------
+9e2b9f02-c2cb-4832-920d-81959f44e397 https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitations.microsoft.com%2fredeem%2f%3ftenant%3dd5aec55f-2d12-4442-8d2f-cc…
 ```
-
 
 This example demonstrates how to invite a new external user to your directory with InvitedUserType parameter.
 
 ## Parameters
 
 ### -InvitedUserDisplayName
-
 
 The display name of the user as it appears in your directory.
 
@@ -219,7 +176,6 @@ Accept wildcard characters: False
 
 ### -InvitedUserEmailAddress
 
-
 The Email address to which the invitation is sent.
 
 ```yaml
@@ -235,7 +191,6 @@ Accept wildcard characters: False
 ```
 
 ### -InvitedUserMessageInfo
-
 
 Addition information to specify how the invitation message is sent.
 
@@ -253,7 +208,6 @@ Accept wildcard characters: False
 
 ### -InvitedUser
 
-
 An existing user object in the directory that you want to add or update the B2B credentials for.
 
 ```yaml
@@ -270,9 +224,9 @@ Accept wildcard characters: False
 
 ### -InvitedUserType
 
-The userType of the user being invited. By default, userType is Guest.
+The userType of the user being invited. By default, this is Guest.
 
-You can invite as Member of your company administrator.
+You can invite as Member if you are company administrator.
 
 ```yaml
 Type: System.String
@@ -288,8 +242,7 @@ Accept wildcard characters: False
 
 ### -InviteRedirectUrl
 
-
-The URL that the invited user is forwarded after accepting the invitation.
+The URL to which the invited user is forwarded after accepting the invitation.
 
 ```yaml
 Type: System.String
@@ -304,7 +257,6 @@ Accept wildcard characters: False
 ```
 
 ### -SendInvitationMessage
-
 
 A Boolean parameter that indicates whether or not an invitation message sent to the invited user.
 
@@ -328,11 +280,9 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ### None
 
-
 ## Outputs
 
 ### System.Object
-
 
 ## Notes
 

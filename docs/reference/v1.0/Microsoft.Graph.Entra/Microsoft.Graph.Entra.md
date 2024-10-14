@@ -17,4 +17,5 @@ This module contains cmdlets that designed to work with Microsoft.Graph.Entra.
 ## Microsoft.Graph.Entra Cmdlets
 
 ### [Add-EntraApplicationOwner](Add-EntraApplicationOwner.md)
+
 Adds an owner to an application.

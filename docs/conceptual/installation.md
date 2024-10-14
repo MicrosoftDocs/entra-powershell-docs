@@ -17,6 +17,9 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 # Install the Microsoft Entra PowerShell module
 
+> [!IMPORTANT]
+> Microsoft Entra PowerShell cmdlets are currently in preview and might change. We recommend using these cmdlets for testing and development purposes only, and not in production applications at this time.
+
 The Microsoft Entra PowerShell module is available in two modules, which can be installed independently:
 
 - **Microsoft.Graph.Entra** - the General Availability or `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
@@ -106,9 +109,6 @@ To install the `Beta` module, run the following command.
 ```powershell
 Install-Module -Name Microsoft.Graph.Entra.Beta -Repository PSGallery -AllowPrerelease
 ```
-
-> [!IMPORTANT]
-> We recommend using Microsoft Entra PowerShell v1.0 (GA) module for script writing. If you need to test or adopt features not yet available in v1.0, you might use the Beta module. However, the cmdlets in the Beta version can change unexpectedly, which makes it unsuitable for production as it could break existing scripts.
 
 :::zone-end
 
@@ -206,7 +206,8 @@ Uninstall-Module -Name Microsoft.Graph.Entra.Beta -AllVersions
 To start managing your Microsoft Entra resources with the Microsoft Entra PowerShell module, launch a PowerShell session and run [Connect-Entra][Connect-Entra] to sign in to Microsoft Entra ID:
 
 ```powershell
-Connect-Entra
+Connect-Entra -Scopes 'User.Read.All'
+Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
 ```
 
 Use your Microsoft Entra sign-in credentials to log into the sign-in window that opens.

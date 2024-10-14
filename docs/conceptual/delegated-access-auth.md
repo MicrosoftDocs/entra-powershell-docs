@@ -3,7 +3,7 @@ title: "Use delegated authentication"
 description: "Learn how to use the delegated access method of authentication to connect to Microsoft Entra PowerShell to manage your Microsoft Entra resources."
 
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 10/05/2024
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
@@ -69,7 +69,7 @@ Connect-Entra -Scopes 'User.Read.All', 'Group.ReadWrite.All'
 The [device code flow][device-code-flow] instructs you to open a browser page at [microsoft.com/devicelogin][ms-devicelogin] and enter the code displayed in your PowerShell session.
 
 ```powershell
-Connect-MgGraph -Scopes 'User.Read.All', 'Group.ReadWrite.All' -UseDeviceCode
+Connect-Entra -Scopes 'User.Read.All', 'Group.ReadWrite.All' -UseDeviceCode
 ```
 
 ### Use your access token
@@ -77,9 +77,9 @@ Connect-MgGraph -Scopes 'User.Read.All', 'Group.ReadWrite.All' -UseDeviceCode
 The next example assumes you already have an access token. See [How to get access token from the token endpoint.][token-endpoint]
 
 ```powershell
-$AccessToken = '{my-securely-acquired-token}'
-$SecureString = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
-Connect-Entra -AccessToken $SecureString
+$accessToken = '{my-securely-acquired-token}'
+$secureString = ConvertTo-SecureString -String $accessToken -AsPlainText -Force
+Connect-Entra -AccessToken $secureString
 ```
 
 ## Use passwordless authentication
@@ -124,7 +124,6 @@ For a detailed guide on troubleshooting common errors, see:
 [device-code-flow]: /entra/identity-platform/v2-oauth2-device-code
 [ms-devicelogin]: https://microsoft.com/devicelogin
 [create-custom-app]: create-custom-application.md
-[entra-admin-center]: https://entra.microsoft.com
 [troubleshooting-guide]: troubleshooting.md#authentication-issues
 [token-endpoint]: /graph/auth-v2-user#3-request-an-access-token
 [passwordless-auth]: /azure/active-directory/authentication/concept-authentication-passwordless

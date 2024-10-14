@@ -26,7 +26,7 @@ This article helps you get started with Microsoft Entra PowerShell and teaches t
 Microsoft Entra PowerShell supports two types of authentication: _delegated access_, and _app-only access_. To use Microsoft Entra PowerShell, you need to authenticate to access Microsoft Entra resources. Sign in with an admin account of your tenant, if prompted.
 
 ```powershell
-Connect-Entra -Scopes 'User.Read.All','AuditLog.Read.All'
+Connect-Entra -Scopes 'User.Read.All'
 ```
 
 To see all the possible options, refer to the [authentication][auth-scenarios] scenarios.
@@ -70,7 +70,8 @@ Contoso Demo UserFour  cccccccc-2222-3333-4444-dddddddddddd   demofour@contoso.c
 You can run the following command to get the details of one single user.
 
 ```powershell
-Get-EntraUser -ObjectId 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb'
+Connect-Entra -Scopes 'User.Read.All'
+Get-EntraUser -UserId 'SawyerM@contoso.com'
 ```
 
 ## Data Collection
@@ -79,7 +80,7 @@ Microsoft Entra PowerShell collects telemetry data by default. We collection inf
 
 ## Learn Microsoft Entra PowerShell basics with quickstarts and tutorials
 
-To get started with Microsoft Entra PowerShell, explore an in-depth how-to guide for the following:
+To get started with Microsoft Entra PowerShell, check out the detailed how-to guide for:
 
 - [Manage users](manage-user.md)
 - [Manage groups](manage-groups.md)

@@ -25,7 +25,7 @@ Microsoft Entra PowerShell cmdlets follow a standard naming convention for Power
 
 ### Import the module
 
-Import the Microsoft Entra PowerShell module, if you have not installed it already. 
+Import the Microsoft Entra PowerShell module if you haven't installed it yet.
 
 ```powershell
 Import-Module -Name Microsoft.Graph.Entra

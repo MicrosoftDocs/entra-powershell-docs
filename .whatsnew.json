@@ -1,0 +1,21 @@
+{
+    "$schema": "https://github.com/dotnet/docs-tools/blob/main/WhatsNew.Infrastructure/Configuration/reposettings.schema.json",
+    "docSetProductName": "Microsoft Entra PowerShell",
+    "rootDirectory": "docs/conceptual/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/powershell/entra-powershell/"
+    },
+    "inclusionCriteria": {
+        "omitPullRequestTitles": false,
+        "minAdditionsToFile": 10,
+        "maxFilesChanged": 50
+        
+    },
+    "areas": [
+        {
+            "names": [ "."],
+            "heading": "Microsoft Entra PowerShell"
+        }
+    ]
+}

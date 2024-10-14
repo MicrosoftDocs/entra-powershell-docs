@@ -4,7 +4,7 @@ description: Learn how to assign application permissions to a service principal 
 author: omondiatieno
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 10/05/2024
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -13,7 +13,7 @@ ms.reviewer: stevemutungi
 
 # Assign app roles to a service principal
 
-Application permissions in Microsoft Graph, also known as app roles, are assigned to service principals. These app roles enable the application to access data independently, without a signed-in user. This capability is particularly useful for implementing automation with Microsoft Entra PowerShell.
+Application permissions in Microsoft Graph, also known as app roles, are assigned to service principals. These app roles enable the application to access data independently, without a signed-in user. This capability is useful for implementing automation with Microsoft Entra PowerShell.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To assign app roles to a service principal, you need:
 
 You're an IT admin at Contoso, and your manager has tasked you with producing a daily report of all role activations in Privileged Identity Management, to be delivered via email. You decide to use Microsoft Entra PowerShell and Azure Automation to automate this task.
 
-In this article, you will learn how to connect to Microsoft Entra PowerShell in a delegated context and assign application permissions to a service principal to support your automation scenario. This process enables you to streamline the permission assignment, saving time and reducing the potential for errors.
+In this article, you learn how to connect to Microsoft Entra PowerShell in a delegated context and assign application permissions to a service principal to support your automation scenario. This process enables you to streamline the permission assignment, saving time and reducing the potential for errors.
 
 ## Connect to Microsoft Entra PowerShell
 
@@ -43,31 +43,33 @@ When prompted to **Consent on behalf of your organization** select **Accept**.
 
 If you haven't created a service principal for your scenario, see [Create a custom application][custom-app].
 
+> [!CAUTION]
+> When assigning app roles to an application, follow the principle of least privilege. Only request roles necessary for your application's functionality. Over-assigning roles can increase security risks if the application is compromised. Additionally, assigning roles programmatically takes effect immediately, so exercise caution to ensure only appropriate roles are assigned. Always ensure the roles are justified to minimize potential vulnerabilities. For more information on the principle of least privilege, see [Least privilege][least-privilege].
+
 Use the following example to assign the `User.Read.All` permission to your service principal:
 
 ```powershell
 # Get service principal
-$ServicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Contos App 1'"
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Contos App 1'"
 
-$FilterParams = @{
+$filterParams = @{
     Filter = "AppId eq '00000003-0000-0000-c000-000000000000'"
 }
 
 # Get Graph App
-$GraphApp = Get-EntraServicePrincipal @FilterParams
+$graphApp = Get-EntraServicePrincipal @filterParams
 
 # Get App Role
-$AppRole = $GraphApp.AppRoles | Where-Object { $_.Value -eq 'User.Read.All' }
+$appRole = $graphApp.AppRoles | Where-Object { $_.Value -eq 'User.Read.All' }
 
 # Assign the permission
-$Params = @{
-    PrincipalId = $ServicePrincipal.Id
-    ResourceId  = $GraphApp.Id
-    Id          = $AppRole.Id
-    ObjectId    = $ServicePrincipal.Id
+$params = @{
+    PrincipalId = $servicePrincipal.Id
+    ResourceId  = $graphApp.Id
+    Id          = $appRole.Id
+    ObjectId    = $servicePrincipal.Id
 }
-
-New-EntraServiceAppRoleAssignment @Params | Format-List
+New-EntraServiceAppRoleAssignment @params | Format-List
 ```
 
 ```Output
@@ -89,30 +91,30 @@ AdditionalProperties : {[@odata.context,
 
 ```powershell
 # Define your required permissions
-$GetPermissions = 'Application.Read.All', 'User.Read.All'
+$getPermissions = 'Application.Read.All', 'User.Read.All'
 
 # Get service principal
-$ServicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'My Service Principal'"
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'My Service Principal'"
 
 # Get Graph App Id
-$GraphAppFilterParams = @{
+$graphAppFilterParams = @{
     Filter = "AppId eq '00000003-0000-0000-c000-000000000000'"
 }
-$GraphApp = (Get-EntraServicePrincipal @GraphAppFilterParams)
+$graphApp = (Get-EntraServicePrincipal @graphAppFilterParams)
 
 # Get App Roles
-$GraphAppRoles = $GraphApp.AppRoles | Where-Object { $_.Value -in $GetPermissions }
+$graphAppRoles = $graphApp.AppRoles | Where-Object { $_.Value -in $getPermissions }
 
 # Assign the permission to App
-foreach ($AppRole in $GraphAppRoles) {
-    $Params = @{
-        PrincipalId = $ServicePrincipal.Id
-        ResourceId  = $GraphApp.Id
-        Id          = $AppRole.Id
-        ObjectId    = $ServicePrincipal.Id
+foreach ($appRole in $graphAppRoles) {
+    $params = @{
+        PrincipalId = $servicePrincipal.Id
+        ResourceId  = $graphApp.Id
+        Id          = $appRole.Id
+        ObjectId    = $servicePrincipal.Id
     }
     
-    New-EntraServiceAppRoleAssignment @Params | Format-List
+    New-EntraServiceAppRoleAssignment @params | Format-List
 }
 ```
 
@@ -158,6 +160,7 @@ Principal author:
 - [Daniel Bradley](https://www.linkedin.com/in/danielbradley2/) | Microsoft MVP
 
 [privileged-role-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator
+[least-privilege]: /entra/identity-platform/secure-least-privileged-access
 [install]: installation.md
 [entra-id-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [custom-app]: create-custom-application.md
