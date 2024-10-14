@@ -8,10 +8,14 @@ author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
 ms.reviewer: stevemutungi
-#customer intent: As an IT admin, I want to create and configure a custom application in Microsoft Entra ID so that I can manage permissions and access to Microsoft Entra resources securely.
+zone_pivot_groups: entra-powershell-create-custom-app
+zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
+#customer intent: As an IT admin, I want to create and configure a custom application in the Microsoft Entra ID so that I can manage permissions and access to Microsoft Entra resources securely.
 ---
 
 # Create a custom application
+
+:::zone pivot="powershell"
 
 ## Prerequisites
 
@@ -21,61 +25,199 @@ To create a custom application and grant it permissions, you need:
 - One of the following roles: Cloud Application Administrator, or Application Administrator.
 - Required scopes (PowerShell): `AppRoleAssignment.ReadWrite.All`, `Application.ReadWrite.All`, `User.Read.All`, `Group.Read.All`, `DelegatedPermissionGrant.ReadWrite.All`
 
-## Create an application in the Microsoft Entra admin center
+### Create an application using PowerShell
 
-To create custom applications for connecting to Microsoft Entra ID using Microsoft Entra PowerShell, follow the steps in the following section. Use the custom application to isolate and limit the permissions granted for a Microsoft Entra resource.
-
-### [Microsoft Entra PowerShell](#tab/entrapowershell)
+Use the custom application to isolate and limit the permissions granted for a Microsoft Entra resource.
 
 ```powershell
 # Connect to Entra with required scopes
-Connect-Entra -Scopes 'AppRoleAssignment.ReadWrite.All', 'Application.ReadWrite.All', 'User.Read.All', 'Group.Read.All', 'DelegatedPermissionGrant.ReadWrite.All', 'AuditLog.Read.All'
+Connect-Entra -Scopes 'Application.ReadWrite.All'
 
 # Define application name and redirect URI
-$AppName = "Entra PowerShell Five"
-$RedirectUri = "http://localhost"
-
-# Define Application permission and Graph API ID
-$ApplicationPermission = 'Group.Read.All'
-$GraphApiId = '00000003-0000-0000-c000-000000000000'
-
-# Get a user and a group
-$User = Get-EntraUser -SearchString 'Adele'
-$Group = Get-EntraGroup -Search 'Sales and Marketing'
+$appName = 'Entra PowerShell Helpdesk App'
+$redirectUri = 'http://localhost'
 
 # Create a new application
-$AppParams = @{
-    DisplayName            = $AppName
-    PublicClient           = @{ RedirectUris = $RedirectUri }
+$appParams = @{
+    DisplayName            = $appName
+    PublicClient           = @{ RedirectUris = $redirectUri }
     IsFallbackPublicClient = $false
 }
-$App = New-EntraApplication @AppParams
+$app = New-EntraApplication @appParams
 
 # Create a service principal for the application
-$ServicePrincipalParams = @{
-    AppId = $App.AppId
+$servicePrincipalParams = @{
+    AppId = $app.AppId
 }
-$ServicePrincipal = New-EntraServicePrincipal @ServicePrincipalParams
-
-# Assign users and groups to the application
-$UserAppRoleAssignmentParams = @{
-    ObjectId    = $User.ObjectId
-    PrincipalId = $User.ObjectId
-    ResourceId  = $ServicePrincipal.ObjectId
-    Id          = [Guid]::Empty
-}
-New-EntraUserAppRoleAssignment @UserAppRoleAssignmentParams
-
-$GroupAppRoleAssignmentParams = @{
-    ObjectId    = $Group.ObjectId
-    PrincipalId = $Group.ObjectId
-    ResourceId  = $ServicePrincipal.ObjectId
-    Id          = [Guid]::Empty
-}
-New-EntraGroupAppRoleAssignment @GroupAppRoleAssignmentParams
+$servicePrincipal = New-EntraServicePrincipal @servicePrincipalParams
 ```
 
-### [Microsoft Entra Admin Center](#tab/admincenter)
+### Enabling Assignment required feature
+
+```powershell
+# Set service principal parameters
+$servicePrincipalUpdateParams = @{
+    ObjectId                  = $servicePrincipal.ObjectId
+    AppRoleAssignmentRequired = $true
+}
+Set-EntraServicePrincipal @servicePrincipalUpdateParams
+```
+
+### Assigning users and groups
+
+```powershell
+# Get a user and a group
+$user = Get-EntraUser -UserId 'AdeleV@contoso.com'
+$group = Get-EntraGroup -Search 'Sales and Marketing'
+
+# Assign users and groups to the application
+$userAppRoleAssignmentParams = @{
+    ObjectId    = $user.ObjectId
+    PrincipalId = $user.ObjectId
+    ResourceId  = $servicePrincipal.ObjectId
+    Id          = [Guid]::Empty
+}
+New-EntraUserAppRoleAssignment @userAppRoleAssignmentParams
+
+$groupAppRoleAssignmentParams = @{
+    ObjectId    = $group.ObjectId
+    PrincipalId = $group.ObjectId
+    ResourceId  = $servicePrincipal.ObjectId
+    Id          = [Guid]::Empty
+}
+New-EntraGroupAppRoleAssignment @groupAppRoleAssignmentParams
+```
+
+### Define required resources and permissions
+
+#### [Delegated permissions](#tab/delegated)
+
+```powershell
+# Get Graph service principal
+$graphApiId = '00000003-0000-0000-c000-000000000000'
+$graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiId'"
+$delegatedPermission = 'User.Read.All'
+$app = Get-EntraServicePrincipal -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
+
+# Create resource access object
+$resourceAccess = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
+$resourceAccess.Id = ((Get-EntraServicePrincipal -ObjectId $graphServicePrincipal.ObjectId).Oauth2PermissionScopes | Where-Object { $_.Value -eq $delegatedPermission }).Id
+$resourceAccess.Type = 'Scope'
+
+# Create required resource access object
+$requiredResourceAccess = New-Object Microsoft.Open.MSGraph.Model.RequiredResourceAccess
+$requiredResourceAccess.ResourceAppId = $graphApiId
+$requiredResourceAccess.ResourceAccess = $resourceAccess
+
+# Set application required resource access
+$setAppParams = @{
+    ObjectId               = $app.ObjectId
+    RequiredResourceAccess = $requiredResourceAccess
+}
+Set-EntraApplication @setAppParams
+```
+
+---
+
+#### [Application permissions](#tab/application)
+
+```powershell
+# Get Graph service principal
+$applicationPermission = 'Group.Read.All'
+$graphApiId = '00000003-0000-0000-c000-000000000000'
+$graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiId'"
+$app = Get-EntraServicePrincipal -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
+
+# Create resource access object
+$resourceAccess = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
+$resourceAccess.Id = ((Get-EntraServicePrincipal -ObjectId $graphServicePrincipal.ObjectId).AppRoles | Where-Object { $_.Value -eq $applicationPermission}).Id
+$resourceAccess.Type = 'Scope'
+
+# Create required resource access object
+$requiredResourceAccess = New-Object Microsoft.Open.MSGraph.Model.RequiredResourceAccess
+$requiredResourceAccess.ResourceAppId = $graphApiId
+$requiredResourceAccess.ResourceAccess = $resourceAccess
+
+# Set application required resource access
+$setAppParams = @{
+    ObjectId               = $app.ObjectId
+    RequiredResourceAccess = $requiredResourceAccess
+}
+Set-EntraApplication @setAppParams
+```
+
+---
+
+### Assign API permissions to the custom application
+
+You need to set up Microsoft Graph permissions for the new application to connect to Microsoft Entra ID and manage Microsoft Entra resources.
+
+```powershell
+# Define Application permission and Graph API ID
+$applicationPermission = 'Group.Read.All'
+$graphApiId = '00000003-0000-0000-c000-000000000000'
+```
+
+#### [Delegated permissions](#tab/delegated)
+
+```powershell
+$delegatedPermission = 'User.Read.All'
+$graphApiId = '00000003-0000-0000-c000-000000000000'
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
+$graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiId'"
+
+# Grant OAuth2 permission
+$permissionGrantParams = @{
+    ClientId    = $servicePrincipal.Id
+    ConsentType = 'AllPrincipals'
+    ResourceId  = $graphServicePrincipal.Id
+    Scope       = $delegatedPermission
+}
+New-EntraOauth2PermissionGrant @permissionGrantParams
+```
+
+See the [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with delegated permissions.
+
+---
+
+#### [Application permissions](#tab/application)
+
+```powershell
+$applicationPermission = 'Group.Read.All'
+$graphApiId = '00000003-0000-0000-c000-000000000000'
+$graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiId'"
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
+
+# Get application role ID
+$appRoleId = ($graphServicePrincipal.AppRoles | Where-Object { $_.Value -eq $applicationPermission }).Id
+
+$appRoleAssignmentParams = @{
+    ObjectId    = $ServicePrincipal.Id
+    ResourceId  = $graphServicePrincipal.Id
+    Id          = $appRoleId
+    PrincipalId = $ServicePrincipal.Id
+}
+New-EntraServiceAppRoleAssignment @appRoleAssignmentParams
+```
+
+See the [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with delegated permissions.
+
+---
+
+:::zone-end
+
+:::zone pivot="ui"
+
+## Prerequisites
+
+To create a custom application and grant it permissions, you need:
+
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][entraid-account].
+- One of the following roles: Cloud Application Administrator, or Application Administrator.
+
+## Create an application in the Microsoft Entra admin center
+
+To create custom applications for connecting to Microsoft Entra ID using Microsoft Entra PowerShell, follow the steps in the following section. Use the custom application to isolate and limit the permissions granted for a Microsoft Entra resource.
 
 1. Sign in to the [Microsoft Entra admin center][entra-admin-portal] as at least a [Cloud Application Administrator][cloud-app-admin].
 1. Browse to **Identity** > **Applications** > **App registrations** and then select **New Registration**.
@@ -85,25 +227,27 @@ New-EntraGroupAppRoleAssignment @GroupAppRoleAssignmentParams
         - **Public client/native** from the drop-down
         - **URI value**: `http://localhost`
 1. Select **Register**.
+
+>[!NOTE]
+> In the app's **Overview** section, copy the Application (client ID) and Directory (tenant) ID. You use the values when connecting to Microsoft Entra ID.
+
+### Enabling Assignment required feature
+
 To manage the resources that your application gets access to in your tenant, locate the application's service principal in the **Enterprise applications** pane.
 
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications** and select the application you created.
 1. Under **Manage**, select **Properties** and set **Assignment required?** to **Yes**.
 1. Select **Save**.
+
+### Assigning users and groups
+
 1. Under **Manage**, select **Users and groups**.
 1. Select **Add user/group** and add the users and groups permitted to use this application.
 1. Once you add all the users and groups, select **Assign**.
 
->[!NOTE]
-> In the app's **Overview** section, copy the Application (client ID) and Directory (tenant) ID. You use the values when connecting to Microsoft Entra ID.
-
----
-
 ## Assign API permissions to the custom application
 
 You need to set up Microsoft Graph permissions for the new application to connect to Microsoft Entra ID and manage Microsoft Entra resources.
-
-### [Microsoft Entra Admin Center](#tab/ui)
 
 1. Browse to **Identity** > **Applications** > **App Registrations** > **All applications** and select the application you created.
 1. Under **API permissions**, select **Add a permission** > select Microsoft APIs > Microsoft Graph.
@@ -113,94 +257,7 @@ You need to set up Microsoft Graph permissions for the new application to connec
 1. Search for the required permission for example, `User.Read.All`.
 1. Select **Grant admin consent for TenantName**. Select **Yes**. Ensure the status shows a green checkmark.
 
-### [Delegated permissions](#tab/delegated)
-
-```powershell
-# Get Graph service principal
-$GraphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$GraphApiId'"
-
-# Create resource access object
-$ResourceAccess = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
-$ResourceAccess.Id = ((Get-EntraServicePrincipal -ObjectId $GraphServicePrincipal.ObjectId).Oauth2PermissionScopes | Where-Object { $_.Value -eq $DelegatedPermission }).Id
-$ResourceAccess.Type = 'Scope'
-
-# Create required resource access object
-$RequiredResourceAccess = New-Object Microsoft.Open.MSGraph.Model.RequiredResourceAccess
-$RequiredResourceAccess.ResourceAppId = $GraphApiId
-$RequiredResourceAccess.ResourceAccess = $ResourceAccess
-
-# Set application required resource access
-$SetAppParams = @{
-    ObjectId               = $App.ObjectId
-    RequiredResourceAccess = $RequiredResourceAccess
-}
-Set-EntraApplication @SetAppParams
-
-# Set service principal parameters
-$ServicePrincipalUpdateParams = @{
-    ObjectId                  = $ServicePrincipal.ObjectId
-    AppRoleAssignmentRequired = $true
-}
-Set-EntraServicePrincipal @ServicePrincipalUpdateParams
-
-# Grant OAuth2 permission
-$PermissionGrantParams = @{
-    ClientId    = $ServicePrincipal.Id
-    ConsentType = 'AllPrincipals'
-    ResourceId  = $GraphServicePrincipal.Id
-    Scope       = $DelegatedPermission
-}
-New-EntraOauth2PermissionGrant @PermissionGrantParams
-```
-
-See the [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with delegated permissions.
-
-### [Application permissions](#tab/application)
-
-```powershell
-# Get Graph service principal
-$GraphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$GraphApiId'"
-
-# Create resource access object
-$ResourceAccess = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
-$ResourceAccess.Id = ((Get-EntraServicePrincipal -ObjectId $GraphServicePrincipal.ObjectId).AppRoles | Where-Object { $_.Value -eq $ApplicationPermission}).Id
-$ResourceAccess.Type = 'Scope'
-
-# Create required resource access object
-$RequiredResourceAccess = New-Object Microsoft.Open.MSGraph.Model.RequiredResourceAccess
-$RequiredResourceAccess.ResourceAppId = $GraphApiId
-$RequiredResourceAccess.ResourceAccess = $ResourceAccess
-
-# Set application required resource access
-$SetAppParams = @{
-    ObjectId               = $App.ObjectId
-    RequiredResourceAccess = $RequiredResourceAccess
-}
-Set-EntraApplication @SetAppParams
-
-# Set service principal parameters
-$ServicePrincipalUpdateParams = @{
-    ObjectId                  = $ServicePrincipal.ObjectId
-    AppRoleAssignmentRequired = $true
-}
-Set-EntraServicePrincipal @ServicePrincipalUpdateParams
-
-# Get application role ID
-$AppRoleId = ($GraphServicePrincipal.AppRoles | Where-Object { $_.Value -eq $ApplicationPermission }).Id
-
-$AppRoleAssignmentParams = @{
-    ObjectId    = $ServicePrincipal.Id
-    ResourceId  = $GraphServicePrincipal.Id
-    Id          = $AppRoleId
-    PrincipalId = $ServicePrincipal.Id
-}
-
-New-EntraServiceAppRoleAssignment @AppRoleAssignmentParams
-```
-
-See the [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with application permissions.
-
----
+:::zone-end
 
 ## Sign-in using the new app
 
