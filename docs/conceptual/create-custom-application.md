@@ -174,7 +174,7 @@ $permissionGrantParams = @{
 New-EntraOauth2PermissionGrant @permissionGrantParams
 ```
 
-See the [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with delegated permissions.
+See the `create-custom-app-with-delegated-permissions` [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with delegated permissions.
 
 #### [Application permissions](#tab/application)
 
@@ -196,7 +196,7 @@ $appRoleAssignmentParams = @{
 New-EntraServiceAppRoleAssignment @appRoleAssignmentParams
 ```
 
-See the [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with delegated permissions.
+See the `create-custom-app-with-application-permissions` [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with application permissions.
 
 ---
 
