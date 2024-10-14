@@ -148,13 +148,7 @@ Set-EntraApplication @setAppParams
 
 ### Assign API permissions to the custom application
 
-You need to set up Microsoft Graph permissions for the new application to connect to Microsoft Entra ID and manage Microsoft Entra resources.
-
-```powershell
-# Define Application permission and Graph API ID
-$applicationPermission = 'Group.Read.All'
-$graphApiId = '00000003-0000-0000-c000-000000000000'
-```
+You can assign delegated or application permissions to the application.
 
 #### [Delegated permissions](#tab/delegated)
 
