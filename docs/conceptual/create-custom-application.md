@@ -52,7 +52,7 @@ $servicePrincipalParams = @{
 $servicePrincipal = New-EntraServicePrincipal @servicePrincipalParams
 ```
 
-### Enabling Assignment required feature
+### Enable Assignment required feature
 
 ```powershell
 # Set service principal parameters
@@ -63,7 +63,7 @@ $servicePrincipalUpdateParams = @{
 Set-EntraServicePrincipal @servicePrincipalUpdateParams
 ```
 
-### Assigning users and groups
+### Assign users and groups
 
 ```powershell
 # Get a user and a group
