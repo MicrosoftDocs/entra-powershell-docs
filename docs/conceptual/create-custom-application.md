@@ -180,10 +180,10 @@ $servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Entra Pow
 $appRoleId = ($graphServicePrincipal.AppRoles | Where-Object { $_.Value -eq $applicationPermission }).Id
 
 $appRoleAssignmentParams = @{
-    ObjectId    = $ServicePrincipal.Id
+    ObjectId    = $servicePrincipal.Id
     ResourceId  = $graphServicePrincipal.Id
     Id          = $appRoleId
-    PrincipalId = $ServicePrincipal.Id
+    PrincipalId = $servicePrincipal.Id
 }
 New-EntraServiceAppRoleAssignment @appRoleAssignmentParams
 ```
