@@ -148,7 +148,7 @@ Set-EntraApplication @setAppParams
 
 ### Assign API permissions to the custom application
 
-You can assign delegated or application permissions to the application.
+You can assign either delegated permissions or application permissions to the application.
 
 #### [Delegated permissions](#tab/delegated)
 
@@ -167,8 +167,6 @@ $permissionGrantParams = @{
 }
 New-EntraOauth2PermissionGrant @permissionGrantParams
 ```
-
-See the `create-custom-app-with-delegated-permissions` [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with delegated permissions.
 
 #### [Application permissions](#tab/application)
 
@@ -190,9 +188,14 @@ $appRoleAssignmentParams = @{
 New-EntraServiceAppRoleAssignment @appRoleAssignmentParams
 ```
 
-See the `create-custom-app-with-application-permissions` [sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) for creating a custom application with application permissions.
-
 ---
+
+#### Resources
+
+You can download the complete script and run it:
+
+- See the [`create-custom-app-with-delegated-permissions` sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) to create a custom application with delegated permissions.
+- See the [`create-custom-app-with-application-permissions` sample script](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) to create a custom application with application permissions.
 
 :::zone-end
 
@@ -244,7 +247,7 @@ You need to set up Microsoft Graph permissions for the new application to connec
 1. Choose the type of permissions you require, either delegated or application permissions.
     - If you need to sign in to the app to manage your resources in Microsoft Entra ID, select **Delegated permissions**.
     - If you want the app to access Microsoft Entra resources on its own without user interaction, select **Application permissions**
-1. Search for the required permission for example, `User.Read.All`.
+1. Search for the required permission, for example, `User.Read.All`.
 1. Select **Grant admin consent for TenantName**. Select **Yes**. Ensure the status shows a green checkmark.
 
 :::zone-end
