@@ -194,8 +194,8 @@ New-EntraServiceAppRoleAssignment @appRoleAssignmentParams
 
 Download and run the complete script:
 
-- Use the [create-custom-app-with-delegated-permissions](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) sample script to create a custom app with delegated permissions.
-- Use the [create-custom-app-with-application-permissions](https://github.com/microsoftgraph/entra-powershell/tree/main/samples) sample script to create a custom app with application permissions.
+- Use the [create-custom-app-with-delegated-permissions](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/create-custom-app-with-delegated-permissions.ps1) sample script to create a custom app with delegated permissions.
+- Use the [create-custom-app-with-application-permissions](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/create-custom-app-with-application-permissions.ps1) sample script to create a custom app with application permissions.
 
 :::zone-end
 
