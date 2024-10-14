@@ -106,7 +106,7 @@ You need to set up Microsoft Graph permissions for the new application to connec
 ### [Microsoft Entra Admin Center](#tab/ui)
 
 1. Browse to **Identity** > **Applications** > **App Registrations** > **All applications** and select the application you created.
-1. Under **API permissions**, select **Add a permission** > Select Microsoft APIs > Microsoft Graph.
+1. Under **API permissions**, select **Add a permission** > select Microsoft APIs > Microsoft Graph.
 1. Choose the type of permissions you require, either delegated or application permissions.
     - If you need to sign in to the app to manage your resources in Microsoft Entra ID, select **Delegated permissions**.
     - If you want the app to access Microsoft Entra resources on its own without user interaction, select **Application permissions**
