@@ -126,11 +126,7 @@ eeeeeeee-4444-5555-6666-ffffffffffff
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 $manager = Get-EntraUser -Filter "UserPrincipalName eq 'AdeleV@contoso.com'"
-$params = @{
-        UserId = 'SawyerM@contoso.com'
-        RefObjectId = $manager.Id
-}
-Set-EntraUserManager @params
+Set-EntraUserManager -UserId 'SawyerM@contoso.com' -RefObjectId $manager.Id
 ```
 
 - `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
@@ -158,11 +154,7 @@ Kez Michael   eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
-$photoParams = @{
-    UserId = 'SawyerM@contoso.com'
-    FilePath = 'D:\UserThumbnailPhoto.jpg'
-}
-Set-EntraUserThumbnailPhoto @photoParams
+Set-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com' -FilePath 'D:\UserThumbnailPhoto.jpg'
 ```
 
 This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
@@ -184,11 +176,7 @@ The following example shows how to grant a user an administrative role.
 Connect-Entra -Scopes 'User.ReadWrite.All', 'RoleManagement.ReadWrite.Directory'
 $directoryRole = Get-EntraDirectoryRole -Filter "DisplayName eq 'Helpdesk Administrator'"
 $user = Get-EntraUser -Filter "UserPrincipalName eq 'SawyerM@contoso.com'"
-$roleMemberParams = @{
-        DirectoryRoleId = $directoryRole.Id
-        RefObjectId = $user.Id
-}
-Add-EntraDirectoryRoleMember @roleMemberParams
+Add-EntraDirectoryRoleMember -DirectoryRoleId $directoryRole.Id -RefObjectId $user.Id
 ```
 
 This command adds a user to a Microsoft Entra role. To retrieve roles, use the command [Get-EntraDirectoryRole](/powershell/module/microsoft.graph.entra/get-entradirectoryrole).
