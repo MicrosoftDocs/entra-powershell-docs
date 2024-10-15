@@ -229,7 +229,7 @@ The following example shows how to assign a `FLOW_FREE` license to a user with O
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-$disabledUsersWithLicenses = Get-EntraBetaUser -Filter "accountEnabled eq false" -All | Where-Object {
+$disabledUsersWithLicenses = Get-EntraUser -Filter "accountEnabled eq false" -All | Where-Object {
     $_.AssignedLicenses -ne $null -and $_.AssignedLicenses.Count -gt 0
 }
 $disabledUsersWithLicenses | Select-Object Id, DisplayName, UserPrincipalName, AccountEnabled | Format-Table -AutoSize
