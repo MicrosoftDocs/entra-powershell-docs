@@ -124,7 +124,7 @@ To assign a license to a user, use the `Set-EntraUserLicense` cmdlet. The `Set-E
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
 # Get user details
-$User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
+$user = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Define the license plan to assign to the user
 $license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
@@ -185,7 +185,7 @@ $skuId1 = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'AAD_PRE
 $skuId2 = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'EMS' }).SkuId
 
 # Get the user to assign the licenses to
-$User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
+$user = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Create license assignment objects
 $license1 = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
