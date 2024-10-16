@@ -187,10 +187,10 @@ Ensure to replace YourUsername with your actual username or the desired path whe
 
 <!-- link references -->
 
-- [cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator  
-- [intune-admin]: /entra/identity/role-based-access-control/permissions-reference#intune-administrator  
-- [windows-365-admin]: /entra/identity/role-based-access-control/permissions-reference#windows-365-administrator
-- [faq]: /entra/identity/devices/faq
-- [installation]: installation.md
-- [free-entra-id]: https://azure.microsoft.com/free/entra-id
-- [stale-devices]: manage-stale-devices.md
+[cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator  
+[intune-admin]: /entra/identity/role-based-access-control/permissions-reference#intune-administrator  
+[windows-365-admin]: /entra/identity/role-based-access-control/permissions-reference#windows-365-administrator
+[faq]: /entra/identity/devices/faq
+[installation]: installation.md
+[free-entra-id]: https://azure.microsoft.com/free/entra-id
+[stale-devices]: manage-stale-devices.md
