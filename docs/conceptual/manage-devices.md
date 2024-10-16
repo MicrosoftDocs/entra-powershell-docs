@@ -61,7 +61,7 @@ Connect-Entra -Scopes 'Device.Read.All'
 Get-EntraDevice -ObjectId 'bbbbbbbb-1111-2222-3333-cccccccccccc'  
 ```  
 
-```output
+```Output
 
 DeletedDateTime Id                                   AccountEnabled ApproximateLastSignInDateTime ComplianceExpirationDateTime DeviceCategory DeviceId                             DeviceMetadata DeviceOwnership
 --------------- --                                   -------------- ----------------------------- ---------------------------- -------------- --------                             -------------- --------------
