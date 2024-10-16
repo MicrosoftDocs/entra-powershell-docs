@@ -126,7 +126,7 @@ $user = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Define the license plan to assign to the user
 $license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
-$License.SkuId = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'AAD_PREMIUM_P2' }).SkuId
+$license.SkuId = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'AAD_PREMIUM_P2' }).SkuId
 
 $licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licenses.AddLicenses = $license
