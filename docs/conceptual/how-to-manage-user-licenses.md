@@ -38,11 +38,11 @@ To complete this guide, ensure you have the necessary prerequisites:
     $users | Select-Object Id, DisplayName, UserPrincipalName, UsageLocation
     ```
 
-To assign a location to a user, run:
+To assign a location to a user, run this command:
 
-    ```powershell
+   ```powershell
     Set-EntraUser -UserId 'GjeEdla@Contoso.com' -UsageLocation 'US'
-    ```
+   ```
 
 ## Review available license plans
 
