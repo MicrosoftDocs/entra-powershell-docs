@@ -222,7 +222,7 @@ foreach ($license in $sourceUserLicenses) {
     $assignedLicense = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
     $assignedLicense.SkuId = $license.SkuId
     $licensesToAssign.AddLicenses= $assignedLicense
-    Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licensesToAssign
+    Set-EntraUserLicense -ObjectId $targetUser.ObjectId -AssignedLicenses $licensesToAssign
 }
 ```
 
@@ -282,14 +282,14 @@ Connect-Entra -Scopes 'User.ReadWrite.All'
 $user = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Get the license assigned to the user
-$skuId = (Get-EntraUserLicenseDetail -UserId AljosaH@Contoso.com).SkuId
+$skuId = (Get-EntraUserLicenseDetail -UserId $user.Id).SkuId
 
 # Define the license object
 $licensesToRemove = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licensesToRemove.RemoveLicenses = $skuId
 
 # Remove the assigned license
-Set-EntraUserLicense -ObjectId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
+Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licensesToRemove
 ```
 
 
