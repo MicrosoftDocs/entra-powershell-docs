@@ -96,9 +96,9 @@ Connect-Entra -Scopes 'Device.Read.All'
 Get-EntraDevice -All | Group-Object -Property TrustType | Select-Object Name, Count  
 ```
 
-- **Get-EntraDevice -All**: Retrieves all devices in your directory.  
-- **Group-Object -Property TrustType**: Groups the devices by the `TrustType` property, which indicates the type of join, for example, Microsoft Entra joined and Hybrid Microsoft Entra joined.  
-- **Select-Object Name, Count**: Selects the name of each group (the type of join) and the count of devices in each group.
+- `Get-EntraDevice -All`: Retrieves all devices in your directory.  
+- `Group-Object -Property TrustType`: Groups the devices by the `TrustType` property, which indicates the type of join, for example, Microsoft Entra joined and Hybrid Microsoft Entra joined.  
+- `Select-Object Name, Count`: Selects the name of each group (the type of join) and the count of devices in each group.
 - `Join type` refers to how a device is connected, such as Microsoft Entra joined, Hybrid Microsoft Entra joined, and other types.
 
 This cmdlet example produces a list of all device types and how many devices belong to each type.
