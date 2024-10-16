@@ -6,7 +6,7 @@ author: msewaweru
 manager: CelesteDG
 ms.service: entra-powershell
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/16/2024
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
@@ -32,11 +32,17 @@ To complete this guide, ensure you have the necessary prerequisites:
 
 1. Users to assign licenses are created in your tenant and assigned a location. To find user accounts that don't have a `UsageLocation`, run this command:
 
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All'
-$users = Get-EntraUser | Where-Object { $_.UsageLocation -eq $null -and $_.UserType -eq 'Member' }
-$users | Select-Object Id, DisplayName, UserPrincipalName, UsageLocation
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.ReadWrite.All'
+    $users = Get-EntraUser | Where-Object { $_.UsageLocation -eq $null -and $_.UserType -eq 'Member' }
+    $users | Select-Object Id, DisplayName, UserPrincipalName, UsageLocation
+    ```
+
+To assign a location to a user, run:
+
+    ```powershell
+    Set-EntraUser -UserId 'GjeEdla@Contoso.com' -UsageLocation 'US'
+    ```
 
 ## Review available license plans
 
