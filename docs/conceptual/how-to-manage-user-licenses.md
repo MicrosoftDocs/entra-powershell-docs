@@ -71,10 +71,7 @@ To get all the users assigned to a specific license, use the `Get-EntraUser` cmd
 ```powershell
 Connect-Entra -Scopes 'Organization.Read.All'
 $skuId = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'EMSPREMIUM' }).SkuId
-
-$usersWithLicense = Get-EntraUser -All | Where-Object {
-    $_.AssignedLicenses -and ($_.AssignedLicenses.SkuId -contains $skuId)
-}
+$usersWithLicense = Get-EntraUser -All | Where-Object {$_.AssignedLicenses -and ($_.AssignedLicenses.SkuId -contains $skuId)}
 $usersWithLicense | Select-Object Id, DisplayName, UserPrincipalName, AccountEnabled, UserType | Format-Table -AutoSize
 ```
 
