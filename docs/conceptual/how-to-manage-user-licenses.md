@@ -36,6 +36,7 @@ Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All'
 Connect-Entra -Scopes 'User.ReadWrite.All'
 $users = Get-EntraUser | Where-Object { $_.UsageLocation -eq $null -and $_.UserType -eq 'Member' }
 $users | Select-Object Id, DisplayName, UserPrincipalName, UsageLocation
+```
 
 ## Review available license plans
 
