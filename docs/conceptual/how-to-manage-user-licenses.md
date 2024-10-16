@@ -15,16 +15,16 @@ ms.reviewer: stevemutungi
 
 # Manage user licenses with Microsoft Entra PowerShell
 
-Most Microsoft Entra services require a license to access. Only users with active licenses can access and use the licensed Microsoft Entra services. Licenses are applied per tenant and can't be transferred to other tenants. You can use the Microsoft Entra PowerShell to manage licenses for your organization.
+Most Microsoft Entra services require a license for access, and only users with active licenses can use these services. Licenses are assigned per tenant and can't be transferred to other tenants. You can manage licenses for your organization using Microsoft Entra PowerShell.
 
-In this how-to guide,  we cover different scenarios around viewing, assigning, and removing licenses for users in your tenant.
+This guide covers how to view, assign, and remove user licenses in your tenant.
 
 ## Prerequisites
 
-To successfully complete this guide, make sure you have the required prerequisites:
+To complete this guide, ensure you have the necessary prerequisites:
 
-1. Microsoft Entra PowerShell module is installed. Follow the [Install the Microsoft Entra PowerShell module](installation.md) guide to install the module.  
-1. Microsoft Entra PowerShell using a `License Administrator` with the appropriate permissions. For this how-to guide, the `User.ReadWrite.All` and `Organization.Read.All` delegated permissions are required. To set the permissions in Microsoft Entra PowerShell, run;
+1. The Microsoft Entra PowerShell module is installed. Follow the [installation guide](installation.md) if needed.
+1. Run Microsoft Entra PowerShell as a user with the [License Administrator](/entra/identity/role-based-access-control/permissions-reference#license-administrator) role. This guide requires `User.ReadWrite.All` and `Organization.Read.All` permissions. To set them, run:
 
     ```powershell
     Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All'
@@ -32,11 +32,10 @@ To successfully complete this guide, make sure you have the required prerequisit
 
 1. Users to assign licenses are created in your tenant and assigned a location. To find user accounts that don't have a `UsageLocation`, run this command:
 
-   ```powershell
-   Connect-Entra -Scopes 'User.ReadWrite.All'
-   Get-EntraUser | where { $_.UsageLocation -eq $null -and $_.UserType -eq 'Member' }`
-   | select Id, DisplayName, UserPrincipalName, UsageLocation
-   ```
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+$users = Get-EntraUser | Where-Object { $_.UsageLocation -eq $null -and $_.UserType -eq 'Member' }
+$users | Select-Object Id, DisplayName, UserPrincipalName, UsageLocation
 
 ## Review available license plans
 
@@ -46,7 +45,7 @@ To view summary information about your current licensing plans and the available
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All'
-Get-EntraSubscribedSku | Select -Property Sku*, ConsumedUnits -ExpandProperty PrepaidUnits
+Get-EntraSubscribedSku | Select-Object -Property Sku*, ConsumedUnits -ExpandProperty PrepaidUnits
 ```
 
 ```Output
@@ -102,7 +101,7 @@ IR173R7-BkGrv95BU2ETAk8SXrDMx6BFpqqM94yUaWg b05e124f-c7cc-45a0-a6aa-8cf78c946968
 To view all the active service plans in the license assigned to the user, run the following command:
 
 ```powershell
-$userLicenses.ServicePlans | Where-Object { $_.ProvisioningStatus -eq 'Success' } | Select ServicePlanName, ProvisioningStatus
+$userLicenses.ServicePlans | Where-Object { $_.ProvisioningStatus -eq 'Success' } | Select-Object ServicePlanName, ProvisioningStatus
 ```
 
 ```Output
@@ -124,18 +123,18 @@ To assign a license to a user, use the `Set-EntraUserLicense` cmdlet. The `Set-E
 # Connect to Entra
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
-# Define the user's object ID
+# Get user details
 $User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Define the license plan to assign to the user
 $license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
 $License.SkuId = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'AAD_PREMIUM_P2' }).SkuId
 
-$Licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
-$Licenses.AddLicenses = $license
+$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
+$licenses.AddLicenses = $license
 
 # Assign the license to the user
-Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $Licenses
+Set-EntraUserLicense -ObjectId $user.Id-AssignedLicenses $licenses
 ```
 
 To confirm that the license is assigned to the user, run:
@@ -151,8 +150,8 @@ The following PowerShell script demonstrates how to assign a license to a user i
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
-# Define the user's object ID
-$User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
+# Get user details
+$user = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 
 # Retrieve the SkuId for the desired license plan
@@ -185,7 +184,7 @@ Connect-Entra -Scopes 'Organization.ReadWrite.All'
 $skuId1 = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'AAD_PREMIUM_P2' }).SkuId
 $skuId2 = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'EMS' }).SkuId
 
-# Define the user to whom the licenses will be assigned
+# Get the user to assign the licenses to
 $User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Create license assignment objects
@@ -225,7 +224,7 @@ foreach ($license in $sourceUserLicenses) {
     $assignedLicense = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
     $assignedLicense.SkuId = $license.SkuId
     $licensesToAssign.AddLicenses= $assignedLicense
-    Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $licensesToAssign
+    Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licensesToAssign
 }
 ```
 
@@ -260,12 +259,12 @@ $licenses.AddLicenses = $license1, $license2
 # Assign the licenses to each user
 foreach ($user in $users$users) {
  Set-EntraUserLicense -ObjectId $user -AssignedLicenses $licenses
- }
+}
 ```
 
 ## List inactive users with active licenses
 
-Regularly auditing and managing licenses for inactive users in a Microsoft Entra tenant is a best practice that helps in cost management, security, compliance, resource optimization, and operational efficiency. To list inactive users with active licenses, run the following command:
+Regularly auditing and managing licenses for inactive users in a Microsoft Entra tenant helps with cost management, security, compliance, and efficiency. To list inactive users with active licenses, run this command:
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
@@ -281,17 +280,17 @@ To remove a license assigned to a user, follow these steps:
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
-# Define the user's object ID
-$User = Get-EntraUser -UserId 'AljosaH@Contoso.com'
+# Get user details
+$user = Get-EntraUser -UserId 'AljosaH@Contoso.com'
 
 # Get the license assigned to the user
-$SkuId = (Get-EntraUserLicenseDetail -UserId AljosaH@Contoso.com).SkuId
+$skuId = (Get-EntraUserLicenseDetail -UserId AljosaH@Contoso.com).SkuId
 
-#Define the license object
+# Define the license object
 $licensesToRemove = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
-$licensesToRemove.RemoveLicenses = $SkuId
+$licensesToRemove.RemoveLicenses = $skuId
 
-#Remove the assigned license
+# Remove the assigned license
 Set-EntraUserLicense -ObjectId 'AljosaH@Contoso.com' -AssignedLicenses $licensesToRemove
 ```
 
