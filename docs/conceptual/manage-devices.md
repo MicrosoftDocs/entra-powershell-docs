@@ -174,7 +174,9 @@ The following filters can be applied for the export task:
 To retrieve all devices and save the data to a CSV file, use the following cmdlet:
 
 ```PowerShell  
-Get-EntraDevice -All | Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime | Export-Csv "C:\Users\YourUsername\Downloads\deviceList.csv" -NoTypeInformation  
+Get-EntraDevice -All `
+| Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime `
+| Export-Csv "C:\Users\YourUsername\Downloads\deviceList.csv" -NoTypeInformation 
 ```
 
 Ensure to replace YourUsername with your actual username or the desired path where you want to save the file. This example saves the CSV file directly to your Downloads folder.
