@@ -40,7 +40,7 @@ To view all devices, use the following cmdlet:
 
 ```powershell  
 Connect-Entra -Scopes 'Device.Read.All'  
-Get-EntraDevice -All | select-object AccountEnabled, DeviceId, OperatingSystem, ApproximateLastSignInDateTime
+Get-EntraDevice -All | Select-Object AccountEnabled, DeviceId, OperatingSystem, ApproximateLastSignInDateTime, DisplayName
 ```  
 
 ```output
