@@ -77,7 +77,7 @@ Connect-Entra -Scopes 'Device.Read.All'
 Get-EntraDevice -Filter "startsWith(DisplayName,'Woodgrove')"  
 ```
 
-```output
+```Output
 DeletedDateTime Id                                   AccountEnabled ApproximateLastSignInDateTime ComplianceExpirationDateTime DeviceCategory DeviceId                             DeviceMetadata DeviceOwnershi
                                                                                                                                                                                                   p
 --------------- --                                   -------------- ----------------------------- ---------------------------- -------------- --------                             -------------- --------------
