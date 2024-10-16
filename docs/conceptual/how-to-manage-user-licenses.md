@@ -64,7 +64,7 @@ ConsumedUnits        : 3
 - `Enabled`: Number of licenses that you purchased for a specific licensing plan.
 - `ConsumedUnits`: Number of licenses assigned to users from a specific licensing plan.
 
-### Get users assigned to a license
+### Retrieve users assigned to a specific license
 
 To get all the users assigned to a specific license, use the `Get-EntraUser` cmdlet with the `AssignedLicenses` parameter. The `AssignedLicenses` parameter filters users based on the licenses assigned to them.
 
