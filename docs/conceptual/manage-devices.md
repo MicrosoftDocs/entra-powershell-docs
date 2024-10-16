@@ -43,7 +43,7 @@ Connect-Entra -Scopes 'Device.Read.All'
 Get-EntraDevice -All | Select-Object AccountEnabled, DeviceId, OperatingSystem, ApproximateLastSignInDateTime, DisplayName
 ```  
 
-```output
+```Output
 AccountEnabled DeviceId                             OperatingSystem ApproximateLastSignInDateTime
 -------------- --------                             --------------- -----------------------------
          False aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Windows         10/2/2024 10:26:38 AM
