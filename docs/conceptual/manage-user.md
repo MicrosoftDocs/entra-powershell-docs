@@ -197,66 +197,6 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 - `-ObjectId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
 - `-RefObjectId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
 
-## Manage user licenses
-
-1. Get details of a user's licenses.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All'
-Get-EntraUserLicenseDetail -ObjectId 'SawyerM@contoso.com'
-```
-
-```Output
-Id                                          SkuId                                SkuPartNumber
---                                          -----                                -------------
-ouL7hgqFM0GkdqXrzahI4u7E6wa1G91HgSARMkvFTgY 06ebc4ee-1bb5-47dd-8120-11324bc54e06 SPE_E5
-```
-
-1. Assign a license to a user based on a template user.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All', 'Organization.Read.All'
-$User = Get-EntraUser -ObjectId 'SawyerM@contoso.com'  
-$License = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense 
-$License.SkuId = (Get-EntraSubscribedSku | Where SkuPartNumber -eq 'FLOW_FREE').SkuId
-$Licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses 
-$Licenses.AddLicenses = $License 
-Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $Licenses
-```
-
-The following example shows how to assign a `FLOW_FREE` license to a user with ObjectId `SawyerM@contoso.com`.
-
-1. Remove a license from a user.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All', 'Organization.Read.All'
-$UserPrincipalName = 'SawyerM@contoso.com'
-$User = Get-EntraUser -ObjectId $UserPrincipalName
-$SkuId = (Get-EntraUserLicenseDetail -ObjectId $UserPrincipalName).SkuId
-$Licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
-$Licenses.RemoveLicenses = $SkuId
-Set-EntraUserLicense -ObjectId $User.ObjectId -AssignedLicenses $Licenses
-```
-
-```Output
-Name                           Value
-----                           -----
-preferredLanguage
-givenName
-@odata.context                 https://graph.microsoft.com/v1.0/$metadata#users/$entity
-id                             hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
-mail                           SawyerM@contoso.com
-userPrincipalName              SawyerM@contoso.com
-jobTitle
-displayName                    Sawyer Miller
-officeLocation
-surname
-mobilePhone
-businessPhones                 {}
-```
-
-This example shows how to remove a license from a user.
-
 ## Offboard a user
 
 1. Invalidate active sessions and tokens.
@@ -310,6 +250,7 @@ Remove-EntraUser -ObjectId 'SawyerM@contoso.com'
 
 ## Next steps
 
+- [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]
 - [Manage apps][manage-apps]
 
@@ -319,3 +260,4 @@ Remove-EntraUser -ObjectId 'SawyerM@contoso.com'
 [tutorial-groups]: manage-groups.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [manage-apps]: manage-apps.md
+[manage-licenses]: how-to-manage-user-licenses.md
