@@ -32,3 +32,12 @@ groups:
     title: What's new in docs
   - id: module-version-history
     title: Module version history
+## Zone pivot with App roles and delegated permission options
+- id: entra-powershell-grant-api-permissions
+  title: Grant API permissions
+  prompt: Choose the permission type to grant to your app
+  pivots:
+  - id: grant-delegated-permissions
+    title: Delegated permissions 
+  - id: grant-application-permissions
+    title: Application permissions    
