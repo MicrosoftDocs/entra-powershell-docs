@@ -1,5 +1,5 @@
 ---
-title: Update-EntraBetaSignedInUserPassword.
+title: Update-EntraBetaSignedInUserPassword
 description: This article provides details on the Update-EntraBetaSignedInUserPassword command.
 
 ms.topic: reference
@@ -24,8 +24,8 @@ Updates the password for the signed-in user.
 ## Syntax
 
 ```powershell
-Update-EntraBetaSignedInUserPassword 
- -CurrentPassword <SecureString> 
+Update-EntraBetaSignedInUserPassword
+ -CurrentPassword <SecureString>
  -NewPassword <SecureString>
  [<CommonParameters>]
 ```

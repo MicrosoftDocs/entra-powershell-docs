@@ -27,27 +27,27 @@ Set the thumbnail photo for a user.
 ### File (Default)
 
 ```powershell
-Set-EntraUserThumbnailPhoto 
- [-ObjectId <String>] 
- -FilePath <String> 
+Set-EntraUserThumbnailPhoto
+ [-UserId <String>]
+ -FilePath <String>
  [<CommonParameters>]
 ```
 
 ### Stream
 
 ```powershell
-Set-EntraUserThumbnailPhoto 
+Set-EntraUserThumbnailPhoto
  -FileStream <Stream>
- [-ObjectId <String>] 
+ [-UserId <String>]
  [<CommonParameters>]
 ```
 
 ### ByteArray
 
 ```powershell
-Set-EntraUserThumbnailPhoto 
- [-ObjectId <String>] 
- -ImageByteArray <Byte[]> 
+Set-EntraUserThumbnailPhoto
+ [-UserId <String>]
+ -ImageByteArray <Byte[]>
  [<CommonParameters>]
 ```
 
@@ -64,15 +64,15 @@ Updating any user's photo in the organization requires the User.ReadWrite.All pe
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite','User.ReadWrite.All'
 $params = @{
-    ObjectId = 'SawyerM@contoso.com'
+    UserId = 'SawyerM@contoso.com'
     FilePath = 'D:\UserThumbnailPhoto.jpg'
 }
 Set-EntraUserThumbnailPhoto @params
 ```
 
-This example sets the thumbnail photo of the user specified with the ObjectId parameter to the image specified with the FilePath parameter.
+This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
 
-- `-ObjectId` parameter specifies the ID of a user in Microsoft Entra ID.
+- `-UserId` parameter specifies the ID of a user in Microsoft Entra ID.
 - `-FilePath` parameter specifies the file path of the image to be uploaded as the user thumbnail photo.
 
 ## Parameters
@@ -93,14 +93,14 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -ObjectId
+### -UserId
 
 The Object ID of the user for which the user thumbnail photo is set.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
-Aliases:
+Aliases: ObjectId
 
 Required: False
 Position: Named

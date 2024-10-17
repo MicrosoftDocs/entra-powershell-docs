@@ -23,3 +23,12 @@ groups:
     title: Azure AD Preview
   - id: msonline
     title: MSOnline
+## Zone pivot with new articles, module version options
+- id: entra-powershell-whats-new
+  title: Whats New
+  prompt: Choose an option
+  pivots:
+  - id: whats-new-in-docs
+    title: What's new in docs
+  - id: module-version-history
+    title: Module version history

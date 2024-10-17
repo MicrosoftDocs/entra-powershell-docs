@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 10/05/2024
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -39,11 +39,11 @@ The following example creates a new user using the `UserPrincipalName` parameter
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
-$PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
-$PasswordProfile.Password = '<Strong-Password>'
+$passwordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
+$passwordProfile.Password = '<Strong-Password>'
 $userParams = @{
     DisplayName = 'New User'
-    PasswordProfile = $PasswordProfile
+    PasswordProfile = $passwordProfile
     UserPrincipalName = 'NewUser@contoso.com'
     AccountEnabled = $true
     MailNickName = 'NewUser'
@@ -59,11 +59,11 @@ New User aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb      NewUser@contoso.com
 
 ### Retrieve a user's sign-in activity
 
-The following example shows how to retrieves the sign-in activity of a specific user.
+The following example shows how to retrieve the sign-in activity of a specific user.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All','AuditLog.Read.All'
-Get-EntraUser -ObjectId 'SawyerM@contoso.com' -Property 'SignInActivity' | Select-Object -ExpandProperty 'SignInActivity'
+Get-EntraUser -UserId 'SawyerM@contoso.com' -Property 'SignInActivity' | Select-Object -ExpandProperty 'SignInActivity'
 ```
 
 ```Output
@@ -81,7 +81,7 @@ lastSuccessfulSignInDateTime      : 07/09/2024 09:15:41
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserMembership -ObjectId 'SawyerM@contoso.com'
+Get-EntraUserMembership -UserId 'SawyerM@contoso.com'
 ```
 
 ```Output
@@ -99,7 +99,7 @@ hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserManager -ObjectId 'SawyerM@contoso.com'
+Get-EntraUserManager -UserId 'SawyerM@contoso.com'
 ```
 
 ```Output
@@ -112,7 +112,7 @@ eeeeeeee-4444-5555-6666-ffffffffffff
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserDirectReport -ObjectId 'SawyerM@contoso.com'
+Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com'
 ```
 
 ```Output
@@ -127,14 +127,14 @@ eeeeeeee-4444-5555-6666-ffffffffffff
 Connect-Entra -Scopes 'User.ReadWrite.All'
 $manager = Get-EntraUser -Filter "UserPrincipalName eq 'AdeleV@contoso.com'"
 $params = @{
-        ObjectId = 'SawyerM@contoso.com'
-        RefObjectId = $manager.ObjectId
+        UserId = 'SawyerM@contoso.com'
+        RefObjectId = $manager.Id
 }
 Set-EntraUserManager @params
 ```
 
-- `-ObjectId` - specifies the ID (as a UserPrincipalName or ObjectId) of a user in Microsoft Entra ID.
-- `-RefObjectId` - specifies the ID as a UserPrincipalName or ObjectId) of the Microsoft Entra ID object to assign as a manager.
+- `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
+- `-RefObjectId` - specifies the ID as a UserPrincipalName or User ObjectId) of the Microsoft Entra ID object to assign as a manager.
 
 ## List inactive users
 
@@ -159,23 +159,22 @@ Kez Michael   eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 $photoParams = @{
-    ObjectId = 'SawyerM@contoso.com'
+    UserId = 'SawyerM@contoso.com'
     FilePath = 'D:\UserThumbnailPhoto.jpg'
 }
-
 Set-EntraUserThumbnailPhoto @photoParams
 ```
 
-This example sets the thumbnail photo of the user specified with the ObjectId parameter to the image specified with the FilePath parameter.
+This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
 
 1. Retrieve a user’s photo.
 
 ```powershell
 Connect-Entra -Scopes 'ProfilePhoto.Read.All'
-Get-EntraUserThumbnailPhoto -ObjectId 'SawyerM@contoso.com'
+Get-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com'
 ```
 
-This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the ObjectId parameter.
+This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the UserId parameter.
 
 ### Grant users administrative roles in your organization
 
@@ -186,24 +185,87 @@ Connect-Entra -Scopes 'User.ReadWrite.All', 'RoleManagement.ReadWrite.Directory'
 $directoryRole = Get-EntraDirectoryRole -Filter "DisplayName eq 'Helpdesk Administrator'"
 $user = Get-EntraUser -Filter "UserPrincipalName eq 'SawyerM@contoso.com'"
 $roleMemberParams = @{
-        ObjectId = $directoryRole.ObjectId
-        RefObjectId = $user.ObjectId
+        DirectoryRoleId = $directoryRole.Id
+        RefObjectId = $user.Id
 }
 Add-EntraDirectoryRoleMember @roleMemberParams
 ```
 
 This command adds a user to a Microsoft Entra role. To retrieve roles, use the command [Get-EntraDirectoryRole](/powershell/module/microsoft.graph.entra/get-entradirectoryrole).
 
-- `-ObjectId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
+- `-DirectoryRoleId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
 - `-RefObjectId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
 
+<<<<<<< HEAD
+=======
+## Manage user licenses
+
+1. Get details of a user's licenses.
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+Get-EntraUserLicenseDetail -UserId 'SawyerM@contoso.com'
+```
+
+```Output
+Id                                          SkuId                                SkuPartNumber
+--                                          -----                                -------------
+ouL7hgqFM0GkdqXrzahI4u7E6wa1G91HgSARMkvFTgY 06ebc4ee-1bb5-47dd-8120-11324bc54e06 SPE_E5
+```
+
+1. Assign a license to a user based on a template user.
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All', 'Organization.Read.All'
+$user = Get-EntraUser -UserId 'SawyerM@contoso.com'  
+$license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense 
+$license.SkuId = (Get-EntraSubscribedSku | Where SkuPartNumber -eq 'FLOW_FREE').SkuId
+$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses 
+$licenses.AddLicenses = $license 
+Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licenses
+```
+
+The following example shows how to assign a `FLOW_FREE` license to a user with ObjectId `SawyerM@contoso.com`.
+
+1. Remove a license from a user.
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All', 'Organization.Read.All'
+$userPrincipalName = 'SawyerM@contoso.com'
+$user = Get-EntraUser -UserId $userPrincipalName
+$skuId = (Get-EntraUserLicenseDetail -UserId $UserPrincipalName).SkuId
+$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
+$licenses.RemoveLicenses = $skuId
+Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licenses
+```
+
+```Output
+Name                           Value
+----                           -----
+preferredLanguage
+givenName
+@odata.context                 https://graph.microsoft.com/v1.0/$metadata#users/$entity
+id                             hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
+mail                           SawyerM@contoso.com
+userPrincipalName              SawyerM@contoso.com
+jobTitle
+displayName                    Sawyer Miller
+officeLocation
+surname
+mobilePhone
+businessPhones                 {}
+```
+
+This example shows how to remove a license from a user.
+
+>>>>>>> 646b62583bcfb58d172d0945083374e932f6e686
 ## Offboard a user
 
 1. Invalidate active sessions and tokens.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
-Revoke-EntraUserAllRefreshToken -ObjectId 'SawyerM@contoso.com'
+Revoke-EntraUserAllRefreshToken -UserId 'SawyerM@contoso.com'
 ```
 
 Revoking authentication tokens invalidates them, thus preventing reaccess through cached logins or remembered sessions.
@@ -212,7 +274,7 @@ Revoking authentication tokens invalidates them, thus preventing reaccess throug
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
-Set-EntraUser -ObjectId 'SawyerM@contoso.com' -AccountEnabled $false
+Set-EntraUser -UserId 'SawyerM@contoso.com' -AccountEnabled $false
 ```
 
 Disabling the account instantly blocks the user from accessing company resources, applications, and data.
@@ -231,9 +293,9 @@ Resetting the user's password ensures they can't use their old credentials to ac
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
-$Device = Get-EntraDevice -Filter "DisplayName eq 'Sawyer Laptop'"
-$Owner = Get-EntraDeviceRegisteredOwner -ObjectId $Device.ObjectId
-Remove-EntraDeviceRegisteredOwner -ObjectId $Device.ObjectId -OwnerId $Owner.ObjectId
+$device = Get-EntraDevice -Filter "DisplayName eq 'Sawyer Laptop'"
+$owner = Get-EntraDeviceRegisteredOwner -DeviceId $device.Id
+Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
 ```
 
 Disabling a user's device helps safeguard the organization's security, data, and resources.
@@ -242,7 +304,7 @@ Disabling a user's device helps safeguard the organization's security, data, and
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
-Remove-EntraUser -ObjectId 'SawyerM@contoso.com'
+Remove-EntraUser -UserId 'SawyerM@contoso.com'
 ```
 
 > [!Note]

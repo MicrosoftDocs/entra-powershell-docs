@@ -1,22 +1,23 @@
 ---
-title: Set-EntraBetaDirSyncEnabled
-description: This article provides details on the Set-EntraBetaDirSyncEnabled command.
+title: Set-EntraDirSyncEnabled
+description: This article provides details on the Set-EntraDirSyncEnabled command.
+
 
 ms.topic: reference
-ms.date: 08/20/2024
+ms.date: 09/27/2024
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 manager: CelesteDG
 author: msewaweru
 
-external help file: Microsoft.Graph.Entra.Beta-help.xml
-Module Name: Microsoft.Graph.Entra.Beta
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Graph.Entra.Beta/Set-EntraBetaDirSyncEnabled
+external help file: Microsoft.Graph.Entra-help.xml
+Module Name: Microsoft.Graph.Entra
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Graph.Entra/Set-EntraDirSyncEnabled
 
 schema: 2.0.0
 ---
 
-# Set-EntraBetaDirSyncEnabled
+# Set-EntraDirSyncEnabled
 
 ## Synopsis
 
@@ -25,20 +26,18 @@ Turns directory synchronization on or off for a company.
 ## Syntax
 
 ```powershell
-Set-EntraBetaDirSyncEnabled
- -EnableDirSync <Boolean>
- [-Force]
- [-TenantId <String>]
+Set-EntraDirSyncEnabled
+ -EnableDirSync <Boolean> 
+ [-Force] 
+ [-TenantId <String>] 
  [<CommonParameters>]
 ```
 
 ## Description
 
-The `Set-EntraBetaDirSyncEnabled` cmdlet turns directory synchronization on or off for a company.
-
+The `Set-EntraDirSyncEnabled` cmdlet turns directory synchronization on or off for a company.
 >[!IMPORTANT]
 >It may take up to 72 hours to complete deactivation once you have disabled DirSync through this cmdlet. The time depends on the number of objects that are in your cloud service subscription account. **You cannot cancel the disable action**. It will need to complete before you can take any other action, including re-enabling of DirSync. If you choose to re-enable DirSync, a full synchronization of your synced objects will happen. This may take a considerable time depending on the number of objects in your Microsoft Entra ID.
-
 >[!NOTE]
 >If you disable DirSync and you decide to re-enable it, and you have enabled the BlockCloudObjectTakeoverThroughHardMatch feature, OnPrem to cloud object takeover/update for all objects mastered in the Microsoft Entra ID will be blocked. If this is the case and you want to resume syncing Microsoft Entra ID mastered objects with Microsoft Entra ID, set **BlockCloudObjectTakeoverThroughHardMatch** feature to false.
 
@@ -52,7 +51,7 @@ $params = @{
     EnableDirsync = $True 
     Force = $True
 }
-Set-EntraBetaDirSyncEnabled @params
+Set-EntraDirSyncEnabled @params
 ```
 
 This example turns on directory synchronization for a company.
@@ -70,7 +69,7 @@ $params = @{
     Force = $True
     
 }
-Set-EntraBetaDirSyncEnabled @params
+Set-EntraDirSyncEnabled @params
 ```
 
 This example turns off directory synchronization for a company.
@@ -89,7 +88,6 @@ Specifies whether to turn on directory synchronization on for your company.
 Type: System.Boolean
 Parameter Sets: (All)
 Aliases:
-
 Required: True
 Position: Named
 Default value: None
@@ -107,7 +105,6 @@ This parameter applies only to partner users.
 Type: System.String
 Parameter Sets: (All)
 Aliases:
-
 Required: False
 Position: Named
 Default value: None
@@ -123,7 +120,6 @@ Forces the command to run without asking for user confirmation.
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
-
 Required: False
 Position: Named
 Default value: None

@@ -2,7 +2,7 @@
 title: Manage groups
 description: Learn how to create, edit, update, and delete a group in Microsoft Entra PowerShell.
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 10/05/2024
 author: csmulligan
 manager: CelesteDG
 ms.author: cmulligan
@@ -61,16 +61,16 @@ DisplayName        Id                                   MailNickname     Descrip
 My new group       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet       My new group        {Unified}
 ```
 
-This command returns the details of the newly created group. You can also use the `ObjectId` (GUID) to search, update, or delete the group.
+This command returns the details of the newly created group. You can also use the `GroupId` (GUID) to search, update, or delete the group.
 
 ## Update groups
 
-Update the group description by running the following command. The `ObjectId` is the Group ID.
+Update the group description by running the following command. The `GroupId` is the Group ID.
 
 ```powershell
 $group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
 $groupParams = @{
-    ObjectId = $group.ObjectId
+    GroupId = $group.Id
     Description = 'This is my new updated group details'
 }
 Set-EntraGroup @groupParams
@@ -84,28 +84,28 @@ Get-EntraGroup -Filter "DisplayName eq 'My new group'"
 
 ## Add a user to a group
 
-Add a user to the group by running the following command. The `ObjectId` is the Group ID and the `RefObjectId` is the User ID. You can get the User ID from the [Microsoft Entra admin center](https://entra.microsoft.com/) or by running the [Get-EntraUser](/powershell/module/microsoft.graph.entra/get-entrauser) command.
+Add a user to the group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID. You can get the User ID from the [Microsoft Entra admin center](https://entra.microsoft.com/) or by running the [Get-EntraUser](/powershell/module/microsoft.graph.entra/get-entrauser) command.
 
 ```powershell
 $group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
-$user = Get-EntraUser -ObjectId 'SawyerM@contoso.com'
+$user = Get-EntraUser -UserId 'SawyerM@contoso.com'
 $memberParams = @{
-    ObjectId = $group.ObjectId
-    RefObjectId = $user.ObjectId
+    GroupId = $group.Id
+    RefObjectId = $user.Id
 }
 Add-EntraGroupMember @memberParams
 ```
 
 ## Add a user as a group owner
 
-Add a group owner to a group by running the following command. The `ObjectId` is the Group ID and the `RefObjectId` is the User ID.
+Add a group owner to a group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID.
 
 ```powershell
 $group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
-$owner = Get-EntraUser -ObjectId 'AdeleV@contoso.com'
+$owner = Get-EntraUser -UserId 'AdeleV@contoso.com'
 $ownerParams = @{
-    ObjectId = $group.ObjectId
-    RefObjectId = $owner.ObjectId
+    GroupId = $group.Id
+    RefObjectId = $owner.Id
 }
 Add-EntraGroupOwner @ownerParams
 ```
@@ -114,7 +114,7 @@ To confirm the updated group owner, run the [Get-EntraGroupOwner](/powershell/mo
 
 ```powershell
 $group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
-Get-EntraGroupOwner -ObjectId $group.ObjectId
+Get-EntraGroupOwner -GroupId $group.Id
 ```
 
 ```Output
@@ -131,7 +131,7 @@ To query groups without owners, run the following command.
 ```powershell
 $allGroups = Get-EntraGroup -All
 $groupsWithoutOwners = foreach ($group in $allGroups) {
-    $owners = Get-EntraGroupOwner -ObjectId $group.Id
+    $owners = Get-EntraGroupOwner -GroupId $group.Id
     if ($owners.Count -eq 0) {
         $group
     }
@@ -151,7 +151,7 @@ To query groups without members (empty groups), run the following command.
 ```powershell
 $allGroups = Get-EntraGroup -All
 $groupsWithoutMembers = foreach ($group in $allGroups) {
-    $members = Get-EntraGroupMember -ObjectId $group.Id
+    $members = Get-EntraGroupMember -GroupId $group.Id
     if ($members.Count -eq 0) {
         $group
     }
@@ -172,7 +172,7 @@ To remove the group, run the following command.
 
 ```powershell
 $group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
-Remove-EntraGroup -ObjectId $group.ObjectId
+Remove-EntraGroup -GroupId $group.Id
 ```
 
 ## Related content

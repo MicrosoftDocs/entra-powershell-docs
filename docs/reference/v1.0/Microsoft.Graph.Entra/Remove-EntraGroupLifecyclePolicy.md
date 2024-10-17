@@ -26,8 +26,8 @@ Deletes a groupLifecyclePolicies object
 ## Syntax
 
 ```powershell
-Remove-EntraGroupLifecyclePolicy 
- -Id <String> 
+Remove-EntraGroupLifecyclePolicy
+ -GroupLifecyclePolicyId <String>
  [<CommonParameters>]
 ```
 
@@ -41,21 +41,21 @@ The `Remove-EntraGroupLifecyclePolicy` command deletes a groupLifecyclePolicies 
 
 ```powershell
 Connect-Entra -Scopes 'Directory.ReadWrite.All'
-Remove-EntraGroupLifecyclePolicy -Id '1aaaaaa1-2bb2-3cc3-4dd4-5eeeeeeeeee5'
+Remove-EntraGroupLifecyclePolicy -GroupLifecyclePolicyId '1aaaaaa1-2bb2-3cc3-4dd4-5eeeeeeeeee5'
 ```
 
 This example demonstrates how to delete the groupLifecyclePolicies object that has the specified ID. You can use `Get-EntraGroupLifecyclePolicy` to get Id details.
 
 ## Parameters
 
-### -Id
+### -GroupLifecyclePolicyId
 
 Specifies the ID of the groupLifecyclePolicies object that this cmdlet removes.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
-Aliases:
+Aliases: Id
 
 Required: True
 Position: Named

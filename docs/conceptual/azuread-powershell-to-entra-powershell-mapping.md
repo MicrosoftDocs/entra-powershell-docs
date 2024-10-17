@@ -356,4 +356,3 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Set-MsolPartnerInformation | [Set-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Set-EntraPartnerInformation)|
 
 :::zone-end
-

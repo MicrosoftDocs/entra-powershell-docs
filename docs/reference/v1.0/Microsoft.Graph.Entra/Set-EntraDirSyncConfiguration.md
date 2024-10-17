@@ -26,7 +26,7 @@ Modifies the directory synchronization settings.
 ## Syntax
 
 ```powershell
-Set-EntraDirSyncConfiguration 
+Set-EntraDirSyncConfiguration
  -AccidentalDeletionThreshold <UInt32>
  [-Force]
  [-TenantId <Guid>]
@@ -111,7 +111,7 @@ The unique ID of the tenant on which to perform the operation. If not provided, 
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: SetAccidentalDeletionThreshold
 Aliases:
 
 Required: False
