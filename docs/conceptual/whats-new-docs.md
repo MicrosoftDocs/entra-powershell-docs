@@ -74,6 +74,14 @@ This article lists all new articles that were added or had significant updates i
 
 ## Module version history
 
+- [Version 0.18.0-preview][posh-0.18.0] - **October 2024**
+
+  - Added usability-focused parameter switches to the `Set-EntraUserLicence` and `Set-EntraUserPassword` cmdlets.
+  - Fixed issue [#1118](https://github.com/microsoftgraph/entra-powershell/issues/1118): corrected parameter sets for `Find-EntraPermission`.
+  - Improved documentation quality scores for 20 cmdlets.
+  - Enhanced examples for 8 cmdlets.
+  - Implemented platform-level security hardening in the release pipeline.
+
 - [Version 0.17.0-preview][posh-0.17.0] - **October 2024**
 
   - Introduced usability parameter switches for over 480 cmdlets.
@@ -149,6 +157,7 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-0.18.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.18.0-preview
 [posh-0.17.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.17.0-preview
 [posh-0.16.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.16.0-preview
 [posh-0.15.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.15.0-preview
