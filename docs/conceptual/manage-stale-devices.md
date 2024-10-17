@@ -40,11 +40,11 @@ Detecting stale devices requires a timestamp-related property. In Microsoft Entr
 To filter devices by the `ApproximateLastSignInDateTime`, use:  
 
 ```PowerShell  
-$dt = (Get-Date).AddDays(-90)  
+$dt = (Get-Date).AddMonths(-6)
 Get-EntraDevice -All | Where-Object {$_.ApproximateLastSignInDateTime -le $dt}  
 ```
 
-```output
+```Output
 
 
 DeletedDateTime Id                                   AccountEnabled ApproximateLastSignInDateTime ComplianceExpirationDateTime DeviceCategory DeviceId                             DeviceMetadata DeviceOwnership
@@ -60,8 +60,8 @@ A typical routine for cleaning up stale devices consists of the following steps:
 
 1. Connect to Microsoft Entra ID using the `Connect-Entra` cmdlet.  
 2. Get the list of stale devices.  
-3. Disable the device using the `Set-EntraDevice` cmdlet (disable by using the `-AccountEnabled` option).  
-4. Wait for the grace period of however many days you choose before deleting the device.  
+3. Disable the device using the `Set-EntraDevice` cmdlet to set `-AccountEnabled` to **False**.  
+4. Wait for the grace period of the set number of days before deleting the device.  
 5. Remove the device using the `Remove-EntraDevice` cmdlet.  
   
 ### Download list of stale devices
@@ -70,7 +70,10 @@ Use the timestamp filter to get all devices that don't have sign-in data in the 
 
 ```PowerShell
 $dt = (Get-Date).AddDays(-90) # Example: devices not signed in for the last 90 days
-Get-EntraDevice -All | Where-Object {$_.ApproximateLastSignInDateTime -le $dt} | Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime | Export-Csv "C:\Users\YourUsername\Downloads\stale-devices.csv" -NoTypeInformation  
+Get-EntraDevice -All `
+| Where-Object {$_.ApproximateLastSignInDateTime -le $dt} `
+| Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime `
+| Export-Csv "C:\Users\eunicewaweru\Downloads\stale-devices.csv" -NoTypeInformation  
 ```
 
 Ensure to replace YourUsername with your actual username or the desired path where you want to save the file. This example will save the CSV file directly to your Downloads folder.
@@ -83,8 +86,9 @@ Using the previous example for getting the list of stale devices, you can pipe t
 
 ```powershell  
 $dt = (Get-Date).AddDays(-90)  
-$Devices = Get-EntraDevice -All | Where-Object {$_.ApproximateLastSignInDateTime -le $dt}
-foreach ($Device in $Devices) {Set-EntraDevice -ObjectId $Device.Id -AccountEnabled $false}
+$Devices = Get-EntraDevice -All `
+| Where-Object {$_.ApproximateLastSignInDateTime -le $dt} `
+ForEach ($Device in $Devices) {Set-EntraDevice -ObjectId $Device.Id -AccountEnabled $false}
 ```  
 
 ### Delete stale devices  
@@ -98,8 +102,9 @@ Building on the [disable stale devices example](#disable-stale-devices), look fo
 
 ```powershell  
 $dt = (Get-Date).AddDays(-120)  
-$Devices = Get-EntraDevice -All | Where-Object {($_.ApproximateLastSignInDateTime -le $dt) -and ($_.AccountEnabled -eq $false)}  
-foreach ($Device in $Devices) {Remove-EntraDevice -DeviceId $Device.Id}  
+$Devices = Get-EntraDevice -All `
+| Where-Object {($_.ApproximateLastSignInDateTime -le $dt) -and ($_.AccountEnabled -eq $false)} `  
+ForEach ($Device in $Devices) {Remove-EntraDevice -DeviceId $Device.Id}  
 ```  
 
 ## What you should know  
@@ -136,7 +141,7 @@ Managing devices using Microsoft Entra PowerShell provides a robust and efficien
 
 <!-- link references -->
 
-- [cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator  
-- [faq]: /entra/identity/devices/faq
-- [installation]: installation.md
-- [free-entra-id]: https://azure.microsoft.com/free/entra-id
+[cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator  
+[faq]: /entra/identity/devices/faq
+[installation]: installation.md
+[free-entra-id]: https://azure.microsoft.com/free/entra-id
