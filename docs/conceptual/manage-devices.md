@@ -40,16 +40,16 @@ To view all devices, use the following cmdlet:
 
 ```powershell  
 Connect-Entra -Scopes 'Device.Read.All'  
-Get-EntraDevice -All | Select-Object AccountEnabled, DeviceId, OperatingSystem, ApproximateLastSignInDateTime, DisplayName
+Get-EntraDevice -All | Select-Object AccountEnabled, DeviceId, OperatingSystem, ApproximateLastSignInDateTime, DisplayName | ft
 ```  
 
 ```Output
-AccountEnabled DeviceId                             OperatingSystem ApproximateLastSignInDateTime
--------------- --------                             --------------- -----------------------------
-         False aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Windows         10/2/2024 10:26:38 AM
-          True bbbbbbbb-1111-2222-3333-cccccccccccc Windows         9/30/2024 11:34:18 PM
-          True cccccccc-4444-5555-6666-dddddddddddd Windows         9/13/2024 5:46:08 PM
-          True dddddddd-5555-6666-7777-eeeeeeeeeeee Windows         9/13/2024 3:57:52 AM
+AccountEnabled DeviceId                             OperatingSystem ApproximateLastSignInDateTime DisplayName
+-------------- --------                             --------------- ----------------------------- -----------
+          True aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Windows         10/16/2024 4:53:46 PM         devicesTest2
+          True bbbbbbbb-1111-2222-3333-cccccccccccc Windows         10/15/2024 4:11:33 PM         LAPTOP-2222
+          True cccccccc-4444-5555-6666-dddddddddddd Windows         9/13/2024 5:46:08 PM          AdminTest
+          True dddddddd-5555-6666-7777-eeeeeeeeeeee Windows         10/15/2024 8:28:18 PM         DESKTOP-1111
 ```
 
 ### Get a device by ID  
@@ -100,8 +100,6 @@ Get-EntraDevice -All | Group-Object -Property TrustType | Select-Object Name, Co
 - `Group-Object -Property TrustType`: Groups the devices by the `TrustType` property, which indicates the type of join, for example, Microsoft Entra joined and Hybrid Microsoft Entra joined.  
 - `Select-Object Name, Count`: Selects the name of each group (the type of join) and the count of devices in each group.
 - `Join type` refers to how a device is connected, such as Microsoft Entra joined, Hybrid Microsoft Entra joined, and other types.
-
-This cmdlet example produces a list of all device types and how many devices belong to each type.
 
 This example demonstrates how to retrieve the number of devices for each device type.
 
