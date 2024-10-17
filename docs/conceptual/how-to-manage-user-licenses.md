@@ -1,12 +1,12 @@
 ---
-title: "Manage licenses with Microsoft Entra PowerShell"
-description: "Learn how to manage Microsoft Entra licenses with the Microsoft Entra PowerShell."
+title: "Manage user licenses with Microsoft Entra PowerShell"
+description: "Learn how to manage Microsoft Entra user licenses with the Microsoft Entra PowerShell."
 
 author: msewaweru
 manager: CelesteDG
 ms.service: entra-powershell
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 10/17/2024
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
@@ -297,5 +297,10 @@ $licensesToRemove.RemoveLicenses = $skuId
 # Remove the assigned license
 Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licensesToRemove
 ```
+
+## Related content
+
+- [Manage users](manage-user.md)
+- [Manage groups](manage-groups.md)
 
 
