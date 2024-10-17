@@ -110,6 +110,13 @@ To install the `Beta` module, run the following command.
 Install-Module -Name Microsoft.Graph.Entra.Beta -Repository PSGallery -AllowPrerelease
 ```
 
+> [!TIP]
+> In PowerShell 5.1, you might see the error: "Function {cmdlet-name} cannot be created because function capacity 4096 has been exceeded." To fix this, increase the function limit by running the command below, then try importing the module again.
+
+```powershell
+$MaximumFunctionCount = 32768
+```
+
 :::zone-end
 
 :::zone pivot="linux"
