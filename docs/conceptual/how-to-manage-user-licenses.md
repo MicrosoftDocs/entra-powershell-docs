@@ -147,32 +147,6 @@ To confirm that the license is assigned to the user, run:
 Get-EntraUserLicenseDetail -UserId 'AljosaH@Contoso.com'
 ```
 
-### Assign a license to a user with some disabled plans
-
-The following PowerShell script demonstrates how to assign a license to a user in Microsoft Entra ID while disabling specific service plans. This approach can be useful when you want to assign a license but exclude certain features.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All'
-
-# Get user details
-$user = Get-EntraUser -UserId 'AljosaH@Contoso.com'
-
-
-# Retrieve the SkuId for the desired license plan
-$skuId = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'AAD_PREMIUM_P2' }).SkuId
-
-# Create a license assignment object with some plans disabled
-$licenseOptions = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
-$licenseOptions.SkuId =  $skuId
-$licenseOptions.DisabledPlans = @('EXCHANGE_S_FOUNDATION', 'MFA_PREMIUM')
-
-$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
-$licenses.AddLicenses = $licenseOptions
-
-# Assign the license to the user
-Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
-```
-
 ### Assign more than one license to a user
 
 To assign more than one license to a user, create an array of `AssignedLicense` objects and add them to the `AssignedLicenses` object.
