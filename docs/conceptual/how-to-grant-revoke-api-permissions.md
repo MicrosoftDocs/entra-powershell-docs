@@ -77,7 +77,7 @@ AdditionalProperties : {}
 
 ## Step 2: Create a client service principal
 
-The first step in granting consent is to [create the service principal for the app that you'll grant permissions](/powershell/module/microsoft.graph.applications/new-Entraserviceprincipal?view=graph-powershell-1.0&preserve-view=true). To do so, you'll need the `App Id` of your application.
+The first step in granting consent is to [create the service principal][new-entraserviceprincipal]. To do so, you'll need the `AppId` of your application.
 
 <a name='register-an-application-with-azure-ad'></a>
 
@@ -214,7 +214,7 @@ AdditionalProperties    : {}
 
 ## Step 2: Create a client service principal
 
-The first step in granting consent is to [create the service principal for the app that you'll grant permissions](/powershell/module/microsoft.graph.applications/new-Entraserviceprincipal?view=graph-powershell-1.0&preserve-view=true). To do so, you'll need the `App Id` of your application.
+The first step in granting consent is to  [create the service principal][new-entraserviceprincipal]. To do so, you'll need the `AppId` of your application.
 
 <a name='register-an-application-with-azure-ad'></a>
 
@@ -339,3 +339,4 @@ When a delegated permission grant is deleted, the access it granted is revoked. 
 <!-- links -->
 [interactive-consent]: /azure/active-directory/manage-apps/consent-and-permissions-overview
 [install]: installation.md
+[new-entraserviceprincipal]: (/powershell/module/microsoft.graph.entra/new-entraserviceprincipal)
