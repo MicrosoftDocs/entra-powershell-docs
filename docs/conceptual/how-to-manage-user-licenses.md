@@ -23,7 +23,7 @@ This guide covers how to view, assign, and remove user licenses in your tenant.
 
 To complete this guide, ensure you have the necessary prerequisites:
 
-1. The Microsoft Entra PowerShell module is installed. Follow the [installation guide](installation.md) if needed.
+1. The Microsoft Entra PowerShell module is installed. Follow the [installation guide](installation.md) to install the module.
 1. Run Microsoft Entra PowerShell as a user with the [License Administrator](/entra/identity/role-based-access-control/permissions-reference#license-administrator) role. This guide requires `User.ReadWrite.All` and `Organization.Read.All` permissions. To set them, run:
 
     ```powershell
