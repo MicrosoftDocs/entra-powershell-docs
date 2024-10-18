@@ -184,82 +184,7 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 - `-DirectoryRoleId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
 - `-RefObjectId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
 
-## Manage user licenses
-
-1. Get details of a user's licenses.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All'
-Get-EntraUserLicenseDetail -UserId 'SawyerM@contoso.com'
-```
-
-```Output
-Id                                          SkuId                                SkuPartNumber
---                                          -----                                -------------
-ouL7hgqFM0GkdqXrzahI4u7E6wa1G91HgSARMkvFTgY 06ebc4ee-1bb5-47dd-8120-11324bc54e06 SPE_E5
-```
-
-1. Assign a license to a user based on a template user.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All', 'Organization.Read.All'
-$user = Get-EntraUser -UserId 'SawyerM@contoso.com'  
-$license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense 
-$license.SkuId = (Get-EntraSubscribedSku | Where SkuPartNumber -eq 'FLOW_FREE').SkuId
-$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses 
-$licenses.AddLicenses = $license 
-Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licenses
-```
-
-The following example shows how to assign a `FLOW_FREE` license to a user with ObjectId `SawyerM@contoso.com`.
-
-1. List disabled users with active licenses.
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-$disabledUsersWithLicenses = Get-EntraUser -Filter "accountEnabled eq false" -All | Where-Object {
-    $_.AssignedLicenses -ne $null -and $_.AssignedLicenses.Count -gt 0
-}
-$disabledUsersWithLicenses | Select-Object Id, DisplayName, UserPrincipalName, AccountEnabled | Format-Table -AutoSize
-```
-
-This example demonstrates how to retrieve disabled users with active licenses.
-
-1. List guest users with active licenses.
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-$guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All
-$guestUsersWithLicenses = foreach ($guest in $guestUsers) {
-    if ($guest.AssignedLicenses.Count -gt 0) {
-        [pscustomobject]@{
-            Id               = $guest.Id
-            DisplayName      = $guest.DisplayName
-            UserPrincipalName = $guest.UserPrincipalName
-            AssignedLicenses = ($guest.AssignedLicenses | ForEach-Object { $_.SkuId }) -join ", "
-        }
-    }
-}
-$guestUsersWithLicenses | Format-Table Id, DisplayName, UserPrincipalName, AssignedLicenses -AutoSize
-```
-
-This example demonstrates how to retrieve guest users with active licenses.
-
-1. Remove a license from a user.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All', 'Organization.Read.All'
-$userPrincipalName = 'SawyerM@contoso.com'
-$user = Get-EntraUser -UserId $userPrincipalName
-$skuId = (Get-EntraUserLicenseDetail -UserId $UserPrincipalName).SkuId
-$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
-$licenses.RemoveLicenses = $skuId
-Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licenses
-```
-
-This example shows how to remove a license from a user.
-
-## Offboard a user
+## Off-board a user
 
 1. Invalidate active sessions and tokens.
 
@@ -287,7 +212,7 @@ $securePassword = ConvertTo-SecureString 'Some-strong-random-password' -AsPlainT
 Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
 ```
 
-Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This prevents unauthorized access and potential misuse of the account.
+Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
 1. Disable a user's device.
 
@@ -312,6 +237,7 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 
 ## Next steps
 
+- [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]
 - [Manage apps][manage-apps]
 
@@ -321,3 +247,4 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 [tutorial-groups]: manage-groups.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [manage-apps]: manage-apps.md
+[manage-licenses]: how-to-manage-user-licenses.md
