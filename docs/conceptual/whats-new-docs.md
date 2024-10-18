@@ -77,7 +77,7 @@ This article lists all new articles that were added or had significant updates i
 - [Version 0.18.0-preview][posh-0.18.0] - **October 2024**
 
   - Added usability-focused parameter switches to the `Set-EntraUserLicence` and `Set-EntraUserPassword` cmdlets.
-  - Fixed issue [#1118](https://github.com/microsoftgraph/entra-powershell/issues/1118): corrected parameter sets for `Find-EntraPermission`.
+  - Fixed issue [#1118](https://github.com/microsoftgraph/entra-powershell/issues/1118): Corrected parameter sets for `Find-EntraPermission`.
   - Improved documentation quality scores for 20 cmdlets.
   - Enhanced examples for 8 cmdlets.
   - Implemented platform-level security hardening in the release pipeline.
