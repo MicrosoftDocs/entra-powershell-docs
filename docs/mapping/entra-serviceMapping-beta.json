@@ -184,7 +184,6 @@
   "Get-EntraBetaApplicationSignInDetailedSummary": "Reports",
   "Get-EntraBetaPrivilegedRoleSetting": "Privileged identity management",
   "Get-EntraBetaPrivilegedRoleDefinition": "Privileged identity management",
-  "Get-EntraBetaPrivilegedRoleAssignmentRequest": "Privileged identity management",
   "Get-EntraBetaPrivilegedRole": "Privileged identity management",
   "Get-EntraBetaPrivilegedResource": "Privileged identity management",
   "New-EntraBetaPrivilegedRoleAssignment": "Privileged identity management",
