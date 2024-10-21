@@ -224,7 +224,7 @@ To create custom applications for connecting to Microsoft Entra ID using Microso
 >[!NOTE]
 > In the app's **Overview** section, copy the Application (client ID) and Directory (tenant) ID. You use the values when connecting to Microsoft Entra ID.
 
-### Enable Assignment required feature
+### Enable assignment required feature
 
 To manage the resources that your application gets access to in your tenant, locate the application's service principal in the **Enterprise applications** pane.
 
