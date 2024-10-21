@@ -52,7 +52,7 @@ $servicePrincipalParams = @{
 $servicePrincipal = New-EntraServicePrincipal @servicePrincipalParams
 ```
 
-### Enable Assignment required feature
+### Enable assignment required feature
 
 ```powershell
 # Set service principal parameters
