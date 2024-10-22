@@ -10,7 +10,7 @@ author: omondiatieno
 manager: celested  
 ms.reviewer: stevemutungi
 
-#customer-intent: As an IT admin, I want to manage and remove stale devices using Microsoft Entra PowerShell so that I can focus resources on active devices, maintain compliance, and ensure efficient device management. 
+#customer intent: As an IT admin, I want to manage and remove stale devices using Microsoft Entra PowerShell so that I can focus resources on active devices, maintain compliance, and ensure efficient device management. 
 ---
 
 # Manage stale devices  
@@ -39,20 +39,24 @@ Detecting stale devices requires a timestamp-related property. In Microsoft Entr
 
 To filter devices by the `ApproximateLastSignInDateTime`, use:  
 
-```PowerShell
-Connect-Entra -Scopes 'Device.Read.All'    
-$dt = (Get-Date).AddMonths(-6) # Example: devices not signed in for the last 6 months.
-Get-EntraDevice -All | Where-Object {$_.ApproximateLastSignInDateTime -le $dt}  
+```powershell
+Connect-Entra -Scopes 'Device.Read.All'  
+  
+$dt = (Get-Date).AddMonths(-6) # Devices not signed in for the last 6 months  
+  
+Get-EntraDevice -All |  
+Where-Object {  
+    $_.ApproximateLastSignInDateTime -le $dt  
+} |  
+Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime | ft
 ```
 
 ```Output
-
-
-DeletedDateTime Id                                   AccountEnabled ApproximateLastSignInDateTime ComplianceExpirationDateTime DeviceCategory DeviceId                             DeviceMetadata DeviceOwnership
---------------- --                                   -------------- ----------------------------- ---------------------------- -------------- --------                             -------------- --------------
-                aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb True           9/30/2024 11:34:18 PM                                                     9b1b1b1b-1111-2222-3333-cccccccccccc
-                bbbbbbbb-1111-2222-3333-cccccccccccc True           9/13/2024 5:46:08 PM                                                      8a2a2a2a-2222-3333-4444-dddddddddddd
-                cccccccc-4444-5555-6666-dddddddddddd True           9/13/2024 3:57:52 AM                                                      7c3c3c3c-3333-4444-5555-eeeeeeeeeeee
+AccountEnabled DeviceId                             OperatingSystem OperatingSystemVersion DisplayName     TrustType ApproximateLastSignInDateTime
+-------------- --------                             --------------- ---------------------- -----------     --------- -----------------------------
+         False aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Windows         10.0.22621.4169        devicesTest2    Entra ID   10/16/2024 4:53:46 PM
+          True bbbbbbbb-1111-2222-3333-cccccccccccc Windows         10.0.22631.4169        device1         Workplace 10/15/2024 4:11:33 PM
+          True cccccccc-4444-5555-6666-dddddddddddd Windows         10.0.22621.4169        AdminTestEntra  Entra ID   9/13/2024 5:46:08 PM
 ```
 
 ## Clean up stale devices  
@@ -67,18 +71,24 @@ A typical routine for cleaning up stale devices consists of the following steps:
   
 ### Download list of stale devices
 
-Use the timestamp filter to get all devices that don't have sign-in data in the last 90 days and store the returned data in a CSV file.  
+Use the timestamp filter to get all devices that don't have sign-in data in the last six months and store the returned data in a CSV file.  
 
-```PowerShell
+```powershell
 Connect-Entra -Scopes 'Device.Read.All'  
-$dt = (Get-Date).AddMonths(-6) # Example: devices not signed in for the last 6 months.
-Get-EntraDevice -All `
-| Where-Object {$_.ApproximateLastSignInDateTime -le $dt} `
-| Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime `
-| Export-Csv "C:\Users\eunicewaweru\Downloads\stale-devices.csv" -NoTypeInformation  
+  
+$dt = (Get-Date).AddMonths(-6) # Devices not signed in for the last 6 months
+  
+$staleDevices = Get-EntraDevice -All |  
+Where-Object {  
+    $_.ApproximateLastSignInDateTime -le $dt  
+} |  
+Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime  
+  
+$staleDevices | Export-Csv "C:\Users\YourUserName\Downloads\stale-devices1.csv" -NoTypeInformation  
 ```
 
-Ensure to replace YourUsername with your actual username or the desired path where you want to save the file. This example will save the CSV file directly to your Downloads folder.
+Ensure to replace `YourUsername` with your actual username or the desired path where you want to save the file. This example saves the CSV file directly to your Downloads folder.
+
 > [!WARNING]  
 > Some active devices may have a blank timestamp.  
 
@@ -87,9 +97,15 @@ Ensure to replace YourUsername with your actual username or the desired path whe
 Using the previous example for getting the list of stale devices, you can pipe the output to the set command to disable the devices over a certain age.  
 
 ```powershell
-Connect-Entra -Scopes 'Device.ReadWrite.All'   
-$dt = (Get-Date).AddMonths(-6) # Example: devices not signed in for the last 6 months. 
-Get-EntraDevice -All | Where-Object {$_.ApproximateLastSignInDateTime -le $dt} | Set-EntraDevice -AccountEnabled $false
+Connect-Entra -Scopes 'Device.ReadWrite.All'  
+  
+$dt = (Get-Date).AddMonths(-6) # Devices not signed in for the last 6 months  
+
+Get-EntraDevice -All | 
+Where-Object {
+    $_.ApproximateLastSignInDateTime -le $dt
+} | 
+Set-EntraDevice -AccountEnabled $false
 ```  
 
 ### Delete stale devices  
@@ -102,14 +118,20 @@ Before you delete any devices, back up any BitLocker recovery keys you might nee
 Building on the [disable stale devices example](#disable-stale-devices), look for disabled devices, inactive for six months, and pipe the output to `Remove-EntraDevice` to delete those devices.  
 
 ```powershell
-Connect-Entra -Scopes 'Device.ReadWrite.All'  
-$dt = (Get-Date).AddMonths(-6) # Example: devices not signed in for the last 6 months.  
+Connect-Entra -Scopes 'Device.ReadWrite.All'   
+$dt = (Get-Date).AddMonths(-6) # Devices not signed in for the last 6 months  
+  
 Get-EntraDevice -All |  
-    Where-Object {($_.ApproximateLastSignInDateTime -le $dt) -and ($_.AccountEnabled -eq $false)} |  
-    ForEach-Object {Remove-EntraDevice -DeviceId $_.Id} 
+Where-Object {  
+    ($_.ApproximateLastSignInDateTime -le $dt) -and  
+    ($_.AccountEnabled -eq $false)  
+} |  
+Remove-EntraDevice
 ```
 
-## What you should know  
+## What you should know
+
+The following section outlines some common questions and answers about managing stale devices:
 
 ### Why is the timestamp not updated more frequently?  
 
