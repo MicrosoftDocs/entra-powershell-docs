@@ -10,7 +10,7 @@ ms.author: jomondi
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-create-custom-app
 zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
-#customer intent: As an IT admin, I want to create and configure a custom application in the Microsoft Entra ID so that I can manage permissions and access to Microsoft Entra resources securely.
+#customer intent: As an IT admin, I want to create and configure a custom application in Microsoft Entra ID so that I can manage permissions and access to Microsoft Entra resources securely.
 ---
 
 # Create a custom application
