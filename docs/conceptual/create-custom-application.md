@@ -57,7 +57,7 @@ $servicePrincipal = New-EntraServicePrincipal @servicePrincipalParams
 ```powershell
 # Set service principal parameters
 $servicePrincipalUpdateParams = @{
-    ObjectId                  = $servicePrincipal.ObjectId
+    ServicePrincipalId                  = $servicePrincipal.ObjectId
     AppRoleAssignmentRequired = $true
 }
 Set-EntraServicePrincipal @servicePrincipalUpdateParams
