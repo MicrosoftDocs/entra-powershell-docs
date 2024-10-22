@@ -75,7 +75,7 @@ New-EntraGroupAppRoleAssignment -GroupId $group.Id -PrincipalId $group.Id -Resou
 $graphApiId = '00000003-0000-0000-c000-000000000000'
 $graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiId'"
 $delegatedPermission = 'User.Read.All'
-$app = Get-EntraApplication -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
+$app = Get-EntraApplication -Filter "DisplayName eq '$appName'"
 
 # Create resource access object
 $resourceAccessDelegated = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
@@ -98,7 +98,7 @@ Set-EntraApplication -ApplicationId $app.Id -RequiredResourceAccess $requiredRes
 $applicationPermission = 'Group.Read.All'
 $graphApiId = '00000003-0000-0000-c000-000000000000'
 $graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiId'"
-$app = Get-EntraApplication -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
+$app = Get-EntraApplication -Filter "DisplayName eq '$appName'"
 
 # Create resource access object
 $resourceAccess = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
@@ -125,7 +125,7 @@ You can assign either delegated permissions or application permissions to the ap
 ```powershell
 $delegatedPermission = 'User.Read.All'
 $graphApiId = '00000003-0000-0000-c000-000000000000'
-$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq '$appName'"
 $graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiId'"
 
 # Grant OAuth2 permission
@@ -138,7 +138,7 @@ New-EntraOauth2PermissionGrant -ClientId $servicePrincipal.Id -ConsentType 'AllP
 $applicationPermission = 'Group.Read.All'
 $graphApiId = '00000003-0000-0000-c000-000000000000'
 $graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiId'"
-$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
+$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq '$appName'"
 
 # Get application role ID
 $appRoleId = ($graphServicePrincipal.AppRoles | Where-Object { $_.Value -eq $applicationPermission }).Id
