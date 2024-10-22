@@ -78,17 +78,17 @@ $delegatedPermission = 'User.Read.All'
 $app = Get-EntraApplication -Filter "DisplayName eq 'Entra PowerShell Helpdesk App'"
 
 # Create resource access object
-$resourceAccess = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
-$resourceAccess.Id = ((Get-EntraServicePrincipal -ServicePrincipalId $graphServicePrincipal.Id).Oauth2PermissionScopes | Where-Object { $_.Value -eq $delegatedPermission }).Id
-$resourceAccess.Type = 'Scope'
+$resourceAccessDelegated = New-Object Microsoft.Open.MSGraph.Model.ResourceAccess
+$resourceAccessDelegated.Id = ((Get-EntraServicePrincipal -ServicePrincipalId $graphServicePrincipal.Id).Oauth2PermissionScopes | Where-Object { $_.Value -eq $delegatedPermission }).Id
+$resourceAccessDelegated.Type = 'Scope'
 
 # Create required resource access object
-$requiredResourceAccess = New-Object Microsoft.Open.MSGraph.Model.RequiredResourceAccess
-$requiredResourceAccess.ResourceAppId = $graphApiId
-$requiredResourceAccess.ResourceAccess = $resourceAccess
+$requiredResourceAccessDelegated = New-Object Microsoft.Open.MSGraph.Model.RequiredResourceAccess
+$requiredResourceAccessDelegated.ResourceAppId = $graphApiId
+$requiredResourceAccessDelegated.ResourceAccess = $resourceAccessDelegated
 
 # Set application required resource access
-Set-EntraApplication -ApplicationId $app.Id -RequiredResourceAccess $requiredResourceAccess
+Set-EntraApplication -ApplicationId $app.Id -RequiredResourceAccess $requiredResourceAccessDelegated
 ```
 
 #### [Application permissions](#tab/application)
