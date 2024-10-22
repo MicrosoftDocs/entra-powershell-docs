@@ -182,7 +182,7 @@ Ensure to replace YourUsername with your actual username or the desired path whe
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage stale devices](stale-devices)
+> [Manage stale devices](manage-stale-devices.md)
 
 <!-- link references -->
 
