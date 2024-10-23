@@ -5,7 +5,7 @@ description: Learn to assign roles to users using Microsoft Entra PowerShell, wi
 author: csmulligan
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 09/13/2024
+ms.date: 10/23/2024
 ms.author: cmulligan
 ms.reviewer: stevemutungi
 
@@ -14,7 +14,7 @@ ms.reviewer: stevemutungi
 
 # Manage roles
 
-A role in Microsoft Entra is a set of permissions. Roles control access to resources such as users, groups, and applications. In this article, you learn how to use Microsoft Entra PowerShell to manage roles.
+A role in Microsoft Entra defines permissions that control access to resources like users, groups, and applications. This article explains how to manage roles using Microsoft Entra PowerShell.
 
 
 ## Prerequisites
@@ -27,12 +27,12 @@ To manage roles with Microsoft Entra PowerShell, you need:
 
 ## Find role definitions
 
-A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically called a role. Microsoft Entra ID has over 60 built-in roles or you can create your own custom roles. If you ever wondered "What these roles really do?", you can see a detailed list of permissions for each of the roles.
+A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically called a role. Microsoft Entra ID has over 60 built-in roles and you can create your own custom roles. To understand what each role does, you can view a detailed list of its permissions.
 
 To get all  the role definitions, run the following [Get-EntraDirectoryRoleDefinition](/powershell/module/microsoft.graph.entra/get-entradirectoryroledefinition) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
 
 ```powershell
-Connect-Entra -Scopes 'RoleManagement.Read.Directory','EntitlementManagement.Read.All'
+Connect-Entra -Scopes 'RoleManagement.Read.Directory'
 Get-EntraDirectoryRoleDefinition
 ```
 
@@ -48,7 +48,7 @@ Restricted Guest User                         2af84b1e-32c8-42b7-82bc-daa8240402
 This section describes how to list roles you have assigned in Microsoft Entra ID. To get all the role assignments, run the [Get-EntraDirectoryRoleAssignment](/powershell/module/microsoft.graph.entra/get-entradirectoryroleassignment) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
 
 ```powershell
-Connect-Entra -Scopes 'RoleManagement.Read.Directory','EntitlementManagement.Read.All'
+Connect-Entra -Scopes 'RoleManagement.Read.Directory'
 Get-EntraDirectoryRoleAssignment -All 
 ```
 
@@ -74,10 +74,10 @@ To grant access to users in Microsoft Entra ID, assign Microsoft Entra roles. Th
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -ObjectId 'markus@contoso.onmicrosoft.com'
+$user = Get-EntraUser -UserId 'markus@contoso.com'
 ```
 
-The `-ObjectId` Specifies the ID as a user principal name (UPN) or ObjectId.
+The `-UserId` Specifies the ID as a user principal name (UPN) or ObjectId.
 
 ```Output
 DisplayName Id                                   Mail                                 UserPrincipalName
@@ -89,35 +89,29 @@ Markus Long bbbbbbbb-1111-2222-3333-cccccccccccc markus@contoso.com             
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.Read.Directory','EntitlementManagement.Read.All'
-Get-EntraDirectoryRoleDefinition
+$directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Helpdesk Administrator'"
 ```
 
 3. Use the `New-EntraDirectoryRoleAssignment` command to assign the role.
 
 ```powershell
-Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory','EntitlementManagement.ReadWrite.All'
-$params = @{
-    RoleDefinitionId = 'a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'
-    PrincipalId = 'bbbbbbbb-1111-2222-3333-cccccccccccc'
-    DirectoryScopeId = '/'
- }
-
-New-EntraDirectoryRoleAssignment @params
+Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
+New-EntraDirectoryRoleAssignment -RoleDefinitionId $directoryRole.Id -PrincipalId $user.Id -DirectoryScopeId '/'
 ```
 
 ```Output
-Id                                 PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScopeId
---                                 -----------                          ----------------                     ---------------- ----------
-A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u     aaaaaaaa-bbbb-cccc-1111-222222222222 a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /
+Id                                       PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScopeId
+--                                       -----------                          ----------------                     ---------------- ----------
+00001111-aaaa-2222-bbbb-3333cccc4444     aaaaaaaa-bbbb-cccc-1111-222222222222 a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /
 ```
 
 This command creates a new role assignment in Microsoft Entra ID.
 
-- The `-RoleDefinitionId` parameter specifies the ID of the role definition that you want to assign. Role definitions describe the permissions that are granted to users or groups by the role. This is the Identifier of the `unifiedRoleDefinition` the assignment is for.
+- The `-RoleDefinitionId` parameter specifies the ID of the role definition that you want to assign. Role definitions describe the permissions that are granted to users or groups by the role. This is the identifier of the `unifiedRoleDefinition` the assignment is for.
 
 - The `-PrincipalId` parameter specifies the ID of the principal (user, group, or service principal) to whom the role is being assigned.
 
-- The`-DirectoryScopeId` parameter specifies the scope of the directory over which the role assignment is effective. The '/' value typically represents the root scope, meaning the role assignment is applicable across the entire directory.
+- The`-DirectoryScopeId` parameter specifies the scope of the directory over which the role assignment is effective. The `/` value typically represents the root scope, meaning the role assignment is applicable across the entire directory.
 
 <!--Do we have a cmdlet similar to New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest to assign the role as eligible? For PIM?  https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/manage-roles-portal -->
 
@@ -138,7 +132,7 @@ $params = @{
     IsAssignableToRole = $True
 }
 
-New-EntraGroup @params
+$group = New-EntraGroup @params
 ```
 
 ```Output
@@ -150,14 +144,14 @@ HelpDesk admin group2 vvvvvvvv-8888-9999-0000-jjjjjjjjjjjj helpDeskAdminGroup Gr
 2. Get the role ID (`RoleDefinitionId`) you want to assign using the `Get-EntraDirectoryRoleDefinition` command.
 
 ```powershell
-Connect-Entra -Scopes 'RoleManagement.Read.Directory','EntitlementManagement.Read.All'
-Get-EntraDirectoryRoleDefinition
+Connect-Entra -Scopes 'RoleManagement.Read.Directory'
+$directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Helpdesk Administrator'"
 ```
 
 3. Create a role assignment using the `New-EntraDirectoryRoleAssignment` command where the `PrincipalId` is the group ID.
 
 ```powershell
-Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory','EntitlementManagement.ReadWrite.All'
+Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
 $params = @{
     RoleDefinitionId = 'a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'
     PrincipalId = 'vvvvvvvv-8888-9999-0000-jjjjjjjjjjjj'
@@ -179,23 +173,16 @@ To create a new role, use the `New-EntraDirectoryRoleDefinition` cmdlet.
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
-$RolePermissions = New-object Microsoft.Open.MSGraph.Model.RolePermission
-$RolePermissions.AllowedResourceActions =  @("microsoft.directory/applications/basic/read")
-
-$params = @{
-   RolePermissions = $RolePermissions
-   IsEnabled = $false
-   DisplayName = 'MyRoleDefinition'
-}
-
-New-EntraDirectoryRoleDefinition @params
+$rolePermissions = New-object Microsoft.Open.MSGraph.Model.RolePermission
+$rolePermissions.AllowedResourceActions =  @("microsoft.directory/applications/basic/read")
+New-EntraDirectoryRoleDefinition -RolePermissions $rolePermissions -IsEnabled $true -DisplayName 'Custom Application Read'
 ```
 
 ```Output
 
-DisplayName      Id                                   TemplateId                           Description IsBuiltIn IsEnabled
------------      --                                   ----------                           ----------- --------- ---------
-MyRoleDefinition a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 f5f5f5f5-aaaa-bbbb-cccc-d6d6d6d6d6d6             False     False
+DisplayName             Id                                   TemplateId                           Description IsBuiltIn IsEnabled
+-----------             --                                   ----------                           ----------- --------- ---------
+Custom Application Read a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 f5f5f5f5-aaaa-bbbb-cccc-d6d6d6d6d6d6             False     True
 
 ```
 
@@ -212,8 +199,11 @@ This section explains how to delete roles in Microsoft Entra ID with Microsoft E
 Use the `Remove-EntraDirectoryRoleAssignment` command to remove a role assignment. If you need to find the role assignment ID, referred in the `-Id` parameter, run the `Get-EntraDirectoryRoleAssignment` command first.
 
 ```powershell
-Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory','EntitlementManagement.ReadWrite.All'
-Remove-EntraDirectoryRoleAssignment -Id 'Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2'
+Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
+$group = Get-EntraGroup -Filter "DisplayName eq 'HelpDesk admin group2'"
+$directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Helpdesk Administrator'"
+$roleAssignement = Get-EntraDirectoryRoleAssignment | Where-Object {$_.PrincipalId -eq $group.Id -and $_.RoleDefinitionId -eq $directoryRole.Id}
+Remove-EntraDirectoryRoleAssignment -Id $roleAssignement.Id
 ```
 
 This example removes the specified role assignment from Microsoft Entra ID.
@@ -224,8 +214,8 @@ You can't delete built-in roles. Use the `Remove-EntraDirectoryRoleDefinition` c
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
-$DirectoryRoleDefinition = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Guest Inviter'"
-Remove-EntraDirectoryRoleDefinition -Id $DirectoryRoleDefinition.ObjectId
+$directoryRoleDefinition = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Custom Application Read'"
+Remove-EntraDirectoryRoleDefinition -Id $directoryRoleDefinition.Id
 ```
 
 ## Related content
