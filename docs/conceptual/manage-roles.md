@@ -195,8 +195,7 @@ Use the `Remove-EntraDirectoryRoleAssignment` command to remove a role assignmen
 Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
 $group = Get-EntraGroup -Filter "DisplayName eq 'HelpDesk admin group2'"
 $directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Helpdesk Administrator'"
-$roleAssignement = Get-EntraDirectoryRoleAssignment | Where-Object {$_.PrincipalId -eq $group.Id -and $_.RoleDefinitionId -eq $directoryRole.Id}
-Remove-EntraDirectoryRoleAssignment -Id $roleAssignement.Id
+Get-EntraDirectoryRoleAssignment | Where-Object {$_.PrincipalId -eq $group.Id -and $_.RoleDefinitionId -eq $directoryRole.Id} | Remove-EntraDirectoryRoleAssignment
 ```
 
 This example removes the specified role assignment from Microsoft Entra ID.
