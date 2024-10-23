@@ -151,13 +151,7 @@ $directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Helpd
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
-$params = @{
-    RoleDefinitionId = 'a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'
-    PrincipalId = 'vvvvvvvv-8888-9999-0000-jjjjjjjjjjjj'
-    DirectoryScopeId = '/'
- }
-
-New-EntraDirectoryRoleAssignment @params
+New-EntraDirectoryRoleAssignment -RoleDefinitionId $directoryRole.Id -PrincipalId $group.Id -DirectoryScopeId '/'
 ```
 
 ## Create a custom role
