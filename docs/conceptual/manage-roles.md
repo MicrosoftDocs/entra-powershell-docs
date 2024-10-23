@@ -131,7 +131,6 @@ $params = @{
     SecurityEnabled = $True
     IsAssignableToRole = $True
 }
-
 $group = New-EntraGroup @params
 ```
 
