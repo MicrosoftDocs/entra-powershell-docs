@@ -206,8 +206,7 @@ You can't delete built-in roles. Use the `Remove-EntraDirectoryRoleDefinition` c
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
-$directoryRoleDefinition = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Custom Application Read'"
-Remove-EntraDirectoryRoleDefinition -Id $directoryRoleDefinition.Id
+Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Custom Application Read'" | Remove-EntraDirectoryRoleDefinition
 ```
 
 ## Related content
