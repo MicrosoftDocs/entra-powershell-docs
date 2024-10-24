@@ -45,6 +45,8 @@ items:
     href: /entra/identity-platform/howto-create-self-signed-certificate?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
   - name: Get a client secret
     href: /powershell/module/microsoft.powershell.security/get-credential?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
+  - name: Recover deleted data
+    href: recover-deleted-data.md
 - name: Migrate to Microsoft Entra PowerShell
   items:
   - name: Migration guide
