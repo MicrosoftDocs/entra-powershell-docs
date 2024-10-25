@@ -60,22 +60,12 @@ Id                                   DeletedDateTime
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
 
-You can also restore the group in one step if you know its display name or group ID.
+You can also restore the group in one step if you know its display name or group ID, using pipelining:
 
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All' 
 Get-EntraDeletedGroup -Filter "displayName eq 'test21'" | Restore-EntraDeletedDirectoryObject #if you know the display name
 Get-EntraDeletedGroup -Id '6841e850-2d71-4ef7-a704-4ac93e6aaa69' | Restore-EntraDeletedDirectoryObject #if you know the group ID
-```
-
-```Output
-Get-EntraDeletedGroup -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Restore-EntraDeletedDirectoryObject #administrativeUnit resource
-```
-
-```Output
-Id                                   DeletedDateTime
---                                   ---------------
-00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
 
 ## Restore deleted applications
@@ -113,7 +103,8 @@ DisplayName Id                                   AppId                          
 TestApp1    aaaaaaaa-bbbb-cccc-1111-222222222222 00001111-aaaa-2222-bbbb-3333cccc4444 AzureADMyOrg   contoso.com
 ```
 
-Once you have identified the app you want to restore, use the `Restore-EntraDeletedDirectoryObject` cmdlet to restore it. The `-Id` parameter specifies the service principal ID. Restoring an application doesn't automatically restore its associated service principal. You must explicitly use this cmdlet to restore the deleted service principal.
+Once you have identified the app you want to restore, use the `Restore-EntraDeletedDirectoryObject` cmdlet to restore it. The `-Id` parameter specifies the service principal ID. 
+Restoring an application doesn't automatically restore its associated service principal. You must explicitly use this cmdlet to restore the deleted service principal.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
@@ -126,17 +117,11 @@ Id                                   DeletedDateTime
 aaaaaaaa-bbbb-cccc-1111-222222222222
 ```
 
-You can also restore the application in one step if you know its display name.
+You can also restore the application in one step if you know its display name, using pipelining:
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
 Get-EntraDeletedApplication -Filter "DisplayName eq 'TestApp1'" | Restore-EntraDeletedDirectoryObject
-```
-
-```Output
-Id                                   DeletedDateTime
---                                   ---------------
-aaaaaaaa-bbbb-cccc-1111-222222222222
 ```
 
 ## Restore deleted users
@@ -171,17 +156,11 @@ Id                                   DeletedDateTime
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
 
-You can also restore the user in one step if you know its ID.
+You can also restore the user in one step if you know its ID, using pipelining:
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 Get-EntraDeletedDirectoryObject -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Restore-EntraDeletedDirectoryObject
-```
-
-```Output
-Id                                   DeletedDateTime
---                                   ---------------
-00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
 
 > [!NOTE]
