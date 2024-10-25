@@ -1,6 +1,6 @@
 ---
 title: Recover deleted data
-description: Learn how to recover deleted application, group, or user objects in Microsoft Entra PowerShell.
+description: Learn how to recover deleted application, group, or user objects with Microsoft Entra PowerShell.
 ms.topic: how-to
 ms.date: 10/24/2024
 author: csmulligan
@@ -11,7 +11,7 @@ ms.reviewer: stevemutungi
 #Customer intent: As an IT admin I want to learn how to recover deleted data in Microsoft Entra PowerShell so that I can restore deleted objects in my organization.
 ---
 
-# Recover deleted data in Microsoft Entra PowerShell
+# Recover deleted data with Microsoft Entra PowerShell
 
 If you have accidentally deleted data from your directory, there may be some options for recovering the lost data using Microsoft Entra PowerShell. You can recover deleted objects, such as application, group, service principal, administrative unit, or user objects in the first 30 days after deletion. After 30 days, the deleted object is permanently deleted and can't be recovered.
 This article explains how to find and recover deleted data using Microsoft Entra PowerShell.
