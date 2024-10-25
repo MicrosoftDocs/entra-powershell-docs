@@ -63,16 +63,19 @@ The following example shows how to retrieve the sign-in activity of a specific u
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All','AuditLog.Read.All'
-Get-EntraUser -UserId 'SawyerM@contoso.com' -Property 'SignInActivity' | Select-Object -ExpandProperty 'SignInActivity'
+Get-EntraUser -UserId 'SawyerM@contoso.com' -Property 'SignInActivity' | Select-Object -Property Id, DisplayName, UserPrincipalName -ExpandProperty 'SignInActivity'
 ```
 
 ```Output
-lastSignInDateTime                : 07/09/2024 09:15:41
-lastNonInteractiveSignInDateTime  : 07/09/2024 07:15:41
+lastNonInteractiveSignInRequestId : bbbbbbbb-1111-2222-3333-aaaaaaaaaaaa
+lastSignInRequestId               : cccccccc-2222-3333-4444-dddddddddddd
+lastSuccessfulSignInDateTime      : 9/9/2024 1:12:13 PM
+lastNonInteractiveSignInDateTime  : 9/9/2024 1:12:13 PM
 lastSuccessfulSignInRequestId     : bbbbbbbb-1111-2222-3333-aaaaaaaaaaaa
-lastNonInteractiveSignInRequestId : 00001111-aaaa-2222-bbbb-3333cccc4444
-lastSignInRequestId               : bbbbbbbb-1111-2222-3333-aaaaaaaaaaaa
-lastSuccessfulSignInDateTime      : 07/09/2024 09:15:41
+lastSignInDateTime                : 9/7/2024 9:15:41 AM
+id                                : aaaaaaaa-bbbb-cccc-1111-222222222222
+displayName                       : Sawyer Miller
+userPrincipalName                 : SawyerM@contoso.com
 ```
 
 ### List a user's group memberships
