@@ -77,7 +77,7 @@ To confirm the updated description, run the [Get-EntraGroup](/powershell/module/
 Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"  
 ```
 
-## Add a user to a group
+## Add user to a group
 
 Add a user to the group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID. You can get the User ID from the [Microsoft Entra admin center](https://entra.microsoft.com/) or by running the [Get-EntraUser](/powershell/module/microsoft.graph.entra/get-entrauser) command.
 
@@ -87,7 +87,23 @@ $user = Get-EntraUser -UserId 'SawyerM@contoso.com'
 Add-EntraGroupMember -GroupId $group.Id -RefObjectId $user.Id
 ```
 
-## Add a user as a group owner
+To retrieve group members, use the command:
+
+```powershell
+$group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
+Get-EntraGroup -GroupId $group.Id | Get-EntraGroupMember | Select-Object Id, DisplayName, '@odata.type' 
+```
+
+```Output
+Id                                   DisplayName       @odata.type                     
+------------------------------------ ----------------- -------------------------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
+eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
+aaaaaaaa-6666-7777-8888-bbbbbbbbbbbb My Application    #microsoft.graph.servicePrincipal
+cccccccc-8888-9999-0000-dddddddddddd Contoso Group     #microsoft.graph.group
+```
+
+## Add user as a group owner
 
 Add a group owner to a group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID.
 
@@ -101,14 +117,13 @@ To confirm the updated group owner, run the [Get-EntraGroupOwner](/powershell/mo
 
 ```powershell
 $group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
-Get-EntraGroupOwner -GroupId $group.Id
+Get-EntraGroup -GroupId $group.Id | Get-EntraGroupOwner | Select-Object Id, DisplayName, '@odata.type'
 ```
 
 ```Output
-Id                                   DeletedDateTime
---                                   ---------------
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-eeeeeeee-4444-5555-6666-ffffffffffff
+Id                                   DisplayName       @odata.type
+------------------------------------ ----------------- ---------------------------
+aaaaaaaa-6666-7777-8888-bbbbbbbbbbbb Adele Vance       #microsoft.graph.user
 ```
 
 ## Query ownerless or empty groups
