@@ -33,7 +33,7 @@ To create a new group, run the following command.
 
 ```powershell
 $groupParams = @{
-    DisplayName = 'My new group'
+    DisplayName = 'Contoso marketing'
     MailEnabled = $false
     SecurityEnabled = $true
     MailNickName = 'NotSet'
@@ -44,42 +44,37 @@ New-EntraGroup @groupParams
 ```Output
 DisplayName  Id                                   MailNickname Description GroupTypes
 -----------  --                                   ------------ ----------- ----------
-My new group aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet                   {}
+Contoso marketing aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet                   {}
 ```
 
-This command creates a new group with the name `My new group`.
+This command creates a new group with the name `Contoso marketing`.
 
 Search for the created group by using the following command.
 
 ```powershell
-Get-EntraGroup -Filter "DisplayName eq 'My new group'"
+Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
 ```
 
 ```Output
 DisplayName        Id                                   MailNickname     Description        GroupTypes
 -----------        --                                   ------------     -----------        ----------
-My new group       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet       My new group        {Unified}
+Contoso marketing       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet       Contoso marketing EMEA        {Unified}
 ```
 
 This command returns the details of the newly created group. You can also use the `GroupId` (GUID) to search, update, or delete the group.
 
-## Update groups
+## Update group details
 
-Update the group description by running the following command. The `GroupId` is the Group ID.
+Update the group description by running the following command.
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
-$groupParams = @{
-    GroupId = $group.Id
-    Description = 'This is my new updated group details'
-}
-Set-EntraGroup @groupParams
+Get-EntraGroup -Filter "displayName eq 'Contoso marketing'" | Set-EntraGroup -Description 'Contoso marketing Global'
 ```
 
 To confirm the updated description, run the [Get-EntraGroup](/powershell/module/microsoft.graph.entra/get-entragroup) again.
 
 ```powershell
-Get-EntraGroup -Filter "DisplayName eq 'My new group'"  
+Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"  
 ```
 
 ## Add a user to a group
@@ -87,13 +82,9 @@ Get-EntraGroup -Filter "DisplayName eq 'My new group'"
 Add a user to the group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID. You can get the User ID from the [Microsoft Entra admin center](https://entra.microsoft.com/) or by running the [Get-EntraUser](/powershell/module/microsoft.graph.entra/get-entrauser) command.
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
+$group = Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 $user = Get-EntraUser -UserId 'SawyerM@contoso.com'
-$memberParams = @{
-    GroupId = $group.Id
-    RefObjectId = $user.Id
-}
-Add-EntraGroupMember @memberParams
+Add-EntraGroupMember -GroupId $group.Id -RefObjectId $user.Id
 ```
 
 ## Add a user as a group owner
@@ -101,19 +92,15 @@ Add-EntraGroupMember @memberParams
 Add a group owner to a group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID.
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
+$group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
 $owner = Get-EntraUser -UserId 'AdeleV@contoso.com'
-$ownerParams = @{
-    GroupId = $group.Id
-    RefObjectId = $owner.Id
-}
-Add-EntraGroupOwner @ownerParams
+Add-EntraGroupOwner -GroupId $group.Id -RefObjectId $owner.Id
 ```
 
 To confirm the updated group owner, run the [Get-EntraGroupOwner](/powershell/module/microsoft.graph.entra/get-entragroupowner) command. This command returns the User ID of one or more group owners.
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
+$group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
 Get-EntraGroupOwner -GroupId $group.Id
 ```
 
@@ -142,7 +129,7 @@ $groupsWithoutOwners | Format-Table DisplayName, Id, GroupTypes
 ```Output
 DisplayName           Id                                   GroupTypes
 -----------           --                                   ----------
-My new group          aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb {}
+Contoso marketing          aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb {}
 HelpDesk admin group  eeeeeeee-4444-5555-6666-ffffffffffff {}
 ```
 
@@ -162,7 +149,7 @@ $groupsWithoutMembers | Format-Table DisplayName, Id, GroupTypes
 ```Output
 DisplayName           Id                                   GroupTypes
 -----------           --                                   ----------
-My new group          aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb {}
+Contoso marketing          aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb {}
 HelpDesk admin group  eeeeeeee-4444-5555-6666-ffffffffffff {}
 ```
 
@@ -171,7 +158,7 @@ HelpDesk admin group  eeeeeeee-4444-5555-6666-ffffffffffff {}
 To remove the group, run the following command.
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'My new group'"
+$group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
 Remove-EntraGroup -GroupId $group.Id
 ```
 
