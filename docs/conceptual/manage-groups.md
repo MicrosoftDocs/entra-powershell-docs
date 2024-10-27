@@ -52,7 +52,7 @@ This command creates a new group with the name `Contoso marketing`.
 Search for the created group by using the following command.
 
 ```powershell
-Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
+Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 ```
 
 ```Output
@@ -90,7 +90,7 @@ Add-EntraGroupMember -GroupId $group.Id -RefObjectId $user.Id
 To retrieve group members, use the command:
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
+$group = Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 Get-EntraGroup -GroupId $group.Id | Get-EntraGroupMember | Select-Object Id, DisplayName, '@odata.type' 
 ```
 
@@ -108,15 +108,15 @@ cccccccc-8888-9999-0000-dddddddddddd Contoso Group     #microsoft.graph.group
 Add a group owner to a group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID.
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
+$group = Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 $owner = Get-EntraUser -UserId 'AdeleV@contoso.com'
 Add-EntraGroupOwner -GroupId $group.Id -RefObjectId $owner.Id
 ```
 
-To confirm the updated group owner, run the [Get-EntraGroupOwner](/powershell/module/microsoft.graph.entra/get-entragroupowner) command. This command returns the User ID of one or more group owners.
+To confirm the updated group owner, use the command:
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
+$group = Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 Get-EntraGroup -GroupId $group.Id | Get-EntraGroupOwner | Select-Object Id, DisplayName, '@odata.type'
 ```
 
@@ -170,11 +170,10 @@ HelpDesk admin group  eeeeeeee-4444-5555-6666-ffffffffffff {}
 
 ## Clean up resources
 
-To remove the group, run the following command.
+To remove the group, use the command:
 
 ```powershell
-$group = Get-EntraGroup -Filter "DisplayName eq 'Contoso marketing'"
-Remove-EntraGroup -GroupId $group.Id
+Get-EntraGroup -Filter "displayName eq 'Contoso marketing'" | Remove-EntraGroup
 ```
 
 ## Related content
