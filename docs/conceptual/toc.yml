@@ -29,10 +29,14 @@ items:
   items:
   - name: Manage users
     href: manage-user.md
+  - name: Manage user licenses  
+    href: how-to-manage-user-licenses.md
   - name: Manage groups
     href: manage-groups.md
   - name: Manage apps
     href: manage-apps.md
+  - name: Manage roles
+    href: manage-roles.md
   - name: Assign app roles to a service principal
     href: create-assign-app-roles.md
   - name: Grant and revoke API permissions

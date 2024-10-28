@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 10/05/2024
+ms.date: 10/15/2024
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -126,11 +126,7 @@ eeeeeeee-4444-5555-6666-ffffffffffff
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 $manager = Get-EntraUser -Filter "UserPrincipalName eq 'AdeleV@contoso.com'"
-$params = @{
-        UserId = 'SawyerM@contoso.com'
-        RefObjectId = $manager.Id
-}
-Set-EntraUserManager @params
+Set-EntraUserManager -UserId 'SawyerM@contoso.com' -RefObjectId $manager.Id
 ```
 
 - `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
@@ -158,11 +154,7 @@ Kez Michael   eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
-$photoParams = @{
-    UserId = 'SawyerM@contoso.com'
-    FilePath = 'D:\UserThumbnailPhoto.jpg'
-}
-Set-EntraUserThumbnailPhoto @photoParams
+Set-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com' -FilePath 'D:\UserThumbnailPhoto.jpg'
 ```
 
 This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
@@ -184,11 +176,7 @@ The following example shows how to grant a user an administrative role.
 Connect-Entra -Scopes 'User.ReadWrite.All', 'RoleManagement.ReadWrite.Directory'
 $directoryRole = Get-EntraDirectoryRole -Filter "DisplayName eq 'Helpdesk Administrator'"
 $user = Get-EntraUser -Filter "UserPrincipalName eq 'SawyerM@contoso.com'"
-$roleMemberParams = @{
-        DirectoryRoleId = $directoryRole.Id
-        RefObjectId = $user.Id
-}
-Add-EntraDirectoryRoleMember @roleMemberParams
+Add-EntraDirectoryRoleMember -DirectoryRoleId $directoryRole.Id -RefObjectId $user.Id
 ```
 
 This command adds a user to a Microsoft Entra role. To retrieve roles, use the command [Get-EntraDirectoryRole](/powershell/module/microsoft.graph.entra/get-entradirectoryrole).
@@ -196,67 +184,7 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 - `-DirectoryRoleId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
 - `-RefObjectId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
 
-## Manage user licenses
-
-1. Get details of a user's licenses.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All'
-Get-EntraUserLicenseDetail -UserId 'SawyerM@contoso.com'
-```
-
-```Output
-Id                                          SkuId                                SkuPartNumber
---                                          -----                                -------------
-ouL7hgqFM0GkdqXrzahI4u7E6wa1G91HgSARMkvFTgY 06ebc4ee-1bb5-47dd-8120-11324bc54e06 SPE_E5
-```
-
-1. Assign a license to a user based on a template user.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All', 'Organization.Read.All'
-$user = Get-EntraUser -UserId 'SawyerM@contoso.com'  
-$license = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense 
-$license.SkuId = (Get-EntraSubscribedSku | Where SkuPartNumber -eq 'FLOW_FREE').SkuId
-$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses 
-$licenses.AddLicenses = $license 
-Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licenses
-```
-
-The following example shows how to assign a `FLOW_FREE` license to a user with ObjectId `SawyerM@contoso.com`.
-
-1. Remove a license from a user.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All', 'Organization.Read.All'
-$userPrincipalName = 'SawyerM@contoso.com'
-$user = Get-EntraUser -UserId $userPrincipalName
-$skuId = (Get-EntraUserLicenseDetail -UserId $UserPrincipalName).SkuId
-$licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
-$licenses.RemoveLicenses = $skuId
-Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licenses
-```
-
-```Output
-Name                           Value
-----                           -----
-preferredLanguage
-givenName
-@odata.context                 https://graph.microsoft.com/v1.0/$metadata#users/$entity
-id                             hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
-mail                           SawyerM@contoso.com
-userPrincipalName              SawyerM@contoso.com
-jobTitle
-displayName                    Sawyer Miller
-officeLocation
-surname
-mobilePhone
-businessPhones                 {}
-```
-
-This example shows how to remove a license from a user.
-
-## Offboard a user
+## Off-board a user
 
 1. Invalidate active sessions and tokens.
 
@@ -284,7 +212,7 @@ $securePassword = ConvertTo-SecureString 'Some-strong-random-password' -AsPlainT
 Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
 ```
 
-Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This prevents unauthorized access and potential misuse of the account.
+Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
 1. Disable a user's device.
 
@@ -309,6 +237,7 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 
 ## Next steps
 
+- [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]
 - [Manage apps][manage-apps]
 
@@ -318,3 +247,4 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 [tutorial-groups]: manage-groups.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [manage-apps]: manage-apps.md
+[manage-licenses]: how-to-manage-user-licenses.md
