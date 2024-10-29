@@ -296,4 +296,4 @@ When a delegated permission grant is deleted, the access it granted is revoked. 
 <!-- links -->
 [interactive-consent]: /azure/active-directory/manage-apps/consent-and-permissions-overview
 [install]: installation.md
-[new-entraserviceprincipal]: (/powershell/module/microsoft.graph.entra/new-entraserviceprincipal)
+[new-entraserviceprincipal]: /powershell/module/microsoft.graph.entra/new-entraserviceprincipal
