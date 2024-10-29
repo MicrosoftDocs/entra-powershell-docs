@@ -44,12 +44,12 @@ To successfully complete this guide, make sure you have the required prerequisit
 
 ## Step 1: Get the app roles of the resource service principal
 
-Before you can grant app roles, you must first identify the app roles to grant and the resource service principal that exposes the app roles. App roles are defined in the `appRoles` object of a service principal.
+Before you can grant app roles, you first identify the app roles to grant and the resource service principal that exposes the app roles. App roles are defined in the `appRoles` object of a service principal.
 
 In this article, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
 
 ```powershell
-Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles | Select -ExpandProperty appRoles |fl
+Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles | Select -ExpandProperty appRoles |Format-List
 ```
 
 ```Output
@@ -163,11 +163,11 @@ In this article, you learn how to grant and revoke delegated permissions that ar
 
 ## Prerequisites
 
-To successfully complete this tutorial, make sure you have the required prerequisites:
+To successfully complete this guide, make sure you have the required prerequisites:
 
 1. A working Microsoft Entra tenant.
-1. Microsoft Entra PowerShell SDK is installed. Follow the [Install the Microsoft Entra PowerShell SDK](installation.md) guide to install the SDK.
-1. Microsoft Entra PowerShell using a Privileged Role Administrator, Application Administrator, or a Cloud Application Administrator in the tenant and the appropriate permissions. For this tutorial, the `Application.Read.All` and `DelegatedPermissionGrant.ReadWrite.All` delegated permissions are required. To set the permissions in Microsoft Entra PowerShell, run:
+1. Microsoft Entra PowerShell SDK is installed. To install the SDK, follow the [Install the Microsoft Entra PowerShell SDK](installation.md) guide.
+1. Microsoft Entra PowerShell using a *Privileged Role Administrator*, *Application Administrator*, or a *Cloud Application Administrator* in the tenant and the appropriate permissions. For this tutorial, the `Application.Read.All` and `DelegatedPermissionGrant.ReadWrite.All` delegated permissions are required. To set the permissions in Microsoft Entra PowerShell, run:
 
     ```powershell
     Connect-Entra -Scopes "Application.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All"
@@ -178,37 +178,35 @@ To successfully complete this tutorial, make sure you have the required prerequi
 
 ## Step 1: Get the delegated permissions of the resource service principal
 
-Before you can grant delegated permissions, you must first identify the delegated permissions to grant and the resource service principal that exposes the delegated permissions. Delegated permissions are defined in the `oauth2PermissionScopes` object of a service principal.
+Before you can grant delegated permissions, you first identify the delegated permissions to grant and the resource service principal that exposes the delegated permissions. Delegated permissions are defined in the `oauth2PermissionScopes` object of a service principal.
 
 In this article, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
 
 ```powershell
-Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes | Select -ExpandProperty Oauth2PermissionScopes | fl 
+Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes | Select -ExpandProperty Oauth2PermissionScopes | Format-List 
 ```
 
 ```Output
-AdminConsentDescription : Allows the app to read and write the full set of profile properties, reports, and managers of other users in your organization, on behalf of the signed-in user.
-AdminConsentDisplayName : Read and write all users' full profiles
-Id                      : 204e0828-b5ca-4ad8-b9f3-f32a958e7cc4
+AdminConsentDescription : Allows the app to read a basic set of profile properties of other users in your organization on behalf of the signed-in user. This includes display name, first and last name, email address and photo.
+AdminConsentDisplayName : Read all users' basic profiles
+Id                      : b340eb25-3456-403f-be2f-af7a0d370277
 IsEnabled               : True
 Origin                  :
-Type                    : Admin
-UserConsentDescription  : Allows the app to read and write the full set of profile properties, reports, and managers of other users in your organization, on your behalf.
-UserConsentDisplayName  : Read and write all users' full profiles
-Value                   : User.ReadWrite.All
+Type                    : User
+UserConsentDescription  : Allows the app to read a basic set of profile properties of other users in your organization on your behalf. Includes display name, first and last name, email address and photo.
+UserConsentDisplayName  : Read all users' basic profiles
+Value                   : User.ReadBasic.All
 AdditionalProperties    : {}
 
-AdminConsentDescription : Allows the app to list groups, and to read their properties and all group memberships on behalf of the signed-in user.  Also allows the app to read calendar, conversations, files,
-                          and other group content for all groups the signed-in user can access.
-AdminConsentDisplayName : Read all groups
-Id                      : 5f8c59db-677d-491f-a6b8-5f174b11ec1d
+AdminConsentDescription : Allows the app to read your profile. It also allows the app to update your profile information on your behalf.
+AdminConsentDisplayName : Read and write access to user profile
+Id                      : b4e74841-8e56-480b-be8b-910348b18b4c
 IsEnabled               : True
 Origin                  :
-Type                    : Admin
-UserConsentDescription  : Allows the app to list groups, and to read their properties and all group memberships on your behalf.  Also allows the app to read calendar, conversations, files, and other group
-                          content for all groups you can access.
-UserConsentDisplayName  : Read all groups
-Value                   : Group.Read.All
+Type                    : User
+UserConsentDescription  : Allows the app to read your profile, and discover your group membership, reports and manager. It also allows the app to update your profile information on your behalf.
+UserConsentDisplayName  : Read and update your profile
+Value                   : User.ReadWrite
 AdditionalProperties    : {}
 ```
 
@@ -217,9 +215,7 @@ AdditionalProperties    : {}
 
 ## Step 2: Create a client service principal
 
-The first step in granting consent is to  [create the service principal][new-entraserviceprincipal]. To do so, you need the `AppId` of your application.
-
-<a name='register-an-application-with-azure-ad'></a>
+The first step in granting consent is to  [create the service principal for the app that you grant permissions][new-entraserviceprincipal]. To do so, you need the `AppId` of your application.
 
 ### Register an application with Microsoft Entra ID
 
@@ -241,7 +237,7 @@ PublisherDomain : Contoso.com
 ### Create a service principal for the application
 
 ```powershell
-New-EntraServicePrincipal -AppId '05210c44-437f-4a40-bd38-b5b4eaf251ef' | 
+New-EntraServicePrincipal -AppId '00001111-aaaa-2222-bbbb-3333cccc4444' | 
   Format-List Id, DisplayName, AppId, SignInAudience
 ```
 
@@ -249,7 +245,7 @@ New-EntraServicePrincipal -AppId '05210c44-437f-4a40-bd38-b5b4eaf251ef' |
 Id             : bbbbbbbb-1111-2222-3333-cccccccccccc
 DisplayName    : My application
 AppId          : 00001111-aaaa-2222-bbbb-3333cccc4444
-SignInAudience : AzureADMyOrg
+SignInAudience : AzureADandPersonalMicrosoftAccount
 ```
 
 ## Step 3: Grant delegated permissions to the client enterprise application
@@ -258,77 +254,35 @@ To create a delegated permission grant, you need the following information:
 
 1. **ClientId** - object ID of the client service principal to be authorized to act on behalf of the user. In this case, the service principal we created in step 2.
 1. **ConsentType** - `AllPrincipals` to authorize all users in the tenant or `Principal` for a single user.
-1. **PrincipalId** - `Null` for *AllPrincipals* consents or ID of the user for *Principal* consents.
 1. **ResourceId** - object ID of the service principal representing the resource app in the tenant.
-1. **Scope** - space-delimited list of permission claim values, for example `User.Read.All`.
-
-In this example, the object ID of the resource service principal is `2cab1707-656d-40cc-8522-3178a184e03d`. You grant the `Group.Read.All` scope to the service principal and grant consent on behalf of all users in the tenant.
+1. **Scope** - space-delimited list of permission claim values, for example `User.ReadWrite`.
 
 ```powershell
-$params = @{
-  "ClientId" = "22c1770d-30df-49e7-a763-f39d2ef9b369"
-  "ConsentType" = "AllPrincipals"
-  "ResourceId" = "2cab1707-656d-40cc-8522-3178a184e03d"
-  "Scope" = "Group.Read.All"
-}
+```powershell
+$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
+$resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
 
-New-EntraOauth2PermissionGrant -BodyParameter $params | 
-  Format-List Id, ClientId, ConsentType, ExpiryTime, PrincipalId, ResourceId, Scope
+New-EntraOauth2PermissionGrant -ClientId $clientServicePrincipal.Id -ConsentType 'AllPrincipals' -ResourceId $resourceServicePrincipal.Id -Scope 'User.ReadWrite' | 
+  Format-List Id, ClientId, ConsentType, Scope
 ```
 
 ```Output
 Id          : DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw
-ClientId    : 22c1770d-30df-49e7-a763-f39d2ef9b369
+ClientId    : bbbbbbbb-1111-2222-3333-cccccccccccc
 ConsentType : AllPrincipals
 PrincipalId :
-ResourceId  : a67ad0d0-a7d1-4adb-8cd9-bcdd0c866d3c
 Scope       : Group.Read.All
 ```
+
 To confirm the delegated permissions assigned to the service principal on behalf of the user, you run the following command.
 
 ```powershell
-Get-EntraOauth2PermissionGrant -Filter "clientId eq '22c1770d-30df-49e7-a763-f39d2ef9b369' and consentType eq 'AllPrincipals'"
+Get-EntraOAuth2PermissionGrant | Where-Object {$_.ClientId -eq $clientServicePrincipal.Id} | Format-List
 ```
 
-```Output
-ClientId             : 22c1770d-30df-49e7-a763-f39d2ef9b369
-ConsentType          : AllPrincipals
-Id                   : DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw
-PrincipalId          :
-ResourceId           : 2cab1707-656d-40cc-8522-3178a184e03d
-Scope                : Group.Read.All User.Read.All
-AdditionalProperties : {}
-```
+### Step 4: Revoke delegated permissions granted to an enterprise application
 
-### Step 4: Grant more delegated permissions to the enterprise application
-
-You can add more permissions to an existing oauth2PermissionGrant object.
-
-To add the `User.Read.All` scope to the oauthPermissionGrant object, run:
-
-```powershell
-$params = @{
-  Scope = "Group.Read.All User.Read.All "
-  }
-
-Update-EntraOauth2PermissionGrant -OAuth2PermissionGrantId 'DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw' -BodyParameter $params
-```
-
-### Step 5: Revoke delegated permissions granted to an enterprise application
-
-If a service principal is granted multiple delegated permission grants, you can choose to revoke either specific grants or all grants.
-
-- To revoke one or more grants, update  oauthPermissionGrant object and specify only the delegated permissions to retain in the **scope** parameter. For example, to revoke the `User.read.All` permission, run:
-
-```powershell
-$params = @{
-  Scope = "Group.Read.All"
-  }
-
-Update-EntraOauth2PermissionGrant -OAuth2PermissionGrantId 'DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw' -BodyParameter $params
-```
-
-- To revoke all grants, use `Remove-EntraOauth2PermissionGrant`.
+To revoke the scopes assigned in step 3, run:
 
 ```powershell
 Remove-EntraOauth2PermissionGrant -OAuth2PermissionGrantId 'DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw'
