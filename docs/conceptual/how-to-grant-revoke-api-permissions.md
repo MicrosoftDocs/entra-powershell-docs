@@ -17,7 +17,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 # Grant or revoke API permissions programmatically
 
-When you grant API permissions to a client app in Microsoft Entra ID, the permission grants are recorded as objects that can be accessed, updated, or deleted like other objects. Using Microsoft Entra PowerShell cmdlets to directly create permission grants is a programmatic alternative to [interactive consent][interactive-consent]. This can be useful for automation scenarios, bulk management, or other custom operations in your organization.
+When you grant API permissions to a client app in Microsoft Entra ID, the permission grants are recorded as objects that can be accessed, updated, or deleted like other objects. Using Microsoft Entra PowerShell cmdlets to directly create permission grants is a programmatic alternative to [interactive consent][interactive-consent] and can be useful for automation scenarios, bulk management, or other custom operations in your organization.
 
 <!-- start the grant-application-permissions zone -->
 ::: zone pivot="grant-application-permissions"
@@ -32,7 +32,7 @@ In this article, you learn how to grant app roles that are exposed by an API to 
 To successfully complete this guide, make sure you have the required prerequisites:
 
 1. A working Microsoft Entra tenant.
-1. Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide .
+1. Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
 1. Microsoft Entra PowerShell using a **Privileged Role Administrator** in the tenant and the appropriate permissions. For this guide, the `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions are required. To set the permissions in Microsoft Entra PowerShell, run:
 
     ```powershell
@@ -159,7 +159,7 @@ Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $clientService
 <!-- start the grant-delegated-permissions zone -->
 ::: zone pivot="grant-delegated-permissions"
 
-In this article, you learn how to grant and revoke delegated permissions that are exposed by an API to an app. Delegated permissions, also called scopes or OAuth2 permissions, allow an app to call an API on behalf of a signed-in user.
+In this article, you learn how to grant and revoke delegated permissions that are exposed by an API to an app. Delegated permissions, also called scopes, or OAuth2 permissions, allow an app to call an API on behalf of a signed-in user.
 
 ## Prerequisites
 
@@ -180,7 +180,7 @@ To successfully complete this tutorial, make sure you have the required prerequi
 
 Before you can grant delegated permissions, you must first identify the delegated permissions to grant and the resource service principal that exposes the delegated permissions. Delegated permissions are defined in the `oauth2PermissionScopes` object of a service principal.
 
-In this article, you'll use the `Microsoft Graph` service principal in the tenant as your resource service principal.
+In this article, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
 
 ```powershell
 Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes | Select -ExpandProperty Oauth2PermissionScopes | fl 
@@ -217,7 +217,7 @@ AdditionalProperties    : {}
 
 ## Step 2: Create a client service principal
 
-The first step in granting consent is to  [create the service principal][new-entraserviceprincipal]. To do so, you'll need the `AppId` of your application.
+The first step in granting consent is to  [create the service principal][new-entraserviceprincipal]. To do so, you need the `AppId` of your application.
 
 <a name='register-an-application-with-azure-ad'></a>
 
@@ -254,7 +254,7 @@ SignInAudience : AzureADMyOrg
 
 ## Step 3: Grant delegated permissions to the client enterprise application
 
-To create a delegated permission grant, you'll need the following information:
+To create a delegated permission grant, you need the following information:
 
 1. **ClientId** - object ID of the client service principal to be authorized to act on behalf of the user. In this case, the service principal we created in step 2.
 1. **ConsentType** - `AllPrincipals` to authorize all users in the tenant or `Principal` for a single user.
@@ -262,7 +262,7 @@ To create a delegated permission grant, you'll need the following information:
 1. **ResourceId** - object ID of the service principal representing the resource app in the tenant.
 1. **Scope** - space-delimited list of permission claim values, for example `User.Read.All`.
 
-In this example, the object ID of the resource service principal is `2cab1707-656d-40cc-8522-3178a184e03d`. You'll grant the `Group.Read.All` scope to the service principal and grant consent on behalf of all users in the tenant.
+In this example, the object ID of the resource service principal is `2cab1707-656d-40cc-8522-3178a184e03d`. You grant the `Group.Read.All` scope to the service principal and grant consent on behalf of all users in the tenant.
 
 ```powershell
 $params = @{
@@ -316,7 +316,7 @@ Update-EntraOauth2PermissionGrant -OAuth2PermissionGrantId 'DXfBIt8w50mnY_OdLvmz
 
 ### Step 5: Revoke delegated permissions granted to an enterprise application
 
-If a service principal has been granted multiple delegated permission grants, you can choose to revoke either specific grants or all grants.
+If a service principal is granted multiple delegated permission grants, you can choose to revoke either specific grants or all grants.
 
 - To revoke one or more grants, update  oauthPermissionGrant object and specify only the delegated permissions to retain in the **scope** parameter. For example, to revoke the `User.read.All` permission, run:
 
@@ -334,7 +334,7 @@ Update-EntraOauth2PermissionGrant -OAuth2PermissionGrantId 'DXfBIt8w50mnY_OdLvmz
 Remove-EntraOauth2PermissionGrant -OAuth2PermissionGrantId 'DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw'
 ```
 
-When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens will continue to be valid for their lifetime, but new access tokens won't be granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.
+When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens continue to be valid for their lifetime, but new access tokens aren't granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.
 
 ::: zone-end
 <!-- end the grant-delegated-permissions zone -->
