@@ -121,10 +121,11 @@ In this step, you assign an app role exposed by your resource app to the service
 1. **Id** - ID of the app role to be assigned, defined on the service principal representing the resource.
 
 ```powershell
+$permission = "Application.Read.All"
 $clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
 $resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
 
-$appRole = $resourceServicePrincipal.AppRoles | Where-Object { $_.Value -eq "User.ReadBasic.All" }
+$appRole = $resourceServicePrincipal.AppRoles | Where-Object { $_.Value -eq $permission }
 
 $appRoleAssignment = New-EntraServicePrincipalAppRoleAssignment -ObjectId $clientServicePrincipal.Id -PrincipalId $clientServicePrincipal.Id -Id $appRole.Id -ResourceId $resourceServicePrincipal.Id
 
@@ -152,18 +153,16 @@ Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $clientServicePri
 To assign multiple app roles to the client service principal, you can create multiple app role assignments. For example, to assign the `User.ReadBasic.All` and `User.ReadWrite.All` app roles to the client service principal, run:
 
 ```powershell
-$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
-$resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
-
 # Define your required permissions
 $permissions = 'Application.Read.All', 'User.Read.All'
+$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
+$resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
 
 $appRoles = $resourceServicePrincipal.AppRoles | Where-Object { $_.Value -in $permissions }
 
 ForEach ($appRole in $appRoles) {
-    $appRoleAssignment = New-EntraServicePrincipalAppRoleAssignment -ObjectId $clientServicePrincipal.Id -PrincipalId $clientServicePrincipal.Id -Id $appRole.Id -ResourceId $resourceServicePrincipal.Id
+    New-EntraServicePrincipalAppRoleAssignment -ObjectId $clientServicePrincipal.Id -PrincipalId $clientServicePrincipal.Id -Id $appRole.Id -ResourceId $resourceServicePrincipal.Id
    }
- $appRoleAssignment | Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
 ```
 
 ## Step 4: Revoke an app role assignment from a client service principal
@@ -171,9 +170,14 @@ ForEach ($appRole in $appRoles) {
 To revoke the app roles assigned in step 3, run:
 
 ```powershell
-$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'"
+$permissions = 'Application.Read.All'
 
-$roleAssignment = Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $clientServicePrincipal.Id
+$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'"
+$resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
+
+$appRole = $resourceServicePrincipal.AppRoles | Where-Object {$_.Value -eq $permissions}
+
+$roleAssignment = Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $clientServicePrincipal.Id | Where-Object {$_.AppRoleId -eq $appRole.Id}
 
 Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $clientServicePrincipal.Id -AppRoleAssignmentId $roleAssignment.Id
 ```
@@ -286,10 +290,11 @@ To create a delegated permission grant, you need the following information:
 1. **Scope** - space-delimited list of permission claim values, for example `User.ReadWrite`.
 
 ```powershell
+$scopes = 'User.Read.All, Group.Read.All'
 $clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
 $resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
 
-$oauthPermissionGrant= New-EntraOauth2PermissionGrant -ClientId $clientServicePrincipal.Id -ConsentType 'AllPrincipals' -ResourceId $resourceServicePrincipal.Id -Scope 'User.ReadWrite'
+$oauthPermissionGrant= New-EntraOauth2PermissionGrant -ClientId $clientServicePrincipal.Id -ConsentType 'AllPrincipals' -ResourceId $resourceServicePrincipal.Id -Scope $scopes
 
 $oauthPermissionGrant | Format-List Id, ClientId, ConsentType, Scope
 ```
