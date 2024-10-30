@@ -52,15 +52,18 @@ conceptualContent:
         - text: Manage users
           url: /powershell/entra-powershell/manage-user
           itemType: how-to-guide
+        - text: Manage user licenses
+          url: /powershell/entra-powershell/how-to-manage-user-licenses
+          itemType: how-to-guide
+        - text: Manage devices
+          url: /powershell/entra-powershell/manage-devices
+          itemType: how-to-guide
         - text: Manage groups
           url: /powershell/entra-powershell/manage-groups
-          itemType: how-to-guide
+          itemType: how-to-guide          
         - text: Manage apps
           url: /powershell/entra-powershell/manage-apps
           itemType: how-to-guide
-        - text: Assign app roles to a service principal
-          url: /powershell/entra-powershell/create-assign-app-roles
-          itemType: how-to-guide  
     ## CARD 3 ######################
     - title: Migrate
       links:
@@ -104,7 +107,7 @@ additionalContent:
           url: https://learn.microsoft.com/en-us/answers/questions/
         # Card
         - title: Blog
-          summary: Read about updates on Entra identity and access management.
+          summary: Read about updates on Microsoft Entra identity and access management.
           url: https://techcommunity.microsoft.com/t5/microsoft-entra-blog/bg-p/Identity
         # Card
         - title: Community
@@ -113,4 +116,3 @@ additionalContent:
   # footer (Optional; Remove if not applicable.)
   footer: "[Provide product feedback](https://github.com/microsoftgraph/entra-powershell/issues/new/choose)"
 ## BAND 3 - ADDITIONAL CONTENT END #############################################################################################################################
-

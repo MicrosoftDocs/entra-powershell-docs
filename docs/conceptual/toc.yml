@@ -29,18 +29,22 @@ items:
   items:
   - name: Manage users
     href: manage-user.md
-  - name: Manage groups
-    href: manage-groups.md
-  - name: Manage apps
-    href: manage-apps.md
-  - name: Assign app roles to a service principal
-    href: create-assign-app-roles.md
+  - name: Manage user licenses  
+    href: how-to-manage-user-licenses.md
   - name: Manage devices
     items:
     - name: Manage device entities
       href: manage-devices.md
-    - name: Manage stale device
+    - name: Manage stale devices
       href: manage-stale-devices.md
+  - name: Manage groups
+    href: manage-groups.md
+  - name: Manage apps
+    href: manage-apps.md
+  - name: Manage roles
+    href: manage-roles.md
+  - name: Assign app roles to a service principal
+    href: create-assign-app-roles.md
   - name: Create custom application
     href: create-custom-application.md
   - name: Create a self-signed public certificate

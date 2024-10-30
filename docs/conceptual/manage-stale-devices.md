@@ -151,14 +151,9 @@ Managing devices using Microsoft Entra PowerShell provides a robust and efficien
 
 When configured, BitLocker keys for Windows 10 or newer devices are stored on the device object in Microsoft Entra ID. If you delete a stale device, you also delete the BitLocker keys stored on the device. Confirm that your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device.  
 
-## Next step
-
-[Frequently asked questions about devices][faq]
-
 <!-- link references -->
 
 [cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator  
-[faq]: /entra/identity/devices/faq
 [installation]: installation.md
 [free-entra-id]: https://azure.microsoft.com/free/entra-id
 [set-device]: /powershell/module/microsoft.graph.entra/set-entradevice
