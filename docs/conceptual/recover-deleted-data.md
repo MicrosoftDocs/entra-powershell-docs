@@ -126,7 +126,7 @@ Get-EntraDeletedApplication -Filter "displayName eq 'TestApp1'" | Restore-EntraD
 
 ## Restore deleted users
 
-To restore deleted users, you must have at least the [User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator) role.
+To restore deleted users, you need at least the [User Administrator][user-administrator] role.
 
 After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started and can't be stopped. During this time, the management of soft-deleted users is blocked.
 
