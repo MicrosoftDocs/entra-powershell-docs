@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/conceptual/create-assign-app-roles.md",
+            "source_path": "conceptual/create-assign-app-roles.md",
             "redirect_url": "/powershell/entra-powershell/how-to-grant-revoke-api-permissions?pivots=grant-application-permissions",
             "redirect_document_id": false
         }
