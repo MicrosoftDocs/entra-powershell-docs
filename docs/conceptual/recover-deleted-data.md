@@ -51,7 +51,8 @@ Once you have identified the group you want to restore, use the `Restore-EntraDe
 
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All' 
-Restore-EntraDeletedDirectoryObject -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee'
+$group = Get-EntraDeletedGroup -Filter "displayName eq 'test21'"
+Restore-EntraDeletedDirectoryObject -Id $group.Id
 ```
 
 ```Output
