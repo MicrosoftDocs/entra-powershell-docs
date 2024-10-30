@@ -26,7 +26,7 @@ To recover deleted data with Microsoft Entra PowerShell, you need:
 
 ## Restore deleted groups
 
-To restore deleted groups, you must have at least the [Groups Administrator](/entra/identity/role-based-access-control/permissions-reference#groups-administrator) role. However, to restore role-assignable groups, the calling user must be assigned the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role.
+To restore deleted groups, you need at least the [Groups Administrator][groups-administrator] role. For role-assignable groups, you must have the [Privileged Role Administrator][privileged-role-administrator] role.
 
 > [!NOTE]
 > Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups cannot be restored.
