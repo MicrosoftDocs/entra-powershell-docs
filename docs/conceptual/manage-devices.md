@@ -4,13 +4,13 @@ description: Learn how to use Microsoft Entra PowerShell to manage device identi
 ms.service: entra-id  
 ms.subservice: devices  
 ms.topic: how-to  
-ms.date: 10/01/2024  
+ms.date: 10/30/2024  
 ms.author: jomondi  
 author: omondiatieno  
 manager: celested  
 ms.reviewer: stevemutungi
 
-#customer-intent: As an IT admin, I want to have a comprehensive guide on managing device identities using Microsoft Entra PowerShell, so that I can ensure security and compliance within my organization. 
+#customer intent: As an IT admin, I want to have a comprehensive guide on managing device identities using Microsoft Entra PowerShell, so that I can ensure security and compliance within my organization. 
 ---  
    
 # Manage devices in Microsoft Entra ID  
@@ -150,7 +150,7 @@ $Device = Get-EntraDevice -Filter "DisplayName eq 'Woodgrove Desktop'"
 Remove-EntraDevice -ObjectId $Device.ObjectId  
 ```  
 
-## Download devices  
+## Export devices  
 
 Cloud Device Administrators and Intune Administrators can export a CSV file listing devices. You can apply filters to refine the list of devices. If no filters are applied, all devices are included. The export task might take up to an hour to complete, depending on your selections. If the export task exceeds 1 hour, it fails, and no file is output.  
 
@@ -167,17 +167,17 @@ The following filters can be applied for the export task:
 - OS type  
 - Device type  
 
-### Download all devices
+### Export all devices
 
 To retrieve all devices and save the data to a CSV file, use the following cmdlet:
 
 ```PowerShell  
 Get-EntraDevice -All `
 | Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime `
-| Export-Csv "C:\Users\YourUsername\Downloads\deviceList.csv" -NoTypeInformation 
+| Export-Csv "$env:UserProfile\Downloads\deviceList.csv" -NoTypeInformation 
 ```
 
-Ensure to replace YourUsername with your actual username or the desired path where you want to save the file. This example saves the CSV file directly to your Downloads folder.
+Ensure to replace `$env:UserProfile` with the path where you want to save the file based on your environment. This example saves the CSV file directly to your Downloads folder.
 
 ## Next step
 

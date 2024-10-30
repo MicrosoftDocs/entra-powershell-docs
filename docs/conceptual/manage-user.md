@@ -145,7 +145,7 @@ To manage users, you can perform the following common user management tasks:
 
    - `-ObjectId` - specifies the ID (as a UserPrincipalName or ObjectId) of a user in Microsoft Entra ID.
 
-   - `-RefObjectId` - specifies the ID as a UserPrincipalName or ObjectId) of the Microsoft Entra ID object to assign as a manager.
+   - `-RefObjectId` - specifies the ID (as a UserPrincipalName or ObjectId) of the Microsoft Entra ID object to assign as a manager.
 
 ### Upload or retrieve a photo for the user
 

@@ -4,7 +4,7 @@ description: Learn how to manage and remove stale devices using Microsoft Entra 
 ms.service: entra-id  
 ms.subservice: devices  
 ms.topic: how-to  
-ms.date: 10/17/2024  
+ms.date: 10/30/2024  
 ms.author: jomondi  
 author: omondiatieno  
 manager: celested  
@@ -63,13 +63,13 @@ AccountEnabled DeviceId                             OperatingSystem OperatingSys
 
 A typical routine for cleaning up stale devices consists of the following steps:  
 
-1. Connect to Microsoft Entra ID using the `Connect-Entra` cmdlet.  
+1. Connect to Microsoft Entra ID using the [Connect-Entra][connect-entra] cmdlet.  
 2. Get the list of stale devices.  
-3. Disable the device using the `Set-EntraDevice` cmdlet to set `-AccountEnabled` to **False**.  
+3. Disable the device using the [Set-EntraDevice][set-device] cmdlet to set `-AccountEnabled` to **False**.  
 4. Wait for the grace period of the set number of days before deleting the device.  
-5. Remove the device using the `Remove-EntraDevice` cmdlet.  
+5. Remove the device using the [Remove-EntraDevice][remove-device] cmdlet.  
   
-### Download list of stale devices
+### Export list of stale devices
 
 Use the timestamp filter to get all devices that don't have sign-in data in the last six months and store the returned data in a CSV file.  
 
@@ -84,10 +84,10 @@ Where-Object {
 } |  
 Select-Object -Property AccountEnabled, DeviceId, OperatingSystem, OperatingSystemVersion, DisplayName, TrustType, ApproximateLastSignInDateTime  
   
-$staleDevices | Export-Csv "C:\Users\YourUserName\Downloads\stale-devices1.csv" -NoTypeInformation  
+$staleDevices | Export-Csv "$env:UserProfile\Downloads\stale-devices1.csv" -NoTypeInformation  
 ```
 
-Ensure to replace `YourUsername` with your actual username or the desired path where you want to save the file. This example saves the CSV file directly to your Downloads folder.
+Ensure to replace `$env:UserProfile` with the path where you want to save the file based on your environment. This example saves the CSV file directly to your Downloads folder.
 
 > [!WARNING]  
 > Some active devices may have a blank timestamp.  
@@ -135,19 +135,7 @@ The following section outlines some common questions and answers about managing 
 
 ### Why is the timestamp not updated more frequently?  
 
-The timestamp is updated to support device lifecycle scenarios. This attribute isn't an audit. Use the sign-in audit logs for more frequent updates on the device. Some active devices might have a blank timestamp.  
-
-### Why should I worry about my BitLocker keys?  
-
-When configured, BitLocker keys for Windows 10 or newer devices are stored on the device object in Microsoft Entra ID. If you delete a stale device, you also delete the BitLocker keys stored on the device. Confirm that your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device.  
-
-### Why should I worry about Windows Autopilot devices?  
-
-When you delete a Microsoft Entra device associated with a Windows Autopilot object, the following scenarios can occur if the device will be repurposed in the future:  
-
-- With Windows Autopilot user-driven deployments without using pre-provisioning, a new Microsoft Entra device is created but isn’t tagged with the ZTDID.  
-- With Windows Autopilot self-deploying mode deployments, they fail because an associated Microsoft Entra device can’t be found. This failure is a security mechanism to ensure no "impostor" devices try to join Microsoft Entra ID with no credentials. The failure indicates a ZTDID mismatch.  
-- With Windows Autopilot pre-provisioning deployments, they fail because an associated Microsoft Entra device can’t be found. Pre-provisioning deployments use the same self-deploying mode process, enforcing the same security mechanisms.  
+The timestamp is updated to support device lifecycle scenarios. This attribute isn't an audit. Use the sign-in audit logs for more frequent updates on the device. Some active devices might have a blank timestamp.
 
 ### What happens when I disable a device?  
 
@@ -157,11 +145,15 @@ Any authentication where a device is used to authenticate to Microsoft Entra ID 
 - **Microsoft Entra joined device** - Users can't use the device to sign in.  
 - **Mobile devices** - Users can't access Microsoft Entra resources such as Microsoft 365.  
 
-Managing devices using Microsoft Entra PowerShell provides a robust and efficient way to ensure your organization's devices are secure and compliant. By following the steps and best practices outlined in this article, you can effectively manage your device environment and stay ahead of potential issues.  
+Managing devices using Microsoft Entra PowerShell provides a robust and efficient way to ensure your organization's devices are secure and compliant. By following the steps and best practices outlined in this article, you can effectively manage your device environment and stay ahead of potential issues.
 
-## Next steps  
+### Why should I worry about my BitLocker keys?  
 
-- [Frequently asked questions about devices][faq]
+When configured, BitLocker keys for Windows 10 or newer devices are stored on the device object in Microsoft Entra ID. If you delete a stale device, you also delete the BitLocker keys stored on the device. Confirm that your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device.  
+
+## Next step
+
+[Frequently asked questions about devices][faq]
 
 <!-- link references -->
 
@@ -169,3 +161,6 @@ Managing devices using Microsoft Entra PowerShell provides a robust and efficien
 [faq]: /entra/identity/devices/faq
 [installation]: installation.md
 [free-entra-id]: https://azure.microsoft.com/free/entra-id
+[set-device]: /powershell/module/microsoft.graph.entra/set-entradevice
+[remove-device]: /powershell/module/microsoft.graph.entra/remove-entradevice
+[connect-entra]: /powershell/module/microsoft.graph.entra/connect-entra
