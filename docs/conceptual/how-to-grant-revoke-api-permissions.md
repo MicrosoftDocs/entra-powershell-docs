@@ -31,9 +31,9 @@ In this article, you learn how to grant app roles that are exposed by an API to 
 
 To successfully complete this guide, make sure you have the required prerequisites:
 
-1. A working Microsoft Entra tenant.
-1. Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
-1. Microsoft Entra PowerShell using a **Privileged Role Administrator** in the tenant and the appropriate permissions. For this guide, the `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions are required. To set the permissions in Microsoft Entra PowerShell, run:
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
+- To use Microsoft Entra PowerShell, a [Privileged Role Administrator][privileged-role-administrator] role in the tenant with the necessary permissions is required. For this guide, you'll need `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions. To set these permissions in Entra PowerShell, run:
 
     ```powershell
     Connect-Entra -Scopes "Application.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
@@ -100,7 +100,8 @@ PublisherDomain : Contoso.com
 ### Create a service principal for the application
 
 ```powershell
-New-EntraServicePrincipal -AppId '00001111-aaaa-2222-bbbb-3333cccc4444' | 
+$application = Get-EntraApplication -Filter "DisplayName eq 'My application'"
+New-EntraServicePrincipal -AppId $application.AppId | 
   Format-List Id, DisplayName, AppId, SignInAudience
 ```
 
@@ -125,8 +126,8 @@ $clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My 
 $resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
 $appRole = $resourceServicePrincipal.AppRoles | Where-Object { $_.Value -eq "User.ReadBasic.All" }
 
-New-EntraServicePrincipalAppRoleAssignment -ObjectId $clientServicePrincipal.Id -PrincipalId $clientServicePrincipal.Id -Id -ResourceId $resourceServicePrincipal.Id   | 
-  Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
+$appRoleAssignemnt = New-EntraServicePrincipalAppRoleAssignment -ObjectId $clientServicePrincipal.Id -PrincipalId $clientServicePrincipal.Id -Id $appRole.Id -ResourceId $resourceServicePrincipal.Id
+$appRoleAssignemnt | Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
 ```
 
 ```Output
@@ -237,8 +238,8 @@ PublisherDomain : Contoso.com
 ### Create a service principal for the application
 
 ```powershell
-New-EntraServicePrincipal -AppId '00001111-aaaa-2222-bbbb-3333cccc4444' | 
-  Format-List Id, DisplayName, AppId, SignInAudience
+$application = Get-EntraApplication -Filter "DisplayName eq 'My application'"
+New-EntraServicePrincipal -AppId $application.AppId | Format-List Id, DisplayName, AppId, SignInAudience
 ```
 
 ```Output
@@ -285,7 +286,8 @@ Get-EntraOAuth2PermissionGrant | Where-Object {$_.ClientId -eq $clientServicePri
 To revoke the scopes assigned in step 3, run:
 
 ```powershell
-Remove-EntraOauth2PermissionGrant -OAuth2PermissionGrantId 'DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw'
+$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
+Get-EntraOAuth2PermissionGrant | Where-Object {$_.ClientId -eq $clientServicePrincipal.Id} | Remove-EntraOauth2PermissionGrant
 ```
 
 When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens continue to be valid for their lifetime, but new access tokens aren't granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.
@@ -297,3 +299,6 @@ When a delegated permission grant is deleted, the access it granted is revoked. 
 [interactive-consent]: /azure/active-directory/manage-apps/consent-and-permissions-overview
 [install]: installation.md
 [new-entraserviceprincipal]: /powershell/module/microsoft.graph.entra/new-entraserviceprincipal
+[privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator
+[application-administrator]: /entra/identity/role-based-access-control/permissions-reference#application-administrator
+[cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator
