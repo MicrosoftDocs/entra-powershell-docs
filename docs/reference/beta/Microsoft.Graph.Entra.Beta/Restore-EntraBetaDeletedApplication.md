@@ -26,9 +26,9 @@ Restores a previously deleted application.
 ## Syntax
 
 ```powershell
-Restore-EntraBetaDeletedApplication 
+Restore-EntraBetaDeletedApplication
  -ObjectId <String>
- [-IdentifierUris <System.Collections.Generic.List`1[System.String]>] 
+ [-IdentifierUris <System.Collections.Generic.List`1[System.String]>]
  [<CommonParameters>]
 ```
 
@@ -50,15 +50,16 @@ For delegated scenarios, the calling user needs to have at least one of the foll
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All'
-# List available applications
-Get-EntraBetaApplication
+$application = Get-EntraBetaApplication -SearchString 'New Entra Application'
 
 # Delete a specific application
-Remove-EntraBetaApplication -ObjectId 'ffffffff-5555-6666-7777-aaaaaaaaaaaa'
-Get-EntraBetaDeletedApplication
+Remove-EntraBetaApplication -ObjectId $application.ObjectId
+
+# Confirm deleted application
+Get-EntraBetaDeletedApplication -Filter "DisplayName eq 'New Entra Application'"
 
 # Restore a deleted application
-Restore-EntraBetaDeletedApplication -ObjectId 'ffffffff-5555-6666-7777-aaaaaaaaaaaa'
+Restore-EntraBetaDeletedApplication -ObjectId $application.ObjectId
 ```
 
 ```Output

@@ -26,11 +26,11 @@ Assigns a service principal to an application role.
 ## Syntax
 
 ```powershell
-New-EntraBetaServicePrincipalAppRoleAssignment 
- -ResourceId <String> 
- -Id <String> 
+New-EntraBetaServicePrincipalAppRoleAssignment
+ -ResourceId <String>
+ -Id <String>
  -ObjectId <String>
- -PrincipalId <String> 
+ -PrincipalId <String>
  [<CommonParameters>]
 ```
 
@@ -221,6 +221,8 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 ## Outputs
 
 ## Notes
+
+`New-EntraBetaServiceAppRoleAssignment` is an alias for `New-EntraBetaServicePrincipalAppRoleAssignment`.
 
 ## Related Links
 

@@ -25,9 +25,9 @@ Adds a member to a group.
 ## Syntax
 
 ```powershell
-Add-EntraGroupMember 
- -ObjectId <String> 
- -RefObjectId <String> 
+Add-EntraGroupMember
+ -GroupId <String>
+ -RefObjectId <String>
  [<CommonParameters>]
 ```
 
@@ -42,7 +42,7 @@ The Add-EntraGroupMember cmdlet adds a member to a group.
 ```powershell
 Connect-Entra -Scopes 'GroupMember.ReadWrite.All'
 $params = @{
-    ObjectId = 'dddddddd-2222-3333-5555-rrrrrrrrrrrr'
+    GroupId = 'dddddddd-2222-3333-5555-rrrrrrrrrrrr'
     RefObjectId = 'bbbbbbbb-1111-2222-3333-cccccccccccc'
 }
 
@@ -53,14 +53,14 @@ This example demonstrates how to add a member to a group.
 
 ## Parameters
 
-### -ObjectId
+### -GroupId
 
 Specifies the ID of a group in Microsoft Entra ID.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
-Aliases:
+Aliases: ObjectId
 
 Required: True
 Position: Named

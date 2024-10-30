@@ -25,7 +25,7 @@ Removes a password credential from a service principal.
 
 ```powershell
 Remove-EntraBetaServicePrincipalPasswordCredential
- -ObjectId <String>
+ -ServicePrincipalId <String>
  -KeyId <String>
  [<CommonParameters>]
 ```
@@ -36,13 +36,13 @@ The `Remove-EntraBetaServicePrincipalPasswordCredential` cmdlet removes a passwo
 
 ## Examples
 
-### Example 1: Remove a password credential from a service principal in Microsoft Entra ID  
+### Example 1: Remove a password credential from a service principal in Microsoft Entra ID
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All','Application.ReadWrite.OwnedBy'
 $ServicePrincipal = Get-EntraBetaServicePrincipal -Filter "DisplayName eq '<service-principal-display-name>'"
 $Params = @{
-    ObjectId = $ServicePrincipal.ObjectId
+    ServicePrincipalId = $ServicePrincipal.ObjectId
     KeyId = 'bbbbbbbb-1c1c-2d2d-3e3e-444444444444'
 }
 Remove-EntraBetaServicePrincipalPasswordCredential @Params
@@ -50,8 +50,8 @@ Remove-EntraBetaServicePrincipalPasswordCredential @Params
 
 This example demonstrates how to remove a password credential from a service principal in Microsoft Entra ID.  
 
-- `-ObjectId` parameter specifies the ObjectId of a specified Service Principal Password Credential.  
-- `-KeyId` parameter specifies the unique identifier of a Password Credential. 
+- `-ServicePrincipalId` parameter specifies the ObjectId of a specified Service Principal Password Credential.  
+- `-KeyId` parameter specifies the unique identifier of a Password Credential.
 
 ## Parameters
 
@@ -71,14 +71,14 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -ObjectId
+### -ServicePrincipalId
 
 Specifies the ID of an application in Microsoft Entra ID.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
-Aliases:
+Aliases: ObjectId
 
 Required: True
 Position: Named

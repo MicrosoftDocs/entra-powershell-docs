@@ -26,8 +26,8 @@ Removes a service principal application role assignment.
 ## Syntax
 
 ```powershell
-Remove-EntraBetaServicePrincipalAppRoleAssignment 
- -ObjectId <String> 
+Remove-EntraBetaServicePrincipalAppRoleAssignment
+ -ServicePrincipalId <String>
  -AppRoleAssignmentId <String>
  [<CommonParameters>]
 ```
@@ -55,9 +55,9 @@ For delegated scenarios, the calling user needs at least one of the following Mi
 
 ```powershell
 Connect-Entra -Scopes 'AppRoleAssignment.ReadWrite.All'
-$ServicePrincipal = Get-EntraBetaServicePrincipal -Filter "DisplayName eq '<service-principal-display-name>'"
+$servicePrincipal = Get-EntraBetaServicePrincipal -Filter "DisplayName eq '<service-principal-display-name>'"
 $params = @{
- ObjectId = $ServicePrincipal.ObjectId  
+ ServicePrincipalId = $ServicePrincipal.ObjectId  
  AppRoleAssignmentId = '2bbbbbb2-3cc3-4dd4-5ee5-6ffffffffff6'
 }
 
@@ -66,7 +66,7 @@ Remove-EntraBetaServicePrincipalAppRoleAssignment @params
 
 This example demonstrates how to remove a service principal application role assignment in Microsoft Entra ID.
 
-- `-ObjectId` - specifies the unique identifier (Object ID) of the service principal or user from which you want to remove an app role assignment.
+- `-ServicePrincipalId` - specifies the unique identifier (Object ID) of the service principal or user from which you want to remove an app role assignment.
 
 - `-AppRoleAssignmentId` - specifies the unique identifier (ID) of the app role assignment that you want to remove. The value `2bbbbbb2-3cc3-4dd4-5ee5-6ffffffffff6` represents the ID of the specific app role assignment to be removed.
 
@@ -88,14 +88,14 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -ObjectId
+### -ServicePrincipalId
 
 Specifies the ID of a service principal in Microsoft Entra ID.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
-Aliases:
+Aliases: ObjectId
 
 Required: True
 Position: Named
@@ -113,6 +113,8 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 ## Outputs
 
 ## Notes
+
+`Remove-EntraBetaServiceAppRoleAssignment` is an alias for `Remove-EntraBetaServicePrincipalAppRoleAssignment`.
 
 ## Related Links
 

@@ -25,9 +25,9 @@ Remove a password from an application.
 ## Syntax
 
 ```powershell
-Remove-EntraApplicationPassword 
- -ObjectId <String> 
- [-KeyId <String>] 
+Remove-EntraApplicationPassword
+ -ObjectId <String>
+ [-KeyId <String>]
  [<CommonParameters>]
 ```
 
@@ -95,7 +95,7 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ## Inputs
 
-### string
+### String
 
 ## Outputs
 

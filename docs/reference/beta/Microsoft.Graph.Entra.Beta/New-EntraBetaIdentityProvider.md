@@ -26,11 +26,11 @@ Configure a new identity provider in the directory.
 ## Syntax
 
 ```powershell
-New-EntraBetaIdentityProvider 
- -ClientId <String> 
- -Type <String> 
+New-EntraBetaIdentityProvider
+ -ClientId <String>
+ -Type <String>
  -ClientSecret <String>
- [-Name <String>] 
+ [-Name <String>]
  [<CommonParameters>]
 ```
 

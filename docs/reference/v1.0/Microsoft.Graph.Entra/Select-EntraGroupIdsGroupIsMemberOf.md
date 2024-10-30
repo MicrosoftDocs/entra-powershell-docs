@@ -2,7 +2,6 @@
 title: Select-EntraGroupIdsGroupIsMemberOf
 description: This article provides details on the Select-EntraGroupIdsGroupIsMemberOf command.
 
-
 ms.topic: reference
 ms.date: 06/26/2024
 ms.author: eunicewaweru
@@ -26,8 +25,8 @@ Gets group IDs that a group is a member of.
 ## Syntax
 
 ```powershell
-Select-EntraGroupIdsGroupIsMemberOf 
- -ObjectId <String> 
+Select-EntraGroupIdsGroupIsMemberOf
+ -ObjectId <String>
  -GroupIdsForMembershipCheck <GroupIdsForMembershipCheck>
  [<CommonParameters>]
 ```

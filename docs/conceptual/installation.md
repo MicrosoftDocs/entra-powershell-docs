@@ -17,6 +17,9 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 # Install the Microsoft Entra PowerShell module
 
+> [!IMPORTANT]
+> Microsoft Entra PowerShell cmdlets are currently in preview and might change. We recommend using these cmdlets for testing and development purposes only, and not in production applications at this time.
+
 The Microsoft Entra PowerShell module is available in two modules, which can be installed independently:
 
 - **Microsoft.Graph.Entra** - the General Availability or `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
@@ -107,8 +110,12 @@ To install the `Beta` module, run the following command.
 Install-Module -Name Microsoft.Graph.Entra.Beta -Repository PSGallery -AllowPrerelease
 ```
 
-> [!IMPORTANT]
-> We recommend using Microsoft Entra PowerShell v1.0 (GA) module for script writing. If you need to test or adopt features not yet available in v1.0, you might use the Beta module. However, the cmdlets in the Beta version can change unexpectedly, which makes it unsuitable for production as it could break existing scripts.
+> [!TIP]
+> In PowerShell 5.1, you might see the error: "Function {cmdlet-name} cannot be created because function capacity 4096 has been exceeded." To fix this, increase the function limit by running the command below, then try importing the module again.
+
+```powershell
+$MaximumFunctionCount = 32768
+```
 
 :::zone-end
 
