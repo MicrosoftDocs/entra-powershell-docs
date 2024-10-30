@@ -178,6 +178,10 @@ $roleAssignment = Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId
 Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $clientServicePrincipal.Id -AppRoleAssignmentId $roleAssignment.Id
 ```
 
+## Contributors
+
+- [Daniel Bradley](https://www.linkedin.com/in/danielbradley2/) | Microsoft MVP
+
 ::: zone-end
 
 <!-- end the grant-application-permissions zone -->
@@ -315,9 +319,6 @@ Get-EntraOAuth2PermissionGrant | Where-Object {$_.ClientId -eq $clientServicePri
 
 When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens continue to be valid for their lifetime, but new access tokens aren't granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.
 
-## Contributors
-
-- [Daniel Bradley](https://www.linkedin.com/in/danielbradley2/) | Microsoft MVP
 
 ::: zone-end
 <!-- end the grant-delegated-permissions zone -->
