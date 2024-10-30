@@ -165,7 +165,7 @@ Get-EntraDeletedDirectoryObject -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Res
 ```
 
 > [!NOTE]
-> Once a user is restored, licenses that were assigned to the user at the time of deletion are also restored even if there are none available. If you're consuming more licenses than you purchased, your organization could be temporarily out of compliance for license usage.
+> When a user is restored, any licenses assigned at the time of deletion are also restored, even if none are available. If you're consuming more licenses than you purchased, your organization could be temporarily out of compliance for license usage.
 
 ## Related content
 
