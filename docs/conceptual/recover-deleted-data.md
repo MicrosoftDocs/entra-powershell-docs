@@ -76,7 +76,7 @@ To restore deleted applications, you need one of the following Microsoft Entra r
 Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals).
 When you delete an application, the application registration by default enters the soft-deleted state. 
 
-To restore a soft-deleted application, you can use the `Get-EntraDeletedApplication` cmdlet first, to get the deleted application's details.
+To restore a soft-deleted application, you can use the [Get-EntraDeletedApplication][get-entradeletedapplication] cmdlet first, to get the deleted application's details.
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
