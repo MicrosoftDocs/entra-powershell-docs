@@ -130,7 +130,7 @@ To restore deleted users, you need at least the [User Administrator][user-admini
 
 After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started and can't be stopped. During this time, the management of soft-deleted users is blocked.
 
-To restore a soft-deleted deleted user with Microsoft Entra PowerShell, you can use the `Get-EntraDeletedDirectoryObject` cmdlet first, to find the deleted user's ID.
+To restore a soft-deleted user with Microsoft Entra PowerShell, use the [Get-EntraDeletedDirectoryObject][get-entradeleteddirectoryobject] cmdlet to find the deleted user's ID.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
