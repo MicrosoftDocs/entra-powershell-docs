@@ -47,7 +47,7 @@ test23      22cc22cc-dd33-ee44-ff55-66aa66aa66aa test23       desc3       {Unifi
 test24      33dd33dd-ee44-ff55-aa66-77bb77bb77bb test24       desc4       {Unified, DynamicMembership}
 ```
 
-Once you have identified the group you want to restore, use the `Restore-EntraDeletedDirectoryObject` cmdlet to restore it. The `-Id` parameter specifies the object ID of the deleted group to restore.
+After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the -Id parameter to specify the object ID of the deleted group.
 
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All' 
