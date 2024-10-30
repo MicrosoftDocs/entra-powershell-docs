@@ -147,6 +147,25 @@ To check the app roles assigned to the client service principal, run:
 Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $clientServicePrincipal.Id
 ```
 
+### Assign multiple app roles to the client service principal
+
+To assign multiple app roles to the client service principal, you can create multiple app role assignments. For example, to assign the `User.ReadBasic.All` and `User.ReadWrite.All` app roles to the client service principal, run:
+
+```powershell
+$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
+$resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
+
+# Define your required permissions
+$permissions = 'Application.Read.All', 'User.Read.All'
+
+$appRoles = $resourceServicePrincipal.AppRoles | Where-Object { $_.Value -in $permissions }
+
+ForEach ($appRole in $appRoles) {
+    $appRoleAssignment = New-EntraServicePrincipalAppRoleAssignment -ObjectId $clientServicePrincipal.Id -PrincipalId $clientServicePrincipal.Id -Id $appRole.Id -ResourceId $resourceServicePrincipal.Id
+   }
+ $appRoleAssignment | Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
+```
+
 ## Step 4: Revoke an app role assignment from a client service principal
 
 To revoke the app roles assigned in step 3, run:
@@ -155,6 +174,7 @@ To revoke the app roles assigned in step 3, run:
 $clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'"
 
 $roleAssignment = Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $clientServicePrincipal.Id
+
 Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $clientServicePrincipal.Id -AppRoleAssignmentId $roleAssignment.Id
 ```
 
@@ -262,7 +282,6 @@ To create a delegated permission grant, you need the following information:
 1. **Scope** - space-delimited list of permission claim values, for example `User.ReadWrite`.
 
 ```powershell
-```powershell
 $clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
 $resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
 
@@ -295,6 +314,10 @@ Get-EntraOAuth2PermissionGrant | Where-Object {$_.ClientId -eq $clientServicePri
 ```
 
 When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens continue to be valid for their lifetime, but new access tokens aren't granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.
+
+## Contributors
+
+- [Daniel Bradley](https://www.linkedin.com/in/danielbradley2/) | Microsoft MVP
 
 ::: zone-end
 <!-- end the grant-delegated-permissions zone -->
