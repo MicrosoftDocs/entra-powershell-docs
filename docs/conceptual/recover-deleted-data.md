@@ -104,8 +104,7 @@ DisplayName Id                                   AppId                          
 TestApp1    aaaaaaaa-bbbb-cccc-1111-222222222222 00001111-aaaa-2222-bbbb-3333cccc4444 AzureADMyOrg   contoso.com
 ```
 
-Once you have identified the app you want to restore, use the `Restore-EntraDeletedDirectoryObject` cmdlet to restore it. The `-Id` parameter specifies the service principal ID. 
-Restoring an application doesn't automatically restore its associated service principal. You must explicitly use this cmdlet to restore the deleted service principal.
+After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you'll need to run this cmdlet separately to restore the deleted service principal.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
