@@ -31,7 +31,7 @@ To restore deleted groups, you must have at least the [Groups Administrator](/en
 > [!NOTE]
 > Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups cannot be restored.
 
-To restore a deleted group, use the `Get-EntraDeletedGroup` cmdlet to find the deleted group. This cmdlet retrieves soft-deleted groups from a directory. When a group is deleted, it's soft deleted and can be recovered within 30 days. After 30 days, the group is permanently deleted and can't be recovered.
+Use the [Get-EntraDeletedGroup][get-entradeletedgroup] cmdlet to find deleted groups. This cmdlet retrieves soft-deleted groups, which can be recovered within 30 days. After 30 days, the group is permanently deleted and cannot be recovered.
 
 ```powershell
 Connect-Entra -Scopes 'Group.Read.All'
