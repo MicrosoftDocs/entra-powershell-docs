@@ -3,7 +3,7 @@ title: "Grant and revoke API permissions programmatically"
 description: "Learn how to programmatically grant and revoke delegated and application API permissions for an app using Microsoft Entra PowerShell to. This method is an alternative to interactive admin consent."
 
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 10/30/2024
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -30,7 +30,7 @@ To successfully complete this guide, make sure you have the required prerequisit
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 	- Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
-	- To use Microsoft Entra PowerShell, you need a [Privileged Role Administrator][privileged-role-administrator], [Application Administrator][application-administrator], or [Cloud Application Administrator][cloud-application-administrator] role in the tenant with the necessary permissions. For this guide, you need `Application.Read.All` and `DelegatedPermissionGrant.ReadWrite.All` delegated permissions. To grant these permissions in Entra PowerShell, run:
+	- To use Microsoft Entra PowerShell, you need a [Privileged Role Administrator][privileged-role-administrator], [Application Administrator][application-administrator], or [Cloud Application Administrator][cloud-application-administrator] role in the tenant with the necessary permissions. For this guide, you need `Application.Read.All` and `DelegatedPermissionGrant.ReadWrite.All` delegated permissions. To grant these permissions in Microsoft Entra PowerShell, run:
 
     ```powershell
     Connect-Entra -Scopes "Application.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All"
@@ -73,7 +73,7 @@ Value                   : User.ReadWrite
 AdditionalProperties    : {}
 ```
 
-The output has been truncated for readability.
+The output is truncated for readability.
 
 ## Step 2: Create a client service principal
 
@@ -170,7 +170,7 @@ To successfully complete this guide, make sure you have the required prerequisit
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
-- To use Microsoft Entra PowerShell, a [Privileged Role Administrator][privileged-role-administrator] role in the tenant with the necessary permissions is required. For this guide, you need `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions. To set these permissions in Entra PowerShell, run:
+- To use Microsoft Entra PowerShell, a [Privileged Role Administrator][privileged-role-administrator] role in the tenant with the necessary permissions is required. For this guide, you need `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions. To set these permissions in Microsoft Entra PowerShell, run:
 
     ```powershell
     Connect-Entra -Scopes "Application.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
@@ -210,7 +210,7 @@ Value                : User.ReadWrite.All
 AdditionalProperties : {}
 ```
 
-The output has been truncated for readability.
+The output is truncated for readability.
 
 ## Step 2: Create a client service principal
 
@@ -252,8 +252,8 @@ SignInAudience : AzureADandPersonalMicrosoftAccount
 
 In this step, you assign an app role exposed by your resource app to the service principal we created in step 2. To create an app role assignment, you need the following information:
 
-1. **ObjectId** - ObjectId of a client service principal to which you're assigning the app role. This is the service principal we created in step 2.
-1. **PrincipalId** - ObjectId of a client service principal to which you're assigning the app role. This is the service principal we created in step 2.
+1. **ObjectId** - Object ID of a client service principal to which you're assigning the app role. This object is the service principal we created in step 2.
+1. **PrincipalId** - Object ID of a client service principal to which you're assigning the app role. This object is the service principal we created in step 2.
 1. **ResourceId** - Object ID of the service principal representing the resource app in your tenant.
 1. **Id** - ID of the app role to be assigned, defined on the service principal representing the resource.
 
