@@ -71,7 +71,7 @@ Get-EntraDeletedGroup -Id '6841e850-2d71-4ef7-a704-4ac93e6aaa69' | Restore-Entra
 
 ## Restore deleted applications
 
-To restore deleted applications, you must have at least the one of the following Microsoft Entra roles: [Application Administrator](/entra/identity/role-based-access-control/permissions-reference#application-administrator), [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator), or [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator).  
+To restore deleted applications, you need one of the following Microsoft Entra roles: [Application Administrator][application-administrator], [Cloud Application Administrator][cloud-application-administrator], or [Hybrid Identity Administrator][hybrid-identity-administrator].
 
 Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals).
 When you delete an application, the application registration by default enters the soft-deleted state. 
