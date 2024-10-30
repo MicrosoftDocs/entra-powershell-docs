@@ -157,7 +157,7 @@ Id                                   DeletedDateTime
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
 
-You can also restore the user in one step if you know its ID, using pipelining:
+If you already know the user's ID, you can restore it in one step using pipelining:
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
