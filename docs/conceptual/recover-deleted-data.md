@@ -21,7 +21,7 @@ This article explains how to find and recover deleted data using Microsoft Entra
 To recover deleted data with Microsoft Entra PowerShell, you need:
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module](installation.md) guide to install the module.
+- Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module][installation] guide to install the module.
 - Grant yourself the least privileged delegated permission indicated for the operation.
 
 ## Restore deleted groups
