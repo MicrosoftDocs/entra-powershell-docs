@@ -66,7 +66,7 @@ You can also restore the group in one step if you know its display name or group
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All' 
 Get-EntraDeletedGroup -Filter "displayName eq 'test21'" | Restore-EntraDeletedDirectoryObject #if you know the display name
-Get-EntraDeletedGroup -Id '6841e850-2d71-4ef7-a704-4ac93e6aaa69' | Restore-EntraDeletedDirectoryObject #if you know the group ID
+Get-EntraDeletedGroup -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Restore-EntraDeletedDirectoryObject #if you know the group ID
 ```
 
 ## Restore deleted applications
