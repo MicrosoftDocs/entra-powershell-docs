@@ -122,7 +122,7 @@ You can also restore the application in one step if you know its display name, u
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
-Get-EntraDeletedApplication -Filter "DisplayName eq 'TestApp1'" | Restore-EntraDeletedDirectoryObject
+Get-EntraDeletedApplication -Filter "displayName eq 'TestApp1'" | Restore-EntraDeletedDirectoryObject
 ```
 
 ## Restore deleted users
