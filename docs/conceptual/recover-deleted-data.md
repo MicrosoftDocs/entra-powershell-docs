@@ -95,7 +95,7 @@ To get the deleted application by display name use the following command:
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
-Get-EntraDeletedApplication -Filter "DisplayName eq 'TestApp1'"
+Get-EntraDeletedApplication -Filter "displayName eq 'TestApp1'"
 ```
 
 ```Output
