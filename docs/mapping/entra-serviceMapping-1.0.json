@@ -242,5 +242,6 @@
   "Remove-EntraDirectoryRoleDefinition": "Role management",
   "Remove-EntraServicePrincipalAppRoleAssignment": "Service principal",
   "Set-EntraDirectoryRoleDefinition": "Role management",
-  "Update-EntraUserFromFederated": "Users"
+  "Update-EntraUserFromFederated": "Users",
+  "Get-EntraApplicationProxyApplication":"Application proxy"
 }
