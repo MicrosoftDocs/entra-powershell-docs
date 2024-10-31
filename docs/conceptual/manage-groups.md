@@ -58,7 +58,7 @@ Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 ```Output
 DisplayName        Id                                   MailNickname     Description        GroupTypes
 -----------        --                                   ------------     -----------        ----------
-Contoso marketing       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet       Contoso marketing EMEA        {Unified}
+Contoso marketing       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet       Contoso marketing EMEA        {}
 ```
 
 This command returns the details of the newly created group. You can also use the `GroupId` (GUID) to search, update, or delete the group.
