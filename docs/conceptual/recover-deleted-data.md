@@ -13,7 +13,7 @@ ms.reviewer: stevemutungi
 
 # Recover deleted data with Microsoft Entra PowerShell
 
-If you have accidentally deleted data from your directory, there may be some options for recovering the lost data using Microsoft Entra PowerShell. You can recover deleted objects, such as application, group, service principal, administrative unit, or user objects in the first 30 days after deletion. After 30 days, the deleted object is permanently deleted and can't be recovered.
+If you've accidentally deleted data from your directory, you may be able to recover it using Microsoft Entra PowerShell. You can restore deleted objects, such as applications, groups, service principals, administrative units, or user objects, within the first 30 days after deletion. After 30 days, the data is permanently deleted and cannot be recovered.
 This article explains how to find and recover deleted data using Microsoft Entra PowerShell.
 
 ## Prerequisites
@@ -128,7 +128,7 @@ Get-EntraDeletedApplication -Filter "DisplayName eq 'TestApp1'" | Restore-EntraD
 
 To restore deleted users, you must have at least the [User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator) role.
 
-After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started and can't be stopped. During this time, the management of soft-deleted users is blocked.
+After a user is deleted, their account remains in a suspended state for 30 days, during which it can be fully restored. Once this 30-day period ends, the account is permanently deleted, and management of soft-deleted users is no longer possible.
 
 To restore a soft-deleted deleted user with Microsoft Entra PowerShell, you can use the `Get-EntraDeletedDirectoryObject` cmdlet first, to find the deleted user's ID.
 
@@ -143,7 +143,7 @@ Id                                   DeletedDateTime
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee 
 ```
 
-Once you have the deleted user's ID, you can use the `Restore-EntraDeletedDirectoryObject` cmdlet to restore the user.
+Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet to restore the user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -174,4 +174,3 @@ For more examples visit the following articles:
 - [Get-EntraDeletedApplication](/powershell/module/microsoft.graph.entra/get-entradeletedapplication)
 - [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/get-entradeleteddirectoryobject?)
 - [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject)
-
