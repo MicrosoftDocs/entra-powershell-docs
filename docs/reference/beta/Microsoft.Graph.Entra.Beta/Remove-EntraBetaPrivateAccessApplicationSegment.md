@@ -5,9 +5,9 @@ description: This article provides details on the Remove-EntraBetaPrivateAccessA
 ms.topic: reference
 ms.date: 07/18/2024
 ms.author: eunicewaweru
-ms.reviewer: stevemutungi
+ms.reviewer: andres-canello
 manager: CelesteDG
-author: andres-canello
+author: eunicewaweru
 external help file: Microsoft.Graph.Entra.Beta-Help.xml
 Module Name: Microsoft.Graph.Entra.Beta
 online version:

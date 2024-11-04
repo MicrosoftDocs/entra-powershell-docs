@@ -6,7 +6,7 @@
   "Enable-EntraBetaGlobalSecureAccessTenant":"Global secure access",
   "Get-EntraBetaGlobalSecureAccessTenantStatus":"Global secure access",
   "Get-EntraBetaPrivateAccessApplication":"Global secure access",
-  "Get-EntraBetaPrivilegedRoleAssignmentRequest":"Global secure access",
+  "Get-EntraBetaPrivilegedRoleAssignmentRequest":"Privileged identity management",
   "New-EntraBetaPrivateAccessApplication":"Global secure access",
   "Get-EntraBetaUserAppRoleAssignment": "Users",
   "Get-EntraBetaUserCreatedObject": "Users",
