@@ -74,6 +74,22 @@ This article lists all new articles that were added or had significant updates i
 
 ## Module version history
 
+- [Version 0.19.0-preview][posh-0.19.0] - **November 2024**
+
+  - **New Global Secure Access Commands**: Added four cmdlets:
+    - `Enable-EntraBetaGlobalSecureAccessTenant`
+    - `New-EntraBetaPrivateAccessApplication`
+    - `Get-EntraBetaPrivateAccessApplication`
+    - `Get-EntraBetaGlobalSecureAccessTenantStatus`
+  - **Bug Fixes**:
+    - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain beta commands.
+    - Fixed [#1163](https://github.com/microsoftgraph/entra-powershell/issues/1163): Removed duplicate examples.
+  - **Enhancements**:
+    - Improved examples for over 130 cmdlets.
+    - Added directory sync features and configurations examples.
+  - **Security**:
+    - Implemented security hardening measures in the release pipeline.
+
 - [Version 0.18.0-preview][posh-0.18.0] - **October 2024**
 
   - Added usability-focused parameter switches to the `Set-EntraUserLicence` and `Set-EntraUserPassword` cmdlets.
@@ -157,6 +173,7 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-0.19.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.19.0-preview
 [posh-0.18.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.18.0-preview
 [posh-0.17.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.17.0-preview
 [posh-0.16.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.16.0-preview
