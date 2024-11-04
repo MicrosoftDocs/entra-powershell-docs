@@ -76,11 +76,7 @@ This article lists all new articles that were added or had significant updates i
 
 - [Version 0.19.0-preview][posh-0.19.0] - **November 2024**
 
-  - **New Global Secure Access Commands**: Added four cmdlets:
-    - `Enable-EntraBetaGlobalSecureAccessTenant`
-    - `New-EntraBetaPrivateAccessApplication`
-    - `Get-EntraBetaPrivateAccessApplication`
-    - `Get-EntraBetaGlobalSecureAccessTenantStatus`
+  - **New Global Secure Access Commands**: Added four cmdlets: `Enable-EntraBetaGlobalSecureAccessTenant`, `New-EntraBetaPrivateAccessApplication`, `Get-EntraBetaPrivateAccessApplication`, `Get-EntraBetaGlobalSecureAccessTenantStatus`.
   - **Bug Fixes**:
     - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain beta commands.
     - Fixed [#1163](https://github.com/microsoftgraph/entra-powershell/issues/1163): Removed duplicate examples.
