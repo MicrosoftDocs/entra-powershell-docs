@@ -21,17 +21,17 @@ This article explains how to find and recover deleted data using Microsoft Entra
 To recover deleted data with Microsoft Entra PowerShell, you need:
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module][installation] guide to install the module.
+- Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module](installation.md) guide to install the module.
 - Grant yourself the least privileged delegated permission indicated for the operation.
 
 ## Restore deleted groups
 
-To restore deleted groups, you need at least the [Groups Administrator][groups-administrator] role. For role-assignable groups, you must have the [Privileged Role Administrator][privileged-role-administrator] role.
+To restore deleted groups, you need at least the [Groups Administrator](/entra/identity/role-based-access-control/permissions-reference#groups-administrator) role. For role-assignable groups, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role.
 
 > [!NOTE]
 > Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups cannot be restored.
 
-Use the [Get-EntraDeletedGroup][get-entradeletedgroup] cmdlet to find deleted groups. This cmdlet retrieves soft-deleted groups, which can be recovered within 30 days. After 30 days, the group is permanently deleted and cannot be recovered.
+Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.graph.entra/get-entradeletedgroup) cmdlet to find deleted groups. This cmdlet retrieves soft-deleted groups, which can be recovered within 30 days. After 30 days, the group is permanently deleted and cannot be recovered.
 
 ```powershell
 Connect-Entra -Scopes 'Group.Read.All'
@@ -47,7 +47,7 @@ test23      22cc22cc-dd33-ee44-ff55-66aa66aa66aa test23       desc3       {Unifi
 test24      33dd33dd-ee44-ff55-aa66-77bb77bb77bb test24       desc4       {Unified, DynamicMembership}
 ```
 
-After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the -Id parameter to specify the object ID of the deleted group.
+After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the -Id parameter to specify the object ID of the deleted group.
 
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All' 
@@ -71,12 +71,12 @@ Get-EntraDeletedGroup -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Restore-Entra
 
 ## Restore deleted applications
 
-To restore deleted applications, you need one of the following Microsoft Entra roles: [Application Administrator][application-administrator], [Cloud Application Administrator][cloud-application-administrator], or [Hybrid Identity Administrator][hybrid-identity-administrator].
+To restore deleted applications, you need one of the following Microsoft Entra roles: [Application Administrator](/entra/identity/role-based-access-control/permissions-reference#application-administrator), [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator), or [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator).
 
 Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals).
 When you delete an application, the application registration by default enters the soft-deleted state. 
 
-To restore a soft-deleted application, you can use the [Get-EntraDeletedApplication][get-entradeletedapplication] cmdlet first, to get the deleted application's details.
+To restore a soft-deleted application, you can use the [Get-EntraDeletedApplication](/powershell/module/microsoft.graph.entra/get-entradeletedapplication) cmdlet first, to get the deleted application's details.
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
@@ -104,7 +104,7 @@ DisplayName Id                                   AppId                          
 TestApp1    aaaaaaaa-bbbb-cccc-1111-222222222222 00001111-aaaa-2222-bbbb-3333cccc4444 AzureADMyOrg   contoso.com
 ```
 
-After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you'll need to run this cmdlet separately to restore the deleted service principal.
+After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you'll need to run this cmdlet separately to restore the deleted service principal.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
@@ -126,11 +126,11 @@ Get-EntraDeletedApplication -Filter "displayName eq 'TestApp1'" | Restore-EntraD
 
 ## Restore deleted users
 
-To restore deleted users, you need at least the [User Administrator][user-administrator] role.
+To restore deleted users, you need at least the [User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator) role.
 
 After a user is deleted, their account remains in a suspended state for 30 days, during which it can be fully restored. Once this 30-day period ends, the account is permanently deleted, and management of soft-deleted users is no longer possible.
 
-To restore a soft-deleted user with Microsoft Entra PowerShell, use the [Get-EntraDeletedDirectoryObject][get-entradeleteddirectoryobject] cmdlet to find the deleted user's ID.
+To restore a soft-deleted user with Microsoft Entra PowerShell, use the [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/get-entradeleteddirectoryobject) cmdlet to find the deleted user's ID.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
@@ -143,7 +143,7 @@ Id                                   DeletedDateTime
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee 
 ```
 
-Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet to restore the user.
+Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet to restore the user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
