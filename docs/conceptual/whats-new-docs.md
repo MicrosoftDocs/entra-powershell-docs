@@ -28,10 +28,10 @@ This article lists all new articles that were added or had significant updates i
 
 **New articles**
 
-- [Manage devices](manage-devices.md): Guidance on managing device identities and monitoring related events.
+- [Manage devices](manage-devices.md): How to manage device identities and monitoring related events.
 - [Manage stale devices](manage-stale-devices.md): Best practices for efficient device management and compliance.
-- [Manage roles](manage-roles.md): Guidance on assigning roles to users.
-- [Manage user licenses](how-to-manage-user-licenses.md): Learn how to manage Microsoft Entra user licenses.
+- [Manage roles](manage-roles.md): How to assign roles to users.
+- [Manage user licenses](how-to-manage-user-licenses.md): How to manage Microsoft Entra user licenses.
 
 **Updated Articles**
 
