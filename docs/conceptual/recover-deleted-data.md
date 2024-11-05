@@ -13,7 +13,8 @@ ms.reviewer: stevemutungi
 
 # Recover deleted data with Microsoft Entra PowerShell
 
-If you've accidentally deleted data from your directory, you may be able to recover it using Microsoft Entra PowerShell. You can restore deleted objects, such as applications, groups, service principals, administrative units, or user objects, within the first 30 days after deletion. After 30 days, the data is permanently deleted and cannot be recovered.
+If you accidentally delete data from your directory, you can recover it using Microsoft Entra PowerShell. You can restore deleted objects, such as applications, groups, service principals, administrative units, or user objects, within 30 days of deletion. After 30 days, the data is permanently deleted and can't be recovered.
+
 This article explains how to find and recover deleted data using Microsoft Entra PowerShell.
 
 ## Prerequisites
@@ -31,7 +32,7 @@ To restore deleted groups, you need at least the [Groups Administrator](/entra/i
 > [!NOTE]
 > Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups cannot be restored.
 
-Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.graph.entra/get-entradeletedgroup) cmdlet to find deleted groups. This cmdlet retrieves soft-deleted groups, which can be recovered within 30 days. After 30 days, the group is permanently deleted and cannot be recovered.
+Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.graph.entra/get-entradeletedgroup) cmdlet to find deleted groups. This cmdlet retrieves soft-deleted groups, which can be recovered within 30 days. After 30 days, the group is permanently deleted and can't be recovered.
 
 ```powershell
 Connect-Entra -Scopes 'Group.Read.All'
@@ -104,7 +105,7 @@ DisplayName Id                                   AppId                          
 TestApp1    aaaaaaaa-bbbb-cccc-1111-222222222222 00001111-aaaa-2222-bbbb-3333cccc4444 AzureADMyOrg   contoso.com
 ```
 
-After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you'll need to run this cmdlet separately to restore the deleted service principal.
+After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
