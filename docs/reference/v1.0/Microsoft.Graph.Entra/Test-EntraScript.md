@@ -93,7 +93,7 @@ Accept wildcard characters: False
 
 ### -Quiet
 
-Only return $true or $false, based on whether the script could run under Microsoft.Graph.Entra ($true) or not ($false)
+Only return $true or $ false, based on whether the script could run under Microsoft.Graph.Entra ($true) or not ($ false)
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
