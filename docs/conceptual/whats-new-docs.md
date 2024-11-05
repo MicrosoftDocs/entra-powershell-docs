@@ -28,22 +28,22 @@ This article lists all new articles that were added or had significant updates i
 
 **New articles**
 
-- [Manage devices in Microsoft Entra ID](manage-devices.md) - Learn how to manage device identities and monitor related event information.
-- [Manage roles](manage-roles.md) - Learn to assign roles to users.
-- [Manage stale devices](manage-stale-devices.md) - Learn the best practices for efficient device management and compliance.
-- [Manage user licenses with Microsoft Entra PowerShell](how-to-manage-user-licenses.md) - Learn how to manage Microsoft Entra user licenses.
+- [Manage devices](manage-devices.md): Guidance on managing device identities and monitoring related events.
+- [Manage stale devices](manage-stale-devices.md): Best practices for efficient device management and compliance.
+- [Manage roles](manage-roles.md): Guidance on assigning roles to users.
+- [Manage user licenses](how-to-manage-user-licenses.md): Learn how to manage Microsoft Entra user licenses.
 
-**Updated articles**
+**Updated Articles**
 
-- [Assign app roles to a service principal](create-assign-app-roles.md) - Updated usability parameter switches. For example, `UserId` instead of `ObjectId`.
-- [Create a custom application](create-custom-application.md) - Added PowerShell script to create a custom app.
-- [Manage apps](manage-apps.md) 
+- [Assign app roles to a service principal](create-assign-app-roles.md): Enhanced parameter usability, replacing `ObjectId` with `UserId`.
+- [Create a custom application](create-custom-application.md): Added a PowerShell script for custom app creation.
+- [Manage apps](manage-apps.md): 
   - Updated usability parameter switches.
-  - Added a section to list applications that don't require user assignment.
-- [Manage groups](manage-groups.md) - Updated usability parameter switches.
-- [Manage users with Microsoft Entra PowerShell](manage-user.md) - Updated usability parameter switches.
-- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md) - Updated usability parameter switches.
-- [Migrate to Microsoft Entra PowerShell](migration-guide.md) - Updated usability parameter switches.
+  - Added a section on listing applications that don’t require user assignment.
+- [Manage groups](manage-groups.md): Updated usability parameter switches.
+- [Manage users with Microsoft Entra PowerShell](manage-user.md): Updated usability parameter switches.
+- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md): Updated usability parameter switches.
+- [Migrate to Microsoft Entra PowerShell](migration-guide.md): Updated usability parameter switches.
 
 
 ### September 2024
