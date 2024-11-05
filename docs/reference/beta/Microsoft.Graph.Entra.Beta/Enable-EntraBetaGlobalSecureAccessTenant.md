@@ -5,9 +5,9 @@ description: This article provides details on the Enable-EntraBetaGlobalSecureAc
 ms.topic: reference
 ms.date: 10/31/2024
 ms.author: eunicewaweru
-ms.reviewer: andres-canello
+reviewer: andres-canello
 manager: CelesteDG
-author: eunicewaweru
+author: msewaweru
 external help file: Microsoft.Graph.Entra.Beta-Help.xml
 Module Name: Microsoft.Graph.Entra.Beta
 online version:
