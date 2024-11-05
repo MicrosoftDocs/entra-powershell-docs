@@ -2,10 +2,10 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 10/03/2024
-author: omondiatieno
+ms.date: 11/05/2024
+author: msewaweru
 manager: CelesteDG
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi254
 
 zone_pivot_groups: entra-powershell-whats-new
@@ -23,6 +23,28 @@ This article lists all new articles that were added or had significant updates i
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### October 2024
+
+**New articles**
+
+- [Manage devices](manage-devices.md): How to manage device identities and monitoring related events.
+- [Manage stale devices](manage-stale-devices.md): Best practices for efficient device management and compliance.
+- [Manage roles](manage-roles.md): How to assign roles to users.
+- [Manage user licenses](how-to-manage-user-licenses.md): How to manage Microsoft Entra user licenses.
+
+**Updated Articles**
+
+- [Assign app roles to a service principal](create-assign-app-roles.md): Enhanced parameter usability, replacing `ObjectId` with `UserId`.
+- [Create a custom application](create-custom-application.md): Added a PowerShell script for custom app creation.
+- [Manage apps](manage-apps.md): 
+  - Updated usability parameter switches.
+  - Added a section on listing applications that don’t require user assignment.
+- [Manage groups](manage-groups.md): Updated usability parameter switches.
+- [Manage users with Microsoft Entra PowerShell](manage-user.md): Updated usability parameter switches.
+- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md): Updated usability parameter switches.
+- [Migrate to Microsoft Entra PowerShell](migration-guide.md): Updated usability parameter switches.
+
 
 ### September 2024
 
@@ -73,6 +95,18 @@ This article lists all new articles that were added or had significant updates i
 :::zone pivot="module-version-history"
 
 ## Module version history
+
+- [Version 0.19.0-preview][posh-0.19.0] - **November 2024**
+
+  - **New Global Secure Access Commands**: Added four cmdlets: `Enable-EntraBetaGlobalSecureAccessTenant`, `New-EntraBetaPrivateAccessApplication`, `Get-EntraBetaPrivateAccessApplication`, and `Get-EntraBetaGlobalSecureAccessTenantStatus`.
+  - **Bug Fixes**:
+    - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain beta commands.
+    - Fixed [#1163](https://github.com/microsoftgraph/entra-powershell/issues/1163): Removed duplicate examples.
+  - **Enhancements**:
+    - Improved examples for over 130 cmdlets.
+    - Added directory sync features and configurations examples.
+  - **Security**:
+    - Implemented security hardening measures in the release pipeline.
 
 - [Version 0.18.0-preview][posh-0.18.0] - **October 2024**
 
@@ -157,6 +191,7 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-0.19.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.19.0-preview
 [posh-0.18.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.18.0-preview
 [posh-0.17.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.17.0-preview
 [posh-0.16.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.16.0-preview
