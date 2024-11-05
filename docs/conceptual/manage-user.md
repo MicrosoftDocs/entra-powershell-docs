@@ -1,6 +1,6 @@
 ---
 title: "Manage users with Microsoft Entra PowerShell"
-description: "Learn how to use app-only authentication to enable non-interactive scenarios with the Microsoft Entra PowerShell SDK."
+description: "This article provides IT admins with instructions on how to use Microsoft Entra PowerShell for user management tasks. It covers creating users, tracking sign-in activity, managing group memberships and roles, handling user photos, and off-boarding procedure."
 
 author: omondiatieno
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.date: 10/15/2024
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
-#customer intent: As a developer, I want to authenticate with Microsoft Entra using app-only access, so that I can perform non-interactive operations, such as listing users and groups, using the Microsoft Entra PowerShell SDK.
+#customer intent: As an IT admin, I want to learn how to effectively manage users in my organization using Microsoft Entra PowerShell, so that I can perform tasks such as creating users, retrieving user sign-in activity, managing user's group memberships and roles, and off-boarding users efficiently.
 ---
 
 # Manage users with Microsoft Entra PowerShell
