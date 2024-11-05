@@ -174,3 +174,15 @@ For more examples visit the following articles:
 - [Get-EntraDeletedApplication](/powershell/module/microsoft.graph.entra/get-entradeletedapplication)
 - [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/get-entradeleteddirectoryobject?)
 - [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject)
+
+<!-- link references -->
+[installation]: installation.md
+[groups-administrator]: /entra/identity/role-based-access-control/permissions-reference#groups-administrator
+[privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator
+[get-entradeleteddirectoryobject]: /powershell/module/microsoft.graph.entra/get-entradeleteddirectoryobject
+[restore-entradeleteddirectoryobject]: /powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject
+[get-entradeletedapplication]: /powershell/module/microsoft.graph.entra/get-entradeletedapplication
+[application-administrator]: /entra/identity/role-based-access-control/permissions-reference#application-administrator
+[cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator
+[hybrid-identity-administrator]: /entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator
+[user-administrator]: /entra/identity/role-based-access-control/permissions-reference#user-administrator
