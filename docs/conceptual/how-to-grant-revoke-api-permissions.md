@@ -30,14 +30,14 @@ To successfully complete this guide, make sure you have the required prerequisit
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 	- Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
-	- To use Microsoft Entra PowerShell, you need a [Privileged Role Administrator][privileged-role-administrator], [Application Administrator][application-administrator], or [Cloud Application Administrator][cloud-application-administrator] role in the tenant with the necessary permissions. For this guide, you need `Application.Read.All` and `DelegatedPermissionGrant.ReadWrite.All` delegated permissions. To grant these permissions in Microsoft Entra PowerShell, run:
+	- To use Microsoft Entra PowerShell, you need a [Privileged Role Administrator][privileged-role-administrator], [Application Administrator][application-administrator], or [Cloud Application Administrator][cloud-application-administrator] role in the tenant with the necessary permissions. For this guide, you need `Application.Read.All` and `DelegatedPermissionGrant.ReadWrite.All` delegated permissions. To grant these permissions in Microsoft Entra PowerShell, run the following command.
 
     ```powershell
     Connect-Entra -Scopes "Application.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All"
     ```
 
 >[!Caution]
->The `DelegatedPermissionGrant.ReadWrite.All` permission allows an app or a service to manage permission grants and elevate privileges for any app, user, or group in your organization. Only appropriate users should access apps that have been granted this permission.
+>The `DelegatedPermissionGrant.ReadWrite.All` permission allows an app or a service to manage permission grants and elevate privileges for any app, user, or group in your organization. Only appropriate users should access apps that are granted this permission.
 
 ## Step 1: Get the delegated permissions of the resource service principal
 
@@ -47,11 +47,10 @@ In this article, you use the `Microsoft Graph` service principal in the tenant a
 
 ```powershell
 Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes |
-    Select-Object -ExpandProperty Oauth2PermissionScopes |
-    Format-List
+  Select-Object -ExpandProperty Oauth2PermissionScopes | Format-List
 ```
 
-The output is shown below.
+The output is as follows.
 
 ```Output
 AdminConsentDescription : Allows the app to read a basic set of profile properties of other users in your organization on behalf of the signed-in user. This includes display name, first and last name, email address and photo.
@@ -77,7 +76,7 @@ Value                   : User.ReadWrite
 AdditionalProperties    : {}
 ```
 
->**Note:** Output is shortened for readability.
+**Note:** Output is shortened for readability.
 
 ## Step 2: Create a client service principal
 
@@ -92,7 +91,7 @@ New-EntraApplication -DisplayName 'My application' |
   Format-List Id, DisplayName, AppId, SignInAudience, PublisherDomain
 ```
 
-The output is shown below.
+The output is as follows.
 
 ```Output
 Id              : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
@@ -107,10 +106,10 @@ PublisherDomain : Contoso.com
 ```powershell
 $application = Get-EntraApplication -Filter "displayName eq 'My application'"
 New-EntraServicePrincipal -AppId $application.AppId |
-    Format-List Id, DisplayName, AppId, SignInAudience
+  Format-List Id, DisplayName, AppId, SignInAudience
 ```
 
-The output is shown below.
+The output is as follows.
 
 ```Output
 Id             : bbbbbbbb-1111-2222-3333-cccccccccccc
@@ -138,7 +137,7 @@ $oauthPermissionGrant= New-EntraOauth2PermissionGrant -ClientId $clientServicePr
 $oauthPermissionGrant | Format-List Id, ClientId, ConsentType, Scope
 ```
 
-The output is shown below.
+The output is as follows.
 
 ```Output
 Id          : DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw
@@ -151,16 +150,19 @@ Scope       : Group.Read.All
 To confirm the delegated permissions assigned to the service principal on behalf of the user, you run the following command.
 
 ```powershell
-Get-EntraOAuth2PermissionGrant | Where-Object {$_.ClientId -eq $clientServicePrincipal.Id} | Format-List
+Get-EntraOAuth2PermissionGrant | 
+  Where-Object {$_.ClientId -eq $clientServicePrincipal.Id} | Format-List
 ```
 
 ### Step 4: Revoke delegated permissions granted to an enterprise application
 
-To revoke the scopes assigned in step 3, run:
+To revoke the scopes assigned in step 3, run the following command.
 
 ```powershell
 $clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
-Get-EntraOAuth2PermissionGrant | Where-Object {$_.ClientId -eq $clientServicePrincipal.Id} | Remove-EntraOauth2PermissionGrant
+Get-EntraOAuth2PermissionGrant | 
+  Where-Object {$_.ClientId -eq $clientServicePrincipal.Id} | 
+  Remove-EntraOauth2PermissionGrant
 ```
 
 When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens continue to be valid for their lifetime, but new access tokens aren't granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.
@@ -181,14 +183,14 @@ To successfully complete this guide, make sure you have the required prerequisit
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
-- To use Microsoft Entra PowerShell, a [Privileged Role Administrator][privileged-role-administrator] role in the tenant with the necessary permissions is required. For this guide, you need `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions. To set these permissions in Microsoft Entra PowerShell, run:
+- To use Microsoft Entra PowerShell, a [Privileged Role Administrator][privileged-role-administrator] role in the tenant with the necessary permissions is required. For this guide, you need `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions. To set these permissions in Microsoft Entra PowerShell, run the following command.
 
     ```powershell
     Connect-Entra -Scopes "Application.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
     ```
 
 >[!Caution]
->The `AppRoleAssignment.ReadWrite.All` permission allows an app or a service to manage permission grants and elevate privileges for any app, user, or group in your organization. Only appropriate users should access apps that have been granted this permission.
+>The `AppRoleAssignment.ReadWrite.All` permission allows an app or a service to manage permission grants and elevate privileges for any app, user, or group in your organization. Only appropriate users should access apps that are granted this permission.
 
 ## Step 1: Get the app roles of the resource service principal
 
@@ -198,11 +200,10 @@ In this article, you use the `Microsoft Graph` service principal in the tenant a
 
 ```powershell
 Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles |
-    Select-Object -ExpandProperty appRoles |
-    Format-List
+  Select-Object -ExpandProperty appRoles |Format-List
 ```
 
-The output is shown below.
+The output is as follows.
 
 ```Output
 AllowedMemberTypes   : {Application}
@@ -225,7 +226,7 @@ Value                : User.ReadWrite.All
 AdditionalProperties : {}
 ```
 
->**Note:** Output is shortened for readability.
+**Note:** Output is shortened for readability.
 
 ## Step 2: Create a client service principal
 
@@ -240,7 +241,7 @@ New-EntraApplication -DisplayName 'My application' |
   Format-List Id, DisplayName, AppId, SignInAudience, PublisherDomain
 ```
 
-The output is shown below.
+The output is as follows.
 
 ```Output
 Id              : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
@@ -258,7 +259,7 @@ New-EntraServicePrincipal -AppId $application.AppId |
   Format-List Id, DisplayName, AppId, SignInAudience
 ```
 
-The output is shown below.
+The output is as follows.
 
 ```Output
 Id             : bbbbbbbb-1111-2222-3333-cccccccccccc
@@ -288,7 +289,7 @@ $appRoleAssignment = New-EntraServicePrincipalAppRoleAssignment -ObjectId $clien
 $appRoleAssignment | Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
 ```
 
-The output is shown below.
+The output is as follows.
 
 ```Output
 Id                   : 2vV4mvpNrUuK2v42MReF-KqcgqHiq0xGiI38Nr6KfP4
@@ -300,7 +301,7 @@ PrincipalType        : ServicePrincipal
 ResourceDisplayName  : Microsoft Graph
 ```
 
-To check the app roles assigned to the client service principal, run:
+To check the app roles assigned to the client service principal, run the following command.
 
 ```powershell
 Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $clientServicePrincipal.Id
@@ -308,7 +309,7 @@ Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $clientServicePri
 
 ### Assign multiple app roles to the client service principal
 
-To assign multiple app roles to the client service principal, you can create multiple app role assignments. For example, to assign the `User.ReadBasic.All` and `User.ReadWrite.All` app roles to the client service principal, run:
+To assign multiple app roles to the client service principal, you can create multiple app role assignments. For example, to assign the `User.ReadBasic.All` and `User.ReadWrite.All` app roles to the client service principal, run the following command.
 
 ```powershell
 $permissions = 'Application.Read.All', 'User.Read.All'
@@ -326,7 +327,7 @@ ForEach ($appRole in $appRoles) {
 
 ## Step 4: Revoke an app role assignment from a client service principal
 
-To revoke the app roles assigned in step 3, run:
+To revoke the app roles assigned in step 3, run the following commands.
 
 ```powershell
 $permissions = 'Application.Read.All'
