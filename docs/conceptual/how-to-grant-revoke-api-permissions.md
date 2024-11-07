@@ -46,8 +46,12 @@ Before you can grant delegated permissions, you first identify the delegated per
 In this article, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
 
 ```powershell
-Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes | Select -ExpandProperty Oauth2PermissionScopes | Format-List 
+Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes |
+    Select-Object -ExpandProperty Oauth2PermissionScopes |
+    Format-List
 ```
+
+The output is shown below.
 
 ```Output
 AdminConsentDescription : Allows the app to read a basic set of profile properties of other users in your organization on behalf of the signed-in user. This includes display name, first and last name, email address and photo.
@@ -73,7 +77,7 @@ Value                   : User.ReadWrite
 AdditionalProperties    : {}
 ```
 
-The output is truncated for readability.
+>**Note:** Output is shortened for readability.
 
 ## Step 2: Create a client service principal
 
@@ -88,6 +92,8 @@ New-EntraApplication -DisplayName 'My application' |
   Format-List Id, DisplayName, AppId, SignInAudience, PublisherDomain
 ```
 
+The output is shown below.
+
 ```Output
 Id              : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 DisplayName     : My application
@@ -99,9 +105,12 @@ PublisherDomain : Contoso.com
 ### Create a service principal for the application
 
 ```powershell
-$application = Get-EntraApplication -Filter "DisplayName eq 'My application'"
-New-EntraServicePrincipal -AppId $application.AppId | Format-List Id, DisplayName, AppId, SignInAudience
+$application = Get-EntraApplication -Filter "displayName eq 'My application'"
+New-EntraServicePrincipal -AppId $application.AppId |
+    Format-List Id, DisplayName, AppId, SignInAudience
 ```
+
+The output is shown below.
 
 ```Output
 Id             : bbbbbbbb-1111-2222-3333-cccccccccccc
@@ -128,6 +137,8 @@ $oauthPermissionGrant= New-EntraOauth2PermissionGrant -ClientId $clientServicePr
 
 $oauthPermissionGrant | Format-List Id, ClientId, ConsentType, Scope
 ```
+
+The output is shown below.
 
 ```Output
 Id          : DXfBIt8w50mnY_OdLvmzadDQeqbRp9tKjNm83QyGbTw
@@ -186,8 +197,12 @@ Before you can grant app roles, you first identify the app roles to grant and th
 In this article, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
 
 ```powershell
-Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles | Select -ExpandProperty appRoles |Format-List
+Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles |
+    Select-Object -ExpandProperty appRoles |
+    Format-List
 ```
+
+The output is shown below.
 
 ```Output
 AllowedMemberTypes   : {Application}
@@ -210,7 +225,7 @@ Value                : User.ReadWrite.All
 AdditionalProperties : {}
 ```
 
-The output is truncated for readability.
+>**Note:** Output is shortened for readability.
 
 ## Step 2: Create a client service principal
 
@@ -224,6 +239,8 @@ If the application isn't available, register an application with Microsoft Entra
 New-EntraApplication -DisplayName 'My application' | 
   Format-List Id, DisplayName, AppId, SignInAudience, PublisherDomain
 ```
+
+The output is shown below.
 
 ```Output
 Id              : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
@@ -240,6 +257,8 @@ $application = Get-EntraApplication -Filter "DisplayName eq 'My application'"
 New-EntraServicePrincipal -AppId $application.AppId | 
   Format-List Id, DisplayName, AppId, SignInAudience
 ```
+
+The output is shown below.
 
 ```Output
 Id             : bbbbbbbb-1111-2222-3333-cccccccccccc
@@ -269,6 +288,8 @@ $appRoleAssignment = New-EntraServicePrincipalAppRoleAssignment -ObjectId $clien
 $appRoleAssignment | Format-List Id, AppRoleId, CreatedDateTime, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName
 ```
 
+The output is shown below.
+
 ```Output
 Id                   : 2vV4mvpNrUuK2v42MReF-KqcgqHiq0xGiI38Nr6KfP4
 AppRoleId            : 97235f07-e226-4f63-ace3-39588e11d3a1
@@ -290,16 +311,17 @@ Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $clientServicePri
 To assign multiple app roles to the client service principal, you can create multiple app role assignments. For example, to assign the `User.ReadBasic.All` and `User.ReadWrite.All` app roles to the client service principal, run:
 
 ```powershell
-# Define your required permissions
 $permissions = 'Application.Read.All', 'User.Read.All'
-$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'" 
+
+$clientServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'My application'"
 $resourceServicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
 
 $appRoles = $resourceServicePrincipal.AppRoles | Where-Object { $_.Value -in $permissions }
 
 ForEach ($appRole in $appRoles) {
-    New-EntraServicePrincipalAppRoleAssignment -ObjectId $clientServicePrincipal.Id -PrincipalId $clientServicePrincipal.Id -Id $appRole.Id -ResourceId $resourceServicePrincipal.Id
-   }
+    New-EntraServicePrincipalAppRoleAssignment -ObjectId $clientServicePrincipal.Id `
+        -PrincipalId $clientServicePrincipal.Id -Id $appRole.Id -ResourceId $resourceServicePrincipal.Id
+}
 ```
 
 ## Step 4: Revoke an app role assignment from a client service principal
