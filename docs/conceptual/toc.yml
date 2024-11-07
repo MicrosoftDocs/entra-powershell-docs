@@ -43,8 +43,8 @@ items:
     href: manage-apps.md
   - name: Manage roles
     href: manage-roles.md
-  - name: Assign app roles to a service principal
-    href: create-assign-app-roles.md
+  - name: Grant and revoke API permissions
+    href: how-to-grant-revoke-api-permissions.md    
   - name: Create custom application
     href: create-custom-application.md
   - name: Create a self-signed public certificate
