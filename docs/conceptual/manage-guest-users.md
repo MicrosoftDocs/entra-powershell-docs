@@ -63,7 +63,7 @@ To bulk invite guest users to your organization:
 
     In Microsoft Excel, create a CSV file with the list of invitee user names and email addresses. Make sure to include the **Name** and **Email** column headings.
 
-    For example, create a worksheet in the following format:
+    For example, create a worksheet in the following format: 
 
     | Name         | Email                |  
     |--------------|----------------------|  
