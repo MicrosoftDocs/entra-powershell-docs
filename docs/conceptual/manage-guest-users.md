@@ -65,9 +65,9 @@ To bulk invite guest users to your organization:
 
     For example, create a worksheet in the following format:
 
-    :::image type="content" source="media/manage-guest-users/invite-guest-users-list.png" alt-text="Screenshot that shows the csv file columns of Name and InvitedUserEmailAddress.":::
+    :::image type="content" source="media/invite-guest-users-list.png" alt-text="Screenshot that shows the csv file columns of Name and InvitedUserEmailAddress.":::
 
-Save the file as **C:\BulkInvite\Invitations.csv**.
+Save the file as `C:\BulkInvite\Invitations.csv` or any location of your choice.
 
 If you don't have Excel, you can create a CSV file in any text editor, such as Notepad. Separate each value with a comma, and each row with a new line.
 
@@ -108,13 +108,13 @@ If you don't have Excel, you can create a CSV file in any text editor, such as N
     }
     ```
 
-```output
-Id                                   InviteRedeemUrl
---                                   ---------------                                                      
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
-bbbbbbbb-1111-2222-3333-cccccccccccc https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
-cccccccc-2222-3333-4444-dddddddddddd https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
-```
+    ```output
+    Id                                   InviteRedeemUrl
+    --                                   ---------------                                                      
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+    bbbbbbbb-1111-2222-3333-cccccccccccc https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+    cccccccc-2222-3333-4444-dddddddddddd https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+    ```
 
 ## View and export guest user accounts
 
@@ -162,7 +162,7 @@ The following examples show how to disable guest user accounts in Microsoft Entr
 
 To disable a single guest user account:
 
-Connect to Microsoft Entra with at least a [User Administrator][user-admin] role:
+1. Connect to Microsoft Entra with at least a [User Administrator][user-admin] role:
 
    ```powershell
     Connect-Entra -Scopes "User.Read.All"
