@@ -65,7 +65,11 @@ To bulk invite guest users to your organization:
 
     For example, create a worksheet in the following format:
 
-    :::image type="content" source="media/invite-guest-users-list.png" alt-text="Screenshot that shows the csv file columns of Name and InvitedUserEmailAddress.":::
+    | Name         | Email                |  
+    |--------------|----------------------|  
+    | Reed Smith   | rsmith@contoso.com   |  
+    | Hayden Cook  | hcook@fabricam.com   |  
+    | Isabel Garcia| igarcia@contoso.com  |
 
 Save the file as `C:\BulkInvite\Invitations.csv` or any location of your choice.
 
