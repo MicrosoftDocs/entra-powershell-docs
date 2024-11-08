@@ -1,0 +1,275 @@
+---
+title: "Manage guest users with Microsoft Entra PowerShell"
+description: "Learn how to manage guest users with Microsoft Entra PowerShell."
+
+author: omondiatieno
+manager: CelesteDG
+ms.service: entra
+ms.topic: how-to
+ms.date: 11/08/2024
+ms.author: jomondi
+ms.reviewer: stevemutungi
+
+#customer intent: As an IT admin, I want to learn how to manage guest users using Microsoft Entra PowerShell.
+---
+
+# Manage guest users with Microsoft Entra PowerShell
+
+Guest accounts in Microsoft Entra are a type of user account that allows external users from outside your organization to access specific resources, such as files, teams, or sites, without needing to be a full member of your organization. These accounts are typically used for collaboration with partners, contractors, or clients who need temporary access to your organization's resources.
+
+Managing guest accounts effectively is crucial for maintaining the security and integrity of your organization's data. As an admin, you need to ensure that guest accounts are only given the necessary permissions and access to perform their intended tasks. Regularly reviewing and auditing these accounts is also important to identify any inactive or expired accounts that should be removed. This exercise not only helps to reduce potential security risks but also ensures efficient use of your organization's resources. By managing guest accounts well, you can provide a secure and productive environment for external collaboration.
+
+## Prerequisites
+
+To manage guest users with Microsoft Entra PowerShell, you need:
+
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-acount].
+- One of the following roles:
+  - [User Administrator][user-admin]
+  - [External Identity Provider Administrator][-external-identity-provider-admin]
+- Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
+
+You can access a user's information and manage their data on their behalf or as an app with its own identity.
+
+## Invite guest user accounts
+
+### Invite a single guest user account
+
+To invite a single guest user to your organization with at least an [External Identity Provider Administrator][-external-identity-provider-admin] role.
+
+1. Connect to Microsoft Entra
+
+   ```powershell
+    Connect-Entra -Scopes "User.Invite.All"   
+   ```
+
+1. Invite the guest user
+
+   ```powershell
+    New-EntraInvitation -InvitedUserEmailAddress "guestUser@contoso.com" -InviteRedirectUrl "https://contoso.com" -SendInvitationMessage $true -InvitedUserDisplayName "Guest User"
+   ```
+
+    ```output
+    Id                                   InviteRedeemUrl
+    --                                   ---------------                                                       
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+    ```
+
+### Bulk invite guest user accounts
+
+To bulk invite guest users to your organization:
+
+1. Prepare the CSV file
+
+    In Microsoft Excel, create a CSV file with the list of invitee user names and email addresses. Make sure to include the **Name** and **Email** column headings.
+
+    For example, create a worksheet in the following format:
+
+    :::image type="content" source="media/manage-guest-users/invite-guest-users-list.png" alt-text="Screenshot that shows the csv file columns of Name and InvitedUserEmailAddress.":::
+
+Save the file as **C:\BulkInvite\Invitations.csv**.
+
+If you don't have Excel, you can create a CSV file in any text editor, such as Notepad. Separate each value with a comma, and each row with a new line.
+
+1. Connect to Microsoft Entra with at least an [External Identity Provider Administrator][-external-identity-provider-admin] role.
+
+   ```powershell
+    Connect-Entra -Scopes "User.Invite.All"   
+   ```
+
+1. Import the CSV file containing the invitations.
+
+   ```powershell
+    $invitations = Import-Csv -Path "c:\bulkinvite\invitations.csv"
+   ```
+
+1. Define the message to be sent to the invited users.
+
+   ```powershell
+    $messageBody = "Hello. You are invited to the Contoso organization."
+   ```
+  
+1. Iterate over each invitation in the CSV file.
+
+   ```powershell  
+    foreach ($invitation in $invitations) {    
+        # Define the invitation parameters    
+        $invitationParams = @{    
+            InvitedUserEmailAddress = $invitation.Email  # Ensure this matches your CSV column name  
+            InviteRedirectUrl       = "https://contoso.com"    
+            SendInvitationMessage   = $true    
+            InvitedUserMessageInfo  = @{  
+                CustomizedMessageBody = $messageBody  
+            }  
+        }  
+        
+        # Create a new invitation using the defined parameters    
+        New-EntraInvitation @invitationParams    
+    }
+    ```
+
+```output
+Id                                   InviteRedeemUrl
+--                                   ---------------                                                      
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+bbbbbbbb-1111-2222-3333-cccccccccccc https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+cccccccc-2222-3333-4444-dddddddddddd https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+```
+
+## View and export guest user accounts
+
+To view and export guest users:
+
+1. Connect to Microsoft Entra with at least a [User Administrator][user-admin] role.
+
+   ```powershell
+    Connect-Entra -Scopes "User.Read.All"  
+   ```
+
+1. Define the current date.
+
+   ```powershell
+   $Now = Get-Date  
+   ```
+
+1. Initialize an array to store the report data.
+
+   ```powershell
+      $Report = @()  
+   ```  
+
+1. Retrieve all guest user accounts.
+
+   ```powershell  
+      $GuestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displayName", "mail", "createdDateTime"
+      #view the guest users
+      $GuestUsers
+   ```
+
+   ```output
+    DisplayName  Id Mail                    UserPrincipalName
+    -----------  -- ----                    -----------------
+    externaluser1     externaluser1@externaldomain1.com
+    externaluser2     externaluser2@externaldomain2.com
+    externaluser3     externaluser3@externaldomain3.com
+   ```
+
+## Disable guest user accounts
+
+The following examples show how to disable guest user accounts in Microsoft Entra ID. You can disable a single guest account or disable all guest accounts based on your requirements.
+
+### Disable a single guest user account
+
+To disable a single guest user account:
+
+Connect to Microsoft Entra with at least a [User Administrator][user-admin] role:
+
+   ```powershell
+    Connect-Entra -Scopes "User.Read.All"
+   ```
+
+1. Define the user ID of the guest account to disable.
+
+    ```powershell
+    $GuestUserId = "<GuestUserId>"  
+    ```
+  
+1. Disable the guest user account.
+
+    ```powershell
+    Set-EntraUser -ObjectId $GuestUserId -AccountEnabled $false  
+    ```
+
+### Disable all guest user accounts
+
+Run the following cmdlet to disable all guest user accounts.
+
+```powershell
+$GuestUsers = Get-EntraUser | Where-Object { $_.UserType -eq "Guest" }  
+  
+foreach ($Guest in $GuestUsers) {  
+    # Disable the guest user account  
+    Set-EntraUser -UserId $Guest.Id -AccountEnabled $false  
+}
+```
+
+## View and export expired guest user accounts
+
+1. Building on the previous example for viewing guest users, iterate over each guest user to check for expiration.
+
+   ```powershell  
+    foreach ($Guest in $GuestUsers) {    
+        # Calculate the expiration date based on the creation date  
+        $GuestExpirationDate = $Guest.CreatedDateTime.AddDays(90)  
+        
+        # Check if the account is expired    
+        if ($GuestExpirationDate -lt $Now) {    
+            # Add expired guest account details to the report    
+            $Report += [PSCustomObject]@{    
+                Id          = $Guest.Id    
+                Name        = $Guest.DisplayName    
+                Mail        = $Guest.Mail    
+                Expiration  = $GuestExpirationDate    
+                CreatedDate = $Guest.CreatedDateTime    
+            }    
+        }    
+    } 
+   ```
+
+1. Export the report to a CSV file.
+
+   ```powershell  
+      $Report | Export-Csv -Path "ExpiredGuestAccounts.csv" -NoTypeInformation  
+   ```
+
+## Remove expired guest user accounts
+
+<!-- TBD - Find the least privilege role for this action -->
+
+1. Connect to Microsoft Entra.
+
+   ```powershell  
+      Connect-Entra -Scopes "User.ReadWrite.All"  
+    ```
+
+1. Define the current date.
+
+   ```powershell  
+   $Now = Get-Date  
+   ```
+
+1. Retrieve all guest users.
+
+    ```powershell  
+    $GuestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displayName", "mail", "createdDateTime" 
+    ```
+
+1. Iterate over each guest user to check for expiration.
+
+   >[!NOTE]
+   >This script removes all guest users whose accounts have expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
+
+    ```powershell
+    foreach ($Guest in $GuestUsers) {    
+        # Calculate the expiration date based on the creation date  
+        $GuestExpirationDate = $Guest.CreatedDateTime.AddDays(90)  
+        
+        # Check if the account is expired    
+        if ($GuestExpirationDate -lt $Now) {    
+            # Check if the guest user ID is not null or empty  
+            if (![string]::IsNullOrEmpty($Guest.Id)) {  
+                # Delete the expired guest account  
+                Remove-EntraUser -ObjectId $Guest.Id -Confirm:$false  
+            } else {  
+                Write-Output "Guest user ID is null or empty for user: $($Guest.DisplayName)"  
+            }  
+        }    
+    }
+    ```
+
+<!-- link references -->
+
+[installation]: installation.md
+[create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[user-admin]: /entra/identity/role-based-access-control/permissions-reference#user-administrator
+[-external-identity-provider-admin]: /entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator
