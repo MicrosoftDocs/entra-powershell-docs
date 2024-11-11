@@ -112,7 +112,7 @@ additionalContent:
         # Card
         - title: Community
           summary: Connect with other Microsoft Entra PowerShell users. 
-          url: https://techcommunity.microsoft.com/t5/forums/searchpage/
+          url: https://techcommunity.microsoft.com/category/microsoftsecurityandcompliance/discussions/azure-active-directory
   # footer (Optional; Remove if not applicable.)
   footer: "[Provide product feedback](https://github.com/microsoftgraph/entra-powershell/issues/new/choose)"
 ## BAND 3 - ADDITIONAL CONTENT END #############################################################################################################################
