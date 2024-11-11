@@ -1,14 +1,16 @@
 items:
-  - name: Microsoft Entra
-    tocHref: /entra/
-    topicHref: /entra/index
+  - name: Docs
+    tocHref: /
+    topicHref: /
     items:
-      - name: PowerShell
-        tocHref: /powershell/
-        topicHref: /powershell/index
-      - name: Microsoft Entra PowerShell
-        tocHref: /entra/identity/identity-platform/
-        topicHref: /powershell/docs/conceptual/
-      - name: Microsoft Entra PowerShell
-        tocHref: /powershell/module/microsoft.powershell.security/
-        topicHref: /powershell/docs/conceptual/
+      - name: Microsoft Entra
+        tocHref: /entra/
+        topicHref: /entra/index
+        items:
+          - name: Microsoft Entra PowerShell
+            tocHref: /powershell/entra-powershell
+            topicHref: /powershell/entra-powershell/overview
+          - name: Microsoft Entra PowerShell
+            tocHref: /powershell/module
+            topicHref: /powershell/module  
+
