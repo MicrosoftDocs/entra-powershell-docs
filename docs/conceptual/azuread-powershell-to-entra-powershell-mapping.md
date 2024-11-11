@@ -211,7 +211,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Set-AzureADMSAdministrativeUnit | [Set-EntraAdministrativeUnit](/powershell/module/microsoft.graph.entra/Set-EntraAdministrativeUnit)|
 | Set-AzureADApplication, Set-AzureADMSApplication | [Set-EntraApplication](/powershell/module/microsoft.graph.entra/Set-EntraApplication)|
 | Set-AzureADApplicationLogo, Set-AzureADMSApplicationLogo | [Set-EntraApplicationLogo](/powershell/module/microsoft.graph.entra/Set-EntraApplicationLogo)|
-| Set-AzureADApplicationProxyApplication [Set-EntraBetaApplicationProxyApplication](/powershell/module/microsoft.graph.entra.beta/set-entrabetaapplicationproxyapplication) |
+| Set-AzureADApplicationProxyApplication | [Set-EntraBetaApplicationProxyApplication](/powershell/module/microsoft.graph.entra.beta/set-entrabetaapplicationproxyapplication) |
 | Set-AzureADApplicationProxyApplicationCustomDomainCertificate | |
 | Set-AzureADApplicationProxyApplicationSingleSignOn |[Set-EntraBetaApplicationProxyApplicationSingleSignOn](/powershell/module/microsoft.graph.entra.beta/set-entrabetaapplicationproxyapplicationsinglesignon) |
 | Set-AzureADApplicationProxyConnector |[Set-EntraBetaApplicationProxyConnector](/powershell/module/microsoft.graph.entra.beta/set-entrabetaapplicationproxyconnector) |
