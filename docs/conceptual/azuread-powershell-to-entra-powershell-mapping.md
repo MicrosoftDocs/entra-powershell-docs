@@ -15,7 +15,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 ---
 # Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell
 
-The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD and Azure AD Preview PowerShell modules. Additionally, it provides parity for MSOnline cmdlets that weren't migrated to Azure AD PowerShell. Use this page to find the equivalent cmdlets in Microsoft Entra PowerShell for those you used in the Azure AD, Azure AD Preview, and MSOnline PowerShell modules.
+The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD and Azure AD Preview PowerShell modules. Additionally, it provides parity for MSOnline cmdlets that weren't migrated to Azure AD PowerShell. Use this page to find the equivalent cmdlets in Microsoft Entra PowerShell for the cmdlets you used in the Azure AD, Azure AD Preview, and MSOnline PowerShell modules.
 
 :::zone pivot="azure-ad-powershell"
 
@@ -162,7 +162,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Remove-AzureADMSApplicationPassword | [Remove-EntraApplicationPassword](/powershell/module/microsoft.graph.entra/Remove-EntraApplicationPassword)|
 | Remove-AzureADApplicationPasswordCredential | [Remove-EntraApplicationPasswordCredential](/powershell/module/microsoft.graph.entra/Remove-EntraApplicationPasswordCredential)|
 | Remove-AzureADApplicationProxyApplication |[Remove-EntraBetaApplicationProxyApplication](/powershell/module/microsoft.graph.entra.beta/remove-entrabetaapplicationproxyapplication)|
-| Remove-AzureADApplicationProxyApplicationConnectorGroup [Remove-EntraBetaApplicationProxyApplicationConnectorGroup](/powershell/module/microsoft.graph.entra.beta/remove-entrabetaapplicationproxyapplicationconnectorgroup) |
+| Remove-AzureADApplicationProxyApplicationConnectorGroup |[Remove-EntraBetaApplicationProxyApplicationConnectorGroup](/powershell/module/microsoft.graph.entra.beta/remove-entrabetaapplicationproxyapplicationconnectorgroup) |
 | Remove-AzureADApplicationProxyConnectorGroup |[Remove-EntraBetaApplicationProxyConnectorGroup](/powershell/module/microsoft.graph.entra.beta/remove-entrabetaapplicationproxyconnectorgroup)|
 | Remove-AzureADMSApplicationVerifiedPublisher | [Remove-EntraApplicationVerifiedPublisher](/powershell/module/microsoft.graph.entra/Remove-EntraApplicationVerifiedPublisher)|
 | Remove-AzureADMSConditionalAccessPolicy | [Remove-EntraConditionalAccessPolicy](/powershell/module/microsoft.graph.entra/Remove-EntraConditionalAccessPolicy)|
