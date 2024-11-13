@@ -184,6 +184,32 @@ Get-InstalledModule
 
 The version in the output should match the latest version published on the PowerShell Gallery. Now you're ready to use the module.
 
+### Troubleshoot installation issues
+
+| Error             | Cause                     | Workaround                      |
+|-------------------|---------------------------|---------------------------------|
+| Install-Module: A parameter can't be found that matches parameter name AllowPrerelease. | You're using an older version of Install-Module.  | To upgrade, follow this [guide](troubleshooting.md#installation-issues). The issue applies to Windows platform only.  |
+| Dependent module 'module-name' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra,' ensure that its dependent module 'module-name' is installed. | Microsoft Entra PowerShell dependencies aren't installed  | To install, use [this script](troubleshooting.md#missing-dependencies) |
+| Cmdlets already exist on the system |        | Add `-AllowClobber` parameter: `Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGallery -Force -AllowClobber`  |
+| The following commands are already available on this system: 'Enable-EntraAzureADAlias,Get-EntraUnsupportedCommand,Test-EntraScript' | There's a conflict when either `beta` or `v1.0` is already installed  | To resolve the issue, [uninstall](installation.md#uninstall-the-module) the offending module version.  |
+
+For solutions to other common installation and other general issues, see [Troubleshoot module installation problems][troubleshooting-guide].
+
+### Sign in
+
+To start managing your Microsoft Entra resources with the Microsoft Entra PowerShell module, launch a PowerShell session and run [Connect-Entra][Connect-Entra] to sign in to Microsoft Entra ID:
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
+```
+
+Use your Microsoft Entra sign-in credentials to log into the sign-in window that opens.
+
+You need to repeat this step for every new PowerShell session you start.
+
+For more information on other authentication scenarios, see [more authentication][auth-methods] scenarios.
+
 ## Update the module
 
 Use [Update-Module][update-module] to update to the latest version of the Microsoft Entra PowerShell.
@@ -207,32 +233,6 @@ To remove the `beta` module, run the command:
 ```powershell
 Uninstall-Module -Name Microsoft.Graph.Entra.Beta -AllVersions
 ```
-
-## Sign in
-
-To start managing your Microsoft Entra resources with the Microsoft Entra PowerShell module, launch a PowerShell session and run [Connect-Entra][Connect-Entra] to sign in to Microsoft Entra ID:
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
-```
-
-Use your Microsoft Entra sign-in credentials to log into the sign-in window that opens.
-
-You need to repeat this step for every new PowerShell session you start.
-
-For more information on other authentication scenarios, see [more authentication][auth-methods] scenarios.
-
-## Troubleshoot installation issues
-
-| Error             | Cause                     | Workaround                      |
-|-------------------|---------------------------|---------------------------------|
-| Install-Module: A parameter can't be found that matches parameter name AllowPrerelease. | You're using an older version of Install-Module.  | To upgrade, follow this [guide](troubleshooting.md#installation-issues). The issue applies to Windows platform only.  |
-| Dependent module 'module-name' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra,' ensure that its dependent module 'module-name' is installed. | Microsoft Entra PowerShell dependencies aren't installed  | To install, use [this script](troubleshooting.md#missing-dependencies) |
-| Cmdlets already exist on the system |        | Add `-AllowClobber` parameter: `Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGallery -Force -AllowClobber`  |
-| The following commands are already available on this system: 'Enable-EntraAzureADAlias,Get-EntraUnsupportedCommand,Test-EntraScript' | There's a conflict when either `beta` or `v1.0` is already installed  | To resolve the issue, [uninstall](installation.md#uninstall-the-module) the offending module version.  |
-
-For solutions to other common installation and other general issues, see [Troubleshoot module installation problems][troubleshooting-guide].
 
 ## Next steps
 

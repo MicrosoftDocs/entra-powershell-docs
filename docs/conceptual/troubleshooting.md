@@ -15,7 +15,7 @@ ms.author: cmulligan
 
 This article explains how to determine, diagnose, and fix issues that you might encounter when using Microsoft Entra PowerShell.
 
-Before troubleshooting any errors, ensure that you’re running the most recent version of the Microsoft Entra PowerShell. To check the version of your installed module, run:
+Before troubleshooting any errors, ensure that you’re running the most recent version of the Microsoft Entra PowerShell. To check the version of your installed module, run the following command.
 
 ```powershell
 Get-InstalledModule -Name Microsoft.Graph.Entra
@@ -75,7 +75,7 @@ This means that there's a conflict when either `beta` or `v1.0` is already insta
 
 **Error**: `Dependent module '<module-name>' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra', ensure that its dependent module '<module-name>' is installed.`
 
-It means that Microsoft Entra PowerShell dependencies aren't installed. To install, use:
+It means that Microsoft Entra PowerShell dependencies aren't installed. To install the dependencies, use the following script.
 
 [!INCLUDE [dependencies](../includes/install-entra-powershell-dependencies.md)]
 
