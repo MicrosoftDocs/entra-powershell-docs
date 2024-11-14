@@ -351,6 +351,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Get-MsolPartnerInformation | [Get-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Get-EntraPartnerInformation)|
 | Get-MsolPasswordPolicy | [Get-EntraPasswordPolicy](/powershell/module/microsoft.graph.entra/Get-EntraPasswordPolicy)|
 | Set-MsolDirSyncConfiguration | [Set-EntraDirSyncConfiguration](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncConfiguration)|
+|Set-MsolDirSyncEnabled|[Set-EntraDirSyncEnabled](/powershell/module/microsoft.graph.entra/set-entradirsyncenabled)|
 | Set-MsolDirSyncFeature | [Set-EntraDirSyncFeature](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncFeature)|
 | Set-MsolDomainFederationSettings | [Set-EntraDomainFederationSettings](/powershell/module/microsoft.graph.entra/Set-EntraDomainFederationSettings)|
 | Set-MsolPartnerInformation | [Set-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Set-EntraPartnerInformation)|
