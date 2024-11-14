@@ -55,7 +55,7 @@ items:
     href: recover-deleted-data.md
 - name: Migrate
   items:
-  - name: Run legacy scripts in compatibility mode
+  - name: Run Azure AD PowerShell scripts in compatibility mode
     href: migration-guide.md
   - name: Azure AD PowerShell cmdlet map
     href: azuread-powershell-to-entra-powershell-mapping.md  
