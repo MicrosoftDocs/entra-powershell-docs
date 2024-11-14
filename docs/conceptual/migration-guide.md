@@ -33,7 +33,7 @@ Enable-EntraAzureADAlias #enable aliasing
 
 ### Example
 
-In this example, you want to run a script that exports apps with expiring secrets using Microsoft Entra PowerShell. This example assumes that the Microsoft Entra PowerShell module is already [installed][installation].
+In this example, you run a script that exports apps with expiring secrets using Microsoft Entra PowerShell. This example assumes that the Microsoft Entra PowerShell module is already [installed][installation].
 
 The following example script is the original AzureAD PowerShell script.
 
@@ -98,8 +98,9 @@ When migrating from the Azure AD PowerShell module to Microsoft Graph endpoints,
 
 ## Related content
 
-- [Introducing the Microsoft Entra PowerShell module][quickstart]
 - [Install the Microsoft Entra PowerShell module][installation]
+- [Get started with the Microsoft Entra PowerShell module][quickstart]
+
 
 <!-- link references -->
 [azuread-ps]: /powershell/module/azuread

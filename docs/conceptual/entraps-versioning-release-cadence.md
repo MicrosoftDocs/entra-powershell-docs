@@ -42,15 +42,14 @@ Planned updates to the Microsoft Entra PowerShell module are released on the fir
 
 - **Major versions**: If a breaking change is necessary, a major version increment is released. For example, version 1.6.0 to version 2.0.0. Major version updates are released no more often than two times per year.
 
-We may make exceptions to this policy for security or reliability issues.
+  We may make exceptions to this policy for security or reliability issues.
 
 - **Minor versions**: 10 per calendar year that doesn't introduce breaking changes. The second number in
   the version number is updated. For example, version 1.0.0 to version 1.1.0.
 
 - **Experimental versions**: Every two weeks. Users can try out the latest versions without waiting for a full release by building the module from the GitHub repo.
 
-Unplanned patch versions can be released at any time to fix bugs and don't introduce breaking changes. The third number in the version number is updated. For example, version 1.2.0 to
-version 1.2.1.
+  Unplanned patch versions can be released at any time to fix bugs and don't introduce breaking changes. The third number in the version number is updated. For example, version 1.2.0 to version 1.2.1.
 
 ## Breaking changes
 
