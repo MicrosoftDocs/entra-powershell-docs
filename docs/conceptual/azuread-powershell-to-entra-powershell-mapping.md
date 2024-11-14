@@ -15,7 +15,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 ---
 # Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell
 
-The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD and Azure AD Preview PowerShell modules. Additionally, it provides parity for MSOnline cmdlets that weren't migrated to Azure AD PowerShell. Use this page to find the equivalent cmdlets in Microsoft Entra PowerShell for those you used in the Azure AD, Azure AD Preview, and MSOnline PowerShell modules.
+The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD and Azure AD Preview PowerShell modules. Additionally, it provides parity for MSOnline cmdlets that weren't migrated to Azure AD PowerShell. Use this page to find the equivalent cmdlets in Microsoft Entra PowerShell for the cmdlets you used in the Azure AD, Azure AD Preview, and MSOnline PowerShell modules.
 
 :::zone pivot="azure-ad-powershell"
 
@@ -48,13 +48,13 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Get-AzureADApplicationLogo | [Get-EntraApplicationLogo](/powershell/module/microsoft.graph.entra/Get-EntraApplicationLogo)|
 | Get-AzureADApplicationOwner, Get-AzureADMSApplicationOwner | [Get-EntraApplicationOwner](/powershell/module/microsoft.graph.entra/Get-EntraApplicationOwner)|
 | Get-AzureADApplicationPasswordCredential | [Get-EntraApplicationPasswordCredential](/powershell/module/microsoft.graph.entra/Get-EntraApplicationPasswordCredential)|
-| Get-AzureADApplicationProxyApplication | |
-| Get-AzureADApplicationProxyApplicationConnectorGroup | |
-| Get-AzureADApplicationProxyConnector | |
-| Get-AzureADApplicationProxyConnectorGroup | |
+| Get-AzureADApplicationProxyApplication |[Get-EntraBetaApplicationProxyApplication](/powershell/module/microsoft.graph.entra.beta/get-entrabetaapplicationproxyapplication) |
+| Get-AzureADApplicationProxyApplicationConnectorGroup |[Get-EntraBetaApplicationProxyApplicationConnectorGroup](/powershell/module/microsoft.graph.entra.beta/get-entrabetaapplicationproxyapplicationconnectorgroup) |
+| Get-AzureADApplicationProxyConnector |[Get-EntraBetaApplicationProxyConnector](/powershell/module/microsoft.graph.entra.beta/get-entrabetaapplicationproxyconnector)|
+| Get-AzureADApplicationProxyConnectorGroup |[Get-EntraBetaApplicationProxyConnectorGroup](/powershell/module/microsoft.graph.entra.beta/get-entrabetaapplicationproxyconnectorgroup) |
 | Get-AzureADApplicationProxyConnectorGroupMember | |
-| Get-AzureADApplicationProxyConnectorGroupMembers | |
-| Get-AzureADApplicationProxyConnectorMemberOf | |
+| Get-AzureADApplicationProxyConnectorGroupMembers |[Get-EntraBetaApplicationProxyConnectorGroupMembers](/powershell/module/microsoft.graph.entra.beta/get-entrabetaapplicationproxyconnectorgroupmembers) |
+| Get-AzureADApplicationProxyConnectorMemberOf |[Get-EntraBetaApplicationProxyConnectorMemberOf](/powershell/module/microsoft.graph.entra.beta/get-entrabetaapplicationproxyconnectormemberof) |
 | Get-AzureADApplicationServiceEndpoint | [Get-EntraApplicationServiceEndpoint](/powershell/module/microsoft.graph.entra/Get-EntraApplicationServiceEndpoint)|
 | Get-AzureADMSAuthorizationPolicy | [Get-EntraAuthorizationPolicy](/powershell/module/microsoft.graph.entra/Get-EntraAuthorizationPolicy)|
 | Get-AzureADMSConditionalAccessPolicy | [Get-EntraConditionalAccessPolicy](/powershell/module/microsoft.graph.entra/Get-EntraConditionalAccessPolicy)|
@@ -130,8 +130,8 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | New-AzureADApplicationKeyCredential | [New-EntraApplicationKeyCredential](/powershell/module/microsoft.graph.entra/New-EntraApplicationKeyCredential)|
 | New-AzureADMSApplicationPassword | [New-EntraApplicationPassword](/powershell/module/microsoft.graph.entra/New-EntraApplicationPassword)|
 | New-AzureADApplicationPasswordCredential | [New-EntraApplicationPasswordCredential](/powershell/module/microsoft.graph.entra/New-EntraApplicationPasswordCredential)|
-| New-AzureADApplicationProxyApplication | |
-| New-AzureADApplicationProxyConnectorGroup | |
+| New-AzureADApplicationProxyApplication |[New-EntraBetaApplicationProxyApplication](/powershell/module/microsoft.graph.entra.beta/new-entrabetaapplicationproxyapplication) |
+| New-AzureADApplicationProxyConnectorGroup |[New-EntraBetaApplicationProxyConnectorGroup](/powershell/module/microsoft.graph.entra.beta/new-entrabetaapplicationproxyconnectorgroup) |
 | New-AzureADMSConditionalAccessPolicy | [New-EntraConditionalAccessPolicy](/powershell/module/microsoft.graph.entra/New-EntraConditionalAccessPolicy)|
 | New-AzureADDevice | [New-EntraDevice](/powershell/module/microsoft.graph.entra/New-EntraDevice)|
 | New-AzureADDomain | [New-EntraDomain](/powershell/module/microsoft.graph.entra/New-EntraDomain)|
@@ -161,9 +161,9 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Remove-AzureADApplicationOwner, Remove-AzureADMSApplicationOwner | [Remove-EntraApplicationOwner](/powershell/module/microsoft.graph.entra/Remove-EntraApplicationOwner)|
 | Remove-AzureADMSApplicationPassword | [Remove-EntraApplicationPassword](/powershell/module/microsoft.graph.entra/Remove-EntraApplicationPassword)|
 | Remove-AzureADApplicationPasswordCredential | [Remove-EntraApplicationPasswordCredential](/powershell/module/microsoft.graph.entra/Remove-EntraApplicationPasswordCredential)|
-| Remove-AzureADApplicationProxyApplication | |
-| Remove-AzureADApplicationProxyApplicationConnectorGroup | |
-| Remove-AzureADApplicationProxyConnectorGroup | |
+| Remove-AzureADApplicationProxyApplication |[Remove-EntraBetaApplicationProxyApplication](/powershell/module/microsoft.graph.entra.beta/remove-entrabetaapplicationproxyapplication)|
+| Remove-AzureADApplicationProxyApplicationConnectorGroup |[Remove-EntraBetaApplicationProxyApplicationConnectorGroup](/powershell/module/microsoft.graph.entra.beta/remove-entrabetaapplicationproxyapplicationconnectorgroup) |
+| Remove-AzureADApplicationProxyConnectorGroup |[Remove-EntraBetaApplicationProxyConnectorGroup](/powershell/module/microsoft.graph.entra.beta/remove-entrabetaapplicationproxyconnectorgroup)|
 | Remove-AzureADMSApplicationVerifiedPublisher | [Remove-EntraApplicationVerifiedPublisher](/powershell/module/microsoft.graph.entra/Remove-EntraApplicationVerifiedPublisher)|
 | Remove-AzureADMSConditionalAccessPolicy | [Remove-EntraConditionalAccessPolicy](/powershell/module/microsoft.graph.entra/Remove-EntraConditionalAccessPolicy)|
 | Remove-AzureADContact | [Remove-EntraContact](/powershell/module/microsoft.graph.entra/Remove-EntraContact)|
@@ -211,11 +211,11 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Set-AzureADMSAdministrativeUnit | [Set-EntraAdministrativeUnit](/powershell/module/microsoft.graph.entra/Set-EntraAdministrativeUnit)|
 | Set-AzureADApplication, Set-AzureADMSApplication | [Set-EntraApplication](/powershell/module/microsoft.graph.entra/Set-EntraApplication)|
 | Set-AzureADApplicationLogo, Set-AzureADMSApplicationLogo | [Set-EntraApplicationLogo](/powershell/module/microsoft.graph.entra/Set-EntraApplicationLogo)|
-| Set-AzureADApplicationProxyApplication | |
+| Set-AzureADApplicationProxyApplication | [Set-EntraBetaApplicationProxyApplication](/powershell/module/microsoft.graph.entra.beta/set-entrabetaapplicationproxyapplication) |
 | Set-AzureADApplicationProxyApplicationCustomDomainCertificate | |
-| Set-AzureADApplicationProxyApplicationSingleSignOn | |
-| Set-AzureADApplicationProxyConnector | |
-| Set-AzureADApplicationProxyConnectorGroup | |
+| Set-AzureADApplicationProxyApplicationSingleSignOn |[Set-EntraBetaApplicationProxyApplicationSingleSignOn](/powershell/module/microsoft.graph.entra.beta/set-entrabetaapplicationproxyapplicationsinglesignon) |
+| Set-AzureADApplicationProxyConnector |[Set-EntraBetaApplicationProxyConnector](/powershell/module/microsoft.graph.entra.beta/set-entrabetaapplicationproxyconnector) |
+| Set-AzureADApplicationProxyConnectorGroup |[Set-EntraBetaApplicationProxyApplicationConnectorGroup](/powershell/module/microsoft.graph.entra.beta/set-entrabetaapplicationproxyapplicationconnectorgroup) |
 | Set-AzureADMSApplicationVerifiedPublisher | [Set-EntraApplicationVerifiedPublisher](/powershell/module/microsoft.graph.entra/Set-EntraApplicationVerifiedPublisher)|
 | Set-AzureADMSAuthorizationPolicy | [Set-EntraAuthorizationPolicy](/powershell/module/microsoft.graph.entra/Set-EntraAuthorizationPolicy)|
 | Set-AzureADMSConditionalAccessPolicy | [Set-EntraConditionalAccessPolicy](/powershell/module/microsoft.graph.entra/Set-EntraConditionalAccessPolicy)|
@@ -351,6 +351,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Get-MsolPartnerInformation | [Get-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Get-EntraPartnerInformation)|
 | Get-MsolPasswordPolicy | [Get-EntraPasswordPolicy](/powershell/module/microsoft.graph.entra/Get-EntraPasswordPolicy)|
 | Set-MsolDirSyncConfiguration | [Set-EntraDirSyncConfiguration](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncConfiguration)|
+|Set-MsolDirSyncEnabled|[Set-EntraDirSyncEnabled](/powershell/module/microsoft.graph.entra/set-entradirsyncenabled)|
 | Set-MsolDirSyncFeature | [Set-EntraDirSyncFeature](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncFeature)|
 | Set-MsolDomainFederationSettings | [Set-EntraDomainFederationSettings](/powershell/module/microsoft.graph.entra/Set-EntraDomainFederationSettings)|
 | Set-MsolPartnerInformation | [Set-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Set-EntraPartnerInformation)|
