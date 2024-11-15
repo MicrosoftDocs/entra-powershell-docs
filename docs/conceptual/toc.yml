@@ -17,7 +17,7 @@ items:
     href: quickstart-entra-powershell.md
   - name: Navigate the module
     href: navigate-entra-powershell.md
-  - name: Authentication
+  - name: Authenticate
     items:
     - name: Authentication scenarios
       href: authentication-scenarios.md
@@ -45,7 +45,7 @@ items:
     href: manage-roles.md
   - name: Grant and revoke API permissions
     href: how-to-grant-revoke-api-permissions.md    
-  - name: Create custom application
+  - name: Create a custom application
     href: create-custom-application.md
   - name: Create a self-signed public certificate
     href: /entra/identity-platform/howto-create-self-signed-certificate?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
@@ -53,19 +53,20 @@ items:
     href: /powershell/module/microsoft.powershell.security/get-credential?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
   - name: Recover deleted data
     href: recover-deleted-data.md
-- name: Migrate to Microsoft Entra PowerShell
+- name: Migrate
   items:
-  - name: Migration guide
+  - name: Run Azure AD PowerShell scripts in compatibility mode
     href: migration-guide.md
   - name: Azure AD PowerShell cmdlet map
     href: azuread-powershell-to-entra-powershell-mapping.md  
-- name: Troubleshoot common errors
-  href: troubleshooting.md
 - name: Resources
   items:
-  - name: Microsoft Entra PowerShell best practices
+  - name: Best practices
     href: entra-powershell-best-practices.md
-  - name: Microsoft Entra PowerShell FAQs
+  - name: FAQs
     href: entra-powershell-faqs.yml
+  - name: Troubleshoot common errors
+    href: troubleshooting.md
+
 metadata:
   universal_ref_toc: /powershell/module/entra-powershell/toc.json

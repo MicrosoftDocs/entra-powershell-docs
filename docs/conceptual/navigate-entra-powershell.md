@@ -43,6 +43,9 @@ Get-Command -Module Microsoft.Graph.Entra* -Noun *application*
 
 This command shows all the cmdlets, functions, and aliases included in the module for the `application` resource.
 
+> [!TIP]
+> Keep Microsoft Entra PowerShell module updated to ensure access to the latest commands and features by running the command `Update-Module -Name Microsoft.Graph.Entra`
+
 ### List parameters
 
 Once you identify the correct command, use the `Get-Help` command to view all its parameters. For example, to see the parameters for the `Get-EntraUser` command, run the following command:
@@ -52,10 +55,6 @@ Get-Help Get-EntraUser -Detailed
 ```
 
 This command gives detailed help documentation, including the cmdlet's description, parameters, usage examples, and related commands, helping you understand how to use it effectively in various scenarios.
-
-> [!TIP]
-> Keep Microsoft Entra PowerShell module updated to ensure access to the latest commands and features by running the command `Update-Module -Name Microsoft.Graph.Entra`
-
 
 [approved-verbs]: /powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands
 [installation]: installation.md
