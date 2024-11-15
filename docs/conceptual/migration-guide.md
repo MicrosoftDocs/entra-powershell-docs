@@ -1,6 +1,7 @@
 ---
-title: Migrate to Microsoft Entra PowerShell 
-description: Learn about how to migrate from Azure AD PowerShell to Microsoft Entra PowerShell.
+title: Run legacy scripts in compatibility mode 
+description: Learn how to use the Enable-EntraAzureADAlias command to run existing AzureAD PowerShell scripts in Microsoft Entra PowerShell with minimal modifications.
+
 
 author: csmulligan
 manager: CelesteDG
@@ -8,9 +9,9 @@ ms.topic: concept-article
 ms.date: 09/24/2024
 ms.author: cmulligan
 
-#Customer intent: As an IT admin, I want to learn how to transition my existing scripts from Azure AD PowerShell to Microsoft Entra PowerShell for the best usability benefits.
+#Customer intent: As an IT admin, I want to learn how to run my existing scripts from Azure AD PowerShell in Microsoft Entra PowerShell so that I can smoothly transition to using Microsoft Entra PowerShell in my operations.
 ---
-# Migrate to Microsoft Entra PowerShell
+# Run legacy scripts in compatibility mode
 
 Microsoft Entra PowerShell has over _98%_ compatibility with [Azure AD PowerShell][azuread-ps] module.
 This article details the process of running your existing AzureAD PowerShell scripts with minimal modifications using Microsoft Entra PowerShell by using the `Enable-EntraAzureADAlias` command. Use the [Azure AD PowerShell to Microsoft Entra PowerShell cmdlet map](./azuread-powershell-to-entra-powershell-mapping.md) to find cmdlet equivalents in Microsoft Entra PowerShell.
@@ -32,7 +33,7 @@ Enable-EntraAzureADAlias #enable aliasing
 
 ### Example
 
-In this example, you want to run a script that exports apps with expiring secrets using Microsoft Entra PowerShell. This example assumes that the Microsoft Entra PowerShell module is already [installed][installation].
+In this example, you run a script that exports apps with expiring secrets using Microsoft Entra PowerShell. This example assumes that the Microsoft Entra PowerShell module is already [installed][installation].
 
 The following example script is the original AzureAD PowerShell script.
 
@@ -97,8 +98,9 @@ When migrating from the Azure AD PowerShell module to Microsoft Graph endpoints,
 
 ## Related content
 
-- [Introducing the Microsoft Entra PowerShell module][quickstart]
 - [Install the Microsoft Entra PowerShell module][installation]
+- [Get started with the Microsoft Entra PowerShell module][quickstart]
+
 
 <!-- link references -->
 [azuread-ps]: /powershell/module/azuread
