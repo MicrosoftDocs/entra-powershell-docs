@@ -64,12 +64,12 @@ $MaximumFunctionCount = 32768
 
 ### Commands already available in the module
 
-If there's a conflict when either `beta` or `v1.0` is already installed, you might see the error: "_The following commands are already available on this system: 'Enable-EntraAzureADAlias, Get-EntraUnsupportedCommand, Test-EntraScript'._"
+If there's a conflict when either `beta` or `v1.0` is already installed, you might see the error: "_The following commands are already available on this system: `Enable-EntraAzureADAlias`, `Get-EntraUnsupportedCommand`, `Test-EntraScript`._"
 To fix this error, [uninstall](installation.md#uninstall-the-module) the problematic module version, launch a new PowerShell window, and install the one you need.
 
 ### Missing dependencies
 
-When Microsoft Entra PowerShell dependencies aren't installed, you might see the error: "_Dependent module 'module-name' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra', ensure that its dependent module 'module-name' is installed._"
+When Microsoft Entra PowerShell dependencies aren't installed, you might see the error: "_Dependent module `module-name` isn't installed on this computer. To use the current module `Microsoft.Graph.Entra`, ensure that its dependent module `module-name` is installed._"
 To fix this error, install the dependencies using the following script:
 
 [!INCLUDE [dependencies](../includes/install-entra-powershell-dependencies.md)]
