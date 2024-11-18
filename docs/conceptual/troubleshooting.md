@@ -33,7 +33,7 @@ During installation, you can encounter some errors that prevent the module from 
 
 ### AllowPrerelease parameter can't be found
 
-You might get an error if you're using an older version of Install-Module: “Install-Module: A parameter can't be found that matches parameter name `AllowPrerelease`.”
+You might get an error if you're using an older version of Install-Module: "_Install-Module: A parameter can't be found that matches parameter name `AllowPrerelease`._"
 To fix this error, run the following commands to upgrade:
 
 ```powershell
@@ -56,7 +56,7 @@ Import-PackageProvider PowerShellGet -MinimumVersion 2.0 -Force
 
 ### Function capacity 4096 has been exceeded for this scope
 
-In PowerShell 5.1, you might see the error: `Function {cmdlet-name} can't be created because function capacity 4096 has been exceeded.` To fix this error, increase the function limit by running the command below, then try importing the module again.
+In PowerShell 5.1, you might see the error: "_Function {cmdlet-name} can't be created because function capacity 4096 has been exceeded._" To fix this error, increase the function limit by running the command below, then try to import the module again.
 
 ```powershell
 $MaximumFunctionCount = 32768
@@ -64,19 +64,19 @@ $MaximumFunctionCount = 32768
 
 ### Commands already available in the module
 
-If there's a conflict when either `beta` or `v1.0` is already installed, you might see the error: `The following commands are already available on this system: 'Enable-EntraAzureADAlias, Get-EntraUnsupportedCommand, Test-EntraScript'.`
+If there's a conflict when either `beta` or `v1.0` is already installed, you might see the error: "_The following commands are already available on this system: 'Enable-EntraAzureADAlias, Get-EntraUnsupportedCommand, Test-EntraScript'._"
 To fix this error, [uninstall](installation.md#uninstall-the-module) the problematic module version, launch a new PowerShell window, and install the one you need.
 
 ### Missing dependencies
 
-When Microsoft Entra PowerShell dependencies aren't installed, you might see the error: `Dependent module '<module-name>' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra', ensure that its dependent module '<module-name>' is installed.`
+When Microsoft Entra PowerShell dependencies aren't installed, you might see the error: "_Dependent module '<module-name>' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra', ensure that its dependent module '<module-name>' is installed._"
 To fix this error, install the dependencies using the following script:
 
 [!INCLUDE [dependencies](../includes/install-entra-powershell-dependencies.md)]
 
 ## Authentication issues
 
-Failure to authenticate or receive tokens can result in a **401 Unauthorized** response. This error can occur for several reasons.
+Failure to authenticate or receive tokens can result in a "_401 Unauthorized_" response. This error can occur for several reasons.
 To fix this error, make sure that you're using the correct credentials and have sufficient permissions. Check that your app registrations (if applicable) are configured correctly with the necessary API permissions in Microsoft Entra ID.
 
 ## Cmdlet not recognized
@@ -96,7 +96,7 @@ Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGaller
 
 ## Version conflicts
 
-You might encounter errors indicating multiple versions of the module are installed, such as the message `Assembly with the same name is already loaded.`
+You might encounter errors indicating multiple versions of the module are installed, such as the message "_Assembly with the same name is already loaded._"
 To fix this error, uninstall all conflicting versions of the module and then install the latest version:
 
 ```powershell
