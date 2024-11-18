@@ -10,7 +10,5 @@ items:
           - name: Microsoft Entra PowerShell
             tocHref: /powershell/entra-powershell
             topicHref: /powershell/entra-powershell/overview
-          - name: Microsoft Entra PowerShell
-            tocHref: /powershell/entra-powershell/module
-            topicHref: /powershell/entra-powershell/module  
+
 
