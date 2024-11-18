@@ -69,7 +69,7 @@ To fix this error, [uninstall](installation.md#uninstall-the-module) the problem
 
 ### Missing dependencies
 
-When Microsoft Entra PowerShell dependencies aren't installed, you might see the error: "_Dependent module '<module-name>' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra', ensure that its dependent module '<module-name>' is installed._"
+When Microsoft Entra PowerShell dependencies aren't installed, you might see the error: "_Dependent module 'module-name' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra', ensure that its dependent module 'module-name' is installed._"
 To fix this error, install the dependencies using the following script:
 
 [!INCLUDE [dependencies](../includes/install-entra-powershell-dependencies.md)]
