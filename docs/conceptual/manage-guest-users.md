@@ -26,6 +26,7 @@ To manage guest users with Microsoft Entra PowerShell, you need:
 - A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-acount].
 - One of the following roles:
   - [User Administrator][user-admin]
+  - [Guest Inviter][guest-inviter]
   - [External Identity Provider Administrator][-external-identity-provider-admin]
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
@@ -35,17 +36,17 @@ You can access a user's information and manage their data on their behalf or as 
 
 ### Invite a single guest user account
 
-To invite a single guest user to your organization with at least an [External Identity Provider Administrator][-external-identity-provider-admin] role.
+To invite a single guest user to your organization with at least a [Guest Inviter][guest-inviter] role.
 
 ```powershell
 # Connect to Microsoft Entra
-Connect-Entra -Scopes "User.Invite.All"   
+Connect-Entra -Scopes "User.Invite.All"
 
 #Invite the guest user
 New-EntraInvitation -InvitedUserEmailAddress "guestUser@contoso.com" -InviteRedirectUrl "https://contoso.com" -SendInvitationMessage $true -InvitedUserDisplayName "Guest User"
 ```
 
-```output
+```Output
 Id                                   InviteRedeemUrl
 --                                   ---------------                                                       
 aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
@@ -71,21 +72,18 @@ Save the file as `C:\BulkInvite\Invitations.csv` or any location of your choice.
 
 If you don't have Excel, you can create a CSV file in any text editor, such as Notepad. Separate each value with a comma, and each row with a new line.
 
-Connect to Microsoft Entra with at least an [External Identity Provider Administrator][-external-identity-provider-admin] role.
+Connect to Microsoft Entra with at least a [Guest Inviter][guest-inviter] role.
 
 ```powershell
 Connect-Entra -Scopes "User.Invite.All"   
 
 # Import the CSV file containing the invitations.
-
 $invitations = Import-Csv -Path "c:\bulkinvite\invitations.csv"
 
 # Define the message to be sent to the invited users.
-
 $messageBody = "Hello. You are invited to the Contoso organization."
   
 #Iterate over each invitation in the CSV file.
-
 ```powershell  
    foreach ($invitation in $invitations) {    
       # Define the invitation parameters    
@@ -103,7 +101,7 @@ $messageBody = "Hello. You are invited to the Contoso organization."
    }
    ```
 
-   ```output
+   ```Output
    Id                                   InviteRedeemUrl
    --                                   ---------------                                                      
    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
@@ -115,26 +113,24 @@ $messageBody = "Hello. You are invited to the Contoso organization."
 
 To view and export guest users:
 
-Connect to Microsoft Entra with at least a [User Administrator][user-admin] role.
+Connect to Microsoft Entra with at least a [Guest Inviter][guest-inviter] role.
 
 ```powershell
    Connect-Entra -Scopes "User.Read.All"  
 
 # Define the current date.
-
-$Now = Get-Date  
+$now = Get-Date  
 
 # Initialize an array to store the report data.
-
-$Report = @()  
+$report = @()  
 
 # Retrieve all guest user accounts.
+$guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displayName", "mail", "createdDateTime"
 
-$GuestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displayName", "mail", "createdDateTime"
 #view the guest users
-$GuestUsers
+$guestUsers
 
-```output
+```Output
    DisplayName  Id Mail                    UserPrincipalName
    -----------  -- ----                    -----------------
    externaluser1     externaluser1@externaldomain1.com
@@ -157,11 +153,11 @@ Connect-Entra -Scopes "User.ReadWrite.All"
 
 # Define the user ID of the guest account to disable.
 
-$GuestUserId = "<GuestUserId>"  
+$guestUserId = "<guestUserId>"  
   
 # Disable the guest user account.
 
-Set-EntraUser -ObjectId $GuestUserId -AccountEnabled $false  
+Set-EntraUser -ObjectId $guestUserId -AccountEnabled $false  
 ```
 
 ### Disable all guest user accounts
@@ -172,32 +168,34 @@ Run the following cmdlet to disable all guest user accounts.
 Connect-Entra -Scopes "User.ReadWrite.All"
 
 # Retrieve all guest user accounts.
-$GuestUsers = Get-EntraUser | Where-Object { $_.UserType -eq "Guest" }  
+$guestUsers = Get-EntraUser | Where-Object { $_.UserType -eq "Guest" }  
   
-foreach ($Guest in $GuestUsers) {  
+foreach ($guest in $guestUsers) {  
     # Disable the guest user account  
-    Set-EntraUser -UserId $Guest.Id -AccountEnabled $false  
+    Set-EntraUser -UserId $guest.Id -AccountEnabled $false  
 }
 ```
 
 ## View and export expired guest user accounts
 
-1. Building on the previous example for viewing guest users, iterate over each guest user to check for expiration.
+To view and export expired guest user accounts:
+
+1. Build on the previous example for retrieving guest users, iterate over each guest user to check for expiration. In this example, we assume that guest accounts expire 90 days after creation.
 
    ```powershell  
-    foreach ($Guest in $GuestUsers) {    
+    foreach ($guest in $guestUsers) {    
         # Calculate the expiration date based on the creation date  
-        $GuestExpirationDate = $Guest.CreatedDateTime.AddDays(90)  
+        $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)  
         
         # Check if the account is expired    
-        if ($GuestExpirationDate -lt $Now) {    
+        if ($guestExpirationDate -lt $now) {    
             # Add expired guest account details to the report    
-            $Report += [PSCustomObject]@{    
-                Id          = $Guest.Id    
-                Name        = $Guest.DisplayName    
-                Mail        = $Guest.Mail    
-                Expiration  = $GuestExpirationDate    
-                CreatedDate = $Guest.CreatedDateTime    
+            $report += [PSCustomObject]@{    
+                Id          = $guest.Id    
+                Name        = $guest.DisplayName    
+                Mail        = $guest.Mail    
+                Expiration  = $guestExpirationDate    
+                CreatedDate = $guest.CreatedDateTime    
             }    
         }    
     } 
@@ -206,23 +204,21 @@ foreach ($Guest in $GuestUsers) {
 1. Export the report to a CSV file.
 
    ```powershell  
-      $Report | Export-Csv -Path "ExpiredGuestAccounts.csv" -NoTypeInformation  
+      $report | Export-Csv -Path "ExpiredGuestAccounts.csv" -NoTypeInformation  
    ```
 
 ## Remove expired guest user accounts
 
-<!-- TBD - Find the least privilege role for this action -->
-
-Connect to Microsoft Entra.
+Connect to Microsoft Entra with at least a [User Administrator][user-admin] role:
 
 ```powershell  
 Connect-Entra -Scopes "User.ReadWrite.All"
 
 # Define the current date.
-$Now = Get-Date  
+$now = Get-Date  
 
 # Retrieve all guest users.
-$GuestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displayName", "mail", "createdDateTime" 
+$guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All  
 ```
 
 Iterate over each guest user to check for expiration.
@@ -231,18 +227,18 @@ Iterate over each guest user to check for expiration.
 >This script removes all guest users whose accounts have expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
 
 ```powershell
-foreach ($Guest in $GuestUsers) {    
+foreach ($guest in $guestUsers) {    
    # Calculate the expiration date based on the creation date  
-   $GuestExpirationDate = $Guest.CreatedDateTime.AddDays(90)  
+   $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)  
    
    # Check if the account is expired    
-   if ($GuestExpirationDate -lt $Now) {    
+   if ($guestExpirationDate -lt $now) {    
       # Check if the guest user ID is not null or empty  
-      if (![string]::IsNullOrEmpty($Guest.Id)) {  
+      if (![string]::IsNullOrEmpty($guest.Id)) {  
             # Delete the expired guest account  
-            Remove-EntraUser -ObjectId $Guest.Id -Confirm:$false  
+            Remove-EntraUser -ObjectId $guest.Id 
       } else {  
-            Write-Output "Guest user ID is null or empty for user: $($Guest.DisplayName)"  
+            Write-Output "Guest user ID is null or empty for user: $($guest.DisplayName)"  
       }  
    }    
 }
@@ -254,3 +250,4 @@ foreach ($Guest in $GuestUsers) {
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [user-admin]: /entra/identity/role-based-access-control/permissions-reference#user-administrator
 [-external-identity-provider-admin]: /entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator
+[guest-inviter]: /entra/identity/role-based-access-control/permissions-reference#guest-inviter
