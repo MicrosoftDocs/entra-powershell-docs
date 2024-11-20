@@ -25,7 +25,7 @@ To recover deleted data with Microsoft Entra PowerShell, you need:
 - Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module](installation.md) guide to install the module.
 - Grant yourself the least privileged delegated permission indicated for the operation.
 
-## Restore deleted groups
+## Restore groups
 
 To restore deleted groups, you need at least the [Groups Administrator](/entra/identity/role-based-access-control/permissions-reference#groups-administrator) role. For role-assignable groups, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role.
 
@@ -80,7 +80,7 @@ Get-EntraDeletedGroup -Filter "displayName eq 'test21'" | Restore-EntraDeletedDi
 Get-EntraDeletedGroup -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Restore-EntraDeletedDirectoryObject #if you know the group ID
 ```
 
-## Restore deleted applications
+## Restore applications
 
 To restore deleted applications, you need one of the following Microsoft Entra roles: [Application Administrator](/entra/identity/role-based-access-control/permissions-reference#application-administrator), [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator), or [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator).
 
@@ -147,7 +147,7 @@ Connect-Entra -Scopes 'Application.ReadWrite.All'
 Get-EntraDeletedApplication -Filter "displayName eq 'TestApp1'" | Restore-EntraDeletedDirectoryObject
 ```
 
-## Restore deleted users
+## Restore users
 
 To restore deleted users, you need at least the [User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator) role.
 
