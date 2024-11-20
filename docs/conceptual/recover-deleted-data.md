@@ -1,6 +1,6 @@
 ---
 title: Recover deleted data
-description: Learn how to restore soft-deleted users, groups, and applications with Microsoft Entra PowerShell. This article covers cmdlets and steps to recover deleted IDs and licenses.
+description: Learn how to restore soft-deleted users, groups, and apps with Microsoft Entra PowerShell. Learn cmdlets, steps, and pipelining solutions for one-step data recovery.
 ms.topic: how-to
 ms.date: 11/20/2024
 author: csmulligan
