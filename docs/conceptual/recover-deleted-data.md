@@ -32,6 +32,8 @@ To restore deleted groups, you need at least the [Groups Administrator](/entra/i
 > [!NOTE]
 > Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups cannot be restored.
 
+### Step 1: Find deleted groups
+
 Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.graph.entra/get-entradeletedgroup) cmdlet to find deleted groups. 
 
 ```powershell
@@ -50,6 +52,8 @@ test23      22cc22cc-dd33-ee44-ff55-66aa66aa66aa test23       desc3       {Unifi
 test24      33dd33dd-ee44-ff55-aa66-77bb77bb77bb test24       desc4       {Unified, DynamicMembership}
 ```
 
+### Step 2: Restore deleted groups
+
 After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the object ID of the deleted group.
 
 ```powershell
@@ -66,6 +70,8 @@ Id                                   DeletedDateTime
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
 
+### Pipelining
+
 You can also restore the group in one step if you know its display name or group ID, using pipelining:
 
 ```powershell
@@ -80,6 +86,8 @@ To restore deleted applications, you need one of the following Microsoft Entra r
 
 Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals).
 When you delete an application, the application registration by default enters the soft-deleted state.
+
+### Step 1: Find deleted applications
 
 To restore a soft-deleted application, you can use the [Get-EntraDeletedApplication](/powershell/module/microsoft.graph.entra/get-entradeletedapplication) cmdlet first, to get the deleted application's details.
 
@@ -113,6 +121,8 @@ DisplayName Id                                   AppId                          
 TestApp1    aaaaaaaa-bbbb-cccc-1111-222222222222 00001111-aaaa-2222-bbbb-3333cccc4444 AzureADMyOrg   contoso.com
 ```
 
+### Step 2: Restore deleted applications
+
 After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
 
 ```powershell
@@ -128,6 +138,8 @@ Id                                   DeletedDateTime
 aaaaaaaa-bbbb-cccc-1111-222222222222
 ```
 
+### Pipelining
+
 You can also restore the application in one step if you know its display name, using pipelining:
 
 ```powershell
@@ -141,12 +153,16 @@ To restore deleted users, you need at least the [User Administrator](/entra/iden
 
 After a user is deleted, their account remains in a suspended state for 30 days, during which it can be fully restored. Once this 30-day period ends, the account is permanently deleted, and management of soft-deleted users is no longer possible.
 
+### Step 1: Find deleted users
+
 To restore a soft-deleted user with Microsoft Entra PowerShell, use the [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/get-entradeleteddirectoryobject) cmdlet to find the deleted user's ID.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
 Get-EntraDeletedDirectoryObject -DirectoryObjectId '00aa00aa-bb11-cc22-dd33-44ee44ee44ee'
 ```
+
+### Step 2: Restore deleted users
 
 Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet to restore the user.
 
@@ -162,6 +178,8 @@ Id                                   DeletedDateTime
 --                                   ---------------
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
+
+### Pipelining
 
 If you already know the user's ID, you can restore it in one step using pipelining:
 
