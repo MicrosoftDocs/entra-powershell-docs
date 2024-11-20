@@ -107,5 +107,5 @@ When migrating from the Azure AD PowerShell module to Microsoft Graph endpoints,
 [installation]: installation.md
 [testEntrascriptDefinition]: /powershell/module/microsoft.graph.entra/test-entrascript
 [enable-entraazureadalias]: /powershell/module/microsoft.graph.entra/enable-entraazureadalias
-[quickstart]: quickstart-entra-powershell.md
+[quickstart]: get-started-entraps.md
 [installation]: installation.md

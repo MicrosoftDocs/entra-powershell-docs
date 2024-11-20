@@ -14,6 +14,7 @@ ms.author: cmulligan
 # Quickstart: Get started with the Microsoft Entra PowerShell module
 
 Microsoft Entra PowerShell is a powerful tool for managing and administering Entra resources directly from PowerShell. [Explore more about Entra PowerShell](overview.md).
+
 This article helps you get started with Microsoft Entra PowerShell and teaches its core concepts.
 
 ## Prerequisites
@@ -38,16 +39,16 @@ Microsoft Entra PowerShell supports two types of authentication: _delegated acce
 Connect-Entra -Scopes 'User.Read.All'
 ```
 
-To see all the possible options, refer to the [authentication][auth-scenarios] scenarios.
+To see all the possible options, refer to the [authentication](powershell/entra-powershell/authentication-scenarios) scenarios.
 
 ## Find available commands
 
-Microsoft Entra PowerShell cmdlets follow a standard naming convention for PowerShell, `Verb-Noun`. The verb describes the action (examples include `New`, `Get`, `Set`, `Remove`) and the noun describes the resource type (examples include `User`, `Group`, `ServicePrincipal`, `Device`). Nouns in Microsoft Entra PowerShell always start with the prefix `Entra`. For the full list of standard verbs, see the [approved verbs for PowerShell commands][approved-verbs].
+Microsoft Entra PowerShell cmdlets follow a standard naming convention for PowerShell, `Verb-Noun`. The verb describes the action (examples include `New`, `Get`, `Set`, `Remove`) and the noun describes the resource type (examples include `User`, `Group`, `ServicePrincipal`, `Device`). Nouns in Microsoft Entra PowerShell always start with the prefix `Entra`. For the full list of standard verbs, see the [approved verbs for PowerShell commands](powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands).
 
 > [!NOTE]
 > For beta cmdlets, add a Beta prefix to the resource name. For example, use `Get-EntraBetaUser` instead of `Get-EntraUser` for the beta version.
 
-You can get all available commands in Microsoft Entra PowerShell module by using the following command.
+You can get all available commands in Microsoft Entra PowerShell module by using the following command:
 
 ```powershell
 Get-Command -Module Microsoft.Graph.Entra
@@ -63,7 +64,7 @@ This command shows all the cmdlets, functions, and aliases included in the modul
 
 ## Get help
 
-To be effective with the Microsoft Entra PowerShell, you need to use Get-Help command for detailed help about specific commands, including their syntax, parameters, and usage examples.
+To be effective with the Microsoft Entra PowerShell, you need to use `Get-Help` command for detailed help about specific commands, including their syntax, parameters, and usage examples.
 For example, to learn more about the`Get-EntraUser` command, run:
 
 ```powershell
@@ -74,7 +75,8 @@ This command gives detailed help documentation, including the cmdlet's descripti
 
 ## Data collection
 
-Microsoft Entra PowerShell collects telemetry data by default. We collection information about the `Microsoft Entra PowerShell version` and the `cmdlet` executed. Microsoft aggregates collected data to identify patterns of usage to identify common issues and to improve the experience of Microsoft Entra PowerShell. Microsoft Entra PowerShell doesn't collect any private or personal data. For example, the usage data helps identify issues such as cmdlets with low success and helps prioritize our work.
+Microsoft Entra PowerShell collects telemetry data by default. We collection information about the `Microsoft Entra PowerShell version` and the `cmdlet` executed. Microsoft aggregates collected data to identify patterns of usage to identify common issues and to improve the experience of Microsoft Entra PowerShell.
+Microsoft Entra PowerShell doesn't collect any private or personal data. For example, the usage data helps identify issues such as cmdlets with low success and helps prioritize our work.
 
 ## Learn the basics
 

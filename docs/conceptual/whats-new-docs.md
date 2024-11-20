@@ -77,8 +77,7 @@ This article lists all new articles that were added or had significant updates i
 **New articles**
 
 - [Microsoft Entra PowerShell overview (preview)](overview.md) - What is Microsoft Entra PowerShell, and how can you use it to manage Microsoft Entra resources?
-- [Get started with the Microsoft Entra PowerShell module](quickstart-entra-powershell.md) - Learn the core concepts and get started with the Microsoft Entra PowerShell module.
-- [Navigate the Microsoft Entra PowerShell module](navigate-entra-powershell.md) - Learn how to navigate the Microsoft Entra PowerShell module to manage Microsoft Entra resources.
+- [Get started with the Microsoft Entra PowerShell module](get-started-entraps.md) - Learn the core concepts and get started with the Microsoft Entra PowerShell module.
 - [Install the Microsoft Entra PowerShell module](installation.md) - New article on how to install the Microsoft Entra PowerShell module.
 - [Manage users with Microsoft Entra PowerShell](manage-user.md)
 - [Manage apps with Microsoft Entra PowerShell](manage-apps.md)  
