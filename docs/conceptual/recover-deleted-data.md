@@ -52,7 +52,7 @@ test23      22cc22cc-dd33-ee44-ff55-66aa66aa66aa test23       desc3       {Unifi
 test24      33dd33dd-ee44-ff55-aa66-77bb77bb77bb test24       desc4       {Unified, DynamicMembership}
 ```
 
-### Step 2: Restore deleted groups
+### Step 2: Restore soft-deleted groups
 
 After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the object ID of the deleted group.
 
@@ -121,7 +121,7 @@ DisplayName Id                                   AppId                          
 TestApp1    aaaaaaaa-bbbb-cccc-1111-222222222222 00001111-aaaa-2222-bbbb-3333cccc4444 AzureADMyOrg   contoso.com
 ```
 
-### Step 2: Restore deleted applications
+### Step 2: Restore soft-deleted applications
 
 After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
 
@@ -162,7 +162,7 @@ Connect-Entra -Scopes 'User.Read.All'
 Get-EntraDeletedDirectoryObject -DirectoryObjectId '00aa00aa-bb11-cc22-dd33-44ee44ee44ee'
 ```
 
-### Step 2: Restore deleted users
+### Step 2: Restore soft-deleted users
 
 Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet to restore the user.
 
