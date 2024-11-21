@@ -21,26 +21,6 @@ This article helps you get started with Microsoft Entra PowerShell and teaches i
 
 - [Install the Microsoft Entra PowerShell Module](installation.md).
 
-## Verify successful installation
-
-You can check if the module is loaded by running the command `Get-Module -Name Microsoft.Graph.Entra`. In case the module isn't loaded, you can import it by running the following command:
-
-```powershell
-Import-Module -Name Microsoft.Graph.Entra
-```
-
-Keep the Microsoft Entra PowerShell module updated to ensure access to the latest commands and features by running the command: `Update-Module -Name Microsoft.Graph.Entra`.
-
-## Sign in
-
-Microsoft Entra PowerShell supports two types of authentication: _delegated access_, and _app-only access_. To use Microsoft Entra PowerShell, you need to authenticate to access Microsoft Entra resources. Sign in with an admin account of your tenant, if prompted.
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-```
-
-To see all the possible options, refer to the [authentication scenarios][authentication-scenarios].
-
 ## Find available commands
 
 Microsoft Entra PowerShell cmdlets follow a standard naming convention for PowerShell, `Verb-Noun`. The verb describes the action (examples include `New`, `Get`, `Set`, `Remove`) and the noun describes the resource type (examples include `User`, `Group`, `ServicePrincipal`, `Device`). Nouns in Microsoft Entra PowerShell always start with the prefix `Entra`. For the full list of standard verbs, see the  [approved verbs for PowerShell commands][approved-verbs].
@@ -60,12 +40,24 @@ You can narrow this down. For instance, to find commands related to applications
 Get-Command -Module Microsoft.Graph.Entra* -Noun *application*
 ```
 
-This command shows all the cmdlets, functions, and aliases included in the module for the `application` resource.
+This command shows all the cmdlets, functions, and aliases included in the module for the application resource:
+
+```Output
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Add-EntraApplicationOwner                          0.19.0     Microsoft.Graph.Entra
+Function        Get-EntraApplication                               0.19.0     Microsoft.Graph.Entra
+Function        Get-EntraApplicationExtensionProperty              0.19.0     Microsoft.Graph.Entra
+Function        Get-EntraApplicationKeyCredential                  0.19.0     Microsoft.Graph.Entra
+Function        Get-EntraApplicationLogo                           0.19.0     Microsoft.Graph.Entra
+Function        Get-EntraApplicationOwner                          0.19.0     Microsoft.Graph.Entra
+Function        Get-EntraApplicationPasswordCredential             0.19.0     Microsoft.Graph.Entra
+```
 
 ## Get help
 
 To be effective with the Microsoft Entra PowerShell, you need to use `Get-Help` command for detailed help about specific commands, including their syntax, parameters, and usage examples.
-For example, to learn more about the`Get-EntraUser` command, run:
+For example, to learn more about the `Get-EntraUser` command, run:
 
 ```powershell
 Get-Help Get-EntraUser -Detailed
@@ -75,7 +67,7 @@ This command gives detailed help documentation, including the cmdlet's descripti
 
 ## Data collection
 
-Microsoft Entra PowerShell collects telemetry data by default. We collection information about the `Microsoft Entra PowerShell version` and the `cmdlet` executed. Microsoft aggregates collected data to identify patterns of usage to identify common issues and to improve the experience of Microsoft Entra PowerShell.
+Microsoft Entra PowerShell collects telemetry data by default. We collection information about the Microsoft Entra PowerShell version and the cmdlet executed. Microsoft aggregates collected data to identify patterns of usage to identify common issues and to improve the experience of Microsoft Entra PowerShell.
 Microsoft Entra PowerShell doesn't collect any private or personal data. For example, the usage data helps identify issues such as cmdlets with low success and helps prioritize our work.
 
 ## Learn the basics
