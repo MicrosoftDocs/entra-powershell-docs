@@ -39,11 +39,11 @@ Microsoft Entra PowerShell supports two types of authentication: _delegated acce
 Connect-Entra -Scopes 'User.Read.All'
 ```
 
-To see all the possible options, refer to the [authentication](powershell/entra-powershell/authentication-scenarios) scenarios.
+To see all the possible options, refer to the [authentication scenarios][authentication-scenarios].
 
 ## Find available commands
 
-Microsoft Entra PowerShell cmdlets follow a standard naming convention for PowerShell, `Verb-Noun`. The verb describes the action (examples include `New`, `Get`, `Set`, `Remove`) and the noun describes the resource type (examples include `User`, `Group`, `ServicePrincipal`, `Device`). Nouns in Microsoft Entra PowerShell always start with the prefix `Entra`. For the full list of standard verbs, see the [approved verbs for PowerShell commands](powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands).
+Microsoft Entra PowerShell cmdlets follow a standard naming convention for PowerShell, `Verb-Noun`. The verb describes the action (examples include `New`, `Get`, `Set`, `Remove`) and the noun describes the resource type (examples include `User`, `Group`, `ServicePrincipal`, `Device`). Nouns in Microsoft Entra PowerShell always start with the prefix `Entra`. For the full list of standard verbs, see the  [approved verbs for PowerShell commands][approved-verbs].
 
 > [!NOTE]
 > For beta cmdlets, add a Beta prefix to the resource name. For example, use `Get-EntraBetaUser` instead of `Get-EntraUser` for the beta version.
