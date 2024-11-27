@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 11/27/2024
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -46,9 +46,11 @@ Connect-Entra -Scopes "User.Invite.All"
 New-EntraInvitation -InvitedUserEmailAddress "guestUser@contoso.com" -InviteRedirectUrl "https://contoso.com" -SendInvitationMessage $true -InvitedUserDisplayName "Guest User"
 ```
 
+This script sends an invitation to a guest user with the email address `guestUser@contoso.com`, directing them to `https://contoso.com` upon acceptance. The following output shows the details of the invited guest user.
+
 ```Output
 Id                                   InviteRedeemUrl
---                                   ---------------                                                       
+--                                   ---------------                                           
 aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
 ```
 
@@ -83,23 +85,26 @@ $invitations = Import-Csv -Path "c:\bulkinvite\invitations.csv"
 # Define the message to be sent to the invited users.
 $messageBody = "Hello. You are invited to the Contoso organization."
   
-#Iterate over each invitation in the CSV file.
-```powershell  
-   foreach ($invitation in $invitations) {    
-      # Define the invitation parameters    
-      $invitationParams = @{    
-         InvitedUserEmailAddress = $invitation.Email  # Ensure this matches your CSV column name  
-         InviteRedirectUrl       = "https://contoso.com"    
-         SendInvitationMessage   = $true    
-         InvitedUserMessageInfo  = @{  
-               CustomizedMessageBody = $messageBody  
+#Iterate over each invitation in the CSV file. 
+      foreach ($invitation in $invitations) {    
+         # Define the invitation parameters    
+         $invitationParams = @{    
+            InvitedUserEmailAddress = $invitation.Email  # Ensure this matches your CSV column name  
+            InviteRedirectUrl       = "https://contoso.com"    
+            SendInvitationMessage   = $true    
+            InvitedUserMessageInfo  = @{  
+                  CustomizedMessageBody = $messageBody  
+            }  
          }  
-      }  
       
       # Create a new invitation using the defined parameters    
       New-EntraInvitation @invitationParams    
    }
    ```
+
+This script imports a list of invitations from a CSV file. It defines a custom message for the invited users, and then iterates through each invitation to send an invitation to each user with their email address.
+
+The following output shows the details of the invited guest user.
 
    ```Output
    Id                                   InviteRedeemUrl
@@ -129,6 +134,9 @@ $guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displa
 
 #view the guest users
 $guestUsers
+```
+
+The script  retrieves all guest user accounts from Microsoft Entra ID with their display names, email addresses, and creation dates, and then displays the list of those guest users.
 
 ```Output
    DisplayName  Id Mail                    UserPrincipalName
@@ -170,10 +178,10 @@ Connect-Entra -Scopes "User.ReadWrite.All"
 # Retrieve all guest user accounts.
 $guestUsers = Get-EntraUser | Where-Object { $_.UserType -eq "Guest" }  
   
-foreach ($guest in $guestUsers) {  
-    # Disable the guest user account  
-    Set-EntraUser -UserId $guest.Id -AccountEnabled $false  
-}
+      foreach ($guest in $guestUsers) {  
+         # Disable the guest user account  
+         Set-EntraUser -UserId $guest.Id -AccountEnabled $false  
+      }
 ```
 
 ## View and export expired guest user accounts
@@ -183,22 +191,22 @@ To view and export expired guest user accounts:
 1. Build on the previous example for retrieving guest users, iterate over each guest user to check for expiration. In this example, we assume that guest accounts expire 90 days after creation.
 
    ```powershell  
-    foreach ($guest in $guestUsers) {    
-        # Calculate the expiration date based on the creation date  
-        $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)  
-        
-        # Check if the account is expired    
-        if ($guestExpirationDate -lt $now) {    
-            # Add expired guest account details to the report    
-            $report += [PSCustomObject]@{    
-                Id          = $guest.Id    
-                Name        = $guest.DisplayName    
-                Mail        = $guest.Mail    
-                Expiration  = $guestExpirationDate    
-                CreatedDate = $guest.CreatedDateTime    
+         foreach ($guest in $guestUsers) {    
+            # Calculate the expiration date based on the creation date  
+            $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)  
+            
+            # Check if the account is expired    
+            if ($guestExpirationDate -lt $now) {    
+                  # Add expired guest account details to the report    
+                  $report += [PSCustomObject]@{    
+                     Id          = $guest.Id    
+                     Name        = $guest.DisplayName    
+                     Mail        = $guest.Mail    
+                     Expiration  = $guestExpirationDate    
+                     CreatedDate = $guest.CreatedDateTime    
+                  }    
             }    
-        }    
-    } 
+         }
    ```
 
 1. Export the report to a CSV file.
@@ -227,21 +235,21 @@ Iterate over each guest user to check for expiration.
 >This script removes all guest users whose accounts have expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
 
 ```powershell
-foreach ($guest in $guestUsers) {    
-   # Calculate the expiration date based on the creation date  
-   $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)  
-   
-   # Check if the account is expired    
-   if ($guestExpirationDate -lt $now) {    
-      # Check if the guest user ID is not null or empty  
-      if (![string]::IsNullOrEmpty($guest.Id)) {  
-            # Delete the expired guest account  
-            Remove-EntraUser -ObjectId $guest.Id 
-      } else {  
-            Write-Output "Guest user ID is null or empty for user: $($guest.DisplayName)"  
-      }  
-   }    
-}
+      foreach ($guest in $guestUsers) {    
+         # Calculate the expiration date based on the creation date  
+         $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)  
+         
+         # Check if the account is expired    
+         if ($guestExpirationDate -lt $now) {    
+            # Check if the guest user ID is not null or empty  
+            if (![string]::IsNullOrEmpty($guest.Id)) {  
+                  # Delete the expired guest account  
+                  Remove-EntraUser -ObjectId $guest.Id 
+            } else {  
+                  Write-Output "Guest user ID is null or empty for user: $($guest.DisplayName)"  
+            }  
+         }    
+      }
 ```
 
 <!-- link references -->
