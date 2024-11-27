@@ -29,7 +29,7 @@ items:
   items:
   - name: Manage internal and guest users
     items:
-    - name: Manage internal users
+    - name: Manage users
       href: manage-user.md
     - name: Manage guest users
       href: manage-guest-users.md
