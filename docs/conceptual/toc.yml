@@ -27,9 +27,9 @@ items:
       href: app-only-access-auth.md
 - name: Learn
   items:
-  - name: Manage internal and guest users
+  - name: Manage users
     items:
-    - name: Manage users
+    - name: Manage internal users
       href: manage-user.md
     - name: Manage guest users
       href: manage-guest-users.md
