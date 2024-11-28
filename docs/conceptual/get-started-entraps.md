@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 11/20/2024
 ms.author: cmulligan
 
-#Customer intent: As an IT admin, I want to learn how to use start with the Microsoft Entra PowerShell module, including installation, core concepts, commands, and how to get help.
+#Customer intent: As an IT admin, I want to learn how to start using the Microsoft Entra PowerShell module, including installation, core concepts, commands, and how to get help.
 ---
 
 # Quickstart: Get started with the Microsoft Entra PowerShell module
