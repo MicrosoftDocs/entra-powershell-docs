@@ -19,7 +19,7 @@ This article helps you get started with Microsoft Entra PowerShell and outlines 
 
 ## Prerequisites
 
-- [Install the Microsoft Entra PowerShell Module](installation.md).
+- [Install the Microsoft Entra PowerShell module](installation.md).
 
 ## Find available commands
 
