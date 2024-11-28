@@ -57,7 +57,7 @@ Function        Get-EntraApplicationPasswordCredential             0.19.0     Mi
 ## Get help
 
 To be effective with the Microsoft Entra PowerShell, you need to use `Get-Help` command for detailed help about specific commands, including their syntax, parameters, and usage examples.
-For example, to learn more about the `Get-EntraUser` command, run:
+For example, to learn more about the `Get-EntraUser` command, run the following command.
 
 ```powershell
 Get-Help Get-EntraUser -Detailed
