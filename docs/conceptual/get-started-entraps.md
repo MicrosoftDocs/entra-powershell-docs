@@ -34,7 +34,7 @@ You can get all available commands in Microsoft Entra PowerShell module by using
 Get-Command -Module Microsoft.Graph.Entra
 ```
 
-You can narrow this down. For instance, to find commands related to applications, run the following command:
+To narrow this down, for instance, to find commands related to applications, run the following command.
 
 ```powershell
 Get-Command -Module Microsoft.Graph.Entra* -Noun *application*
