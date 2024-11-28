@@ -70,7 +70,6 @@ Id                                   DeletedDateTime
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
 
-### Pipelining
 
 You can also restore the group in one step if you know its display name or group ID, using pipelining:
 
