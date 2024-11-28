@@ -65,7 +65,7 @@ $MaximumFunctionCount = 32768
 ### Commands already available in the module
 
 If there's a conflict when either `beta` or `v1.0` is already installed, you might see the error: "_The following commands are already available on this system: `Enable-EntraAzureADAlias`, `Get-EntraUnsupportedCommand`, `Test-EntraScript`._"
-To fix this error, [uninstall](installation.md#uninstall-the-module) the problematic module version, launch a new PowerShell window, and install the one you need.
+Fix this error by adding the `-AllowClobber` parameter and rerunning the command.
 
 ### Missing dependencies
 
