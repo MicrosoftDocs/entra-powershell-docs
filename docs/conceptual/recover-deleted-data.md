@@ -70,7 +70,6 @@ Id                                   DeletedDateTime
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
 
-
 You can also restore the group in one step if you know its display name or group ID, using pipelining:
 
 ```powershell
@@ -137,8 +136,6 @@ Id                                   DeletedDateTime
 aaaaaaaa-bbbb-cccc-1111-222222222222
 ```
 
-### Pipelining
-
 You can also restore the application in one step if you know its display name, using pipelining:
 
 ```powershell
@@ -177,8 +174,6 @@ Id                                   DeletedDateTime
 --                                   ---------------
 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 ```
-
-### Pipelining
 
 If you already know the user's ID, you can restore it in one step using pipelining:
 
