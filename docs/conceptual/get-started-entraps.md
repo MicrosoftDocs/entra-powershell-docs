@@ -13,7 +13,7 @@ ms.author: cmulligan
 
 # Quickstart: Get started with the Microsoft Entra PowerShell module
 
-Microsoft Entra PowerShell is a powerful tool for managing and administering Entra resources directly from PowerShell. [Explore more about Entra PowerShell](overview.md).
+Microsoft Entra PowerShell is a powerful tool for managing and administering Entra resources directly from PowerShell.
 
 This article helps you get started with Microsoft Entra PowerShell and outlines its core concepts.
 
