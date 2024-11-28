@@ -139,11 +139,11 @@ $guestUsers
 The script  retrieves all guest user accounts from Microsoft Entra ID with their display names, email addresses, and creation dates, and then displays the list of those guest users.
 
 ```Output
-   DisplayName  Id Mail                    UserPrincipalName
-   -----------  -- ----                    -----------------
-   externaluser1     externaluser1@externaldomain1.com
-   externaluser2     externaluser2@externaldomain2.com
-   externaluser3     externaluser3@externaldomain3.com
+DisplayName   Id   Mail                            UserPrincipalName
+-----------   --   ----                            -----------------
+externaluser1      externaluser1@externaldomain1.com
+externaluser2      externaluser2@externaldomain2.com
+externaluser3      externaluser3@externaldomain3.com
 ```
 
 ## Disable guest user accounts
