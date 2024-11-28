@@ -15,7 +15,7 @@ ms.reviewer: stevemutungi
 
 # Manage guest users with Microsoft Entra PowerShell
 
-Guest accounts in Microsoft Entra are a type of user account that allows external users from outside your organization to access specific resources, such as files, teams, or sites, without needing to be a full member of your organization. These accounts are typically used for collaboration with partners, contractors, or clients who need temporary access to your organization's resources.
+Guest accounts in Microsoft Entra let external users access specific resources like files, teams, or sites without being full members of your organization. These accounts are typically used for collaboration with partners, contractors, or clients who need temporary access to your organization's resources.
 
 Managing guest accounts effectively is crucial for maintaining the security and integrity of your organization's data. As an admin, you need to ensure that guest accounts are only given the necessary permissions and access to perform their intended tasks. Regularly reviewing and auditing these accounts is also important to identify any inactive or expired accounts that should be removed. This exercise not only helps to reduce potential security risks but also ensures efficient use of your organization's resources. By managing guest accounts well, you can provide a secure and productive environment for external collaboration.
 
@@ -105,17 +105,19 @@ foreach ($invitation in $invitations) {
     New-EntraInvitation @invitationParams
 }
 
+```
+
 This script imports a list of invitations from a CSV file. It defines a custom message for the invited users, and then iterates through each invitation to send an invitation to each user with their email address.
 
 The following output shows the details of the invited guest user.
 
-   ```Output
-   Id                                   InviteRedeemUrl
-   --                                   ---------------                                                      
-   aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
-   bbbbbbbb-1111-2222-3333-cccccccccccc https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
-   cccccccc-2222-3333-4444-dddddddddddd https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
-   ```
+```Output
+Id                                   InviteRedeemUrl
+--                                   ---------------                                                      
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+bbbbbbbb-1111-2222-3333-cccccccccccc https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+cccccccc-2222-3333-4444-dddddddddddd https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
+```
 
 ## View and export guest user accounts
 
@@ -137,6 +139,7 @@ $guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displa
 
 #view the guest users
 $guestUsers
+
 ```
 
 The script  retrieves all guest user accounts from Microsoft Entra ID with their display names, email addresses, and creation dates, and then displays the list of those guest users.
@@ -182,12 +185,13 @@ foreach ($guest in $guestUsers) {
     # Disable the guest user account
     Set-EntraUser -UserId $guest.Id -AccountEnabled $false
 }
+```
 
 ## View and export expired guest user accounts
 
 To view and export expired guest user accounts:
 
-1. Build on the previous example for retrieving guest users, iterate over each guest user to check for expiration. In this example, we assume that guest accounts expire 90 days after creation.
+1. Expand the previous example to retrieve guest users and check each one for expiration. In this example, we assume that guest accounts expire 90 days after creation.
 
 ```powershell  
 foreach ($guest in $guestUsers) {
@@ -207,6 +211,8 @@ foreach ($guest in $guestUsers) {
     }
 }
 
+```
+
 1. Export the report to a CSV file.
 
    ```powershell  
@@ -223,10 +229,11 @@ Connect-Entra -Scopes "User.ReadWrite.All"
 $now = Get-Date  
 
 # Retrieve all guest users.
-$guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All  
+$guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All
+
 ```
 
-Iterate over each guest user to check for expiration.
+Check each guest user for expiration.
 
 >[!NOTE]
 >This script removes all guest users whose accounts have expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
@@ -247,6 +254,7 @@ foreach ($guest in $guestUsers) {
         }
     }
 }
+
 ```
 
 <!-- link references -->
