@@ -1,5 +1,5 @@
 ---
-title: Get started with the module
+title: Get started with the Microsoft Entra PowerShell module
 description: Get started with the Microsoft Entra PowerShell module, including installation, core concepts, commands, and how to get help.
 
 author: csmulligan
