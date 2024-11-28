@@ -40,7 +40,7 @@ To narrow this down, for instance, to find commands related to applications, run
 Get-Command -Module Microsoft.Graph.Entra* -Noun *application*
 ```
 
-This command shows all the cmdlets, functions, and aliases included in the module for the application resource:
+This command shows all the cmdlets, functions, and aliases included in the module for the application resource.
 
 ```Output
 CommandType     Name                                               Version    Source
