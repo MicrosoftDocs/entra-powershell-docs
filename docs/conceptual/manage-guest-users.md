@@ -163,7 +163,7 @@ Connect to Microsoft Entra with at least a [User Administrator][user-admin] role
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
 # Define the user ID of the guest account to disable.
-$guestUserId = '<guestUserId> e.g. myuser#EXT#@contoso.com or user Object Id'
+$guestUserId = '<guestUserId> for example, myuser#EXT#@contoso.com or user Object Id'
   
 # Disable the guest user account.
 Set-EntraUser -UserId $guestUserId -AccountEnabled $false  
@@ -247,11 +247,12 @@ foreach ($guest in $guestUsers) {
         }
     }
 }
+```
 
 <!-- link references -->
 
 [installation]: installation.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[user-admin]: /entra/identity/role-based-access-control/permissions-reference#user-administrator
-[-external-identity-provider-admin]: /entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator
-[guest-inviter]: /entra/identity/role-based-access-control/permissions-reference#guest-inviter
+[user-admin]: /entra/identity/role-based-access-control/permissions-reference
+[-external-identity-provider-admin]: /entra/identity/role-based-access-control/permissions-reference
+[guest-inviter]: /entra/identity/role-based-access-control/permissions-reference
