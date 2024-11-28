@@ -65,11 +65,6 @@ Get-Help Get-EntraUser -Detailed
 
 This command gives detailed help documentation, including the cmdlet's description, parameters, usage examples, and related commands, helping you understand how to use it effectively in various scenarios.
 
-## Data collection
-
-Microsoft Entra PowerShell collects telemetry data by default. We collection information about the Microsoft Entra PowerShell version and the cmdlet executed. Microsoft aggregates collected data to identify patterns of usage to identify common issues and to improve the experience of Microsoft Entra PowerShell.
-Microsoft Entra PowerShell doesn't collect any private or personal data. For example, the usage data helps identify issues such as cmdlets with low success and helps prioritize our work.
-
 ## Learn the basics
 
 Get hands-on with Microsoft Entra PowerShell through our detailed how-to guides:
