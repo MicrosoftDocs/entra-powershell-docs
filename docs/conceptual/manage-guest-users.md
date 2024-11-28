@@ -194,30 +194,30 @@ To view and export expired guest user accounts:
 
 1. Expand the previous example to retrieve guest users and check each one for expiration. In this example, we assume that guest accounts expire 90 days after creation.
 
-```powershell  
-foreach ($guest in $guestUsers) {
-    # Calculate the expiration date based on the creation date
-    $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)
-    
-    # Check if the account is expired
-    if ($guestExpirationDate -lt $now) {
-        # Add expired guest account details to the report
-        $report += [PSCustomObject]@{
-            Id          = $guest.Id
-            Name        = $guest.DisplayName
-            Mail        = $guest.Mail
-            Expiration  = $guestExpirationDate
-            CreatedDate = $guest.CreatedDateTime
+    ```powershell  
+    foreach ($guest in $guestUsers) {
+        # Calculate the expiration date based on the creation date
+        $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)
+        
+        # Check if the account is expired
+        if ($guestExpirationDate -lt $now) {
+            # Add expired guest account details to the report
+            $report += [PSCustomObject]@{
+                Id          = $guest.Id
+                Name        = $guest.DisplayName
+                Mail        = $guest.Mail
+                Expiration  = $guestExpirationDate
+                CreatedDate = $guest.CreatedDateTime
+            }
         }
     }
-}
-
-```
+    ```
 
 1. Export the report to a CSV file.
 
-   ```powershell  
-   $report | Export-Csv -Path "ExpiredGuestAccounts.csv" -NoTypeInformation  
+    ```powershell  
+       $report | Export-Csv -Path "ExpiredGuestAccounts.csv" -NoTypeInformation  
+    ```
 
 ## Remove expired guest user accounts
 
