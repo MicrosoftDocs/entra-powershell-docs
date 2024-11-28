@@ -169,7 +169,8 @@ Connect-Entra -Scopes 'User.ReadWrite.All'
 $guestUserId = '<guestUserId> for example, myuser#EXT#@contoso.com or user Object Id'
   
 # Disable the guest user account.
-Set-EntraUser -UserId $guestUserId -AccountEnabled $false  
+Set-EntraUser -UserId $guestUserId -AccountEnabled $false
+```
 
 ### Disable all guest user accounts
 
