@@ -21,6 +21,16 @@ This article helps you get started with Microsoft Entra PowerShell and outlines 
 
 - [Install the Microsoft Entra PowerShell module](installation.md).
 
+## Sign in
+
+Microsoft Entra PowerShell supports two types of authentication: _delegated access_, and _app-only access_. To use Microsoft Entra PowerShell, you need to authenticate to access Microsoft Entra resources. Sign in with an admin account of your tenant, if prompted.
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+```
+
+To see all the possible options, refer to the [authentication][auth-scenarios] scenarios.
+
 ## Find available commands
 
 Microsoft Entra PowerShell cmdlets follow a standard naming convention for PowerShell, `Verb-Noun`. The verb describes the action (examples include `New`, `Get`, `Set`, `Remove`) and the noun describes the resource type (examples include `User`, `Group`, `ServicePrincipal`, `Device`). Nouns in Microsoft Entra PowerShell always start with the prefix `Entra`. For the full list of standard verbs, see the  [approved verbs for PowerShell commands][approved-verbs].
