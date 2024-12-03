@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 11/05/2024
+ms.date: 12/03/2024
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -13,7 +13,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 keywords: Microsoft Entra powershell, entra-powershell, manage entra resources using powershell, entra powershell new features, what's new in entra powershell
 
-#customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module.
+#customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module and all the related doc updates.
 ---
 
 # What's new in the Microsoft Entra PowerShell module
@@ -23,6 +23,19 @@ This article lists all new articles that were added or had significant updates i
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### November 2024
+
+**New articles**
+
+- [Grant and revoke API permissions](how-to-grant-revoke-api-permissions.md): Learn how to grant and revoke API permissions for an application.
+- [Manage guest users with Microsoft Entra PowerShell](manage-guest-users.md): Learn how to manage guest users in your organization.
+- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md): Learn how to recover deleted data using Microsoft Entra PowerShell.
+
+**Updated articles**
+
+- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md): Added equivalents for the app proxy cmdlets. 
+- [Install the Microsoft Entra PowerShell module](installation.md) : Updated the article in response to customer feedback.
 
 ### October 2024
 
