@@ -35,7 +35,7 @@ This article lists all new articles that were added or had significant updates i
 **Updated articles**
 
 - [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md): Added equivalents for the app proxy cmdlets. 
-- [Install the Microsoft Entra PowerShell module](installation.md) : Updated the article in response to customer feedback.
+- [Install the Microsoft Entra PowerShell module](installation.md): Updated the article in response to customer feedback.
 
 ### October 2024
 
