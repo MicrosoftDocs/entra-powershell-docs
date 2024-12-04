@@ -29,7 +29,7 @@ Each cmdlet in Microsoft Entra PowerShell is protected by one or more permission
 Connect-Entra -Scopes 'User.Read.All'
 ```
 
-To see all the possible options, refer to the [authentication](authentication-scenarios.md) scenarios.
+To see all the possible options, refer to the [authentication scenarios](authentication-scenarios.md).
 
 ## Find available commands
 
