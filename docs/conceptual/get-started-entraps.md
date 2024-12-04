@@ -23,7 +23,7 @@ This article helps you get started with Microsoft Entra PowerShell and outlines 
 
 ## Sign in
 
-Microsoft Entra PowerShell supports two types of authentication: _delegated access_, and _app-only access_. To use Microsoft Entra PowerShell, you need to authenticate to access Microsoft Entra resources. Sign in with an admin account of your tenant, if prompted.
+Each cmdlet in Microsoft Entra PowerShell is protected by one or more permission scopes. To use Microsoft Entra PowerShell, the user logging in must consent to the required permission scopes for the cmdlet you plan to use. Microsoft Entra PowerShell supports two types of authentication: _delegated access_, and _app-only access_. You specify the permissions in the `Connect-Entra` cmdlet. Sign in with an admin account of your tenant, if prompted.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
