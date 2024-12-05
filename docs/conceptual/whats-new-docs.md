@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 11/05/2024
+ms.date: 12/03/2024
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -13,7 +13,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 keywords: Microsoft Entra powershell, entra-powershell, manage entra resources using powershell, entra powershell new features, what's new in entra powershell
 
-#customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module.
+#customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module and all the related doc updates.
 ---
 
 # What's new in the Microsoft Entra PowerShell module
@@ -23,6 +23,19 @@ This article lists all new articles that were added or had significant updates i
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### November 2024
+
+**New articles**
+
+- [Grant and revoke API permissions](how-to-grant-revoke-api-permissions.md): Learn how to grant and revoke API permissions for an application.
+- [Manage guest users with Microsoft Entra PowerShell](manage-guest-users.md): Learn how to manage guest users in your organization.
+- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md): Learn how to recover deleted data using Microsoft Entra PowerShell.
+
+**Updated articles**
+
+- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md): Added equivalents for the app proxy cmdlets. 
+- [Install the Microsoft Entra PowerShell module](installation.md): Updated the article in response to customer feedback.
 
 ### October 2024
 
@@ -54,40 +67,6 @@ This article lists all new articles that were added or had significant updates i
 - [Manage groups](manage-groups.md) - Added example improvements.
 - [Manage users](manage-user.md) - Added example improvements.
 - [What is Microsoft Entra PowerShell (preview)?](overview.md) - Added link to an external video.
-
-### August 2024
-
-**Updated articles**
-
-- [Azure AD  PowerShell cmdlet map][cmdlet-map] - Updated the cmdlet map with new cmdlet equivalents in Microsoft Entra PowerShell.
-
-### July 2024
-
-**New articles**
-
-- [Azure AD  PowerShell cmdlet map][cmdlet-map] -  Find the equivalent cmdlets in Microsoft Entra PowerShell for deprecated Azure AD, Azure AD Preview, and MSOnline PowerShell modules to accelerate migration.
-- [Assign app roles to a service principal][assign-app-roles] - Assign app roles in Microsoft Entra PowerShell to automate application consent.
-
-**Updated articles**
-
-- The [reference TOC](/powershell/module/microsoft.graph.entra) is updated to group cmdlets for easier navigation.
-
-### June 2024
-
-**New articles**
-
-- [Microsoft Entra PowerShell overview (preview)](overview.md) - What is Microsoft Entra PowerShell, and how can you use it to manage Microsoft Entra resources?
-- [Get started with the Microsoft Entra PowerShell module](get-started-entraps.md) - Learn the core concepts and get started with the Microsoft Entra PowerShell module.
-- [Install the Microsoft Entra PowerShell module](installation.md) - New article on how to install the Microsoft Entra PowerShell module.
-- [Manage users with Microsoft Entra PowerShell](manage-user.md)
-- [Manage apps with Microsoft Entra PowerShell](manage-apps.md)  
-- [Manage groups with Microsoft Entra PowerShell](manage-groups.md)
-- [Authentication scenarios](authentication-scenarios.md)- New article on using [App-only authentication](app-only-access-auth.md) and [Delegated authentication](delegated-access-auth.md).
-- [Create a custom application](create-custom-application.md) - New article on creating a custom application in Microsoft Entra PowerShell.
-- [Migration guide](migration-guide.md) - New article on how to migrate from Azure AD PowerShell to Microsoft Entra PowerShell.
-- [Troubleshoot common errors in Microsoft Entra PowerShell](troubleshooting.md) - New article on how to troubleshoot and fix common errors in Microsoft Entra PowerShell.
-- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md) - Best practices for using the Microsoft Entra PowerShell module to boost performance, enhance security, and scale reliably.
-- [Versioning, release cadence, and breaking changes](entraps-versioning-release-cadence.md) - Understand the versioning, release schedule, and breaking change policies to manage updates effectively and reduce the risk of disruptions.
 
 :::zone-end
 
