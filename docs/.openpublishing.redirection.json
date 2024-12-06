@@ -4,8 +4,17 @@
             "source_path": "conceptual/create-assign-app-roles.md",
             "redirect_url": "/powershell/entra-powershell/how-to-grant-revoke-api-permissions?pivots=grant-application-permissions",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/docs/conceptual/navigate-entra-powershell.md",
+            "redirect_url": "/powershell/entra-powershell/get-started-entraps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/docs/conceptual/quickstart-entra-powershell.md",
+            "redirect_url": "/powershell/entra-powershell/get-started-entraps",
+            "redirect_document_id": true
         }
-
 
     ]
 }
