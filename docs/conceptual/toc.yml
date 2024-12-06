@@ -13,10 +13,8 @@ items:
   items:
   - name: Install the module
     href: installation.md
-  - name: Quick start
-    href: quickstart-entra-powershell.md
-  - name: Navigate the module
-    href: navigate-entra-powershell.md
+  - name: Get started
+    href: get-started-entraps.md
   - name: Authenticate
     items:
     - name: Authentication scenarios
