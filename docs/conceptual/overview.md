@@ -62,7 +62,7 @@ Watch John Savill's video for an in-depth [overview of how Microsoft Entra Power
 
 [free-entra-id]: https://azure.microsoft.com/free/entra-id
 [migration-guide]: migration-guide.md
-[get-started]: quickstart-entra-powershell.md
+[get-started]: get-started-entraps.md
 [installation]: installation.md
 [powershell-gallery]: https://aka.ms/entrapsgallery
 [faqs]: entra-powershell-faqs.yml

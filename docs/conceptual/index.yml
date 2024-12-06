@@ -44,7 +44,7 @@ conceptualContent:
           url: /powershell/entra-powershell/installation
           itemType: how-to-guide
         - text: Quickstart guide
-          url: /powershell/entra-powershell/quickstart-entra-powershell
+          url: /powershell/entra-powershell/get-started-entraps
           itemType: quickstart
     ## CARD 2 ######################
     - title: Common use cases

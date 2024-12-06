@@ -238,7 +238,7 @@ Uninstall-Module -Name Microsoft.Graph.Entra.Beta -AllVersions
 
 - To learn more about managing Entra resources with the Microsoft Entra PowerShell module, see [Get started][get-started] article.
 
-[get-started]: quickstart-entra-powershell.md
+[get-started]: get-started-entraps.md
 [auth-methods]: authentication-scenarios.md
 [troubleshooting-guide]: troubleshooting.md
 [update-module]: /powershell/module/powershellget/update-module
