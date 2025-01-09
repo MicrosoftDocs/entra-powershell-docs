@@ -2,11 +2,10 @@
 title: Run legacy scripts in compatibility mode 
 description: Learn how to use the Enable-EntraAzureADAlias command to run existing AzureAD PowerShell scripts in Microsoft Entra PowerShell with minimal modifications.
 
-
 author: csmulligan
 manager: CelesteDG
 ms.topic: concept-article
-ms.date: 09/24/2024
+ms.date: 01/08/2025
 ms.author: cmulligan
 
 #Customer intent: As an IT admin, I want to learn how to run my existing scripts from Azure AD PowerShell in Microsoft Entra PowerShell so that I can smoothly transition to using Microsoft Entra PowerShell in my operations.
@@ -65,7 +64,7 @@ The following script is the migrated script.
 
 ```powershell
 Import-Module -Name Microsoft.Graph.Entra
-Connect-MgGraph #Replaces Connect-AzureAD for auth
+Connect-Entra #Replaces Connect-AzureAD for auth
 Enable-EntraAzureADAlias #Activate aliasing
 
 $applications = Get-AzureADApplication -All $true
