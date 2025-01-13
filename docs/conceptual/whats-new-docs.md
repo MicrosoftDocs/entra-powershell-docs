@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 12/03/2024
+ms.date: 01/10/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -23,6 +23,17 @@ This article lists all new articles that were added or had significant updates i
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### December 2024
+
+**New articles**
+
+- [Quickstart: Get started with the Microsoft Entra PowerShell module](get-started-entraps.md) - Consolidated the steps to get started with the Microsoft Entra PowerShell module.
+
+**Updated articles**
+
+- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md) - Updated the article with minor edits.
+- [Troubleshoot the Microsoft Entra PowerShell module](troubleshooting.md) - Updated the troubleshooting article to use a consistent format.
 
 ### November 2024
 
@@ -57,16 +68,6 @@ This article lists all new articles that were added or had significant updates i
 - [Manage users with Microsoft Entra PowerShell](manage-user.md): Updated usability parameter switches.
 - [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md): Updated usability parameter switches.
 - [Migrate to Microsoft Entra PowerShell](migration-guide.md): Updated usability parameter switches.
-
-
-### September 2024
-
-**Updated articles**
-
-- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md) - Fixed broken links caused by the renaming of certain cmdlets.
-- [Manage groups](manage-groups.md) - Added example improvements.
-- [Manage users](manage-user.md) - Added example improvements.
-- [What is Microsoft Entra PowerShell (preview)?](overview.md) - Added link to an external video.
 
 :::zone-end
 
