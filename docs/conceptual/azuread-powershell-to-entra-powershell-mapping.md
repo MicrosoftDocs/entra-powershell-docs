@@ -3,7 +3,7 @@ title: "Azure AD PowerShell to Microsoft Entra PowerShell cmdlet map"
 description: "Find the equivalents of Azure AD PowerShell cmdlets in Microsoft Entra PowerShell."
 
 ms.topic: reference
-ms.date: 07/16/2024
+ms.date: 01/13/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -341,19 +341,76 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 
 |MSOnline cmdlet|Microsoft Entra PowerShell cmdlet|
 |--------------------------|---------------------------------|
-| Convert-MsolFederatedUser | [Update-EntraBetaUserFromFederated](/powershell/module/microsoft.graph.entra.beta/update-entrabetauserfromfederated)|
-| Get-MsolAccountSku | [Get-EntraAccountSku](/powershell/module/microsoft.graph.entra/Get-EntraAccountSku)|
-| Get-MsolDirSyncConfiguration | [Get-EntraDirSyncConfiguration](/powershell/module/microsoft.graph.entra/Get-EntraDirSyncConfiguration)|
-| Get-MsolDirSyncfeature | [Get-EntraDirSyncfeature](/powershell/module/microsoft.graph.entra/Get-EntraDirSyncfeature)|
-| Get-MsolDomainFederationSettings | [Get-EntraDomainFederationSettings](/powershell/module/microsoft.graph.entra/Get-EntraDomainFederationSettings)|
-| Get-MsolFederationProperty | [Get-EntraFederationProperty](/powershell/module/microsoft.graph.entra/Get-EntraFederationProperty)|
-| Get-MsolHasObjectsWithDirSyncProvisioningError | [Get-EntraHasObjectsWithDirSyncProvisioningError](/powershell/module/microsoft.graph.entra/Get-EntraHasObjectsWithDirSyncProvisioningError)|
-| Get-MsolPartnerInformation | [Get-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Get-EntraPartnerInformation)|
-| Get-MsolPasswordPolicy | [Get-EntraPasswordPolicy](/powershell/module/microsoft.graph.entra/Get-EntraPasswordPolicy)|
-| Set-MsolDirSyncConfiguration | [Set-EntraDirSyncConfiguration](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncConfiguration)|
-|Set-MsolDirSyncEnabled|[Set-EntraDirSyncEnabled](/powershell/module/microsoft.graph.entra/set-entradirsyncenabled)|
-| Set-MsolDirSyncFeature | [Set-EntraDirSyncFeature](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncFeature)|
-| Set-MsolDomainFederationSettings | [Set-EntraDomainFederationSettings](/powershell/module/microsoft.graph.entra/Set-EntraDomainFederationSettings)|
-| Set-MsolPartnerInformation | [Set-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Set-EntraPartnerInformation)|
+|Add-MsolAdministrativeUnitMember|[Add-EntraAdministrativeUnitMember](/powershell/module/microsoft.graph.entra/Add-EntraAdministrativeUnitMember)
+|Add-MsolGroupMember|[Add-EntraGroupMember](/powershell/module/microsoft.graph.entra/Add-EntraGroupMember)
+|Add-MsolRoleMember|[Add-EntraDirectoryRoleMember](/powershell/module/microsoft.graph.entra/Add-EntraDirectoryRoleMember)
+|Add-MsolScopedRoleMember|[Add-EntraScopedRoleMembership](/powershell/module/microsoft.graph.entra/Add-EntraScopedRoleMembership)
+|Confirm-MsolDomain|[Confirm-EntraDomain](/powershell/module/microsoft.graph.entra/Confirm-EntraDomain)
+|Connect-MsolService|[Connect-Entra](/powershell/module/microsoft.graph.entra/Connect-Entra)
+|Convert-MsolFederatedUser|[Update-EntraBetaUserFromFederated](/powershell/module/microsoft.graph.entra.beta/Update-EntraBetaUserFromFederated)
+|Disable-MsolDevice|[Set-EntraDevice](/powershell/module/microsoft.graph.entra/Set-EntraDevice)
+|Enable-MsolDevice|[Set-EntraDevice](/powershell/module/microsoft.graph.entra/Set-EntraDevice)
+|Get-MsolAccountSku|[Get-EntraAccountSku](/powershell/module/microsoft.graph.entra/Get-EntraAccountSku)
+|Get-MsolAdministrativeUnit|[Get-EntraAdministrativeUnit](/powershell/module/microsoft.graph.entra/Get-EntraAdministrativeUnit)
+|Get-MsolAdministrativeUnitMember|[Get-EntraAdministrativeUnitMember](/powershell/module/microsoft.graph.entra/Get-EntraAdministrativeUnitMember)
+|Get-MsolCompanyInformation|[Get-EntraTenantDetail](/powershell/module/microsoft.graph.entra/Get-EntraTenantDetail)
+|Get-MsolContact|[Get-EntraContact](/powershell/module/microsoft.graph.entra/Get-EntraContact)
+|Get-MsolDevice|[Get-EntraDevice](/powershell/module/microsoft.graph.entra/Get-EntraDevice)
+|Get-MsolDirSyncConfiguration|[Get-EntraDirSyncConfiguration](/powershell/module/microsoft.graph.entra/Get-EntraDirSyncConfiguration)
+|Get-MsolDirSyncFeatures|[Get-EntraDirSyncFeature](/powershell/module/microsoft.graph.entra/Get-EntraDirSyncFeature)
+|Get-MsolDirSyncProvisioningError|[Get-EntraDirectoryObjectOnPremisesProvisioningError](/powershell/module/microsoft.graph.entra/Get-EntraDirectoryObjectOnPremisesProvisioningError)
+|Get-MsolDomain|[Get-EntraDomain](/powershell/module/microsoft.graph.entra/Get-EntraDomain)
+|Get-MsolDomainFederationSettings|[Get-EntraDomainFederationSettings](/powershell/module/microsoft.graph.entra/Get-EntraDomainFederationSettings)
+|Get-MsolDomainVerificationDns|[Get-EntraDomainVerificationDnsRecord](/powershell/module/microsoft.graph.entra/Get-EntraDomainVerificationDnsRecord)
+|Get-MsolFederationProperty|[Get-EntraFederationProperty](/powershell/module/microsoft.graph.entra/Get-EntraFederationProperty)
+|Get-MsolGroup|[Get-EntraGroup](/powershell/module/microsoft.graph.entra/Get-EntraGroup)
+|Get-MsolGroupMember|[Get-EntraGroupMember](/powershell/module/microsoft.graph.entra/Get-EntraGroupMember)
+|Get-MsolHasObjectsWithDirSyncProvisioningErrors|[Get-EntraDirectoryObjectOnPremisesProvisioningError](/powershell/module/microsoft.graph.entra/Get-EntraDirectoryObjectOnPremisesProvisioningError)
+|Get-MsolPartnerInformation|[Get-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Get-EntraPartnerInformation)
+|Get-MsolPasswordPolicy|[Get-EntraPasswordPolicy](/powershell/module/microsoft.graph.entra/Get-EntraPasswordPolicy)
+|Get-MsolRole|[Get-EntraDirectoryRole](/powershell/module/microsoft.graph.entra/Get-EntraDirectoryRole)
+|Get-MsolRoleMember|[Get-EntraDirectoryRoleMember](/powershell/module/microsoft.graph.entra/Get-EntraDirectoryRoleMember)
+|Get-MsolScopedRoleMember|[Get-EntraScopedRoleMembership](/powershell/module/microsoft.graph.entra/Get-EntraScopedRoleMembership)
+|Get-MsolServicePrincipal|[Get-EntraServicePrincipal](/powershell/module/microsoft.graph.entra/Get-EntraServicePrincipal)
+|Get-MsolServicePrincipalCredential|[Get-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.graph.entra/Get-EntraServicePrincipalKeyCredential)
+|Get-MsolSubscription|[Get-EntraSubscribedSku](/powershell/module/microsoft.graph.entra/Get-EntraSubscribedSku)
+|Get-MsolUser|[Get-EntraUser](/powershell/module/microsoft.graph.entra/Get-EntraUser)
+|New-MsolAdministrativeUnit|[New-EntraAdministrativeUnit](/powershell/module/microsoft.graph.entra/New-EntraAdministrativeUnit)
+|New-MsolDomain|[New-EntraDomain](/powershell/module/microsoft.graph.entra/New-EntraDomain)
+|New-MsolGroup|[New-EntraGroup](/powershell/module/microsoft.graph.entra/New-EntraGroup)
+|New-MsolServicePrincipal|[New-EntraServicePrincipal](/powershell/module/microsoft.graph.entra/New-EntraServicePrincipal)
+|New-MsolServicePrincipalCredential|[New-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.graph.entra/New-EntraServicePrincipalKeyCredential)
+|New-MsolUser|[New-EntraUser](/powershell/module/microsoft.graph.entra/New-EntraUser)
+|Remove-MsolAdministrativeUnit|[Remove-EntraAdministrativeUnit](/powershell/module/microsoft.graph.entra/Remove-EntraAdministrativeUnit)
+|Remove-MsolAdministrativeUnitMember|[Remove-EntraAdministrativeUnitMember](/powershell/module/microsoft.graph.entra/Remove-EntraAdministrativeUnitMember)
+|Remove-MsolApplicationPassword|[Remove-EntraApplicationPassword](/powershell/module/microsoft.graph.entra/Remove-EntraApplicationPassword)
+|Remove-MsolContact|[Remove-EntraContact](/powershell/module/microsoft.graph.entra/Remove-EntraContact)
+|Remove-MsolDevice|[Remove-EntraDevice](/powershell/module/microsoft.graph.entra/Remove-EntraDevice)
+|Remove-MsolDomain|[Remove-EntraDomain](/powershell/module/microsoft.graph.entra/Remove-EntraDomain)
+|Remove-MsolGroup|[Remove-EntraGroup](/powershell/module/microsoft.graph.entra/Remove-EntraGroup)
+|Remove-MsolGroupMember|[Remove-EntraGroupMember](/powershell/module/microsoft.graph.entra/Remove-EntraGroupMember)
+|Remove-MsolRoleMember|[Remove-EntraDirectoryRoleMember](/powershell/module/microsoft.graph.entra/Remove-EntraDirectoryRoleMember)
+|Remove-MsolScopedRoleMember|[Remove-EntraScopedRoleMembership](/powershell/module/microsoft.graph.entra/Remove-EntraScopedRoleMembership)
+|Remove-MsolServicePrincipal|[Remove-EntraServicePrincipal](/powershell/module/microsoft.graph.entra/Remove-EntraServicePrincipal)
+|Remove-MsolServicePrincipalCredential|[Remove-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.graph.entra/Remove-EntraServicePrincipalKeyCredential)
+|Remove-MsolUser|[Remove-EntraUser](/powershell/module/microsoft.graph.entra/Remove-EntraUser)
+|Reset-MsolStrongAuthenticationMethodByUpn|[Reset-EntraStrongAuthenticationMethodByUpn](/powershell/module/microsoft.graph.entra/Reset-EntraStrongAuthenticationMethodByUpn)
+|Restore-MsolUser|[Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/Restore-EntraDeletedDirectoryObject)
+|Set-MsolAdministrativeUnit|[Set-EntraAdministrativeUnit](/powershell/module/microsoft.graph.entra/Set-EntraAdministrativeUnit)
+|Set-MsolCompanyContactInformation|[Set-EntraTenantDetail](/powershell/module/microsoft.graph.entra/Set-EntraTenantDetail)
+|Set-MsolCompanySecurityComplianceContactInformation|[Set-EntraTenantDetail](/powershell/module/microsoft.graph.entra/Set-EntraTenantDetail)
+|Set-MsolDirSyncConfiguration|[Set-EntraDirSyncConfiguration](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncConfiguration)
+|Set-MsolDirSyncEnabled|[Set-EntraDirSyncEnabled](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncEnabled)
+|Set-MsolDirSyncFeature|[Set-EntraDirSyncFeature](/powershell/module/microsoft.graph.entra/Set-EntraDirSyncFeature)
+|Set-MsolDomain|[Set-EntraDomain](/powershell/module/microsoft.graph.entra/Set-EntraDomain)
+|Set-MsolDomainFederationSettings|[Set-EntraDomainFederationSettings](/powershell/module/microsoft.graph.entra/Set-EntraDomainFederationSettings)
+|Set-MsolGroup|[Set-EntraGroup](/powershell/module/microsoft.graph.entra/Set-EntraGroup)
+|Set-MsolPartnerInformation|[Set-EntraPartnerInformation](/powershell/module/microsoft.graph.entra/Set-EntraPartnerInformation)
+|Set-MsolServicePrincipal|[Set-EntraServicePrincipal](/powershell/module/microsoft.graph.entra/Set-EntraServicePrincipal)
+|Set-MsolUser|[Set-EntraUser](/powershell/module/microsoft.graph.entra/Set-EntraUser)
+|Set-MsolUserLicense|[Set-EntraUserLicense](/powershell/module/microsoft.graph.entra/Set-EntraUserLicense)
+|Set-MsolUserPassword|[Set-EntraUserPassword](/powershell/module/microsoft.graph.entra/Set-EntraUserPassword)
+|Set-MsolUserPrincipalName|[Set-EntraUser](/powershell/module/microsoft.graph.entra/Set-EntraUser)
+
 
 :::zone-end
