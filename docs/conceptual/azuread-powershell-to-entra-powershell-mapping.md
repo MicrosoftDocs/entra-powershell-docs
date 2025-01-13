@@ -350,7 +350,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 |Connect-MsolService|[Connect-Entra](/powershell/module/microsoft.graph.entra/Connect-Entra)
 |Convert-MsolDomainToFederated||
 |Convert-MsolDomainToStandard||
-|Convert-MsolFederatedUser|[Update-EntraBetaUserFromFederated](/powershell/module/microsoft.graph.entra/Update-EntraBetaUserFromFederated)
+|Convert-MsolFederatedUser|[Update-EntraBetaUserFromFederated](/powershell/module/microsoft.graph.entra.beta/Update-EntraBetaUserFromFederated)
 |Disable-MsolDevice|[Set-EntraDevice](/powershell/module/microsoft.graph.entra/Set-EntraDevice)
 |Enable-MsolDevice|[Set-EntraDevice](/powershell/module/microsoft.graph.entra/Set-EntraDevice)
 |Get-MsolAccountSku|[Get-EntraAccountSku](/powershell/module/microsoft.graph.entra/Get-EntraAccountSku)
