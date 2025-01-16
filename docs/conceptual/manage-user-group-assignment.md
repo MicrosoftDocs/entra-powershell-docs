@@ -16,7 +16,7 @@ ms.reviewer: stevemutungi
   
 # Manage users and groups assignment
   
-Enterprise applications in Microsoft Entra ID represent the service principals that allow users and groups to access various resources. Reporting on user and group assignments to these enterprise applications is crucial for maintaining security and compliance within your organization.
+Enterprise applications in Microsoft Entra ID represent the service principals that allow users and groups to access various resources. You might need to export user and group assignments to perform audits, ensure compliance with security policies, manage user access efficiently, and identify any unauthorized access or potential security risks within the organization.
   
 Using Microsoft Entra PowerShell, you can retrieve and report on the assignments of users and groups to enterprise applications. This feature enables you to manage access effectively and ensure that only authorized users have the necessary permissions.
   
@@ -38,7 +38,18 @@ The following example shows how to use Microsoft Entra PowerShell to report user
     Connect-Entra -Scopes 'Directory.Read.All', 'Application.Read.All'
     ```
 
-1. Run the following script to export all user and group assignments to service principals to a CSV file.
+1. Run the following script to export all user and group assignments to service principals to a CSV file. The script performs the following actions:
+
+    - **Data Retrieval**:
+      - Fetches all user and group assignments associated with each service principal.
+      - Utilizes directory APIs or CLI commands to gather comprehensive assignment details.
+    - **Parses the retrieved data to extract relevant information such as**:
+      - User Names: Identifies individual users assigned to service principals.
+      - Group Names: Identifies groups that have assignments to service principals.
+      - Service Principal Details: Includes IDs, names, and roles associated with each service principal.
+    - **Exporting to CSV**:
+      - Organizes the extracted data into a structured format.
+      - Writes the organized data into a CSV file, making it easy to view, share, or further analyze the assignments.
 
    ```powershell
    # Get all service principals.
@@ -92,9 +103,11 @@ The following example shows how to use Microsoft Entra PowerShell to report user
     }
     ```
 
-This example retrieves all service principals in the directory and then loops through each service principal to get the assigned users and groups. It resolves the display names of the users and groups and then creates a custom object with the service principal name, assigned users, and assigned groups. The results are then exported to a CSV file.
+This script retrieves all service principals in your Microsoft Entra tenant and exports the user and group assignments to a CSV file. The CSV file contains the service principal name, assigned users, and assigned groups.
 
 ## Unassign users and groups from a service principal
+
+By unassigning specific users and groups, you can ensure that only authorized personnel have the necessary permissions, thereby reducing the risk of unauthorized access and enhancing overall system integrity.
 
 The following example shows how to use Microsoft Entra PowerShell to unassign specific users and groups from a service principal.
 
@@ -167,7 +180,7 @@ The following example demonstrates how to use Microsoft Entra PowerShell to unas
     }
     ```
 
-This example unassigns all users and groups from the specified service principal in your Microsoft Entra tenant.
+   This example unassigns all users and groups from the specified service principal in your Microsoft Entra tenant.
 
 ## Related content
 
@@ -182,5 +195,5 @@ This example unassigns all users and groups from the specified service principal
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator
 [manage-user.md]: manage-user.md
 [manage-apps]: manage-apps.md
-[get-service-principal-app-role-assignto]: ../reference/v1.0/microsoft.graph.entra/Get-EntraServicePrincipalAppRoleAssignedTo
-[remove-service-principal-app-role-assignment]: ../reference/v1.0/microsoft.graph.entra/Remove-EntraServicePrincipalAppRoleAssignment
+[get-service-principal-app-role-assignto]: /powershell/module/microsoft.graph.entra/get-entraserviceprincipalapproleassignedto
+[remove-service-principal-app-role-assignment]: /powershell/module/microsoft.graph.entra/Remove-EntraServicePrincipalAppRoleAssignment
