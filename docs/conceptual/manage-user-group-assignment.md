@@ -1,5 +1,5 @@
 ---  
-title: "Manage user and group assignment"
+title: "Manage user and group assignments"
 description: "This article shows how to report user and group assignments to service principals and unassign users and groups using Microsoft Entra PowerShell."  
   
 author: omondiatieno
@@ -14,7 +14,7 @@ ms.reviewer: stevemutungi
 #customer intent: As an IT admin, I want to learn how to report and remove user and group assignments to service principals using Microsoft Entra PowerShell, so that I can track access and manage permissions efficiently.  
 ---  
   
-# Manage user and group assignment
+# Manage user and group assignments
   
 Enterprise applications in Microsoft Entra ID represent the service principals that allow users and groups to access various resources. You might need to export user and group assignments to perform audits, ensure compliance with security policies, manage user access efficiently, and identify any unauthorized access or potential security risks within the organization.
   
@@ -107,7 +107,7 @@ This script retrieves all service principals in your Microsoft Entra tenant and 
 
 ## Unassign users and groups from a service principal
 
-By unassigning specific users and groups, you can ensure that only authorized personnel have the necessary permissions, thereby reducing the risk of unauthorized access and enhancing overall system integrity.
+By unassigning specific users and groups, you can ensure that only authorized personnel have the necessary permissions. Unassigning unwanted users and groups reduces the risk of unauthorized access and enhancing overall system integrity.
 
 The following example shows how to use Microsoft Entra PowerShell to unassign specific users and groups from a service principal.
 
