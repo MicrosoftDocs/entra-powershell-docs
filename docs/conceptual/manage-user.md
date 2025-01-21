@@ -107,12 +107,12 @@ Get-EntraUserManager -UserId 'SawyerM@contoso.com'
 ```
 
 ```Output
-    Id                                   DeletedDateTime
+Id                                   DeletedDateTime
 --                                   ---------------
 eeeeeeee-4444-5555-6666-ffffffffffff
 ```
 
-1. List the users who report to a specific user.
+2. List the users who report to a specific user.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
@@ -120,12 +120,12 @@ Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com'
 ```
 
 ```Output
-    Id                                   DeletedDateTime
+Id                                   DeletedDateTime
 --                                   ---------------
 eeeeeeee-4444-5555-6666-ffffffffffff
 ```
 
-1. Assign a manager to a user.
+3. Assign a manager to a user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -138,7 +138,7 @@ Set-EntraUserManager -UserId 'SawyerM@contoso.com' -RefObjectId $manager.Id
 
 ## List inactive users
 
-1. The following example generates a list of disabled accounts.
+The following example generates a list of disabled accounts.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -148,8 +148,8 @@ Get-EntraUser -Filter "accountEnabled eq false" | Select-Object DisplayName, Id,
 ```Output
 DisplayName    Id                                   Mail userPrincipalName
 -----------    --                                   ---- -----------------
-Sawyer Miller hhhhhhhh-7777-8888-9999-iiiiiiiiiiii      SawyerM@contoso.com
-Kez Michael   eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
+Sawyer Miller  hhhhhhhh-7777-8888-9999-iiiiiiiiiiii      SawyerM@contoso.com
+Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 ```
 
 ### Upload or retrieve a photo for the user
@@ -163,14 +163,14 @@ Set-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com' -FilePath 'D:\UserThum
 
 This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
 
-1. Retrieve a user’s photo.
+2. Retrieve a user’s photo.
 
 ```powershell
 Connect-Entra -Scopes 'ProfilePhoto.Read.All'
 Get-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com'
 ```
 
-This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the UserId parameter.
+This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the `UserId` parameter.
 
 ### Grant users administrative roles in your organization
 
@@ -199,7 +199,7 @@ Revoke-EntraUserAllRefreshToken -UserId 'SawyerM@contoso.com'
 
 Revoking authentication tokens invalidates them, thus preventing reaccess through cached logins or remembered sessions.
 
-1. Disable a user.
+2. Disable a user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -208,7 +208,7 @@ Set-EntraUser -UserId 'SawyerM@contoso.com' -AccountEnabled $false
 
 Disabling the account instantly blocks the user from accessing company resources, applications, and data.
 
-1. Reset a user's password.
+3. Reset a user's password.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
@@ -218,7 +218,7 @@ Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
 
 Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
-1. Disable a user's device.
+4. Disable a user's device.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
@@ -229,7 +229,7 @@ Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
 
 Disabling a user's device helps safeguard the organization's security, data, and resources.
 
-1. Remove a user account.
+5. Remove a user account.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
