@@ -13,7 +13,7 @@ items:
   items:
   - name: Install the module
     href: installation.md
-  - name: Get started
+  - name: Navigate the module
     href: navigate-entraps.md
   - name: Authenticate
     items:
