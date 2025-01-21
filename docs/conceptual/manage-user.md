@@ -52,9 +52,9 @@ New-EntraUser @userParams
 ```
 
 ```Output
-DisplayName    Id                                   Mail UserPrincipalName
------------    --                                   ---- -----------------
-New User aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb      NewUser@contoso.com
+DisplayName    Id                                     Mail    UserPrincipalName
+-----------    --                                     ----    -----------------
+New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.com
 ```
 
 ### Retrieve a user's sign-in activity
@@ -63,7 +63,8 @@ The following example shows how to retrieve the sign-in activity of a specific u
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All','AuditLog.Read.All'
-Get-EntraUser -UserId 'SawyerM@contoso.com' -Property 'SignInActivity' | Select-Object -Property Id, DisplayName, UserPrincipalName -ExpandProperty 'SignInActivity'
+Get-EntraUser -UserId 'SawyerM@contoso.com' -Property 'SignInActivity' | 
+  Select-Object -Property Id, DisplayName, UserPrincipalName -ExpandProperty 'SignInActivity'
 ```
 
 ```Output

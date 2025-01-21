@@ -14,7 +14,7 @@ items:
   - name: Install the module
     href: installation.md
   - name: Get started
-    href: get-started-entraps.md
+    href: navigate-entraps.md
   - name: Authenticate
     items:
     - name: Authentication scenarios

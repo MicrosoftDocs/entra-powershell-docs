@@ -2,7 +2,7 @@
 title: What is Microsoft Entra PowerShell overview (preview)?
 description: "Learn about the features of Microsoft Entra PowerShell that help you derive insights and analytics, and build unique, intelligent apps in Microsoft Entra ID."
 ms.topic: overview
-ms.date: 09/27/2024
+ms.date: 01/21/2025
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
@@ -24,23 +24,23 @@ Microsoft Entra PowerShell is a part of our increased investment in Microsoft Gr
 Microsoft Entra PowerShell provides the following benefits:
 
 - **Focus on usability and quality**: Microsoft Entra PowerShell offers human-readable parameters, deliberate parameter set specification, inline documentation, and core PowerShell fundamentals like pipelining.
-- **Backward compatibility with Azure AD PowerShell module**: Microsoft Entra PowerShell accelerates migration from the recently [announced Azure AD PowerShell module deprecation][azureAdModuleDeprecationLink].
-- **Flexible and granular authorization**: Consistent with Microsoft Graph PowerShell SDK, Microsoft Entra PowerShell enables administrative consent for the permissions you want to grant to the application. It supports specifying your own application identity for maximum granularity in app permission assignment. You can also use certificate, Service Principal, or Managed Identity authentication patterns.
+- **Backward compatibility with Azure AD PowerShell module**: Microsoft Entra PowerShell accelerates migration from the [deprecated Azure AD PowerShell module][azureAdModuleDeprecationLink].
+- **Flexible and granular authorization**: Consistent with Microsoft Graph PowerShell SDK, Microsoft Entra PowerShell enables administrative consent for the permissions you want to grant to the application. It supports specifying your own application identity for maximum granularity in app permission assignment. You can also use certificate, service principal, or managed identity authentication patterns.
 - **Open source**: The Microsoft Entra PowerShell module is open source, allowing contributions from the community to create great PowerShell experiences and share them with everyone. Open source promotes collaboration and facilitates the development of innovative business solutions. You can view Microsoft's customizations and adapt them to meet your needs.
 
 ## Migrate from Azure AD PowerShell module
 
-Microsoft Entra PowerShell is over 98% compatible with the Azure AD PowerShell module and selected MSOnline cmdlets. By using the [Enable-EntraAzureADAlias][enable-entraazureadalis] command, you only need to update one or two lines in your existing scripts, making migration to Microsoft Graph PowerShell quick and effortless. For more information on how to migrate from the legacy modules to Microsoft Entra PowerShell, see [Migration guide][migration-guide].
+Microsoft Entra PowerShell is over 98% compatible with the Azure AD PowerShell module and selected MSOnline cmdlets. By using the [Enable-EntraAzureADAlias][enable-entraazureadalis] command, you only need to update one or two lines in your existing scripts, making migration to Microsoft Entra PowerShell quick and effortless. For more information on how to migrate from the legacy modules to Microsoft Entra PowerShell, see the [Migration guide][migration-guide].
 
 ## Installation and get started
 
-Microsoft Entra PowerShell module is published on the [PowerShell Gallery][powershell-gallery]. To learn how to install the module, see [Installation guide for Microsoft Entra PowerShell][installation].
+Microsoft Entra PowerShell module is published on the [PowerShell Gallery][powershell-gallery]. To learn how to install the module, see the [Installation guide for Microsoft Entra PowerShell][installation].
 
-To start managing Microsoft Entra resources such as creating users, groups, and other tasks, see [Get-started][get-started] guide.
+To start managing Microsoft Entra resources such as creating users, groups, and other tasks, see the [Navigate the module][get-started] guide.
 
 ## Microsoft Entra PowerShell best practices
 
-You can apply the [best practices guide][best-practices-guide] to optimize the use of Microsoft Entra PowerShell, ensure efficient scripting, secure access, and effective resource management. This guide helps you follow recommended methods, avoiding common pitfalls and enhancing overall productivity.
+You can apply the [best practices][best-practices-guide] to optimize the use of Microsoft Entra PowerShell, ensure efficient scripting, secure access, and effective resource management. This guide helps you follow recommended methods, avoiding common pitfalls and enhancing overall productivity.
 
 ## Known Issues
 
@@ -62,7 +62,7 @@ Watch John Savill's video for an in-depth [overview of how Microsoft Entra Power
 
 [free-entra-id]: https://azure.microsoft.com/free/entra-id
 [migration-guide]: migration-guide.md
-[get-started]: get-started-entraps.md
+[get-started]: navigate-entraps.md
 [installation]: installation.md
 [powershell-gallery]: https://aka.ms/entrapsgallery
 [faqs]: entra-powershell-faqs.yml
