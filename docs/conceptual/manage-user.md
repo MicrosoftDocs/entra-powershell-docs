@@ -81,7 +81,7 @@ userPrincipalName                 : SawyerM@contoso.com
 
 ### List a user's group memberships
 
-1. List a user’s group memberships.
+The following example lists the groups that a user is a member of.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
