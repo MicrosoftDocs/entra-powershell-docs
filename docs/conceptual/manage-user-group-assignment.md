@@ -126,7 +126,7 @@ The following example shows how to use Microsoft Entra PowerShell to unassign sp
 
     This command retrieves all service principals in your Microsoft Entra tenant and displays their display names and IDs.
 
-    ```output
+    ```Output
     DisplayName                                Id
     -----------                                --
     Test-app1                                  aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb
