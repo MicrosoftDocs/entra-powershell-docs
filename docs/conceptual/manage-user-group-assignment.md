@@ -16,7 +16,7 @@ ms.reviewer: stevemutungi
   
 # Manage user and group assignments
   
-Enterprise applications in Microsoft Entra ID represent the service principals that allow users and groups to access various resources. You might need to export user and group assignments to perform audits, ensure compliance with security policies, manage user access efficiently, and identify any unauthorized access or potential security risks within the organization.
+Enterprise applications in Microsoft Entra ID represent the service principals that allow users and groups to access various resources. You might need to export user and group assignments for several reasons. These reasons include performing audits and ensuring compliance with security policies. It also helps in managing user access efficiently and identifying any unauthorized access or potential security risks within the organization.
   
 Using Microsoft Entra PowerShell, you can retrieve and report on the assignments of users and groups to enterprise applications. This feature enables you to manage access effectively and ensure that only authorized users have the necessary permissions.
   
@@ -59,7 +59,10 @@ The following example shows how to use Microsoft Entra PowerShell to report user
     $results = @()  
    
    #Loop through each service principal.
-    foreach ($sp in $servicePrincipals) {  
+    foreach ($sp in $servicePrincipals) {
+
+        Write-Host "Processing Service Principal: $($sp.DisplayName)" -ForegroundColor Cyan 
+
         # Get assigned users and groups  
         $assignedUsers = Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $sp.Id |   
                         Where-Object { $_.PrincipalType -eq 'User' } |   
@@ -98,6 +101,7 @@ The following example shows how to use Microsoft Entra PowerShell to report user
     
     # Export the results to a CSV file
     $results | Export-Csv @csvParams
+    Write-Host "Service principal assignments exported to CSV file." -ForegroundColor Green
     } else {
         Write-Host "No service principals found or no data to export."
     }
