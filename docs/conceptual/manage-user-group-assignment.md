@@ -7,7 +7,7 @@ manager: CelesteDG
   
 ms.service: entra
 ms.topic: how-to  
-ms.date: 01/16/2024  
+ms.date: 01/21/2024  
 ms.author: jomondi    
 ms.reviewer: stevemutungi  
   
@@ -140,8 +140,7 @@ The following example shows how to use Microsoft Entra PowerShell to unassign sp
 
     ```powershell
     Connect-Entra -Scopes 'Application.Read.All'
-    Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId "aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb" -All |
-Select-Object Id, AppRoleId, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName | Format-Table
+    Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId "aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb" -All |Select-Object Id, AppRoleId, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName | Format-Table
     ```
 
    This command retrieves all users and groups assigned to the specified service principal and displays their details. The Id column represents the unique ID of the assignment. Record the Id of the assignment you want to remove.
@@ -173,7 +172,6 @@ The following example demonstrates how to use Microsoft Entra PowerShell to unas
     ```powershell  
     Connect-Entra -Scopes 'AppRoleAssignment.ReadWrite.All'
     $servicePrincipal = Get-EntraServicePrincipal -ServicePrincipalId '31f1d894-0a2b-4901-b30c-b61a0e87acfe'
-    ```powershell
     # Remove all app role assignments from the service principal
     $assignments = Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId $servicePrincipal.Id
     foreach ($assignment in $assignments) {
