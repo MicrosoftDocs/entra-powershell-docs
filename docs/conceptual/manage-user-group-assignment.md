@@ -158,8 +158,8 @@ Select-Object Id, AppRoleId, PrincipalDisplayName, PrincipalId, PrincipalType, R
 
     ```powershell
     Connect-Entra -Scopes 'AppRoleAssignment.ReadWrite.All'
-    $servicePrincipal = Get-EntraServicePrincipal -ServicePrincipalId '31f1d894-0a2b-4901-b30c-b61a0e87acfe'
-    Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $servicePrincipal.Id  -AppRoleAssignmentId '2bbbbbb2-3cc3-4dd4-5ee5-6ffffffffff6'
+    $servicePrincipal = Get-EntraServicePrincipal -ServicePrincipalId 'aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb'
+    Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $servicePrincipal.Id  -AppRoleAssignmentId 'B2cD3eF4gH5iJ6kL7mN8oP9qR0sT1uV2wX3yZ4c5v6'
     ```
 
     This command removes the specified app role assignment from the service principal.
