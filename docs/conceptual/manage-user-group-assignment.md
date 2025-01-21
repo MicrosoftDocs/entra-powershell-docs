@@ -146,7 +146,7 @@ Select-Object Id, AppRoleId, PrincipalDisplayName, PrincipalId, PrincipalType, R
 
    This command retrieves all users and groups assigned to the specified service principal and displays their details. The Id column represents the unique ID of the assignment. Record the Id of the assignment you want to remove.
 
-    ```output
+    ```Output
     Id                                          AppRoleId                            PrincipalDisplayName     PrincipalId                          PrincipalType ResourceDisplayName
     --                                          ---------                            --------------------     -----------                          ------------- -------------------
     A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0uV1wX2yZ3c4vB  00000000-0000-0000-0000-000000000000 testUser1                dddddddd-5555-6666-7777-eeeeeeeeeeee User          Test-app1
