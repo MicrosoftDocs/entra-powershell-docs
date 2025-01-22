@@ -28,7 +28,7 @@ This article lists all new articles that were added or had significant updates i
 
 **New articles**
 
-- [Quickstart: Get started with the Microsoft Entra PowerShell module](get-started-entraps.md) - Consolidated the steps to get started with the Microsoft Entra PowerShell module.
+- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md) - Consolidated the steps to get started with the Microsoft Entra PowerShell module.
 
 **Updated articles**
 

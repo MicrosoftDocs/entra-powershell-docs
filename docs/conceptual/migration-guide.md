@@ -5,7 +5,7 @@ description: Learn how to use the Enable-EntraAzureADAlias command to run existi
 author: csmulligan
 manager: CelesteDG
 ms.topic: concept-article
-ms.date: 01/08/2025
+ms.date: 01/21/2025
 ms.author: cmulligan
 
 #Customer intent: As an IT admin, I want to learn how to run my existing scripts from Azure AD PowerShell in Microsoft Entra PowerShell so that I can smoothly transition to using Microsoft Entra PowerShell in my operations.
@@ -20,7 +20,7 @@ This article details the process of running your existing AzureAD PowerShell scr
 
 ## Use compatibility mode with Enable-EntraAzureADAlias
 
-The `Enable-EntraAzureADAlias` cmdlet enables compatibility mode through aliases. By default, Enable-EntraAzureADAlias only enables compatibility aliases for the current Microsoft Entra PowerShell session. For more information, see the [Enable-EntraAzureADAlias][enable-entraazureadalias] reference documentation.
+The `Enable-EntraAzureADAlias` cmdlet enables compatibility mode through aliases. By default, `Enable-EntraAzureADAlias` only enables compatibility aliases for the current Microsoft Entra PowerShell session. For more information, see the [Enable-EntraAzureADAlias][enable-entraazureadalias] reference documentation.
 
 To use Microsoft Entra PowerShell with your existing AzureAD PowerShell scripts, replace the `Connect-AzureAD` command with the three provided lines. These three lines are the beginning of your migrated AzureAD PowerShell script.
 
@@ -89,7 +89,7 @@ The [Test-EntraScript][testEntrascriptDefinition] cmdlet verifies if a script wi
 
 ## Known issues
 
-When migrating from the Azure AD PowerShell module to Microsoft Graph endpoints, you might encounter several known issues.
+When migrating from the Azure AD PowerShell module to Microsoft Entra PowerShell, you might encounter several known issues.
 
 - Parameter `-Filter` might not work correctly.
 - Parameter `-SearchString` might not work correctly.
@@ -98,13 +98,12 @@ When migrating from the Azure AD PowerShell module to Microsoft Graph endpoints,
 ## Related content
 
 - [Install the Microsoft Entra PowerShell module][installation]
-- [Get started with the Microsoft Entra PowerShell module][quickstart]
-
+- [Navigate the Microsoft Entra PowerShell module][quickstart]
 
 <!-- link references -->
 [azuread-ps]: /powershell/module/azuread
 [installation]: installation.md
 [testEntrascriptDefinition]: /powershell/module/microsoft.graph.entra/test-entrascript
 [enable-entraazureadalias]: /powershell/module/microsoft.graph.entra/enable-entraazureadalias
-[quickstart]: get-started-entraps.md
+[quickstart]: navigate-entraps.md
 [installation]: installation.md

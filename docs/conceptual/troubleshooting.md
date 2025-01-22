@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot the module
-description: Troubleshoot common errors in Microsoft Entra PowerShell. Learn how to fix installation, authentication, performance, and other issues in Microsoft Entra PowerShell.
+title: Troubleshoot common errors in Microsoft Entra PowerShell
+description: Learn how to fix installation, authentication, performance, and other issues in Microsoft Entra PowerShell.
 
 ms.topic: troubleshooting
-ms.date: 11/18/2024
+ms.date: 01/21/2025
 author: csmulligan
 manager: CelesteDG
 ms.author: cmulligan
@@ -11,7 +11,7 @@ ms.author: cmulligan
 #Customer intent: As a Microsoft Entra PowerShell user, I want to troubleshoot and fix common errors, so that I can ensure the smooth operation of my scripts and commands.
 
 ---
-# Troubleshoot the Microsoft Entra PowerShell module
+# Troubleshoot common errors in Microsoft Entra PowerShell
 
 This article explains how to determine, diagnose, and fix issues that you might encounter when using Microsoft Entra PowerShell.
 
