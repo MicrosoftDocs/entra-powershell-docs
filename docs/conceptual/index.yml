@@ -43,8 +43,8 @@ conceptualContent:
         - text: Install the module
           url: /powershell/entra-powershell/installation
           itemType: how-to-guide
-        - text: Quickstart guide
-          url: /powershell/entra-powershell/get-started-entraps
+        - text: Navigate the module
+          url: /powershell/entra-powershell/navigate-entraps
           itemType: quickstart
     ## CARD 2 ######################
     - title: Common use cases

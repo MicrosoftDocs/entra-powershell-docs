@@ -5,7 +5,7 @@ description: "Learn how to install the Microsoft Entra PowerShell module."
 author: omondiatieno
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 01/21/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-install-win-linux-macos
@@ -112,10 +112,9 @@ Install-Module -Name Microsoft.Graph.Entra.Beta -Repository PSGallery -AllowPrer
 
 > [!TIP]
 > In PowerShell 5.1, you might see the error: "Function {cmdlet-name} cannot be created because function capacity 4096 has been exceeded." To fix this, increase the function limit by running the following command, then try importing the module again.
-
-```powershell
-$MaximumFunctionCount = 32768
-```
+>```powershell
+>$MaximumFunctionCount = 32768
+>```
 
 :::zone-end
 
@@ -236,9 +235,9 @@ Uninstall-Module -Name Microsoft.Graph.Entra.Beta -AllVersions
 
 ## Next steps
 
-- To learn more about managing Entra resources with the Microsoft Entra PowerShell module, see [Get started][get-started] article.
+- To learn more about navigating the Microsoft Entra PowerShell module, see the [Navigate the module][navigate-the-module] article.
 
-[get-started]: get-started-entraps.md
+[navigate-the-module]: navigate-entraps.md
 [auth-methods]: authentication-scenarios.md
 [troubleshooting-guide]: troubleshooting.md
 [update-module]: /powershell/module/powershellget/update-module

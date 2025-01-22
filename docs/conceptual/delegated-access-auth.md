@@ -30,11 +30,11 @@ To connect to Microsoft Entra PowerShell with delegated access, you need:
 
 - A Microsoft Entra ID account. If you don't already have one, you can [Create an account for free][entra-id-account].
 - One of the following roles: [Cloud Application Administrator][cloud-app-admin], or [Application Administrator][app-admin].
-- Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Graph PowerShell module][install] guide to install the module.
+- Microsoft Entra PowerShell module installed. Follow the [Installation][install] guide to install the module.
 
 ## Use delegated access with a custom application (Recommended)
 
-In this section, you learn how to use delegated access with a custom application to connect to module. You can tailor the custom application to your specific needs to isolate and limit the permissions granted for the module's usage.
+In this section, you learn how to use delegated access with a custom application to connect to the module. You can tailor the custom application to your specific needs to isolate and limit the permissions granted for the module's usage.
 
 Run the following command to connect to the module with delegated access using a custom application. You need to sign in with at least a [Cloud Application Administrator][cloud-app-admin] role.
 
@@ -104,10 +104,9 @@ For more information, see [Passwordless authentication options for Microsoft Ent
 Common authentication errors include:
 
 - **"Insufficient privileges to complete the operation"** - The error occurs if your credentials are incorrect or you lack the necessary permissions to access the Microsoft Entra resource.
-- **"The term ‘cmdlet name’ is not recognized as the name of a cmdlet"** - The error indicates that the Microsoft Entra PowerShell module isn't installed or loaded. Ensure you install and load the correct module for the cmdlet you wish to use
+- **"The term ‘cmdlet name’ is not recognized as the name of a cmdlet"** - The error indicates that the Microsoft Entra PowerShell module isn't installed or loaded. Ensure you install and load the correct module for the cmdlet you wish to use.
 
-For a detailed guide on troubleshooting common errors, see:
-[Troubleshooting guide][troubleshooting-guide].
+For a detailed guide on troubleshooting common errors, see the [Troubleshooting guide][troubleshooting-guide].
 
 ## Next steps
 

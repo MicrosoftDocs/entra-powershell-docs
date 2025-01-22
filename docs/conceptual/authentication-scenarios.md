@@ -66,13 +66,13 @@ Connect-Entra -ClientTimeout 60
 
 To keep your Microsoft Entra resources secure, restrict permissions of the identity for the authentication method you choose to use the principle of least privilege. Limiting sign-in permissions as much as possible for your use case helps keep your Microsoft Entra resources secure. For more information, see [Enhance security with the principle of least privilege][principle-of-least-privilege].
 
-We recommend the use of a custom application to help isolate and limit the permissions granted for Microsoft Entra PowerShell usage. To learn how to create a custom application and grant it permissions in Microsoft Entra ID, see [Create a custom application to connect with Microsoft Entra PowerShell][create-custom-app]
+We recommend the use of a custom application to help isolate and limit the permissions granted for Microsoft Entra PowerShell usage. To learn how to create a custom application and grant it permissions in Microsoft Entra ID, see [Create a custom application to connect with Microsoft Entra PowerShell][create-custom-app].
 
 ## See Also
 
 - [Authenticate with delegated access][delegated-authentication]
 - [Authenticate with app-only access][apponly-authentication]
-- [Best Practices][best-practices]
+- [Best practices][best-practices]
 
 <!-- link references -->
 [delegated-authentication]: delegated-access-auth.md

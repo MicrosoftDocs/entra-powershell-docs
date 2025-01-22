@@ -3,7 +3,7 @@ title: "Versioning, release cadence, and breaking changes"
 description: "This article describes versioning, release cadence, and breaking change information for the Microsoft Entra PowerShell module."
 
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 01/21/2025
 ms.service: entra
 
 author: omondiatieno
@@ -22,17 +22,17 @@ This article covers the versioning scheme used by Microsoft Entra PowerShell mod
 
 ## Versioning
 
-The Microsoft Entra PowerShell modules follow [Semantic Versioning](https://semver.org/) for version numbering. Versions of the  modules fall into one of the following three categories:
+The Microsoft Entra PowerShell modules follow [Semantic versioning](https://semver.org/) for version numbering. Versions of the  modules fall into one of the following three categories:
 
-- **Generally available (v1.0)**: Module versions 1.0.0 and higher without _preview_ in the version are Generally Available, and any breaking changes correspond to a major version increment.
-- **Beta**: Module versions below 1.0.0 correspond to beta Microsoft Graph APIs. New resource capabilities typically debut in the Beta version. Breaking changes and deprecations occur in the Beta module from time to time. Use of Beta in production environments isn't supported, and there are no guarantees that a beta feature is promoted to the current version.
+- **Generally available (v1.0)**: Module versions 1.0.0 and higher without _preview_ in the version are generally available, and any breaking changes correspond to a major version increment.
+- **Beta**: Module versions below 1.0.0 correspond to beta Microsoft Graph APIs. New resource capabilities typically debut in the beta version. Breaking changes and deprecations occur in the beta module from time to time. Use of beta in production environments isn't supported, and there are no guarantees that a beta feature is promoted to the current version.
 - **Feature Preview**: Module versions with preview in the version are feature previews for Microsoft Entra PowerShell. You can expect breaking changes and deprecations in preview versions, and use in production environments isn't supported.
 
 ## Modules
 
 There are two Microsoft Entra PowerShell modules:
 
-- **[Microsoft.Graph.Entra](https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/)**: Installs the GA(v1.0) module to manage Microsoft Graph resources with `/v1.0` API version.
+- **[Microsoft.Graph.Entra](https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/)**: Installs the GA (v1.0) module to manage Microsoft Graph resources with `/v1.0` API version.
 - **[Microsoft.Graph.Entra.Beta](https://www.powershellgallery.com/packages/Microsoft.Graph.Entra.Beta/)**: Installs the Beta module to manage Microsoft Graph resources with `/beta` API version.
 
 ## Release cadence
@@ -54,12 +54,12 @@ Planned updates to the Microsoft Entra PowerShell module are released on the fir
 ## Breaking changes
 
 > [!IMPORTANT]
-> Breaking changes can occur at any point for non-GA (Beta module) and feature preview modules. Non-GA
+> Breaking changes can occur at any point for non-GA (beta module) and feature preview modules. Non-GA
 > modules aren't required to adhere to breaking change policies.
 
 ### Use latest version
 
-Only the latest major version receives full support, including new features, bug fixes, and updates. We strongly recommend upgrading to the [latest version](https://aka.ms/entrapsgallery) of the Entra PowerShell module to get the latest improvements and security updates.
+Only the latest major version receives full support, including new features, bug fixes, and updates. We strongly recommend upgrading to the [latest version](https://aka.ms/entrapsgallery) of the Microsoft Entra PowerShell module to get the latest improvements and security updates.
 
 ## See Also
 

@@ -13,7 +13,12 @@
         {
             "source_path_from_root": "/docs/conceptual/quickstart-entra-powershell.md",
             "redirect_url": "/powershell/entra-powershell/get-started-entraps",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/docs/conceptual/get-started-entraps.md",
+            "redirect_url": "/powershell/entra-powershell/navigate-entraps",
+            "redirect_document_id": false
         }
 
     ]
