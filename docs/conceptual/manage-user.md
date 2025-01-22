@@ -84,17 +84,18 @@ userPrincipalName                 : SawyerM@contoso.com
 The following example lists the groups that a user is a member of.
 
 ```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserMembership -UserId 'SawyerM@contoso.com'
+Connect-Entra -Scopes 'User.Read'
+Get-EntraUserMembership -UserId 'SawyerM@contoso.com' |
+ Select-Object Id, displayName, createdDateTime, '@odata.type' |
+ Format-Table -AutoSize
 ```
 
 ```Output
-Id                                   DeletedDateTime
---                                   ---------------
-eeeeeeee-4444-5555-6666-ffffffffffff
-ffffffff-5555-6666-7777-gggggggggggg
-gggggggg-6666-7777-8888-hhhhhhhhhhhh
-hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
+Id                                   displayName                         createdDateTime      @odata.type
+--                                   -----------                         ---------------      -----------
+00aa00aa-bb11-cc22-dd33-44ee44ee44ee Contoso                             2024-10-06T08:49:16Z #microsoft.graph.group
+22cc22cc-dd33-ee44-ff55-66aa66aa66aa Contoso marketing                   2024-10-07T01:17:28Z #microsoft.graph.group
+55ff55ff-aa66-bb77-cc88-99dd99dd99dd Pacific Admin Unit                                       #microsoft.graph.administrativeUnit
 ```
 
 ### Get a user's manager, direct reports and assign a manager to a user
@@ -103,26 +104,31 @@ hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserManager -UserId 'SawyerM@contoso.com'
+Get-EntraUserManager -UserId 'SawyerM@contoso.com' |
+    Select-Object Id, displayName, userPrincipalName, createdDateTime, accountEnabled, userType |
+    Format-Table -AutoSize
 ```
 
 ```Output
-Id                                   DeletedDateTime
---                                   ---------------
-eeeeeeee-4444-5555-6666-ffffffffffff
+id                                    displayName     userPrincipalName                    createdDateTime           accountEnabled  userType
+--                                    -----------     -----------------                    ---------------           --------------  --------
+11bb11bb-cc22-dd33-ee44-55ff55ff55ff  Patti Fernandez PattiF@Contoso.com                 10/7/2024 12:32:01 AM      True           Member
 ```
 
 2. List the users who report to a specific user.
 
 ```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com'
+Connect-Entra -Scopes 'User.Read','User.Read.All'
+Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com' |
+    Select-Object Id, displayName, userPrincipalName, createdDateTime, accountEnabled, userType |
+    Format-Table -AutoSize
 ```
 
 ```Output
-Id                                   DeletedDateTime
---                                   ---------------
-eeeeeeee-4444-5555-6666-ffffffffffff
+id                                    displayName     userPrincipalName           createdDateTime       accountEnabled  userType
+--                                    -----------     -----------------           ---------------       --------------  --------
+bbbbbbbb-1111-2222-3333-cccccccccccc  Christie Cline  ChristieC@Contoso.com       10/7/2024 12:32:25 AM  True           Member
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb  Isaiah Langer   IsaiahL@Contoso.com         10/7/2024 12:33:16 AM  True           Member
 ```
 
 3. Assign a manager to a user.
