@@ -79,7 +79,7 @@ This article lists all new articles that were added or had significant updates i
 
   - **New Global Secure Access Commands**: Added four cmdlets: `Enable-EntraBetaGlobalSecureAccessTenant`, `New-EntraBetaPrivateAccessApplication`, `Get-EntraBetaPrivateAccessApplication`, and `Get-EntraBetaGlobalSecureAccessTenantStatus`.
   - **Bug Fixes**:
-    - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain beta commands.
+    - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain Beta commands.
     - Fixed [#1163](https://github.com/microsoftgraph/entra-powershell/issues/1163): Removed duplicate examples.
   - **Enhancements**:
     - Improved examples for over 130 cmdlets.
@@ -129,7 +129,7 @@ This article lists all new articles that were added or had significant updates i
 
 - [Version 0.14.0-preview][posh-0.14.0] - **August 2024**
 
-  - The `Get-EntraUser` cmdlet updated and no longer returns the `SignInActivity` by default. To retrieve sign-in activity, refer to [this example](/powershell/module/microsoft.graph.entra/get-entrauser#example-6-get-signinactivity-of-a-user).
+  - The `Get-EntraUser` cmdlet updated and no longer returns the `SignInActivity` by default. To retrieve sign-in activity, refer to [this example](/powershell/module/microsoft.entra/get-entrauser#example-6-get-signinactivity-of-a-user).
   - Added 17 net new cmdlets (Custom Security attributes, Application template, Feature Rollout policy, Audit Directory logs, Audit sign in Logs, Administrative Unit)
   - Improved documentation for over 25 existing cmdlets.
   - Added documentation for more than 20 v1.0 cmdlets.

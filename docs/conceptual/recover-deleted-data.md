@@ -34,7 +34,7 @@ To restore deleted groups, you need at least the [Groups Administrator](/entra/i
 
 ### Step 1: Find deleted groups
 
-Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.graph.entra/get-entradeletedgroup) cmdlet to find deleted groups. 
+Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup) cmdlet to find deleted groups. 
 
 ```powershell
 Connect-Entra -Scopes 'Group.Read.All'
@@ -54,7 +54,7 @@ test24      33dd33dd-ee44-ff55-aa66-77bb77bb77bb test24       desc4       {Unifi
 
 ### Step 2: Restore soft-deleted groups
 
-After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the object ID of the deleted group.
+After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the object ID of the deleted group.
 
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All' 
@@ -87,7 +87,7 @@ When you delete an application, the application registration by default enters t
 
 ### Step 1: Find deleted applications
 
-To restore a soft-deleted application, you can use the [Get-EntraDeletedApplication](/powershell/module/microsoft.graph.entra/get-entradeletedapplication) cmdlet first, to get the deleted application's details.
+To restore a soft-deleted application, you can use the [Get-EntraDeletedApplication](/powershell/module/microsoft.entra/get-entradeletedapplication) cmdlet first, to get the deleted application's details.
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
@@ -121,7 +121,7 @@ TestApp1    aaaaaaaa-bbbb-cccc-1111-222222222222 00001111-aaaa-2222-bbbb-3333ccc
 
 ### Step 2: Restore soft-deleted applications
 
-After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
+After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
@@ -151,7 +151,7 @@ After a user is deleted, their account remains in a suspended state for 30 days,
 
 ### Step 1: Find deleted users
 
-To restore a soft-deleted user with Microsoft Entra PowerShell, use the [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/get-entradeleteddirectoryobject) cmdlet to find the deleted user's ID.
+To restore a soft-deleted user with Microsoft Entra PowerShell, use the [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/get-entradeleteddirectoryobject) cmdlet to find the deleted user's ID.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
@@ -160,7 +160,7 @@ Get-EntraDeletedDirectoryObject -DirectoryObjectId '00aa00aa-bb11-cc22-dd33-44ee
 
 ### Step 2: Restore soft-deleted users
 
-Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject) cmdlet to restore the user.
+Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/restore-entradeleteddirectoryobject) cmdlet to restore the user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -189,7 +189,7 @@ Get-EntraDeletedDirectoryObject -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Res
 
 For more examples visit the following articles:
 
-- [Get-EntraDeletedGroup](/powershell/module/microsoft.graph.entra/get-entradeletedgroup?)
-- [Get-EntraDeletedApplication](/powershell/module/microsoft.graph.entra/get-entradeletedapplication)
-- [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/get-entradeleteddirectoryobject?)
-- [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.graph.entra/restore-entradeleteddirectoryobject)
+- [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup?)
+- [Get-EntraDeletedApplication](/powershell/module/microsoft.entra/get-entradeletedapplication)
+- [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/get-entradeleteddirectoryobject?)
+- [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/restore-entradeleteddirectoryobject)

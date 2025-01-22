@@ -20,10 +20,10 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 > [!IMPORTANT]
 > Microsoft Entra PowerShell cmdlets are currently in preview and might change. We recommend using these cmdlets for testing and development purposes only, and not in production applications at this time.
 
-The Microsoft Entra PowerShell module is available in two modules, which can be installed independently:
+The Microsoft Entra PowerShell module is available in two modules, which can be installed independently. Each of these modules comprises of submodules that can be installed separately. The two modules are:
 
-- **Microsoft.Graph.Entra** - the General Availability or `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
-- **Microsoft.Graph.Entra.Beta** - the `Beta` version of Microsoft Entra PowerShell. It points to Microsoft Graph beta and Microsoft Graph PowerShell SDK beta resources.
+- **Microsoft.Entra** - the general availability or `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
+- **Microsoft.Entra.Beta** - the `Beta` version of Microsoft Entra PowerShell. It points to Microsoft Graph Beta and Microsoft Graph PowerShell SDK Beta resources.
 
 A supported version of
 [PowerShell version 7 or higher](/powershell/scripting/install/installing-powershell-on-windows) is
@@ -50,7 +50,7 @@ The recommended installation method and PowerShell version for the module:
 - Determine if you have the module installed:
 
   ```powershell
-  Get-Module -Name Microsoft.Graph.Entra -ListAvailable
+  Get-Module -Name Microsoft.Entra -ListAvailable
   ```
 
 # [PowerShell 7](#tab/powershell)
@@ -92,22 +92,24 @@ The recommended installation method and PowerShell version for the module:
 
 ## Installation
 
+When installing the module, you can choose to install the entire module or a specific submodule. The following examples show how to install the entire module and the `Beta` module.
+
 Use the [Install-Module][install-module] cmdlet to install the module:
 
 ```powershell
-Install-Module -Name Microsoft.Graph.Entra -Repository PSGallery -Scope CurrentUser -AllowPrerelease -Force
+Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope CurrentUser -Force
 ```
 
 Optionally, you can change the scope of the installation using the **Scope** parameter. This operation requires admin permissions.
 
 ```powershell
-Install-Module -Name Microsoft.Graph.Entra -Repository PSGallery -Scope AllUsers -AllowPrerelease
+Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope AllUsers
 ```
 
 To install the `Beta` module, run the following command.
 
 ```powershell
-Install-Module -Name Microsoft.Graph.Entra.Beta -Repository PSGallery -AllowPrerelease
+Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery
 ```
 
 > [!TIP]
@@ -115,6 +117,14 @@ Install-Module -Name Microsoft.Graph.Entra.Beta -Repository PSGallery -AllowPrer
 >```powershell
 >$MaximumFunctionCount = 32768
 >```
+
+### Install specific submodules
+
+Installing specific modules is ideal for automation scenarios. To install a the `Users` submodule, use the following command:
+
+```powershell
+Install-Module -Name Micorosft.Entra.Users -Repository PSGallery -Force 
+```
 
 :::zone-end
 
@@ -137,7 +147,7 @@ Open the Terminal or other shell host application and run `pwsh` to start PowerS
 Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet to install the module:
 
 ```powershell
-Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGallery -Force
+Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
 ```
 
 :::zone-end
@@ -162,7 +172,7 @@ Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet
 PowerShell module:
 
 ```powershell
-Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGallery -Force
+Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
 ```
 
 :::zone-end
@@ -172,7 +182,7 @@ Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGaller
 After the installation is completed, you can verify the installed version with the following command.
 
 ```powershell
-Get-InstalledModule -Name Microsoft.Graph.Entra
+Get-InstalledModule -Name Microsoft.Entra
 ```
 
 To verify the installed submodules and their versions, run:
@@ -188,9 +198,9 @@ The version in the output should match the latest version published on the Power
 | Error             | Cause                     | Workaround                      |
 |-------------------|---------------------------|---------------------------------|
 | Install-Module: A parameter can't be found that matches parameter name AllowPrerelease. | You're using an older version of Install-Module.  | To upgrade, follow this [guide](troubleshooting.md#installation-issues). The issue applies to Windows platform only.  |
-| Dependent module 'module-name' isn't installed on this computer. To use the current module 'Microsoft.Graph.Entra,' ensure that its dependent module 'module-name' is installed. | Microsoft Entra PowerShell dependencies aren't installed  | To install, use [this script](troubleshooting.md#missing-dependencies) |
-| Cmdlets already exist on the system |        | Add `-AllowClobber` parameter: `Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGallery -Force -AllowClobber`  |
-| The following commands are already available on this system: 'Enable-EntraAzureADAlias,Get-EntraUnsupportedCommand,Test-EntraScript' | There's a conflict when either `beta` or `v1.0` is already installed  | To resolve the issue, [uninstall](installation.md#uninstall-the-module) the offending module version.  |
+| Dependent module 'module-name' isn't installed on this computer. To use the current module 'Microsoft.Entra,' ensure that its dependent module 'module-name' is installed. | Microsoft Entra PowerShell dependencies aren't installed  | To install, use [this script](troubleshooting.md#missing-dependencies) |
+| Cmdlets already exist on the system |        | Add `-AllowClobber` parameter: `Install-Module -Name Microsoft.Entra -Repository PSGallery -Force -AllowClobber`  |
+| The following commands are already available on this system: 'Enable-EntraAzureADAlias,Get-EntraUnsupportedCommand,Test-EntraScript' | There's a conflict when either `Beta` or `v1.0` is already installed  | To resolve the issue, [uninstall](installation.md#uninstall-the-module) the offending module version.  |
 
 For solutions to other common installation and other general issues, see [Troubleshoot module installation problems][troubleshooting-guide].
 
@@ -214,7 +224,7 @@ For more information on other authentication scenarios, see [more authentication
 Use [Update-Module][update-module] to update to the latest version of the Microsoft Entra PowerShell.
 
 ```powershell
-Update-Module -Name Microsoft.Graph.Entra -AllowPrerelease
+Update-Module -Name Microsoft.Entra
 ```
 
 Updating the Microsoft Entra PowerShell module using `Update-Module` doesn't remove old versions of the module from your system.
@@ -224,13 +234,13 @@ Updating the Microsoft Entra PowerShell module using `Update-Module` doesn't rem
 To remove the module, run the command:
 
 ```powershell
-Uninstall-Module -Name Microsoft.Graph.Entra -AllVersions
+Uninstall-Module -Name Microsoft.Entra -AllVersions
 ```
 
-To remove the `beta` module, run the command:
+To remove the `Beta` module, run the command:
 
 ```powershell
-Uninstall-Module -Name Microsoft.Graph.Entra.Beta -AllVersions
+Uninstall-Module -Name Microsoft.Entra.Beta -AllVersions
 ```
 
 ## Next steps
@@ -245,5 +255,5 @@ Uninstall-Module -Name Microsoft.Graph.Entra.Beta -AllVersions
 [install-module]: /powershell/module/powershellget/install-module
 [posh-5.1]: /powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell
 [install-windows]: /powershell/scripting/install/installing-powershell-on-windows
-[posh-gallery]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra
-[Connect-Entra]: /powershell/module/microsoft.graph.entra/connect-entra
+[posh-gallery]: https://www.powershellgallery.com/packages/Microsoft.Entra
+[Connect-Entra]: /powershell/module/microsoft.entra/connect-entra

@@ -11,6 +11,7 @@ ms.author: cmulligan
 #Customer intent: As a Microsoft Entra PowerShell user, I want to troubleshoot and fix common errors, so that I can ensure the smooth operation of my scripts and commands.
 
 ---
+
 # Troubleshoot common errors in Microsoft Entra PowerShell
 
 This article explains how to determine, diagnose, and fix issues that you might encounter when using Microsoft Entra PowerShell.
@@ -18,13 +19,13 @@ This article explains how to determine, diagnose, and fix issues that you might 
 Before troubleshooting any errors, ensure that you’re running the most recent version of the Microsoft Entra PowerShell. To check the version of your installed module, run:
 
 ```powershell
-Get-InstalledModule -Name Microsoft.Graph.Entra
+Get-InstalledModule -Name Microsoft.Entra
 ```
 
-The version of the Microsoft.Graph.Entra module should be the most recent compared to the latest release in the [PowerShell Gallery](https://aka.ms/EntraPSGallery). If your installed module isn’t up to date, update it by running:
+The version of the Microsoft.Entra module should be the most recent compared to the latest release in the [PowerShell Gallery](https://aka.ms/EntraPSGallery). If your installed module isn’t up to date, update it by running:
 
 ```powershell
-Update-Module -Name Microsoft.Graph.Entra -AllowPrerelease
+Update-Module -Name Microsoft.Entra
 ```
 
 ## Installation issues
@@ -64,12 +65,12 @@ $MaximumFunctionCount = 32768
 
 ### Commands already available in the module
 
-If there's a conflict when either `beta` or `v1.0` is already installed, you might see the error: "_The following commands are already available on this system: `Enable-EntraAzureADAlias`, `Get-EntraUnsupportedCommand`, `Test-EntraScript`._"
+If there's a conflict when either `Beta` or `v1.0` is already installed, you might see the error: "_The following commands are already available on this system: `Enable-EntraAzureADAlias`, `Get-EntraUnsupportedCommand`, `Test-EntraScript`._"
 Fix this error by adding the `-AllowClobber` parameter and rerunning the command.
 
 ### Missing dependencies
 
-When Microsoft Entra PowerShell dependencies aren't installed, you might see the error: "_Dependent module `module-name` isn't installed on this computer. To use the current module `Microsoft.Graph.Entra`, ensure that its dependent module `module-name` is installed._"
+When Microsoft Entra PowerShell dependencies aren't installed, you might see the error: "_Dependent module `module-name` isn't installed on this computer. To use the current module `Microsoft.Entra`, ensure that its dependent module `module-name` is installed._"
 To fix this error, install the dependencies using the following script:
 
 [!INCLUDE [dependencies](../includes/install-entra-powershell-dependencies.md)]
@@ -85,13 +86,13 @@ PowerShell doesn't recognize the cmdlet that you're trying to run.
 To fix this error, make sure the Microsoft Entra PowerShell module is installed correctly. You can check this by running:
 
 ```powershell
-Get-Module -Name Microsoft.Graph.Entra -ListAvailable
+Get-Module -Name Microsoft.Entra -ListAvailable
 ```
 
 If the module isn't listed, install it using:
 
 ```powershell
-Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGallery -Force
+Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
 ```
 
 ## Version conflicts
@@ -114,7 +115,7 @@ You might run into issues when trying to update the Microsoft Entra PowerShell m
 To fix this error, use the snippet to install the latest version. If there are errors, try [uninstalling](installation.md#uninstall-the-module) and then reinstalling the module.
 
 ```powershell
-Install-Module -Name Microsoft.Graph.Entra -AllowPrerelease -Repository PSGallery -Force
+Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
 ```
 
 ## Performance issues
