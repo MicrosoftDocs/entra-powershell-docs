@@ -176,4 +176,4 @@ Azure Security Insights              22cc22cc-dd33-ee44-ff55-66aa66aa66aa   9878
 <!-- link references -->
 
 [manage-groups]: manage-groups.md
-[set-entraapplication]: /powershell/module/microsoft.graph.entra/set-entraapplication
+[set-entraapplication]: /powershell/module/microsoft.entra/set-entraapplication

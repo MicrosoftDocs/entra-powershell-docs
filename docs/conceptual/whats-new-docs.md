@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 01/10/2025
+ms.date: 01/23/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -73,13 +73,36 @@ This article lists all new articles that were added or had significant updates i
 
 :::zone pivot="module-version-history"
 
+## The latest (recommended) version
+
+- [Version 0.22.0][posh-0.22.0] - **January 2025**
+
+  - **New capability**: Install submodules automatically when installing the umbrella module (Microsoft.Entra).
+  - **New Commands**: `Get-EntraDeletedAdministrativeUnit`, `Get-EntraDeletedDevice`, `Get-EntraUserAuthenticationMethod`, `Get-EntraUserInactiveSignIn`, `Get-EntraDeletedUser`, `Update-EntraOauth2PermissionGrant`, `Get-EntraUserAdministrativeUnit`, `Get-EntraUserRole`, `Get-EntraUserGroup`, and `Get-EntraDeletedServicePrincipal`.
+  - **Bug Fixes**:
+    - Fixed [#1178](https://github.com/microsoftgraph/entra-powershell/issues/1178): Add a command to update an existing OAuth2PermissionGrant.
+    - Fixed [#1147](https://github.com/microsoftgraph/entra-powershell/issues/1147): Add `-Limit` as an alias for `-Top` and `-Select` as an alias for `-Property`.
+    - Fixed [#929](https://github.com/microsoftgraph/entra-powershell/issues/929): Refactored Connect-Entra to act as a proxy command for `Connect-MgGraph`.
+  - **Enhancements**:
+    - Improved examples for over 100 cmdlets.
+
 ## Module version history
+
+- [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
+
+  - **Bug fixes**: Fixed bugs caused by splitting the Entra PowerShell module into modular submodules (failing tests, pipeline updates).  
+  - **Dependency version update**: Upgraded Microsoft Graph PowerShell SDK from `2.15.0` to `2.25.0`.
+
+- [Version 0.20.0-preview][posh-0.20.0] - **December 2024**
+
+  - **Engineering build**: Split the module into submodules.
+  - **Module rename**: Renamed the module from `Microsoft.Graph.Entra` to `Microsoft.Entra`.
 
 - [Version 0.19.0-preview][posh-0.19.0] - **November 2024**
 
   - **New Global Secure Access Commands**: Added four cmdlets: `Enable-EntraBetaGlobalSecureAccessTenant`, `New-EntraBetaPrivateAccessApplication`, `Get-EntraBetaPrivateAccessApplication`, and `Get-EntraBetaGlobalSecureAccessTenantStatus`.
   - **Bug Fixes**:
-    - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain beta commands.
+    - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain Beta commands.
     - Fixed [#1163](https://github.com/microsoftgraph/entra-powershell/issues/1163): Removed duplicate examples.
   - **Enhancements**:
     - Improved examples for over 130 cmdlets.
@@ -129,7 +152,7 @@ This article lists all new articles that were added or had significant updates i
 
 - [Version 0.14.0-preview][posh-0.14.0] - **August 2024**
 
-  - The `Get-EntraUser` cmdlet updated and no longer returns the `SignInActivity` by default. To retrieve sign-in activity, refer to [this example](/powershell/module/microsoft.graph.entra/get-entrauser#example-6-get-signinactivity-of-a-user).
+  - The `Get-EntraUser` cmdlet updated and no longer returns the `SignInActivity` by default. To retrieve sign-in activity, refer to [this example](/powershell/module/microsoft.entra/get-entrauser#example-6-get-signinactivity-of-a-user).
   - Added 17 net new cmdlets (Custom Security attributes, Application template, Feature Rollout policy, Audit Directory logs, Audit sign in Logs, Administrative Unit)
   - Improved documentation for over 25 existing cmdlets.
   - Added documentation for more than 20 v1.0 cmdlets.
@@ -170,6 +193,9 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-0.22.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/0.22.0
+[posh-0.21.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.21.0-preview
+[posh-0.20.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.20.0-preview
 [posh-0.19.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.19.0-preview
 [posh-0.18.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.18.0-preview
 [posh-0.17.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.17.0-preview
