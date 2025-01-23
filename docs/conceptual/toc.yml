@@ -51,8 +51,6 @@ items:
     href: create-custom-application.md
   - name: Create a self-signed public certificate
     href: /entra/identity-platform/howto-create-self-signed-certificate?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
-  - name: Get a client secret
-    href: /powershell/module/microsoft.powershell.security/get-credential?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
   - name: Recover deleted data
     href: recover-deleted-data.md
 - name: Migrate

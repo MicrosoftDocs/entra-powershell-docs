@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 01/10/2025
+ms.date: 01/23/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -73,7 +73,15 @@ This article lists all new articles that were added or had significant updates i
 
 :::zone pivot="module-version-history"
 
+## The latest (Recommended) version
+
+- [Version 0.22.0][posh-0.22.0] - **January 2025**
+
 ## Module version history
+
+- [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
+ 
+- [Version 0.20.0-preview][posh-0.20.0] - **December 2024**
 
 - [Version 0.19.0-preview][posh-0.19.0] - **November 2024**
 
@@ -170,6 +178,9 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-0.22.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/0.22.0
+[posh-0.21.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.21.0-preview
+[posh-0.20.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.20.0-preview
 [posh-0.19.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.19.0-preview
 [posh-0.18.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.18.0-preview
 [posh-0.17.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.17.0-preview

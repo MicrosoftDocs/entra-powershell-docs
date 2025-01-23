@@ -3,7 +3,7 @@ title: "Versioning, release cadence, and breaking changes"
 description: "This article describes versioning, release cadence, and breaking change information for the Microsoft Entra PowerShell module."
 
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 01/23/2025
 ms.service: entra
 
 author: omondiatieno
@@ -18,7 +18,7 @@ ms.reviewer: stevemutungi
 
 If you use Microsoft Entra PowerShell modules, it's important to understand the versioning, release schedule, and breaking change policies to manage updates effectively and reduce the risk of disruptions.
 
-This article covers the versioning scheme used by Microsoft Entra PowerShell modules, the release cadence for planned updates, and the policies for breaking changes.
+This article covers the versioning scheme used by Microsoft Entra PowerShell modules, the release cadence for planned updates, and the policies for breaking changes. For information about the latest version of the module, see [The latest (Recommended) version](whats-new-docs.md#the-latest-recommended-version). 
 
 ## Versioning
 
@@ -61,9 +61,9 @@ Planned updates to the Microsoft Entra PowerShell module are released on the fir
 
 Only the latest major version receives full support, including new features, bug fixes, and updates. We strongly recommend upgrading to the [latest version](https://aka.ms/entrapsgallery) of the Microsoft Entra PowerShell module to get the latest improvements and security updates.
 
-## See Also
+## Next steps
 
-- [What's new in Microsoft Entra PowerShell][whats-new]?
+- [Install the Microsoft Entra PowerShell module](installation.md)
 
 <!-- link references -->
 [whats-new]: whats-new-docs.md
