@@ -73,7 +73,7 @@ This article lists all new articles that were added or had significant updates i
 
 :::zone pivot="module-version-history"
 
-## The latest (Recommended) version
+## The latest (recommended) version
 
 - [Version 0.22.0][posh-0.22.0] - **January 2025**
 
