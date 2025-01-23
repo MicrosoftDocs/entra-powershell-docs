@@ -45,10 +45,10 @@
       "*.md": "Microsoft Entra PowerShell",
       "conceptual/*.md": "Microsoft Entra PowerShell",
       "conceptual/*.yml": "Microsoft Entra PowerShell",
-      "/reference/beta/Microsoft.Graph.Entra.Beta/*.md": "Microsoft Entra PowerShell",
-      "/reference/beta/Microsoft.Graph.Entra.Beta/*.yml": "Microsoft Entra PowerShell",
-      "/reference/v1.0/Microsoft.Graph.Entra/*.md": "Microsoft Entra PowerShell",
-      "/reference/v1.0/Microsoft.Graph.Entra/*.yml": "Microsoft Entra PowerShell"
+      "/reference/beta/Microsoft.Entra.Beta/*.md": "Microsoft Entra PowerShell",
+      "/reference/beta/Microsoft.Entra.Beta/*.yml": "Microsoft Entra PowerShell",
+      "/reference/v1.0/Microsoft.Entra/*.md": "Microsoft Entra PowerShell",
+      "/reference/v1.0/Microsoft.Entra/*.yml": "Microsoft Entra PowerShell"
       }
     
     }
