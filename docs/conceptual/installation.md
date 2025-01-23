@@ -92,7 +92,7 @@ The recommended installation method and PowerShell version for the module:
 
 ## Installation
 
-When installing the module, you can choose to install the entire module or a specific submodule. The following examples show how to install the entire module and the `Beta` module.
+When installing the module, you can choose to install the entire module or a specific submodule. The following examples show how to install the entire module for both `v1.0` and `Beta`.
 
 Use the [Install-Module][install-module] cmdlet to install the module:
 
@@ -103,13 +103,13 @@ Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope CurrentUser -F
 Optionally, you can change the scope of the installation using the **Scope** parameter. This operation requires admin permissions.
 
 ```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope AllUsers
+Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope AllUsers -Force
 ```
 
 To install the `Beta` module, run the following command.
 
 ```powershell
-Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery
+Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Force
 ```
 
 > [!TIP]
@@ -120,10 +120,20 @@ Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery
 
 ### Install specific submodules
 
-Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation. To install the `Users` submodule, use the following command:
+Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation. 
+
+To find all available modules under `Microsoft.Entra` from the PowerShell Gallery, run the following command:
+ 
+```PowerShell
+Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
+```
+ 
+This command will list all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
+
+For example, to install the `Users` module, run the following command:
 
 ```powershell
-Install-Module -Name Micorosft.Entra.Users -Repository PSGallery -Force 
+Install-Module -Name Microsoft.Entra.Users -Repository PSGallery -Force 
 ```
 
 :::zone-end
@@ -142,12 +152,32 @@ This article explains how to install the module on Linux.
 
 ## Installation on Linux
 
+When installing the module, you can choose to install the entire module or a specific submodule. The following example show how to install the entire module.
+
 Open the Terminal or other shell host application and run `pwsh` to start PowerShell.
 
 Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet to install the module:
 
 ```powershell
 Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
+```
+
+### Install specific submodules
+
+Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation. 
+
+To find all available modules under `Microsoft.Entra` from the PowerShell Gallery, run the following command:
+ 
+```PowerShell
+Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
+```
+ 
+This command will list all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
+
+For example, to install the `Users` module, run the following command:
+
+```powershell
+Install-Module -Name Microsoft.Entra.Users -Repository PSGallery -Force 
 ```
 
 :::zone-end
@@ -166,6 +196,8 @@ This article explains how to install the module from
 
 ## Installation on macOS
 
+When installing the module, you can choose to install the entire module or a specific submodule. The following example show how to install the entire module.
+
 Open the Terminal or other shell host application and run `pwsh` to start PowerShell.
 
 Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet to install the Microsoft Entra
@@ -173,6 +205,24 @@ PowerShell module:
 
 ```powershell
 Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
+```
+
+### Install specific submodules
+
+Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation. 
+
+To find all available modules under `Microsoft.Entra` from the PowerShell Gallery, run the following command:
+ 
+```PowerShell
+Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
+```
+
+This command will list all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
+
+For example, to install the `Users` module, run the following command:
+
+```powershell
+Install-Module -Name Microsoft.Entra.Users -Repository PSGallery -Force 
 ```
 
 :::zone-end
