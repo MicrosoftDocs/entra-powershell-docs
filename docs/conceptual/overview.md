@@ -19,7 +19,7 @@ The Microsoft Entra PowerShell module is a scenario-focused command-line tool th
 
 ## Microsoft Graph PowerShell vs. Microsoft Entra PowerShell
 
-Microsoft Entra PowerShell is a part of our increased investment in Microsoft Graph PowerShell SDK. It brings high-quality and scenario-optimized Microsoft Entra resource management to the Microsoft Graph PowerShell SDK. Still, it keeps all the benefits of Microsoft Graph PowerShell SDK for authorization, connection management, error handling, and (low-level) API coverage. As Microsoft Entra PowerShell builds on the Microsoft Graph PowerShell SDK, it's interoperable.
+Microsoft Entra PowerShell is a part of our increased investment in Microsoft Graph PowerShell SDK. It brings high-quality and scenario-optimized Microsoft Entra resource management to the Microsoft Graph PowerShell SDK. Tt still keeps all the benefits of Microsoft Graph PowerShell SDK for authorization, connection management, error handling, and (low-level) API coverage. As Microsoft Entra PowerShell builds on the Microsoft Graph PowerShell SDK, it's interoperable.
 
 Microsoft Entra PowerShell provides the following benefits:
 
@@ -30,7 +30,7 @@ Microsoft Entra PowerShell provides the following benefits:
 
 ## Migrate from Azure AD PowerShell module
 
-Microsoft Entra PowerShell is over 98% compatible with the Azure AD PowerShell module and selected MSOnline cmdlets. By using the [Enable-EntraAzureADAlias][enable-entraazureadalis] command, you only need to update one or two lines in your existing scripts, making migration to Microsoft Entra PowerShell quick and effortless. For more information on how to migrate from the legacy modules to Microsoft Entra PowerShell, see the [Migration guide][migration-guide].
+Microsoft Entra PowerShell is over 98% compatible with the Azure AD PowerShell module and over 80% parity with MSOnline cmdlets. By using the [Enable-EntraAzureADAlias][enable-entraazureadalis] command, you only need to update one or two lines in your existing scripts, making migration to Microsoft Entra PowerShell quick and effortless. For more information on how to migrate from the legacy modules to Microsoft Entra PowerShell, see the [Migration guide][migration-guide].
 
 ## Installation and get started
 

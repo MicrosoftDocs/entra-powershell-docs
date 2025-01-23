@@ -262,6 +262,6 @@ foreach ($guest in $guestUsers) {
 
 [installation]: installation.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[user-admin]: /entra/identity/role-based-access-control/permissions-reference
-[-external-identity-provider-admin]: /entra/identity/role-based-access-control/permissions-reference
-[guest-inviter]: /entra/identity/role-based-access-control/permissions-reference
+[user-admin]: /entra/identity/role-based-access-control/permissions-reference/user-administrator
+[-external-identity-provider-admin]: /entra/identity/role-based-access-control/permissions-reference/external-identity-provider-administrator
+[guest-inviter]: /entra/identity/role-based-access-control/permissions-reference/guest-inviter
