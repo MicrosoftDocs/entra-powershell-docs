@@ -261,7 +261,7 @@ To start managing your Microsoft Entra resources with the Microsoft Entra PowerS
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "userPrincipalName eq 'userAlias@contoso.com'"
+Get-EntraUser -Filter "userPrincipalName eq 'exampleUser@contoso.com'"
 ```
 
 Use your Microsoft Entra sign-in credentials to log into the sign-in window that opens.
