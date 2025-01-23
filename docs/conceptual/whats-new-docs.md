@@ -80,8 +80,25 @@ This article lists all new articles that were added or had significant updates i
 ## Module version history
 
 - [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
- 
+
+  - **New capability**: Install submodules automatically when installing the umbrella module (Microsoft.Entra).
+  - **New Commands**: `Get-EntraDeletedAdministrativeUnit`, `Get-EntraDeletedDevice`, `Get-EntraUserAuthenticationMethod`, `Get-EntraUserInactiveSignIn`, `Get-EntraDeletedUser`, `Update-EntraOauth2PermissionGrant`, `Get-EntraUserAdministrativeUnit`, `Get-EntraUserRole`, `Get-EntraUserGroup`, and `Get-EntraDeletedServicePrincipal`.
+  - **Bug Fixes**:
+    - Fixed [#1178](https://github.com/microsoftgraph/entra-powershell/issues/1178): Add a command to update an existing OAuth2PermissionGrant.
+    - Fixed [#1147](https://github.com/microsoftgraph/entra-powershell/issues/1147): Add `-Limit` as an alias for `-Top` and `-Select` as an alias for `-Property`.
+    - Fixed [#929](https://github.com/microsoftgraph/entra-powershell/issues/929): Refactored Connect-Entra to act as a proxy command for `Connect-MgGraph`.
+  - **Enhancements**:
+    - Improved examples for over 100 cmdlets.
+
+- [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
+
+  - **Bug fixes**: Fixed bugs caused by splitting the Entra PowerShell module into modular submodules (failing tests, pipeline updates).  
+  - **Dependency version update**: Upgraded Microsoft Graph PowerShell SDK from `2.15.0` to `2.25.0`.
+
 - [Version 0.20.0-preview][posh-0.20.0] - **December 2024**
+
+  - **Engineering build**: Split the module into submodules.
+  - **Module rename**: Renamed the module from `Microsoft.Graph.Entra` to `Microsoft.Entra`.
 
 - [Version 0.19.0-preview][posh-0.19.0] - **November 2024**
 

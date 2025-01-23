@@ -59,7 +59,7 @@ Planned updates to the Microsoft Entra PowerShell module are released on the fir
 
 ### Use latest version
 
-Only the latest major version receives full support, including new features, bug fixes, and updates. We strongly recommend upgrading to the [latest version](https://aka.ms/entrapsgallery) of the Microsoft Entra PowerShell module to get the latest improvements and security updates.
+Only the latest major version receives full support, including new features, bug fixes, and updates. We strongly recommend upgrading to the [latest version](https://aka.ms/entra/ps/gallery) of the Microsoft Entra PowerShell module to get the latest improvements and security updates.
 
 ## Next steps
 
