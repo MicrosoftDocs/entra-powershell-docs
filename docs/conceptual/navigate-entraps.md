@@ -37,18 +37,18 @@ To see all the possible options, refer to the [authentication scenarios](authe
 Microsoft Entra PowerShell cmdlets follow a standard naming convention for PowerShell, `Verb-Noun`. The verb describes the action (examples include `New`, `Get`, `Set`, `Remove`) and the noun describes the resource type (examples include `User`, `Group`, `ServicePrincipal`, `Device`). Nouns in Microsoft Entra PowerShell always start with the prefix `Entra`. For the full list of standard verbs, see the  [approved verbs for PowerShell commands](/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands).
 
 > [!NOTE]
-> For beta cmdlets, add a Beta prefix to the resource name. For example, use `Get-EntraBetaUser` instead of `Get-EntraUser` for the beta version.
+> For Beta cmdlets, add a Beta prefix to the resource name. For example, use `Get-EntraBetaUser` instead of `Get-EntraUser` for the Beta version.
 
 You can get all available commands in Microsoft Entra PowerShell module by using the following command:
 
 ```powershell
-Get-Command -Module Microsoft.Graph.Entra
+Get-Command -Module Microsoft.Entra
 ```
 
 To narrow this down, for instance, to find commands related to applications, run the following command.
 
 ```powershell
-Get-Command -Module Microsoft.Graph.Entra* -Noun *application*
+Get-Command -Module Microsoft.Entra* -Noun *application*
 ```
 
 This command shows all the cmdlets, functions, and aliases included in the module for the application resource.
@@ -56,13 +56,13 @@ This command shows all the cmdlets, functions, and aliases included in the modul
 ```Output
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Function        Add-EntraApplicationOwner                          0.19.0     Microsoft.Graph.Entra
-Function        Get-EntraApplication                               0.19.0     Microsoft.Graph.Entra
-Function        Get-EntraApplicationExtensionProperty              0.19.0     Microsoft.Graph.Entra
-Function        Get-EntraApplicationKeyCredential                  0.19.0     Microsoft.Graph.Entra
-Function        Get-EntraApplicationLogo                           0.19.0     Microsoft.Graph.Entra
-Function        Get-EntraApplicationOwner                          0.19.0     Microsoft.Graph.Entra
-Function        Get-EntraApplicationPasswordCredential             0.19.0     Microsoft.Graph.Entra
+Function        Add-EntraApplicationOwner                          0.22.0     Microsoft.Entra
+Function        Get-EntraApplication                               0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationExtensionProperty              0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationKeyCredential                  0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationLogo                           0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationOwner                          0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationPasswordCredential             0.22.0     Microsoft.Entra
 ```
 
 ## Get help
