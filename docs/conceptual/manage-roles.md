@@ -29,7 +29,7 @@ To manage roles with Microsoft Entra PowerShell, you need:
 
 A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically called a role. Microsoft Entra ID has over 60 built-in roles and you can create your own custom roles. To understand what each role does, you can view a detailed list of its permissions.
 
-To get all  the role definitions, run the following [Get-EntraDirectoryRoleDefinition](/powershell/module/microsoft.graph.entra/get-entradirectoryroledefinition) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
+To get all  the role definitions, run the following [Get-EntraDirectoryRoleDefinition](/powershell/module/microsoft.entra/get-entradirectoryroledefinition) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.Read.Directory'
@@ -45,7 +45,7 @@ Restricted Guest User                         2af84b1e-32c8-42b7-82bc-daa8240402
 
 ## Find role assignments
 
-This section describes how to list roles you have assigned in Microsoft Entra ID. To get all the role assignments, run the [Get-EntraDirectoryRoleAssignment](/powershell/module/microsoft.graph.entra/get-entradirectoryroleassignment) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
+This section describes how to list roles you have assigned in Microsoft Entra ID. To get all the role assignments, run the [Get-EntraDirectoryRoleAssignment](/powershell/module/microsoft.entra/get-entradirectoryroleassignment) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.Read.Directory'
@@ -179,7 +179,7 @@ Custom Application Read a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 f5f5f5f5-aaaa-bbbb-
 
 ```
 
-To find more specification options when creating a custom role, go to the [New-EntraDirectoryRoleDefinition](/powershell/module/microsoft.graph.entra/new-entradirectoryroledefinition#example-1-creates-a-new-role-definition) article.
+To find more specification options when creating a custom role, go to the [New-EntraDirectoryRoleDefinition](/powershell/module/microsoft.entra/new-entradirectoryroledefinition#example-1-creates-a-new-role-definition) article.
 
 Once you have created the role, you can assign it to [users or groups](#assign-roles).
 
@@ -211,4 +211,4 @@ Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Custom Application Rea
 
 ## Related content
 
-See the full list of Microsoft Entra PowerShell cmdlets for role management [here](/powershell/module/microsoft.graph.entra/#role-management).
+See the full list of Microsoft Entra PowerShell cmdlets for role management [here](/powershell/module/microsoft.entra/#role-management).

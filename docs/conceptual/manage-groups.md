@@ -71,7 +71,7 @@ Update the group description by running the following command.
 Get-EntraGroup -Filter "displayName eq 'Contoso marketing'" | Set-EntraGroup -Description 'Contoso marketing Global'
 ```
 
-To confirm the updated description, run the [Get-EntraGroup](/powershell/module/microsoft.graph.entra/get-entragroup) again.
+To confirm the updated description, run the [Get-EntraGroup](/powershell/module/microsoft.entra/get-entragroup) again.
 
 ```powershell
 Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"  
@@ -79,7 +79,7 @@ Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 
 ## Add user to a group
 
-Add a user to the group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID. You can get the User ID from the [Microsoft Entra admin center](https://entra.microsoft.com/) or by running the [Get-EntraUser](/powershell/module/microsoft.graph.entra/get-entrauser) command.
+Add a user to the group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID. You can get the User ID from the [Microsoft Entra admin center](https://entra.microsoft.com/) or by running the [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser) command.
 
 ```powershell
 $group = Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"

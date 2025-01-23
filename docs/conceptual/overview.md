@@ -64,9 +64,9 @@ Watch John Savill's video for an in-depth [overview of how Microsoft Entra Power
 [migration-guide]: migration-guide.md
 [get-started]: navigate-entraps.md
 [installation]: installation.md
-[powershell-gallery]: https://aka.ms/entrapsgallery
+[powershell-gallery]: https://aka.ms/entra/ps/gallery
 [faqs]: entra-powershell-faqs.yml
 [best-practices-guide]: entra-powershell-best-practices.md
-[azureAdModuleDeprecationLink]: https://techcommunity.microsoft.com/t5/microsoft-entra-blog/important-update-deprecation-of-azure-ad-powershell-and-msonline/ba-p/4094536
+[azureAdModuleDeprecationLink]: https://techcommunity.microsoft.com/blog/identity/action-required-msonline-and-azuread-powershell-retirement---2025-info-and-resou/4364991
 [powershellInstallLink]: /powershell/scripting/install/installing-powershell
-[enable-entraazureadalis]: /powershell/module/microsoft.graph.entra/enable-entraazureadalias
+[enable-entraazureadalis]: /powershell/module/microsoft.entra/enable-entraazureadalias

@@ -77,13 +77,13 @@ conceptualContent:
     - title: Reference
       links:
         - text: v1.0 cmdlet reference
-          url: /powershell/module/microsoft.graph.entra
+          url: /powershell/module/microsoft.entra
           itemType: reference
         - text: Beta cmdlet reference
-          url: /powershell/module/microsoft.graph.entra.beta
+          url: /powershell/module/microsoft.entra.beta
           itemType: reference
         - text: PowerShell Gallery
-          url: https://www.powershellgallery.com/packages?q=Microsoft.Graph.Entra
+          url: https://www.powershellgallery.com/packages?q=Microsoft.Entra
           itemType: reference
     
 ## BAND 2 - CONCEPTUAL CONTENT END #############################################################################################################################

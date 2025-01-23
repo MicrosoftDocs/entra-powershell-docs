@@ -101,7 +101,7 @@ Keeping your module up to date is crucial for several reasons. Firstly, it allow
 > If you use the Microsoft Entra PowerShell with Azure Automation, update the PowerShell modules in your Azure Automation accounts as well.
 
 ```powershell
-Update-Module -Name Microsoft.Graph.Entra
+Update-Module -Name Microsoft.Entra
 ```
 
 After upgrading your module, remove the older versions.
@@ -137,6 +137,6 @@ Get-EntraUser -Top 1 -Debug 5>> <your-log-filepath>
 [create-a-custom-app]: create-custom-application.md
 [outputStreamLink]: /powershell/module/microsoft.powershell.core/about/about_redirection#redirectable-output-streams
 [redirectOperatorLink]: /powershell/module/microsoft.powershell.core/about/about_redirection#powershell-redirection-operators
-[disconnect-entra]: /powershell/module/microsoft.graph.entra/disconnect-entra
+[disconnect-entra]: /powershell/module/microsoft.entra/disconnect-entra
 [request-permissions]: /azure/active-directory/develop/active-directory-v2-scopes
 [consent-types]: /azure/active-directory/develop/v2-permissions-and-consent#consent-types
