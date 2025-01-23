@@ -79,7 +79,7 @@ This article lists all new articles that were added or had significant updates i
 
 ## Module version history
 
-- [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
+- [Version 0.22.0-preview][posh-0.22.0] - **January 2025**
 
   - **New capability**: Install submodules automatically when installing the umbrella module (Microsoft.Entra).
   - **New Commands**: `Get-EntraDeletedAdministrativeUnit`, `Get-EntraDeletedDevice`, `Get-EntraUserAuthenticationMethod`, `Get-EntraUserInactiveSignIn`, `Get-EntraDeletedUser`, `Update-EntraOauth2PermissionGrant`, `Get-EntraUserAdministrativeUnit`, `Get-EntraUserRole`, `Get-EntraUserGroup`, and `Get-EntraDeletedServicePrincipal`.
