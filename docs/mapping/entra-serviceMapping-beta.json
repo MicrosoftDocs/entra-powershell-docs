@@ -137,7 +137,6 @@
   "Get-EntraBetaDirectoryRoleMember": "Directory",
   "Get-EntraBetaDirectoryRoleTemplate": "Directory",
   "Get-EntraBetaDirSyncConfiguration": "Directory",
-  "Get-EntraBetaDirSyncFeature": "Directory",
   "Set-EntraBetaDirSyncEnabled": "Directory",
   "Get-EntraBetaHasObjectsWithDirSyncProvisioningError": "Directory",
   "Get-EntraBetaDirectorySettingTemplate": "Directory",
@@ -292,5 +291,17 @@
   "Remove-EntraBetaDirectoryRoleDefinition": "Role management",
   "Remove-EntraBetaServicePrincipalAppRoleAssignment": "Service principal",
   "Set-EntraBetaDirectoryRoleDefinition": "Role management",
-  "Update-EntraBetaUserFromFederated": "Users"
+  "Update-EntraBetaUserFromFederated": "Users",
+  "Update-EntraBetaOauth2PermissionGrant": "Identity and access",
+  "Get-EntraBetaDeletedUser": "Users",
+  "Get-EntraBetaUserAdministrativeUnit": "Users",
+  "Get-EntraBetaUserGroup": "Users",
+  "Get-EntraBetaDeletedDevice": "Devices",
+  "Get-EntraBetaDeletedServicePrincipal": "Service principal",
+  "Get-EntraBetaUserAuthenticationRequirement": "Users",
+  "Update-EntraBetaUserAuthenticationRequirement": "Users",
+  "Get-EntraBetaUserInactiveSignIn": "Users",
+  "Get-EntraBetaUserRole": "Users",
+  "Get-EntraBetaUserAuthenticationMethod": "Users",
+  "Get-EntraBetaDeletedAdministrativeUnit": "Administrative units"
 }
