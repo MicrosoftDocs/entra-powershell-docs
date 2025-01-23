@@ -22,7 +22,7 @@ Before troubleshooting any errors, ensure that you’re running the most recent 
 Get-InstalledModule -Name Microsoft.Entra
 ```
 
-The version of the Microsoft.Entra module should be the most recent compared to the latest release in the [PowerShell Gallery](https://aka.ms/EntraPSGallery). If your installed module isn’t up to date, update it by running:
+The version of the Microsoft.Entra module should be the most recent compared to the latest release in the [PowerShell Gallery](https://aka.ms/entra/ps/gallery). If your installed module isn’t up to date, update it by running:
 
 ```powershell
 Update-Module -Name Microsoft.Entra

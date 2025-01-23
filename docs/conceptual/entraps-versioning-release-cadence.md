@@ -18,7 +18,7 @@ ms.reviewer: stevemutungi
 
 If you use Microsoft Entra PowerShell modules, it's important to understand the versioning, release schedule, and breaking change policies to manage updates effectively and reduce the risk of disruptions.
 
-This article covers the versioning scheme used by Microsoft Entra PowerShell modules, the release cadence for planned updates, and the policies for breaking changes. For information about the latest version of the module, see [The latest (recommended) version](whats-new-docs.md#the-latest-recommended-version). 
+This article covers the versioning scheme used by Microsoft Entra PowerShell modules, the release cadence for planned updates, and the policies for breaking changes. For information about the latest version of the module, see [The latest (recommended) version](whats-new-docs.md?pivots=module-version-history#the-latest-recommended-version). 
 
 ## Versioning
 
