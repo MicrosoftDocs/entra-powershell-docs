@@ -13,7 +13,7 @@ ms.author: cmulligan
 # Run legacy scripts in compatibility mode
 
 Microsoft Entra PowerShell has over _98%_ compatibility with [Azure AD PowerShell][azuread-ps] module.
-This article details the process of running your existing AzureAD PowerShell scripts with minimal modifications using Microsoft Entra PowerShell by using the `Enable-EntraAzureADAlias` command. Use the [Azure AD PowerShell to Microsoft Entra PowerShell cmdlet map](./azuread-powershell-to-entra-powershell-mapping.md) to find cmdlet equivalents in Microsoft Entra PowerShell.
+This article details the process of running your existing AzureAD PowerShell scripts with minimal modifications using Microsoft Entra PowerShell by using the `Enable-EntraAzureADAlias` command. To find Azure AD PowerShell and MSOnline cmdlet equivalents in Microsoft Entra PowerShell, use the [Azure AD PowerShell to Microsoft Entra PowerShell cmdlet map](./azuread-powershell-to-entra-powershell-mapping.md) .
 
 > [!IMPORTANT]
 > Microsoft Entra PowerShell cmdlets are currently in preview and might change. We recommend using these cmdlets for testing and development purposes only, and not in production applications at this time.
