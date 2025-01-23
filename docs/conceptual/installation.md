@@ -5,7 +5,7 @@ description: "Learn how to install the Microsoft Entra PowerShell module."
 author: omondiatieno
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 01/23/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-install-win-linux-macos
@@ -113,7 +113,7 @@ Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Force
 ```
 
 > [!TIP]
-> In PowerShell 5.1, you might see the error: "Function {cmdlet-name} cannot be created because function capacity 4096 has been exceeded." To fix this, increase the function limit by running the following command, then try importing the module again.
+> In PowerShell 5.1, you might see the error: "Function {cmdlet-name} cannot be created because function capacity 4096 has been exceeded." To fix this error, increase the function limit by running the following command, then try importing the module again.
 >```powershell
 >$MaximumFunctionCount = 32768
 >```
@@ -128,7 +128,7 @@ To find all available modules under `Microsoft.Entra` from the PowerShell Galler
 Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
 ```
  
-This command will list all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
+This command lists all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
 
 For example, to install the `Users` module, run the following command:
 
@@ -152,7 +152,7 @@ This article explains how to install the module on Linux.
 
 ## Installation on Linux
 
-When installing the module, you can choose to install the entire module or a specific submodule. The following example show how to install the entire module.
+When installing the module, you can choose to install the entire module or a specific submodule. The following example shows how to install the entire module.
 
 Open the Terminal or other shell host application and run `pwsh` to start PowerShell.
 
@@ -172,7 +172,7 @@ To find all available modules under `Microsoft.Entra` from the PowerShell Galler
 Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
 ```
  
-This command will list all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
+This command lists all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
 
 For example, to install the `Users` module, run the following command:
 
@@ -196,7 +196,7 @@ This article explains how to install the module from
 
 ## Installation on macOS
 
-When installing the module, you can choose to install the entire module or a specific submodule. The following example show how to install the entire module.
+When installing the module, you can choose to install the entire module or a specific submodule. The following example shows how to install the entire module.
 
 Open the Terminal or other shell host application and run `pwsh` to start PowerShell.
 
@@ -217,7 +217,7 @@ To find all available modules under `Microsoft.Entra` from the PowerShell Galler
 Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
 ```
 
-This command will list all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
+This command lists all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
 
 For example, to install the `Users` module, run the following command:
 
