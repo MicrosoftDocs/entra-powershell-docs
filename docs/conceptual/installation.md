@@ -120,7 +120,7 @@ Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery
 
 ### Install specific submodules
 
-Installing specific modules is ideal for automation scenarios. To install a the `Users` submodule, use the following command:
+Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation. To install the `Users` submodule, use the following command:
 
 ```powershell
 Install-Module -Name Micorosft.Entra.Users -Repository PSGallery -Force 

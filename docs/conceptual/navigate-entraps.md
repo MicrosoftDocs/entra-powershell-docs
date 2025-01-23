@@ -56,13 +56,13 @@ This command shows all the cmdlets, functions, and aliases included in the modul
 ```Output
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Function        Add-EntraApplicationOwner                          0.19.0     Microsoft.Entra
-Function        Get-EntraApplication                               0.19.0     Microsoft.Entra
-Function        Get-EntraApplicationExtensionProperty              0.19.0     Microsoft.Entra
-Function        Get-EntraApplicationKeyCredential                  0.19.0     Microsoft.Entra
-Function        Get-EntraApplicationLogo                           0.19.0     Microsoft.Entra
-Function        Get-EntraApplicationOwner                          0.19.0     Microsoft.Entra
-Function        Get-EntraApplicationPasswordCredential             0.19.0     Microsoft.Entra
+Function        Add-EntraApplicationOwner                          0.22.0     Microsoft.Entra
+Function        Get-EntraApplication                               0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationExtensionProperty              0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationKeyCredential                  0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationLogo                           0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationOwner                          0.22.0     Microsoft.Entra
+Function        Get-EntraApplicationPasswordCredential             0.22.0     Microsoft.Entra
 ```
 
 ## Get help

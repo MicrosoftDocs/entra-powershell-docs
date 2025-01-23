@@ -257,9 +257,9 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Close-AzureADMSPrivilegedRoleAssignmentRequest | Deprecated|
 | Get-AzureADAdministrativeUnit | [Get-EntraBetaAdministrativeUnit](/powershell/module/microsoft.entra.beta/Get-EntraBetaAdministrativeUnit)|
 | Get-AzureADAdministrativeUnitMember | [Get-EntraBetaAdministrativeUnitMember](/powershell/module/microsoft.entra.beta/Get-EntraBetaAdministrativeUnitMember)|
-|Get-AzureADApplicationPasswordCredential|[Get-EntraBetaApplicationPasswordCredential](/powershell/module/microsoft.entra.beta/Get-EntraBetaApplicationPasswordCredential)|
+| Get-AzureADApplicationPasswordCredential|[Get-EntraBetaApplicationPasswordCredential](/powershell/module/microsoft.entra.beta/Get-EntraBetaApplicationPasswordCredential)|
 | Get-AzureADApplicationPolicy | [Get-EntraBetaApplicationPolicy](/powershell/module/microsoft.entra.beta/Get-EntraBetaApplicationPolicy)|
-|Get-AzureADApplicationServiceEndpoint|[Get-EntraBetaApplicationServiceEndpoint](/powershell/module/microsoft.entra.beta/Get-EntraBetaApplicationServiceEndpoint)|
+| Get-AzureADApplicationServiceEndpoint|[Get-EntraBetaApplicationServiceEndpoint](/powershell/module/microsoft.entra.beta/Get-EntraBetaApplicationServiceEndpoint)|
 | Get-AzureADApplicationSignInDetailedSummary | [Get-EntraBetaApplicationSignInDetailedSummary](/powershell/module/microsoft.entra.beta/Get-EntraBetaApplicationSignInDetailedSummary)|
 | Get-AzureADApplicationSignInSummary | [Get-EntraBetaApplicationSignInSummary](/powershell/module/microsoft.entra.beta/Get-EntraBetaApplicationSignInSummary)|
 | Get-AzureADAuditDirectoryLogs | [Get-EntraBetaAuditDirectoryLog](/powershell/module/microsoft.entra.beta/get-entrabetaauditdirectorylog)|
