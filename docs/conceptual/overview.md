@@ -51,10 +51,6 @@ The following section outlines the known issues with the Microsoft Entra PowerSh
 | `-All` parameter          | We don't support `-All` Boolean parameter as was the case with Azure AD PowerShell module. `-All` is supported as a switch parameter. | Replace `-All:$true` with `-All` parameter in your scripts. |
 | `-SearchString` parameter | The parameter `-SearchString` might not work as expected.                                                                             |
 
-## External learning resources
-
-Watch John Savill's video for an in-depth [overview of how Microsoft Entra PowerShell works](https://www.youtube.com/watch?v=YOgpAkshmYI).
-
 ## Next steps
 
 - Create a free [Microsoft Entra ID account][free-entra-id]
