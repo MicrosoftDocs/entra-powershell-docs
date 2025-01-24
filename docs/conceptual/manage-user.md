@@ -245,7 +245,7 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 > [!Note]
 > You can also reclaim any licenses for software and services that were assigned to the user.
 
-## Next steps
+## Related content
 
 - [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]
