@@ -53,25 +53,7 @@ The recommended installation method and PowerShell version for the module:
   Get-Module -Name Microsoft.Entra -ListAvailable
   ```
 
-### [PowerShell 7](#tab/powershell)
-
-- Install a supported version of
-  [PowerShell version 7 or higher][install-windows]
-
-### [Windows PowerShell](#tab/windowspowershell)
-
-- Update to
-   [Windows PowerShell 5.1][posh-5.1]
-- Install [.NET Framework 4.7.2 or later](/dotnet/framework/install)
-- Update PowerShellGet
-
-   To update PowerShellGet, launch Windows PowerShell 5.1 elevated as an administrator and run the following command:
-
-   ```powershell
-   Install-Module -Name PowerShellGet -Force -AllowClobber
-   ```
-
----
+[!INCLUDE [dependencies](../includes/powershell-prerequisites.md)]
 
 - Set the PowerShell execution policy to remote signed or less restrictive
 
@@ -96,37 +78,7 @@ When installing the module, you can choose to install the entire module or a spe
 
 Use the [Install-Module][install-module] cmdlet to install the module:
 
-### [v1.0](#tab/v1)
-
-```powershell
-  Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
-```
-  
-Optionally, you can change the scope of the installation using the **Scope** parameter. This operation requires admin permissions.
-  
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope AllUsers -Force -AllowClobber
-```
-
-#### [Beta](#tab/Beta)
-
-```powershell
-Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
-```
-
-Optionally, you can change the scope of the installation using the **Scope** parameter. This operation requires admin permissions.
-
-```powershell
-Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Scope AllUsers -Force -AllowClobber
-```
-
-> [!TIP]
-> In PowerShell 5.1, you might see the error: "Function {cmdlet-name} cannot be created because function capacity 4096 has been exceeded." To fix this error, increase the function limit by running the following command, then try importing the module again.
-> ```powershell
-> $MaximumFunctionCount = 32768
-> ```
-
----
+[!INCLUDE [dependencies](../includes/installation-entrapowershell-all.md)]
 
 ### Install specific submodules
 
@@ -156,9 +108,7 @@ Open the Terminal or other shell host application and run `pwsh` to start PowerS
 
 Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet to install the module:
 
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
-```
+[!INCLUDE [dependencies](../includes/installation-entrapowershell-all.md)]
 
 ### Install specific submodules on Linux
 
@@ -189,9 +139,7 @@ Open the Terminal or other shell host application and run `pwsh` to start PowerS
 Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet to install the Microsoft Entra
 PowerShell module:
 
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
-```
+[!INCLUDE [dependencies](../includes/installation-entrapowershell-all.md)]
 
 ### Install specific submodules on macOS
 
@@ -222,10 +170,7 @@ For solutions to other common installation and other general issues, see [Troubl
 
 To start managing your Microsoft Entra resources with the Microsoft Entra PowerShell module, launch a PowerShell session and run [Connect-Entra][Connect-Entra] to sign in to Microsoft Entra ID:
 
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
-```
+[!INCLUDE [dependencies](../includes/sign-in.md)]
 
 Use your Microsoft Entra sign-in credentials to log into the sign-in window that opens.
 
@@ -237,9 +182,7 @@ For more information on other authentication scenarios, see [more authentication
 
 Use [Update-Module][update-module] to update to the latest version of the Microsoft Entra PowerShell.
 
-```powershell
-Update-Module -Name Microsoft.Entra
-```
+[!INCLUDE [dependencies](../includes/update-entrapowershell-module.md)]
 
 Updating the Microsoft Entra PowerShell module using `Update-Module` doesn't remove old versions of the module from your system.
 
@@ -247,15 +190,7 @@ Updating the Microsoft Entra PowerShell module using `Update-Module` doesn't rem
 
 To remove the module, run the command:
 
-```powershell
-Uninstall-Module -Name Microsoft.Entra -AllVersions
-```
-
-To remove the `Beta` module, run the command:
-
-```powershell
-Uninstall-Module -Name Microsoft.Entra.Beta -AllVersions
-```
+[!INCLUDE [dependencies](../includes/uninstall-entrapowershell-module.md)]
 
 ## Next steps
 
@@ -267,7 +202,5 @@ Uninstall-Module -Name Microsoft.Entra.Beta -AllVersions
 [update-module]: /powershell/module/powershellget/update-module
 [execution-policies]: /powershell/module/microsoft.powershell.core/about/about_execution_policies
 [install-module]: /powershell/module/powershellget/install-module
-[posh-5.1]: /powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell
-[install-windows]: /powershell/scripting/install/installing-powershell-on-windows
 [posh-gallery]: https://www.powershellgallery.com/packages/Microsoft.Entra
 [Connect-Entra]: /powershell/module/microsoft.entra/connect-entra
