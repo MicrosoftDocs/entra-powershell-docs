@@ -8,7 +8,7 @@ Where-Object { $_.Name -notmatch "Beta" }
 To verify the installed submodules and their versions, run:
 
 ```powershell
-Get-InstalledModule -Name Microsoft.Entra* |
+Get-InstalledModule -Name Microsoft.Entra.* |
 Where-Object { $_.Name -notmatch "Beta" }
 ```
 
