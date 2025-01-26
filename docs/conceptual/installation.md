@@ -160,23 +160,11 @@ Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet
 Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
 ```
 
-### Install specific submodules
+### Install specific submodules on Linux
 
 Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation.
 
-To find all available modules under `Microsoft.Entra` from the PowerShell Gallery, run the following command:
-
-```PowerShell
-Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
-```
-
-This command lists all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
-
-For example, to install the `Users` module, run the following command:
-
-```powershell
-Install-Module -Name Microsoft.Entra.Users -Repository PSGallery -Force 
-```
+[!INCLUDE [dependencies](../includes/install-specific-submodules.md)]
 
 :::zone-end
 
@@ -205,23 +193,11 @@ PowerShell module:
 Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
 ```
 
-### Install specific submodules
+### Install specific submodules on macOS
 
 Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation.
 
-To find all available modules under `Microsoft.Entra` from the PowerShell Gallery, run the following command:
-
-```PowerShell
-Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
-```
-
-This command lists all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
-
-For example, to install the `Users` module, run the following command:
-
-```powershell
-Install-Module -Name Microsoft.Entra.Users -Repository PSGallery -Force 
-```
+[!INCLUDE [dependencies](../includes/install-specific-submodules.md)]
 
 :::zone-end
 
