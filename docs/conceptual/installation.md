@@ -20,7 +20,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 > [!IMPORTANT]
 > Microsoft Entra PowerShell cmdlets are currently in preview and might change. We recommend using these cmdlets for testing and development purposes only, and not in production applications at this time.
 
-The Microsoft Entra PowerShell module is available in two modules, which can be installed independently. Each of these modules comprises of submodules that can be installed separately. The two modules are:
+The Microsoft Entra PowerShell module is split into two modules, each with submodules that can be installed separately. The two main modules are:
 
 - **Microsoft.Entra** - the general availability or `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
 - **Microsoft.Entra.Beta** - the `Beta` version of Microsoft Entra PowerShell. It points to Microsoft Graph Beta and Microsoft Graph PowerShell SDK Beta resources.
