@@ -53,12 +53,12 @@ The recommended installation method and PowerShell version for the module:
   Get-Module -Name Microsoft.Entra -ListAvailable
   ```
 
-# [PowerShell 7](#tab/powershell)
+### [PowerShell 7](#tab/powershell)
 
 - Install a supported version of
   [PowerShell version 7 or higher][install-windows]
 
-# [Windows PowerShell](#tab/windowspowershell)
+### [Windows PowerShell](#tab/windowspowershell)
 
 - Update to
    [Windows PowerShell 5.1][posh-5.1]
