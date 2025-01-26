@@ -1,7 +1,7 @@
 ### [v1.0](#tab/v1)
 
 ```powershell
-Uninstall-Module -Name Microsoft.Entra -AllVersions
+Uninstall-Module -Name Microsoft.Entra -AllVersions -Force
 ```
 
 To uninstall a specific submodule, such as `Users`, run:
