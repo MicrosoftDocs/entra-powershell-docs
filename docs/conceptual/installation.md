@@ -96,7 +96,7 @@ When installing the module, you can choose to install the entire module or a spe
 
 Use the [Install-Module][install-module] cmdlet to install the module:
 
-# [v1.0](#tab/v1)
+### [v1.0](#tab/v1)
 
 ```powershell
   Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
@@ -108,28 +108,16 @@ Optionally, you can change the scope of the installation using the **Scope** par
 Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope AllUsers -Force -AllowClobber
 ```
 
-To install the `Beta` module, run the following command.
+#### [Beta](#tab/Beta)
 
 ```powershell
 Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
-```
-
-# [Beta](#tab/Beta)
-
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
 ```
 
 Optionally, you can change the scope of the installation using the **Scope** parameter. This operation requires admin permissions.
 
 ```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope AllUsers -Force -AllowClobber
-```
-
-To install the `Beta` module, run the following command.
-
-```powershell
-Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
+Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Scope AllUsers -Force -AllowClobber
 ```
 
 > [!TIP]
@@ -139,28 +127,6 @@ Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Scope CurrentUs
 > ```
 
 ---
-
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
-```
-
-Optionally, you can change the scope of the installation using the **Scope** parameter. This operation requires admin permissions.
-
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope AllUsers -Force -AllowClobber
-```
-
-To install the `Beta` module, run the following command.
-
-```powershell
-Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
-```
-
-> [!TIP]
-> In PowerShell 5.1, you might see the error: "Function {cmdlet-name} cannot be created because function capacity 4096 has been exceeded." To fix this error, increase the function limit by running the following command, then try importing the module again.
->```powershell
->$MaximumFunctionCount = 32768
->```
 
 ### Install specific submodules
 
