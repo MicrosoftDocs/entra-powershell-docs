@@ -96,7 +96,7 @@ When installing the module, you can choose to install the entire module or a spe
 
 Use the [Install-Module][install-module] cmdlet to install the module:
 
-# [v1.0](#tab/v1.0)
+# [v1.0](#tab/v1)
 
 ```powershell
   Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
