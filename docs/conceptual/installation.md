@@ -151,7 +151,7 @@ Installing specific modules is ideal for automation scenarios such as using Azur
 
 ### Verify installation
 
-After the installation is completed, you can verify the installed version with the following command.
+After the installation is completed, you can verify the installed submodules and their version with the following command.
 
 [!INCLUDE [dependencies](../includes/verify-installed-modules.md)]
 
