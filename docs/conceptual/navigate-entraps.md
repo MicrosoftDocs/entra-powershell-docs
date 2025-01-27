@@ -42,7 +42,7 @@ Microsoft Entra PowerShell cmdlets follow a standard naming convention for Power
 You can get all available commands in Microsoft Entra PowerShell module by using the following command:
 
 ```powershell
-Get-Command -Module Microsoft.Entra
+Get-Command -Module Microsoft.Entra*
 ```
 
 To narrow this down, for instance, to find commands related to applications, run the following command.
