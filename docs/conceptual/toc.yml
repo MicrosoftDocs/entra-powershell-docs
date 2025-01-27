@@ -43,6 +43,8 @@ items:
     href: manage-groups.md
   - name: Manage apps
     href: manage-apps.md
+  - name: Manage user and group assignment
+    href: manage-user-group-assignment.md 
   - name: Manage roles
     href: manage-roles.md
   - name: Grant and revoke API permissions
