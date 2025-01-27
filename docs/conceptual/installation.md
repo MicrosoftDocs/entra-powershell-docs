@@ -76,7 +76,7 @@ The recommended installation method and PowerShell version for the module:
 
 When installing the module, you can choose to install the entire module or a specific submodule. The following examples show how to install the entire module for both `v1.0` and `Beta`.
 
-Use the [Install-Module][install-module] cmdlet to install the module:
+Use the [Install-Module][install-module] cmdlet to install the module.
 
 [!INCLUDE [dependencies](../includes/installation-entrapowershell-all.md)]
 
