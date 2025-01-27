@@ -20,7 +20,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 > [!IMPORTANT]
 > Microsoft Entra PowerShell cmdlets are currently in preview and might change. We recommend using these cmdlets for testing and development purposes only, and not in production applications at this time.
 
-The Microsoft Entra PowerShell module is available in two modules, which can be installed independently. Each of these modules comprises of submodules that can be installed separately. The two modules are:
+The Microsoft Entra PowerShell module is split into two modules, each with submodules that can be installed separately. The two main modules are:
 
 - **Microsoft.Entra** - the general availability or `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
 - **Microsoft.Entra.Beta** - the `Beta` version of Microsoft Entra PowerShell. It points to Microsoft Graph Beta and Microsoft Graph PowerShell SDK Beta resources.
@@ -53,25 +53,7 @@ The recommended installation method and PowerShell version for the module:
   Get-Module -Name Microsoft.Entra -ListAvailable
   ```
 
-# [PowerShell 7](#tab/powershell)
-
-- Install a supported version of
-  [PowerShell version 7 or higher][install-windows]
-
-# [Windows PowerShell](#tab/windowspowershell)
-
-- Update to
-   [Windows PowerShell 5.1][posh-5.1]
-- Install [.NET Framework 4.7.2 or later](/dotnet/framework/install)
-- Update PowerShellGet
-
-   To update PowerShellGet, launch Windows PowerShell 5.1 elevated as an administrator and run the following command:
-
-   ```powershell
-   Install-Module -Name PowerShellGet -Force -AllowClobber
-   ```
-
----
+[!INCLUDE [dependencies](../includes/powershell-prerequisites.md)]
 
 - Set the PowerShell execution policy to remote signed or less restrictive
 
@@ -94,47 +76,15 @@ The recommended installation method and PowerShell version for the module:
 
 When installing the module, you can choose to install the entire module or a specific submodule. The following examples show how to install the entire module for both `v1.0` and `Beta`.
 
-Use the [Install-Module][install-module] cmdlet to install the module:
+Use the [Install-Module][install-module] cmdlet to install the module.
 
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope CurrentUser -Force
-```
-
-Optionally, you can change the scope of the installation using the **Scope** parameter. This operation requires admin permissions.
-
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Scope AllUsers -Force
-```
-
-To install the `Beta` module, run the following command.
-
-```powershell
-Install-Module -Name Microsoft.Entra.Beta -Repository PSGallery -Force
-```
-
-> [!TIP]
-> In PowerShell 5.1, you might see the error: "Function {cmdlet-name} cannot be created because function capacity 4096 has been exceeded." To fix this error, increase the function limit by running the following command, then try importing the module again.
->```powershell
->$MaximumFunctionCount = 32768
->```
+[!INCLUDE [dependencies](../includes/installation-entrapowershell-all.md)]
 
 ### Install specific submodules
 
-Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation. 
+Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation.
 
-To find all available modules under `Microsoft.Entra` from the PowerShell Gallery, run the following command:
- 
-```PowerShell
-Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
-```
- 
-This command lists all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
-
-For example, to install the `Users` module, run the following command:
-
-```powershell
-Install-Module -Name Microsoft.Entra.Users -Repository PSGallery -Force 
-```
+[!INCLUDE [dependencies](../includes/install-specific-submodules.md)]
 
 :::zone-end
 
@@ -158,27 +108,13 @@ Open the Terminal or other shell host application and run `pwsh` to start PowerS
 
 Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet to install the module:
 
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
-```
+[!INCLUDE [dependencies](../includes/installation-entrapowershell-all.md)]
 
-### Install specific submodules
+### Install specific submodules on Linux
 
-Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation. 
+Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation.
 
-To find all available modules under `Microsoft.Entra` from the PowerShell Gallery, run the following command:
- 
-```PowerShell
-Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
-```
- 
-This command lists all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
-
-For example, to install the `Users` module, run the following command:
-
-```powershell
-Install-Module -Name Microsoft.Entra.Users -Repository PSGallery -Force 
-```
+[!INCLUDE [dependencies](../includes/install-specific-submodules.md)]
 
 :::zone-end
 
@@ -203,45 +139,21 @@ Open the Terminal or other shell host application and run `pwsh` to start PowerS
 Use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet to install the Microsoft Entra
 PowerShell module:
 
-```powershell
-Install-Module -Name Microsoft.Entra -Repository PSGallery -Force
-```
+[!INCLUDE [dependencies](../includes/installation-entrapowershell-all.md)]
 
-### Install specific submodules
+### Install specific submodules on macOS
 
-Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation. 
+Installing specific modules is ideal for automation scenarios such as using Azure Functions and Azure Automation.
 
-To find all available modules under `Microsoft.Entra` from the PowerShell Gallery, run the following command:
- 
-```PowerShell
-Find-Module -Name "Microsoft.Entra*" -Repository PSGallery
-```
-
-This command lists all modules that start with `Microsoft.Entra` available in the PowerShell Gallery.
-
-For example, to install the `Users` module, run the following command:
-
-```powershell
-Install-Module -Name Microsoft.Entra.Users -Repository PSGallery -Force 
-```
+[!INCLUDE [dependencies](../includes/install-specific-submodules.md)]
 
 :::zone-end
 
 ### Verify installation
 
-After the installation is completed, you can verify the installed version with the following command.
+After the installation is completed, you can verify the installed submodules and their version with the following command.
 
-```powershell
-Get-InstalledModule -Name Microsoft.Entra
-```
-
-To verify the installed submodules and their versions, run:
-
-```powershell
-Get-InstalledModule
-```
-
-The version in the output should match the latest version published on the PowerShell Gallery. Now you're ready to use the module.
+[!INCLUDE [dependencies](../includes/verify-installed-modules.md)]
 
 ### Troubleshoot installation issues
 
@@ -258,24 +170,19 @@ For solutions to other common installation and other general issues, see [Troubl
 
 To start managing your Microsoft Entra resources with the Microsoft Entra PowerShell module, launch a PowerShell session and run [Connect-Entra][Connect-Entra] to sign in to Microsoft Entra ID:
 
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
-```
+[!INCLUDE [dependencies](../includes/sign-in.md)]
 
 Use your Microsoft Entra sign-in credentials to log into the sign-in window that opens.
 
 You need to repeat this step for every new PowerShell session you start.
 
-For more information on other authentication scenarios, see [more authentication][auth-methods] scenarios.
+For more information on other authentication scenarios, see [more authentication scenarios][auth-methods].
 
 ## Update the module
 
 Use [Update-Module][update-module] to update to the latest version of the Microsoft Entra PowerShell.
 
-```powershell
-Update-Module -Name Microsoft.Entra
-```
+[!INCLUDE [dependencies](../includes/update-entrapowershell-module.md)]
 
 Updating the Microsoft Entra PowerShell module using `Update-Module` doesn't remove old versions of the module from your system.
 
@@ -283,15 +190,7 @@ Updating the Microsoft Entra PowerShell module using `Update-Module` doesn't rem
 
 To remove the module, run the command:
 
-```powershell
-Uninstall-Module -Name Microsoft.Entra -AllVersions
-```
-
-To remove the `Beta` module, run the command:
-
-```powershell
-Uninstall-Module -Name Microsoft.Entra.Beta -AllVersions
-```
+[!INCLUDE [dependencies](../includes/uninstall-entrapowershell-module.md)]
 
 ## Next steps
 
@@ -303,7 +202,5 @@ Uninstall-Module -Name Microsoft.Entra.Beta -AllVersions
 [update-module]: /powershell/module/powershellget/update-module
 [execution-policies]: /powershell/module/microsoft.powershell.core/about/about_execution_policies
 [install-module]: /powershell/module/powershellget/install-module
-[posh-5.1]: /powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell
-[install-windows]: /powershell/scripting/install/installing-powershell-on-windows
 [posh-gallery]: https://www.powershellgallery.com/packages/Microsoft.Entra
 [Connect-Entra]: /powershell/module/microsoft.entra/connect-entra
