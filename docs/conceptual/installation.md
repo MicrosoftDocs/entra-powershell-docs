@@ -176,7 +176,7 @@ Use your Microsoft Entra sign-in credentials to log into the sign-in window that
 
 You need to repeat this step for every new PowerShell session you start.
 
-For more information on other authentication scenarios, see [more authentication][auth-methods] scenarios.
+For more information on other authentication scenarios, see [more authentication scenarios][auth-methods].
 
 ## Update the module
 
