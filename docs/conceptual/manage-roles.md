@@ -29,7 +29,7 @@ To manage roles with Microsoft Entra PowerShell, you need:
 
 A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically called a role. Microsoft Entra ID has over 60 built-in roles and you can create your own custom roles. To understand what each role does, you can view a detailed list of its permissions.
 
-To get all  the role definitions, run the following [Get-EntraDirectoryRoleDefinition](/powershell/module/microsoft.entra/get-entradirectoryroledefinition) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
+To get all  the role definitions, run the following [Get-EntraDirectoryRoleDefinition](/powershell/module/microsoft.entra/get-entradirectoryroledefinition) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#directory-readers) role.
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.Read.Directory'
@@ -45,7 +45,7 @@ Restricted Guest User                         2af84b1e-32c8-42b7-82bc-daa8240402
 
 ## Find role assignments
 
-This section describes how to list roles you have assigned in Microsoft Entra ID. To get all the role assignments, run the [Get-EntraDirectoryRoleAssignment](/powershell/module/microsoft.entra/get-entradirectoryroleassignment) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference#directory-readers) role.
+This section describes how to list roles you have assigned in Microsoft Entra ID. To get all the role assignments, run the [Get-EntraDirectoryRoleAssignment](/powershell/module/microsoft.entra/get-entradirectoryroleassignment) command with at least the [Directory Readers](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#directory-readers) role.
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.Read.Directory'
@@ -66,7 +66,7 @@ The `PrincipalId` specifies the account the role is assigned to, and the `RoleDe
 
 ## Assign roles
 
-To grant access to users in Microsoft Entra ID, assign Microsoft Entra roles. This section explains how to assign Microsoft Entra roles to users and groups. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role to complete the following tasks.
+To grant access to users in Microsoft Entra ID, assign Microsoft Entra roles. This section explains how to assign Microsoft Entra roles to users and groups. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator) role to complete the following tasks.
 
 ### Assign roles to users
 
@@ -156,7 +156,7 @@ New-EntraDirectoryRoleAssignment -RoleDefinitionId $directoryRole.Id -PrincipalI
 
 ## Create a custom role
 
-This section explains how to create new custom roles in Microsoft Entra ID with Microsoft Entra PowerShell. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role to complete the following task.
+This section explains how to create new custom roles in Microsoft Entra ID with Microsoft Entra PowerShell. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator) role to complete the following task.
 
 To create a new role, use the `New-EntraDirectoryRoleDefinition` cmdlet. 
 
@@ -185,7 +185,7 @@ Once you have created the role, you can assign it to [users or groups](#assign-r
 
 ## Clean up resources
 
-This section explains how to delete roles in Microsoft Entra ID with Microsoft Entra PowerShell. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) role to complete the following tasks.
+This section explains how to delete roles in Microsoft Entra ID with Microsoft Entra PowerShell. You need to have at least the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator) role to complete the following tasks.
 
 ### Remove role assignments
 
