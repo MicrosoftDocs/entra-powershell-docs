@@ -9,7 +9,7 @@ items:
     href: entraps-versioning-release-cadence.md
   - name: What's new?
     href: whats-new-docs.md
-- name: Getting started
+- name: Get started
   items:
   - name: Install the module
     href: installation.md
@@ -23,7 +23,7 @@ items:
       href: delegated-access-auth.md
     - name: Authenticate with app-only access
       href: app-only-access-auth.md
-- name: Learn
+- name: How-to guides
   items:
   - name: Manage users
     items:
@@ -55,12 +55,12 @@ items:
     href: /entra/identity-platform/howto-create-self-signed-certificate?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
   - name: Recover deleted data
     href: recover-deleted-data.md
-- name: Migrate
-  items:
-  - name: Run Azure AD PowerShell scripts in compatibility mode
-    href: migration-guide.md
-  - name: Azure AD PowerShell cmdlet map
-    href: azuread-powershell-to-entra-powershell-mapping.md  
+  - name: Migrate
+    items:
+    - name: Run Azure AD PowerShell scripts in compatibility mode
+      href: migration-guide.md
+    - name: Azure AD PowerShell cmdlet map
+      href: azuread-powershell-to-entra-powershell-mapping.md 
 - name: Resources
   items:
   - name: Best practices
@@ -69,6 +69,8 @@ items:
     href: entra-powershell-faqs.yml
   - name: Troubleshoot common errors
     href: troubleshooting.md
+  - name: Microsoft Entra roles
+    href: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
 
 metadata:
   universal_ref_toc: /powershell/module/entra-powershell/toc.json

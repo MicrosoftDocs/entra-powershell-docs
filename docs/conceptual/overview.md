@@ -28,7 +28,7 @@ Microsoft Entra PowerShell provides the following benefits:
 
 ## Migrate from Azure AD PowerShell module
 
-Microsoft Entra PowerShell is over 98% compatible with the Azure AD PowerShell module and selected MSOnline cmdlets. By using the [Enable-EntraAzureADAlias][enable-entraazureadalis] command, you only need to update one or two lines in your existing scripts, making migration to Microsoft Entra PowerShell quick and effortless. For more information on how to migrate from the legacy modules to Microsoft Entra PowerShell, see the [Migration guide][migration-guide].
+Microsoft Entra PowerShell is over 98% compatible with the Azure AD PowerShell module and over 80% parity with MSOnline cmdlets. By using the [Enable-EntraAzureADAlias][enable-entraazureadalis] command, you only need to update one or two lines in your existing scripts, making migration to Microsoft Entra PowerShell quick and effortless. For more information on how to migrate from the legacy modules to Microsoft Entra PowerShell, see the [Migration guide][migration-guide].
 
 ## Installation and get started
 
@@ -48,10 +48,6 @@ The following section outlines the known issues with the Microsoft Entra PowerSh
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
 | `-All` parameter          | We don't support `-All` Boolean parameter as was the case with Azure AD PowerShell module. `-All` is supported as a switch parameter. | Replace `-All:$true` with `-All` parameter in your scripts. |
 | `-SearchString` parameter | The parameter `-SearchString` might not work as expected.                                                                             |
-
-## External learning resources
-
-Watch John Savill's video for an in-depth [overview of how Microsoft Entra PowerShell works](https://www.youtube.com/watch?v=YOgpAkshmYI).
 
 ## Next steps
 
