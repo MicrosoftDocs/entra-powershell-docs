@@ -4,7 +4,7 @@ metadata:
   description: "Frequently Asked Questions about Microsoft Entra PowerShell."
 
   ms.topic: faq
-  ms.date: 06/26/2024
+  ms.date: 01/21/2025
   ms.service: entra
   author: omondiatieno
   manager: CelesteDG
@@ -24,31 +24,31 @@ sections:
       - question: |
           What is the difference between Microsoft Graph PowerShell SDK and Microsoft Entra PowerShell modules?
         answer: |
-          Microsoft Entra PowerShell is a part of our increased investment in Microsoft Graph PowerShell SDK. It brings high-quality and scenario-optimized Entra resource management to the Microsoft Graph PowerShell SDK. Still, it keeps all the benefits of Microsoft Graph PowerShell SDK for authorization, connection management, error handling, and (low-level) API coverage. As the module builds on the Microsoft Graph PowerShell SDK, it's interoperable.
+          Microsoft Entra PowerShell is a part of our increased investment in Microsoft Graph PowerShell SDK. It brings high-quality and scenario-optimized Microsoft Entra resource management to the Microsoft Graph PowerShell SDK. Still, it keeps all the benefits of Microsoft Graph PowerShell SDK for authorization, connection management, error handling, and (low-level) API coverage. As the module builds on the Microsoft Graph PowerShell SDK, it's interoperable.
 
       - question: |
           Is the Microsoft Entra PowerShell module compatible with Microsoft Graph PowerShell?  
         answer: |
-          Yes. You don't need to switch if you already use the Microsoft Graph PowerShell module. Both modules work together, and whether you use Entra module cmdlets or Microsoft Graph PowerShell SDK cmdlets for Entra resources is a matter of preference.
+          Yes. You don't need to switch if you already use the Microsoft Graph PowerShell module. Both modules work together, and whether you use Microsoft Entra PowerShell module cmdlets or Microsoft Graph PowerShell SDK cmdlets to manage Microsoft Entra resources is a matter of preference.
 
       - question: |
           I need to migrate from the deprecated modules. Should I wait for Microsoft Entra PowerShell?
         answer: |
-          One of our goals with Microsoft Entra PowerShell is to help you migrate faster from AzureAD PowerShell. The module supports [simplified migration](migration-guide.md) for scripts that previously used AzureAD PowerShell, with over 98% compatibility by enabling the [Enable-EntraAzureADAlias](/powershell/module/microsoft.graph.entra/enable-entraazureadalias) setting. However, it’s important to note that the legacy modules are now deprecated and will be retired (stop working) after March 30, 2025. We recommend that you act now to begin migrating your MSOnline and AzureAD PowerShell scripts. Both Microsoft Entra PowerShell and the Microsoft Graph PowerShell SDK use the latest Microsoft Graph APIs. 
+          One of our goals with Microsoft Entra PowerShell is to help you migrate faster from Azure AD PowerShell. The module supports [simplified migration](migration-guide.md) for scripts that previously used Azure AD PowerShell, with over 98% compatibility by enabling the [Enable-EntraAzureADAlias](/powershell/module/microsoft.entra/enable-entraazureadalias) setting. However, it’s important to note that the legacy modules are now deprecated and will be retired (stop working) after March 30, 2025. We recommend that you act now to begin migrating your MSOnline and Azure AD PowerShell scripts. Both Microsoft Entra PowerShell and the Microsoft Graph PowerShell SDK use the latest Microsoft Graph APIs. 
           
-          For test environments and nonproduction systems, you can migrate to Microsoft Entra PowerShell. We recommend migrating to the module for production systems only after it reaches General Availability. If you migrate scripts to Microsoft Graph PowerShell SDK now, there's no need to update them again with Microsoft Entra PowerShell. The module enhances without replacing Microsoft Graph PowerShell SDK.
+          For test environments and non-production systems, you can migrate to Microsoft Entra PowerShell. We recommend migrating to the module for production systems only after it reaches general availability. If you migrate scripts to Microsoft Graph PowerShell SDK now, there's no need to update them again with Microsoft Entra PowerShell. The module works without replacing Microsoft Graph PowerShell SDK.
 
       - question: |
           Should I update Microsoft Graph PowerShell scripts to Microsoft Entra PowerShell?
         answer: |
-          No, Microsoft Entra PowerShell is part of the Microsoft Graph PowerShell, and the two modules are interoperable. You can install both modules side-by-side.
+          No. Microsoft Entra PowerShell is part of the Microsoft Graph PowerShell, and the two modules are interoperable. You can install both modules side-by-side.
 
       - question: |
-          Is Microsoft Entra PowerShell a preconsented module like Azure AD or MSOnline PowerShell?
+          Is Microsoft Entra PowerShell a pre-consented module like Azure AD PowerShell or MSOnline?
         answer: |
-          No, Microsoft Entra PowerShell permissions aren't preauthorized, and users must request the specific app permissions needed. This granularity ensures that the application has only the necessary permissions, providing granular control over resource management. 
+          No. Microsoft Entra PowerShell permissions aren't pre-authorized, and users must request the specific app permissions needed. This granularity ensures that the application has only the necessary permissions, providing granular control over resource management. 
           
-          For maximum flexibility and granularity in application permissions, we recommend creating a [custom application](create-custom-application.md) with Microsoft Entra PowerShell. By creating different applications for different uses of PowerShell in your tenant, you can have control over application permissions granted for specific scenarios. To use your own application identity with Microsoft Entra PowerShell, you can use the [Connect-Entra](/powershell/module/microsoft.graph.entra/connect-entra) cmdlet. For example:
+          For maximum flexibility and granularity in application permissions, we recommend creating a [custom application](create-custom-application.md) with Microsoft Entra PowerShell. By creating different applications for different uses of PowerShell in your tenant, you can have control over application permissions granted for specific scenarios. To use your own application identity with Microsoft Entra PowerShell, you can use the [Connect-Entra](/powershell/module/microsoft.entra/connect-entra) cmdlet. For example:
             
           ```powershell
           Connect-Entra -ClientId 'YOUR_APP_ID'

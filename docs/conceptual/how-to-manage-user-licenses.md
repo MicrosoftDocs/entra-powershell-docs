@@ -138,7 +138,7 @@ $licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licenses.AddLicenses = $license
 
 # Assign the license to the user
-Set-EntraUserLicense -ObjectId $user.Id-AssignedLicenses $licenses
+Set-EntraUserLicense -UserId $user.Id -AssignedLicenses $licenses
 ```
 
 To confirm that the license is assigned to the user, run:
@@ -176,7 +176,7 @@ $licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licenses.AddLicenses = $license1, $license2
 
 # Assign the licenses to the user
-Set-EntraUserLicense -ObjectId $user.ObjectId -AssignedLicenses $licenses
+Set-EntraUserLicense -UserId $user.Id -AssignedLicenses $licenses
 ```
 
 ### Assign a license to a user by copying license from another user
@@ -202,7 +202,7 @@ foreach ($license in $sourceUserLicenses) {
     $assignedLicense = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
     $assignedLicense.SkuId = $license.SkuId
     $licensesToAssign.AddLicenses= $assignedLicense
-    Set-EntraUserLicense -ObjectId $targetUser.ObjectId -AssignedLicenses $licensesToAssign
+    Set-EntraUserLicense -UserId $targetUser.Id -AssignedLicenses $licensesToAssign
 }
 ```
 
@@ -236,7 +236,7 @@ $licenses.AddLicenses = $license1, $license2
 
 # Assign the licenses to each user
 foreach ($user in $users$users) {
- Set-EntraUserLicense -ObjectId $user -AssignedLicenses $licenses
+ Set-EntraUserLicense -UserId $user -AssignedLicenses $licenses
 }
 ```
 
@@ -269,12 +269,10 @@ $licensesToRemove = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLi
 $licensesToRemove.RemoveLicenses = $skuId
 
 # Remove the assigned license
-Set-EntraUserLicense -ObjectId $user.Id -AssignedLicenses $licensesToRemove
+Set-EntraUserLicense -UserId $user.Id -AssignedLicenses $licensesToRemove
 ```
 
 ## Related content
 
 - [Manage users](manage-user.md)
 - [Manage groups](manage-groups.md)
-
-

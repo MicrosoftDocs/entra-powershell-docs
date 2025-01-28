@@ -2,10 +2,10 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 10/23/2024
-author: omondiatieno
+ms.date: 01/23/2025
+author: msewaweru
 manager: CelesteDG
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi254
 
 zone_pivot_groups: entra-powershell-whats-new
@@ -13,7 +13,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 keywords: Microsoft Entra powershell, entra-powershell, manage entra resources using powershell, entra powershell new features, what's new in entra powershell
 
-#customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module.
+#customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module and all the related doc updates.
 ---
 
 # What's new in the Microsoft Entra PowerShell module
@@ -24,55 +24,91 @@ This article lists all new articles that were added or had significant updates i
 
 ## What's new in docs
 
-### September 2024
-
-**Updated articles**
-
-- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md) - Fixed broken links caused by the renaming of certain cmdlets.
-- [Manage groups](manage-groups.md) - Added example improvements.
-- [Manage users](manage-user.md) - Added example improvements.
-- [What is Microsoft Entra PowerShell (preview)?](overview.md) - Added link to an external video.
-
-### August 2024
-
-**Updated articles**
-
-- [Azure AD  PowerShell cmdlet map][cmdlet-map] - Updated the cmdlet map with new cmdlet equivalents in Microsoft Entra PowerShell.
-
-### July 2024
+### December 2024
 
 **New articles**
 
-- [Azure AD  PowerShell cmdlet map][cmdlet-map] -  Find the equivalent cmdlets in Microsoft Entra PowerShell for deprecated Azure AD, Azure AD Preview, and MSOnline PowerShell modules to accelerate migration.
-- [Assign app roles to a service principal][assign-app-roles] - Assign app roles in Microsoft Entra PowerShell to automate application consent.
+- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md) - Consolidated the steps to get started with the Microsoft Entra PowerShell module.
 
 **Updated articles**
 
-- The [reference TOC](/powershell/module/microsoft.graph.entra) is updated to group cmdlets for easier navigation.
+- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md) - Updated the article with minor edits.
+- [Troubleshoot the Microsoft Entra PowerShell module](troubleshooting.md) - Updated the troubleshooting article to use a consistent format.
 
-### June 2024
+### November 2024
 
 **New articles**
 
-- [Microsoft Entra PowerShell overview (preview)](overview.md) - What is Microsoft Entra PowerShell, and how can you use it to manage Microsoft Entra resources?
-- [Get started with the Microsoft Entra PowerShell module](quickstart-entra-powershell.md) - Learn the core concepts and get started with the Microsoft Entra PowerShell module.
-- [Navigate the Microsoft Entra PowerShell module](navigate-entra-powershell.md) - Learn how to navigate the Microsoft Entra PowerShell module to manage Microsoft Entra resources.
-- [Install the Microsoft Entra PowerShell module](installation.md) - New article on how to install the Microsoft Entra PowerShell module.
-- [Manage users with Microsoft Entra PowerShell](manage-user.md)
-- [Manage apps with Microsoft Entra PowerShell](manage-apps.md)  
-- [Manage groups with Microsoft Entra PowerShell](manage-groups.md)
-- [Authentication scenarios](authentication-scenarios.md)- New article on using [App-only authentication](app-only-access-auth.md) and [Delegated authentication](delegated-access-auth.md).
-- [Create a custom application](create-custom-application.md) - New article on creating a custom application in Microsoft Entra PowerShell.
-- [Migration guide](migration-guide.md) - New article on how to migrate from Azure AD PowerShell to Microsoft Entra PowerShell.
-- [Troubleshoot common errors in Microsoft Entra PowerShell](troubleshooting.md) - New article on how to troubleshoot and fix common errors in Microsoft Entra PowerShell.
-- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md) - Best practices for using the Microsoft Entra PowerShell module to boost performance, enhance security, and scale reliably.
-- [Versioning, release cadence, and breaking changes](entraps-versioning-release-cadence.md) - Understand the versioning, release schedule, and breaking change policies to manage updates effectively and reduce the risk of disruptions.
+- [Grant and revoke API permissions](how-to-grant-revoke-api-permissions.md): Learn how to grant and revoke API permissions for an application.
+- [Manage guest users with Microsoft Entra PowerShell](manage-guest-users.md): Learn how to manage guest users in your organization.
+- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md): Learn how to recover deleted data using Microsoft Entra PowerShell.
+
+**Updated articles**
+
+- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md): Added equivalents for the app proxy cmdlets. 
+- [Install the Microsoft Entra PowerShell module](installation.md): Updated the article in response to customer feedback.
+
+### October 2024
+
+**New articles**
+
+- [Manage devices](manage-devices.md): How to manage device identities and monitoring related events.
+- [Manage stale devices](manage-stale-devices.md): Best practices for efficient device management and compliance.
+- [Manage roles](manage-roles.md): How to assign roles to users.
+- [Manage user licenses](how-to-manage-user-licenses.md): How to manage Microsoft Entra user licenses.
+
+**Updated Articles**
+
+- [Assign app roles to a service principal](create-assign-app-roles.md): Enhanced parameter usability, replacing `ObjectId` with `UserId`.
+- [Create a custom application](create-custom-application.md): Added a PowerShell script for custom app creation.
+- [Manage apps](manage-apps.md): 
+  - Updated usability parameter switches.
+  - Added a section on listing applications that don’t require user assignment.
+- [Manage groups](manage-groups.md): Updated usability parameter switches.
+- [Manage users with Microsoft Entra PowerShell](manage-user.md): Updated usability parameter switches.
+- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md): Updated usability parameter switches.
+- [Migrate to Microsoft Entra PowerShell](migration-guide.md): Updated usability parameter switches.
 
 :::zone-end
 
 :::zone pivot="module-version-history"
 
+## The latest (recommended) version
+
+- [Version 0.22.0][posh-0.22.0] - **January 2025**
+
+  - **New capability**: Install submodules automatically when installing the umbrella module (Microsoft.Entra).
+  - **New Commands**: `Get-EntraDeletedAdministrativeUnit`, `Get-EntraDeletedDevice`, `Get-EntraUserAuthenticationMethod`, `Get-EntraUserInactiveSignIn`, `Get-EntraDeletedUser`, `Update-EntraOauth2PermissionGrant`, `Get-EntraUserAdministrativeUnit`, `Get-EntraUserRole`, `Get-EntraUserGroup`, and `Get-EntraDeletedServicePrincipal`.
+  - **Bug Fixes**:
+    - Fixed [#1178](https://github.com/microsoftgraph/entra-powershell/issues/1178): Add a command to update an existing OAuth2PermissionGrant.
+    - Fixed [#1147](https://github.com/microsoftgraph/entra-powershell/issues/1147): Add `-Limit` as an alias for `-Top` and `-Select` as an alias for `-Property`.
+    - Fixed [#929](https://github.com/microsoftgraph/entra-powershell/issues/929): Refactored Connect-Entra to act as a proxy command for `Connect-MgGraph`.
+  - **Enhancements**:
+    - Improved examples for over 100 cmdlets.
+
 ## Module version history
+
+- [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
+
+  - **Bug fixes**: Fixed bugs caused by splitting the Entra PowerShell module into modular submodules (failing tests, pipeline updates).  
+  - **Dependency version update**: Upgraded Microsoft Graph PowerShell SDK from `2.15.0` to `2.25.0`.
+
+- [Version 0.20.0-preview][posh-0.20.0] - **December 2024**
+
+  - **Engineering build**: Split the module into submodules.
+  - **Module rename**: Renamed the module from `Microsoft.Graph.Entra` to `Microsoft.Entra`.
+
+- [Version 0.19.0-preview][posh-0.19.0] - **November 2024**
+
+  - **New Global Secure Access Commands**: Added four cmdlets: `Enable-EntraBetaGlobalSecureAccessTenant`, `New-EntraBetaPrivateAccessApplication`, `Get-EntraBetaPrivateAccessApplication`, and `Get-EntraBetaGlobalSecureAccessTenantStatus`.
+  - **Bug Fixes**:
+    - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain Beta commands.
+    - Fixed [#1163](https://github.com/microsoftgraph/entra-powershell/issues/1163): Removed duplicate examples.
+  - **Enhancements**:
+    - Improved examples for over 130 cmdlets.
+    - Added directory sync features and configurations examples.
+  - **Security**:
+    - Implemented security hardening measures in the release pipeline.
 
 - [Version 0.18.0-preview][posh-0.18.0] - **October 2024**
 
@@ -116,7 +152,7 @@ This article lists all new articles that were added or had significant updates i
 
 - [Version 0.14.0-preview][posh-0.14.0] - **August 2024**
 
-  - The `Get-EntraUser` cmdlet updated and no longer returns the `SignInActivity` by default. To retrieve sign-in activity, refer to [this example](/powershell/module/microsoft.graph.entra/get-entrauser#example-6-get-signinactivity-of-a-user).
+  - The `Get-EntraUser` cmdlet updated and no longer returns the `SignInActivity` by default. To retrieve sign-in activity, refer to [this example](/powershell/module/microsoft.entra/get-entrauser#example-6-get-signinactivity-of-a-user).
   - Added 17 net new cmdlets (Custom Security attributes, Application template, Feature Rollout policy, Audit Directory logs, Audit sign in Logs, Administrative Unit)
   - Improved documentation for over 25 existing cmdlets.
   - Added documentation for more than 20 v1.0 cmdlets.
@@ -157,6 +193,10 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-0.22.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/0.22.0
+[posh-0.21.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.21.0-preview
+[posh-0.20.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.20.0-preview
+[posh-0.19.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.19.0-preview
 [posh-0.18.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.18.0-preview
 [posh-0.17.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.17.0-preview
 [posh-0.16.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.16.0-preview

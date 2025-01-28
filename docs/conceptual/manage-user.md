@@ -1,6 +1,6 @@
 ---
 title: "Manage users with Microsoft Entra PowerShell"
-description: "Learn how to use app-only authentication to enable non-interactive scenarios with the Microsoft Entra PowerShell SDK."
+description: "This article provides IT admins with instructions on how to use Microsoft Entra PowerShell for user management tasks. It covers creating users, tracking sign-in activity, managing group memberships and roles, handling user photos, and off-boarding procedure."
 
 author: omondiatieno
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.date: 10/15/2024
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
-#customer intent: As a developer, I want to authenticate with Microsoft Entra using app-only access, so that I can perform non-interactive operations, such as listing users and groups, using the Microsoft Entra PowerShell SDK.
+#customer intent: As an IT admin, I want to learn how to effectively manage users in my organization using Microsoft Entra PowerShell, so that I can perform tasks such as creating users, retrieving user sign-in activity, managing user's group memberships and roles, and off-boarding users efficiently.
 ---
 
 # Manage users with Microsoft Entra PowerShell
@@ -52,9 +52,9 @@ New-EntraUser @userParams
 ```
 
 ```Output
-DisplayName    Id                                   Mail UserPrincipalName
------------    --                                   ---- -----------------
-New User aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb      NewUser@contoso.com
+DisplayName    Id                                     Mail    UserPrincipalName
+-----------    --                                     ----    -----------------
+New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.com
 ```
 
 ### Retrieve a user's sign-in activity
@@ -63,34 +63,39 @@ The following example shows how to retrieve the sign-in activity of a specific u
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All','AuditLog.Read.All'
-Get-EntraUser -UserId 'SawyerM@contoso.com' -Property 'SignInActivity' | Select-Object -ExpandProperty 'SignInActivity'
+Get-EntraUser -UserId 'SawyerM@contoso.com' -Property 'SignInActivity' | 
+  Select-Object -Property Id, DisplayName, UserPrincipalName -ExpandProperty 'SignInActivity'
 ```
 
 ```Output
-lastSignInDateTime                : 07/09/2024 09:15:41
-lastNonInteractiveSignInDateTime  : 07/09/2024 07:15:41
+lastNonInteractiveSignInRequestId : bbbbbbbb-1111-2222-3333-aaaaaaaaaaaa
+lastSignInRequestId               : cccccccc-2222-3333-4444-dddddddddddd
+lastSuccessfulSignInDateTime      : 9/9/2024 1:12:13 PM
+lastNonInteractiveSignInDateTime  : 9/9/2024 1:12:13 PM
 lastSuccessfulSignInRequestId     : bbbbbbbb-1111-2222-3333-aaaaaaaaaaaa
-lastNonInteractiveSignInRequestId : 00001111-aaaa-2222-bbbb-3333cccc4444
-lastSignInRequestId               : bbbbbbbb-1111-2222-3333-aaaaaaaaaaaa
-lastSuccessfulSignInDateTime      : 07/09/2024 09:15:41
+lastSignInDateTime                : 9/7/2024 9:15:41 AM
+id                                : aaaaaaaa-bbbb-cccc-1111-222222222222
+displayName                       : Sawyer Miller
+userPrincipalName                 : SawyerM@contoso.com
 ```
 
 ### List a user's group memberships
 
-1. List a user’s group memberships.
+The following example lists the groups that a user is a member of.
 
 ```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserMembership -UserId 'SawyerM@contoso.com'
+Connect-Entra -Scopes 'User.Read'
+Get-EntraUserMembership -UserId 'SawyerM@contoso.com' |
+ Select-Object Id, displayName, createdDateTime, '@odata.type' |
+ Format-Table -AutoSize
 ```
 
 ```Output
-Id                                   DeletedDateTime
---                                   ---------------
-eeeeeeee-4444-5555-6666-ffffffffffff
-ffffffff-5555-6666-7777-gggggggggggg
-gggggggg-6666-7777-8888-hhhhhhhhhhhh
-hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
+Id                                   displayName                         createdDateTime      @odata.type
+--                                   -----------                         ---------------      -----------
+00aa00aa-bb11-cc22-dd33-44ee44ee44ee Contoso                             2024-10-06T08:49:16Z #microsoft.graph.group
+22cc22cc-dd33-ee44-ff55-66aa66aa66aa Contoso marketing                   2024-10-07T01:17:28Z #microsoft.graph.group
+55ff55ff-aa66-bb77-cc88-99dd99dd99dd Pacific Admin Unit                                       #microsoft.graph.administrativeUnit
 ```
 
 ### Get a user's manager, direct reports and assign a manager to a user
@@ -99,29 +104,34 @@ hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserManager -UserId 'SawyerM@contoso.com'
+Get-EntraUserManager -UserId 'SawyerM@contoso.com' |
+    Select-Object Id, displayName, userPrincipalName, createdDateTime, accountEnabled, userType |
+    Format-Table -AutoSize
 ```
 
 ```Output
-    Id                                   DeletedDateTime
---                                   ---------------
-eeeeeeee-4444-5555-6666-ffffffffffff
+id                                    displayName     userPrincipalName                    createdDateTime           accountEnabled  userType
+--                                    -----------     -----------------                    ---------------           --------------  --------
+11bb11bb-cc22-dd33-ee44-55ff55ff55ff  Patti Fernandez PattiF@Contoso.com                 10/7/2024 12:32:01 AM      True           Member
 ```
 
-1. List the users who report to a specific user.
+2. List the users who report to a specific user.
 
 ```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com'
+Connect-Entra -Scopes 'User.Read','User.Read.All'
+Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com' |
+    Select-Object Id, displayName, userPrincipalName, createdDateTime, accountEnabled, userType |
+    Format-Table -AutoSize
 ```
 
 ```Output
-    Id                                   DeletedDateTime
---                                   ---------------
-eeeeeeee-4444-5555-6666-ffffffffffff
+id                                    displayName     userPrincipalName           createdDateTime       accountEnabled  userType
+--                                    -----------     -----------------           ---------------       --------------  --------
+bbbbbbbb-1111-2222-3333-cccccccccccc  Christie Cline  ChristieC@Contoso.com       10/7/2024 12:32:25 AM  True           Member
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb  Isaiah Langer   IsaiahL@Contoso.com         10/7/2024 12:33:16 AM  True           Member
 ```
 
-1. Assign a manager to a user.
+3. Assign a manager to a user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -134,7 +144,7 @@ Set-EntraUserManager -UserId 'SawyerM@contoso.com' -RefObjectId $manager.Id
 
 ## List inactive users
 
-1. The following example generates a list of disabled accounts.
+The following example generates a list of disabled accounts.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -144,8 +154,8 @@ Get-EntraUser -Filter "accountEnabled eq false" | Select-Object DisplayName, Id,
 ```Output
 DisplayName    Id                                   Mail userPrincipalName
 -----------    --                                   ---- -----------------
-Sawyer Miller hhhhhhhh-7777-8888-9999-iiiiiiiiiiii      SawyerM@contoso.com
-Kez Michael   eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
+Sawyer Miller  hhhhhhhh-7777-8888-9999-iiiiiiiiiiii      SawyerM@contoso.com
+Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 ```
 
 ### Upload or retrieve a photo for the user
@@ -159,14 +169,14 @@ Set-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com' -FilePath 'D:\UserThum
 
 This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
 
-1. Retrieve a user’s photo.
+2. Retrieve a user’s photo.
 
 ```powershell
 Connect-Entra -Scopes 'ProfilePhoto.Read.All'
 Get-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com'
 ```
 
-This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the UserId parameter.
+This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the `UserId` parameter.
 
 ### Grant users administrative roles in your organization
 
@@ -179,7 +189,7 @@ $user = Get-EntraUser -Filter "UserPrincipalName eq 'SawyerM@contoso.com'"
 Add-EntraDirectoryRoleMember -DirectoryRoleId $directoryRole.Id -RefObjectId $user.Id
 ```
 
-This command adds a user to a Microsoft Entra role. To retrieve roles, use the command [Get-EntraDirectoryRole](/powershell/module/microsoft.graph.entra/get-entradirectoryrole).
+This command adds a user to a Microsoft Entra role. To retrieve roles, use the command [Get-EntraDirectoryRole](/powershell/module/microsoft.entra/get-entradirectoryrole).
 
 - `-DirectoryRoleId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
 - `-RefObjectId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
@@ -195,7 +205,7 @@ Revoke-EntraUserAllRefreshToken -UserId 'SawyerM@contoso.com'
 
 Revoking authentication tokens invalidates them, thus preventing reaccess through cached logins or remembered sessions.
 
-1. Disable a user.
+2. Disable a user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -204,7 +214,7 @@ Set-EntraUser -UserId 'SawyerM@contoso.com' -AccountEnabled $false
 
 Disabling the account instantly blocks the user from accessing company resources, applications, and data.
 
-1. Reset a user's password.
+3. Reset a user's password.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
@@ -214,7 +224,7 @@ Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
 
 Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
-1. Disable a user's device.
+4. Disable a user's device.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
@@ -225,7 +235,7 @@ Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
 
 Disabling a user's device helps safeguard the organization's security, data, and resources.
 
-1. Remove a user account.
+5. Remove a user account.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
@@ -235,7 +245,7 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 > [!Note]
 > You can also reclaim any licenses for software and services that were assigned to the user.
 
-## Next steps
+## Related content
 
 - [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]

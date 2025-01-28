@@ -43,8 +43,8 @@ conceptualContent:
         - text: Install the module
           url: /powershell/entra-powershell/installation
           itemType: how-to-guide
-        - text: Quickstart guide
-          url: /powershell/entra-powershell/quickstart-entra-powershell
+        - text: Navigate the module
+          url: /powershell/entra-powershell/navigate-entraps
           itemType: quickstart
     ## CARD 2 ######################
     - title: Common use cases
@@ -52,18 +52,18 @@ conceptualContent:
         - text: Manage users
           url: /powershell/entra-powershell/manage-user
           itemType: how-to-guide
+        - text: Manage user licenses
+          url: /powershell/entra-powershell/how-to-manage-user-licenses
+          itemType: how-to-guide
+        - text: Manage devices
+          url: /powershell/entra-powershell/manage-devices
+          itemType: how-to-guide
         - text: Manage groups
           url: /powershell/entra-powershell/manage-groups
-          itemType: how-to-guide
+          itemType: how-to-guide          
         - text: Manage apps
           url: /powershell/entra-powershell/manage-apps
           itemType: how-to-guide
-        - text: Manage user licenses
-          url: /powershell/entra-powershell/how-to-manage-user-licenses
-          itemType: how-to-guide          
-        - text: Assign app roles to a service principal
-          url: /powershell/entra-powershell/create-assign-app-roles
-          itemType: how-to-guide  
     ## CARD 3 ######################
     - title: Migrate
       links:
@@ -77,13 +77,13 @@ conceptualContent:
     - title: Reference
       links:
         - text: v1.0 cmdlet reference
-          url: /powershell/module/microsoft.graph.entra
+          url: /powershell/module/microsoft.entra
           itemType: reference
         - text: Beta cmdlet reference
-          url: /powershell/module/microsoft.graph.entra.beta
+          url: /powershell/module/microsoft.entra.beta
           itemType: reference
         - text: PowerShell Gallery
-          url: https://www.powershellgallery.com/packages?q=Microsoft.Graph.Entra
+          url: https://www.powershellgallery.com/packages?q=Microsoft.Entra
           itemType: reference
     
 ## BAND 2 - CONCEPTUAL CONTENT END #############################################################################################################################
@@ -112,8 +112,7 @@ additionalContent:
         # Card
         - title: Community
           summary: Connect with other Microsoft Entra PowerShell users. 
-          url: https://techcommunity.microsoft.com/t5/forums/searchpage/
+          url: https://techcommunity.microsoft.com/category/microsoftsecurityandcompliance/discussions/azure-active-directory
   # footer (Optional; Remove if not applicable.)
   footer: "[Provide product feedback](https://github.com/microsoftgraph/entra-powershell/issues/new/choose)"
 ## BAND 3 - ADDITIONAL CONTENT END #############################################################################################################################
-
