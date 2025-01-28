@@ -222,6 +222,6 @@ For more connection options, see the [Connect-Entra][connect-entra-command] comm
 
 <!-- link references -->
 [entra-admin-portal]: https://entra.microsoft.com/
-[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator
+[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
 [connect-entra-command]: /powershell/module/microsoft.entra/connect-entra
 [entraid-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
