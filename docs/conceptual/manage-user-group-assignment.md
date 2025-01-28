@@ -194,8 +194,8 @@ The following example demonstrates how to use Microsoft Entra PowerShell to unas
 
 [installation]: installation.md
 [create-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[app-admin]: /entra/identity/role-based-access-control/permissions-reference#application-administrator
-[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator
+[app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
+[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
 [manage-user.md]: manage-user.md
 [manage-apps]: manage-apps.md
 [get-service-principal-app-role-assignto]: /powershell/module/microsoft.graph.entra/get-entraserviceprincipalapproleassignedto
