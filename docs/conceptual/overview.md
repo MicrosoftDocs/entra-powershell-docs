@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft Entra PowerShell overview (preview)?
+title: What is Microsoft Entra PowerShell overview?
 description: "Learn about the features of Microsoft Entra PowerShell that help you derive insights and analytics, and build unique, intelligent apps in Microsoft Entra ID."
 ms.topic: overview
 ms.date: 01/21/2025

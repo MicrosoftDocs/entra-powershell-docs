@@ -18,7 +18,7 @@ keywords: Microsoft Entra powershell, entra-powershell, manage entra resources u
 
 # What's new in the Microsoft Entra PowerShell module
 
-This article lists all new articles that were added or had significant updates in the last month. It also lists the new features in the Microsoft Entra PowerShell module, currently in public preview, to manage Microsoft Entra resources.
+This article lists all new articles that were added or had significant updates in the last month. It also lists the new features in the Microsoft Entra PowerShell module to manage Microsoft Entra resources.
 
 :::zone pivot="whats-new-in-docs"
 
