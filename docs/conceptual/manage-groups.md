@@ -19,7 +19,7 @@ In this tutorial, you learn how to create, edit, update, and delete a group usin
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install the latest Microsoft Entra PowerShell module. For more information, see [Install the Microsoft Entra PowerShell module](installation.md).
-- Have at least the [Groups Administrator role](/entra/identity/role-based-access-control/permissions-reference#groups-administrator).
+- Have at least the [Groups Administrator role](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#groups-administrator).
 
 ## Create groups
 
