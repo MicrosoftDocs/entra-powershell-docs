@@ -153,7 +153,7 @@ When configured, BitLocker keys for Windows 10 or newer devices are stored on th
 
 <!-- link references -->
 
-[cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator  
+[cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-device-administrator  
 [installation]: installation.md
 [free-entra-id]: https://azure.microsoft.com/free/entra-id
 [set-device]: /powershell/module/microsoft.entra/set-entradevice
