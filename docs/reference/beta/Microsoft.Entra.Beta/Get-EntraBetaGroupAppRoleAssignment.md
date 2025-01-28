@@ -43,8 +43,8 @@ The `Get-EntraBetaGroupAppRoleAssignment` cmdlet gets a group application role a
 
 ```powershell
 Connect-Entra -Scopes 'Directory.Read.All'
-$group = Get-EntraBetaGroup -SearchString 'Contoso marketing'
-Get-EntraBetaGroupAppRoleAssignment -GroupId $group.Id
+$GroupId = (Get-EntraBetaGroup -Top 1).ObjectId
+Get-EntraBetaGroupAppRoleAssignment -GroupId $GroupId
 ```
 
 ```Output
@@ -63,8 +63,7 @@ This example retrieves the application role assignments of a group.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.Read.All'
-$group = Get-EntraBetaGroup -SearchString 'Contoso marketing'
-Get-EntraBetaGroupAppRoleAssignment -GroupId $group.Id -All
+Get-EntraBetaGroupAppRoleAssignment -GroupId 'eeeeeeee-4444-5555-6666-ffffffffffff' -All
 ```
 
 ```Output
@@ -83,8 +82,7 @@ This example retrieves all application role assignments of the specified group.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.Read.All'
-$group = Get-EntraBetaGroup -SearchString 'Contoso marketing'
-Get-EntraBetaGroupAppRoleAssignment -GroupId $group.Id -Top 2
+Get-EntraBetaGroupAppRoleAssignment -GroupId 'cccccccc-8888-9999-0000-dddddddddddd' -Top 2
 ```
 
 ```Output

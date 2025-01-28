@@ -55,24 +55,20 @@ To list members of a hidden group, the `Member.Read.Hidden` permission is also r
 
 ## Examples
 
-### Example 1: Retrieve and Select Group Member Properties
+### Example 1: Get a group member by ID
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroup -GroupId $group.Id | Get-EntraBetaGroupMember | Select-Object Id, DisplayName, '@odata.type'
+Get-EntraBetaGroupMember -GroupId 'eeeeeeee-4444-5555-6666-ffffffffffff'
 ```
 
 ```Output
-Id                                   DisplayName       @odata.type                     
------------------------------------- ----------------- -------------------------------
-dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
-eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
-aaaaaaaa-6666-7777-8888-bbbbbbbbbbbb My Application    #microsoft.graph.servicePrincipal
-cccccccc-8888-9999-0000-dddddddddddd Contoso Group     #microsoft.graph.group
+Id                                   DeletedDateTime
+--                                   ---------------
+bbbbbbbb-7777-8888-9999-cccccccccccc
 ```
 
-This example retrieves the members of a specified group by its `GroupId` and selects only the `Id`, `DisplayName` and `@odata.type` properties for each member.
+This example demonstrates how to retrieve group member by ID.
 
 - `-GroupId` Specifies the ID of a group.
 
@@ -80,8 +76,7 @@ This example retrieves the members of a specified group by its `GroupId` and sel
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroupMember -GroupId $group.Id -Top 2
+Get-EntraBetaGroupMember -GroupId 'bbbbbbbb-7777-8888-9999-cccccccccccc' -Top 2
 ```
 
 ```Output
@@ -99,17 +94,17 @@ This example demonstrates how to retrieve top two groups from Microsoft Entra ID
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroupMember -GroupId $group.Id -All | Select-Object Id, DisplayName, '@odata.type'
+Get-EntraBetaGroupMember -GroupId 'dddddddd-9999-0000-1111-eeeeeeeeeeee' -All
 ```
 
 ```Output
-Id                                   DisplayName       @odata.type                     
------------------------------------- ----------------- -------------------------------
-dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
-eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
-aaaaaaaa-6666-7777-8888-bbbbbbbbbbbb My Application    #microsoft.graph.servicePrincipal
-cccccccc-8888-9999-0000-dddddddddddd Contoso Group     #microsoft.graph.group
+Id                                   DeletedDateTime
+--                                   ---------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee
+eeeeeeee-4444-5555-6666-ffffffffffff
+aaaaaaaa-6666-7777-8888-bbbbbbbbbbbb
+bbbbbbbb-7777-8888-9999-cccccccccccc
+cccccccc-8888-9999-0000-dddddddddddd
 ```
 
 This example retrieves all members within a group by group ID.
@@ -120,8 +115,7 @@ This example retrieves all members within a group by group ID.
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroupMember -GroupId $group.Id | Select-Object DisplayName, '@odata.type' 
+Get-EntraBetaGroupMember -GroupId 'tttttttt-0000-2222-0000-aaaaaaaaaaaa' | Select-Object DisplayName, '@odata.type' 
 ```
 
 ```Output

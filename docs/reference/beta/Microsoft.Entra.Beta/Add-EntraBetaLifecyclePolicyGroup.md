@@ -1,98 +1,52 @@
 ---
-title: Add-EntraLifecyclePolicyGroup
-description: This article provides details on the Add-EntraLifecyclePolicyGroup command.
-
+title: Enable-EntraAzureADAlias
+description: This article provides details on the Enable-EntraAzureADAlias command.
 
 ms.topic: reference
-ms.date: 07/22/2024
+ms.date: 06/26/2024
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 manager: CelesteDG
 author: msewaweru
 
-external help file: Microsoft.Entra.Beta.Groups-Help.xml
-Module Name: Microsoft.Entra.Beta
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Add-EntraBetaLifecyclePolicyGroup
+external help file: Microsoft.Entra.Beta.Users-Help.xml
+Module Name: Microsoft.Entra.Beta.Users
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Enable-EntraAzureADAlias
 
 schema: 2.0.0
 ---
 
-# Add-EntraBetaLifecyclePolicyGroup
+# Enable-EntraAzureADAlias
 
 ## Synopsis
 
-Adds a group to a lifecycle policy.
+Enables aliases for AzureAD commands.
 
 ## Syntax
 
 ```powershell
-Add-EntraBetaLifecyclePolicyGroup
- -GroupLifecyclePolicyId <String>
- -GroupId <String>
- [<CommonParameters>]
+Enable-EntraAzureADAlias
 ```
 
 ## Description
 
-The `Add-EntraBetaLifecyclePolicyGroup` cmdlet adds a group to a lifecycle policy in Microsoft Entra ID.
+Enables Azure AD command aliases in the current PowerShell session.
 
 ## Examples
 
-### Example 1
+### Example 1: Enable aliasing
 
 ```powershell
-Connect-Entra -Scopes 'Directory.ReadWrite.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Office365 group'"
-$policy = Get-EntraBetaGroupLifecyclePolicy | Select-Object -First 1
-Add-EntraBetaLifecyclePolicyGroup -GroupLifecyclePolicyId $policy.Id -GroupId $group.Id
+Enable-EntraAzureADAlias
 ```
 
-This example adds a group to the lifecycle policy.
-
-- `-GroupLifecyclePolicyId` parameter specifies the ID of the Lifecycle Policy add to the group.
-- `-GroupId`  parameter specifies the ID of the group add to the Lifecycle Policy.
+Enables all Azure AD prefixes for the current PowerShell session.
 
 ## Parameters
 
-### -GroupId
-
-Specifies the ID of a group in Microsoft Entra ID.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -GroupLifecyclePolicyId
-
-Specifies the ID of the lifecycle policy object in Microsoft Entra ID.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases: Id
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### CommonParameters
-
-This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## Inputs
 
-### System.String
+### None
 
 ## Outputs
 
@@ -101,7 +55,3 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 ## Notes
 
 ## Related Links
-
-[Get-EntraBetaLifecyclePolicyGroup](Get-EntraBetaLifecyclePolicyGroup.md)
-
-[Remove-EntraBetaLifecyclePolicyGroup](Remove-EntraBetaLifecyclePolicyGroup.md)

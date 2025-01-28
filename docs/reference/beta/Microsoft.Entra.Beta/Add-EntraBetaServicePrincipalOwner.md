@@ -1,105 +1,57 @@
 ---
-title: Add-EntraBetaServicePrincipalOwner
-description: This article provides details on the Add-EntraBetaServicePrincipalOwner command.
+title: Enable-EntraAzureADAlias
+description: This article provides details on the Enable-EntraAzureADAlias command.
 
 ms.topic: reference
-ms.date: 07/29/2024
+ms.date: 06/26/2024
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 manager: CelesteDG
+author: msewaweru
 
-external help file: Microsoft.Entra.Beta.Applications-Help.xml
-Module Name: Microsoft.Entra.Beta
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Add-EntraBetaServicePrincipalOwner
+external help file: Microsoft.Entra.Beta.Users-Help.xml
+Module Name: Microsoft.Entra.Beta.Users
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Enable-EntraAzureADAlias
 
 schema: 2.0.0
 ---
 
-# Add-EntraBetaServicePrincipalOwner
+# Enable-EntraAzureADAlias
 
 ## Synopsis
 
-Adds an owner to a service principal.
+Enables aliases for AzureAD commands.
 
 ## Syntax
 
 ```powershell
-Add-EntraBetaServicePrincipalOwner
- -ServicePrincipalId <String>
- -RefObjectId <String>
- [<CommonParameters>]
+Enable-EntraAzureADAlias
 ```
 
 ## Description
 
-The `Add-EntraBetaServicePrincipalOwner` cmdlet adds an owner to a service principal in Microsoft Entra ID.
+Enables Azure AD command aliases in the current PowerShell session.
 
 ## Examples
 
-### Example 1: Add a user as an owner to a service principal
+### Example 1: Enable aliasing
 
 ```powershell
-Connect-Entra -Scopes 'Application.ReadWrite.All','Application.ReadWrite.OwnedBy'
-$servicePrincipal = Get-EntraBetaServicePrincipal -Filter "displayName eq 'Helpdesk Application'"
-$owner = Get-EntraBetaUser -UserId 'SawyerM@contoso.com'
-Add-EntraBetaServicePrincipalOwner -ServicePrincipalId $servicePrincipal.Id -RefObjectId $owner.Id
+Enable-EntraAzureADAlias
 ```
 
-This example demonstrates how to add an owner to a service principal.
-
-- `-ServicePrincipalId` parameter specifies the service principal Id.
-- `-RefObjectId` parameter specifies the user object Id.
+Enables all Azure AD prefixes for the current PowerShell session.
 
 ## Parameters
 
-### -ServicePrincipalId
-
-Specifies the ID of a service principal in Microsoft Entra ID.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases: ObjectId
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### -RefObjectId
-
-Specifies the ID of the Microsoft Entra ID object to assign as owner/manager/member.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### CommonParameters
-
-This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## Inputs
 
+### None
+
 ## Outputs
+
+### System.Object
 
 ## Notes
 
 ## Related Links
-
-[Get-EntraBetaServicePrincipal](Get-EntraBetaServicePrincipal.md)
-
-[Get-EntraBetaServicePrincipalOwner](Get-EntraBetaServicePrincipalOwner.md)
-
-[Get-EntraBetaUser](Get-EntraBetaUser.md)
-
-[Remove-EntraBetaServicePrincipalOwner](Remove-EntraBetaServicePrincipalOwner.md)

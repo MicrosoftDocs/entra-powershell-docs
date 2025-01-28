@@ -42,8 +42,12 @@ The `Remove-EntraBetaGroupMember` cmdlet removes a member from a group in Micros
 ```powershell
 Connect-Entra -Scopes 'GroupMember.ReadWrite.All'
 $group = Get-EntraBetaGroup -Filter "DisplayName eq 'HelpDesk Team Leaders'"
-$groupMember = Get-EntraBetaGroup -GroupId $group.Id | Get-EntraBetaGroupMember | Where-Object {$_.displayName -eq 'Adele Vance'}
-Remove-EntraBetaGroupMember -GroupId $group.Id -MemberId $groupMember.Id
+$params = @{
+    GroupId = $group.ObjectId
+    MemberId = 'zzzzzzzz-6666-8888-9999-pppppppppppp'
+}
+
+Remove-EntraBetaGroupMember @params
 ```
 
 This example demonstrates how to remove a member from a group in Microsoft Entra ID.

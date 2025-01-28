@@ -42,8 +42,14 @@ The `Set-EntraBetaGroupLifecyclePolicy` command updates a specific group Lifecyc
 
 ```powershell
 Connect-Entra -Scopes 'Directory.ReadWrite.All'
-$policy = Get-EntraBetaGroupLifecyclePolicy | Where-Object {$_.AlternateNotificationEmails -eq 'example@contoso.com'}
-Set-EntraBetaGroupLifecyclePolicy -GroupLifecyclePolicyId $policy.Id -GroupLifetimeInDays 200 -AlternateNotificationEmails 'example@contoso.com' -ManagedGroupTypes 'All'
+$policy = Get-EntraBetaGroupLifecyclePolicy | Select-Object -First 1
+$params = @{
+    GroupLifecyclePolicyId = $policy.Id
+    GroupLifetimeInDays = 200 
+    AlternateNotificationEmails = 'example@contoso.com' 
+    ManagedGroupTypes = 'All'
+}
+Set-EntraBetaGroupLifecyclePolicy @params
 ```
 
 ```Output

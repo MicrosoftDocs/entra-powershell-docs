@@ -50,14 +50,13 @@ In delegated scenarios, the signed-in user must have a supported Microsoft Entra
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroup -GroupId $group.Id | Get-EntraBetaGroupOwner | Select-Object Id, DisplayName, '@odata.type'
+Get-EntraBetaGroupOwner -GroupId 'bbbbbbbb-1111-2222-3333-cccccccccccc'
 ```
 
 ```Output
-id                                   displayName       @odata.type
---                                   -----------       -----------
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Adele Vance #microsoft.graph.user
+Id                                   DeletedDateTime
+--                                   ---------------
+cccccccc-2222-3333-4444-dddddddddddd
 ```
 
 This example demonstrates how to retrieve the owner of a specific group.
@@ -68,14 +67,15 @@ This example demonstrates how to retrieve the owner of a specific group.
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroupOwner -GroupId $group.Id -All | Select-Object Id, DisplayName, '@odata.type'
+Get-EntraBetaGroupOwner -GroupId 'ffffffff-5555-6666-7777-aaaaaaaaaaaa' -All
 ```
 
 ```Output
-id                                   displayName       @odata.type
---                                   -----------       -----------
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Adele Vance #microsoft.graph.user
+Id                                   DeletedDateTime
+--                                   ---------------
+bbbbbbbb-7777-8888-9999-cccccccccccc
+cccccccc-2222-3333-4444-dddddddddddd
+bbbbbbbb-1111-2222-3333-cccccccccccc
 ```
 
 This example demonstrates how to retrieve the all owner of a specific group.  
@@ -86,14 +86,14 @@ This example demonstrates how to retrieve the all owner of a specific group.
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroupOwner -GroupId $group.Id -Top 2 | Select-Object Id, DisplayName, '@odata.type'
+Get-EntraBetaGroupOwner -GroupId 'bbbbbbbb-7777-8888-9999-cccccccccccc' -Top 2
 ```
 
 ```Output
-id                                   displayName       @odata.type
---                                   -----------       -----------
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Adele Vance #microsoft.graph.user
+Id                                   DeletedDateTime
+--                                   ---------------
+dddddddd-9999-0000-1111-eeeeeeeeeeee
+eeeeeeee-4444-5555-6666-ffffffffffff
 ```
 
 This example demonstrates how to retrieve the top two owners of a specific group.
