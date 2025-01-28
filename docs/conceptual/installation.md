@@ -5,7 +5,7 @@ description: "Learn how to install the Microsoft Entra PowerShell module."
 author: omondiatieno
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 01/23/2025
+ms.date: 01/27/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-install-win-linux-macos
@@ -37,7 +37,7 @@ including Windows, Linux, and macOS.
 The recommended installation method and PowerShell version for the module:
 
 - Install from the [PowerShell Gallery][posh-gallery]
-- Use with PowerShell version 5.1+ or version 7+.
+- Use with Windows PowerShell 5.1+ or PowerShell 7+.
 
 ## Prerequisites on Windows
 
