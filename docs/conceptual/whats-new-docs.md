@@ -79,7 +79,7 @@ This article lists all new articles that were added or had significant updates i
 
   - **New Commands**: [Update-EntraOauth2PermissionGrant](/powershell/module/microsoft.entra/update-entraoauth2permissiongrant), [Get-EntraUserAuthenticationMethod](/powershell/module/microsoft.entra/get-entrauserauthenticationmethod), [Get-EntraBetaUserAuthenticationMethod](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationmethod), [Update-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/update-entrabetauserauthenticationrequirement), and [Get-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationrequirement).
   - **Bug Fixes and command improvements**:
-    - RequiredResourceAccess cannot be an array. [#1229](https://github.com/microsoftgraph/entra-powershell/pull/1229).
+    - RequiredResourceAccess can't be an array. [#1229](https://github.com/microsoftgraph/entra-powershell/pull/1229).
     - [Get-EntraContext](/powershell/module/microsoft.entra/get-entracontext) - include Microsoft Entra PowerShell version in the response.
 
   - **Documentation enhancements**:
@@ -127,7 +127,7 @@ This article lists all new articles that were added or had significant updates i
   - Added usability-focused parameter switches to the `Set-EntraUserLicence` and `Set-EntraUserPassword` cmdlets.
   - Fixed issue [#1118](https://github.com/microsoftgraph/entra-powershell/issues/1118): Corrected parameter sets for `Find-EntraPermission`.
   - Improved documentation quality scores for 20 cmdlets.
-  - Enhanced examples for 8 cmdlets.
+  - Enhanced examples for eight cmdlets.
   - Implemented platform-level security hardening in the release pipeline.
 
 - [Version 0.17.0-preview][posh-0.17.0] - **October 2024**
