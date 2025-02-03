@@ -75,6 +75,20 @@ This article lists all new articles that were added or had significant updates i
 
 ## The latest (recommended) version
 
+- [Version 1.0.1][posh-1.0.1] - **January 2025**
+
+  - **New Commands**: [Update-EntraOauth2PermissionGrant](/powershell/module/microsoft.entra/update-entraoauth2permissiongrant), [Get-EntraUserAuthenticationMethod](/powershell/module/microsoft.entra/get-entrauserauthenticationmethod), [Get-EntraBetaUserAuthenticationMethod](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationmethod), [Update-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/update-entrabetauserauthenticationrequirement), and [Get-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationrequirement).
+  - **Bug Fixes and command improvements**:
+    - RequiredResourceAccess can't be an array. [#1229](https://github.com/microsoftgraph/entra-powershell/pull/1229).
+    - [Get-EntraContext](/powershell/module/microsoft.entra/get-entracontext) - include Microsoft Entra PowerShell version in the response.
+
+  - **Documentation enhancements**:
+    - Improved examples for over 250 cmdlets, adding more examples and Microsoft Entra ID inbuilt roles.
+    - Adding syntax sections for Global Secure Access commands.
+    - Fixed example for [New-EntraBetaPrivateAccessApplicationSegment](/powershell/module/microsoft.entra.beta/new-entrabetaprivateaccessapplication).
+
+## Module version history
+
 - [Version 0.22.0][posh-0.22.0] - **January 2025**
 
   - **New capability**: Install submodules automatically when installing the umbrella module (Microsoft.Entra).
@@ -85,8 +99,6 @@ This article lists all new articles that were added or had significant updates i
     - Fixed [#929](https://github.com/microsoftgraph/entra-powershell/issues/929): Refactored Connect-Entra to act as a proxy command for `Connect-MgGraph`.
   - **Enhancements**:
     - Improved examples for over 100 cmdlets.
-
-## Module version history
 
 - [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
 
@@ -115,7 +127,7 @@ This article lists all new articles that were added or had significant updates i
   - Added usability-focused parameter switches to the `Set-EntraUserLicence` and `Set-EntraUserPassword` cmdlets.
   - Fixed issue [#1118](https://github.com/microsoftgraph/entra-powershell/issues/1118): Corrected parameter sets for `Find-EntraPermission`.
   - Improved documentation quality scores for 20 cmdlets.
-  - Enhanced examples for 8 cmdlets.
+  - Enhanced examples for eight cmdlets.
   - Implemented platform-level security hardening in the release pipeline.
 
 - [Version 0.17.0-preview][posh-0.17.0] - **October 2024**
@@ -193,6 +205,7 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-1.0.1]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.1
 [posh-0.22.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/0.22.0
 [posh-0.21.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.21.0-preview
 [posh-0.20.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.20.0-preview
