@@ -80,7 +80,7 @@ This article lists all new articles that were added or had significant updates i
   - **New Commands**: [Update-EntraOauth2PermissionGrant](/powershell/module/microsoft.entra/update-entraoauth2permissiongrant), [Get-EntraUserAuthenticationMethod](/powershell/module/microsoft.entra/get-entrauserauthenticationmethod), [Get-EntraBetaUserAuthenticationMethod](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationmethod), [Update-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/update-entrabetauserauthenticationrequirement), and [Get-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationrequirement).
   - **Bug Fixes and command improvements**:
     - RequiredResourceAccess cannot be an array. [#1229](https://github.com/microsoftgraph/entra-powershell/pull/1229).
-    - [Get-EntraContext](/powershell/module/microsoft.entra/get-entracontext) - include Entra PowerShell version in the response.
+    - [Get-EntraContext](/powershell/module/microsoft.entra/get-entracontext) - include Microsoft Entra PowerShell version in the response.
 
   - **Documentation enhancements**:
     - Improved examples for over 250 cmdlets, adding more examples and MicrosoftvEntra ID inbuilt roles.
