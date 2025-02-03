@@ -83,7 +83,7 @@ This article lists all new articles that were added or had significant updates i
     - [Get-EntraContext](/powershell/module/microsoft.entra/get-entracontext) - include Entra PowerShell version in the response.
 
   - **Documentation enhancements**:
-    - Improved examples for over 250 cmdlets (adding more examples, Entra ID inbuilt roles).
+    - Improved examples for over 250 cmdlets, adding more examples and MicrosoftvEntra ID inbuilt roles.
     - Adding syntax sections for Global Secure Access commands.
     - Fixed example for New-EntraBetaPrivateAccessApplicationSegment.
 
