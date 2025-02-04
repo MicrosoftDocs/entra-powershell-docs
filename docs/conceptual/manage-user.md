@@ -33,9 +33,9 @@ You can access a user's information and manage their data on their behalf or as 
 
 To manage users, you can perform the following common user management tasks:
 
-### Create users
+### Create a user
 
-The following example creates a new user using the `UserPrincipalName` parameter.
+This example creates a new user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -50,6 +50,8 @@ $userParams = @{
 }
 New-EntraUser @userParams
 ```
+
+The output displays details of the newly created user.
 
 ```Output
 DisplayName    Id                                     Mail    UserPrincipalName
@@ -66,6 +68,8 @@ Connect-Entra -Scopes 'User.Read.All','AuditLog.Read.All'
 Get-EntraUser -UserId 'SawyerM@contoso.com' -Property 'SignInActivity' | 
   Select-Object -Property Id, DisplayName, UserPrincipalName -ExpandProperty 'SignInActivity'
 ```
+
+The output shows the user's sign-in activity.
 
 ```Output
 lastNonInteractiveSignInRequestId : bbbbbbbb-1111-2222-3333-aaaaaaaaaaaa
@@ -90,6 +94,8 @@ Get-EntraUserMembership -UserId 'SawyerM@contoso.com' |
  Format-Table -AutoSize
 ```
 
+The output shows the user's memberships.
+
 ```Output
 Id                                   displayName                         createdDateTime      @odata.type
 --                                   -----------                         ---------------      -----------
@@ -109,6 +115,8 @@ Get-EntraUserManager -UserId 'SawyerM@contoso.com' |
     Format-Table -AutoSize
 ```
 
+The output shows the user's manager.
+
 ```Output
 id                                    displayName     userPrincipalName                    createdDateTime           accountEnabled  userType
 --                                    -----------     -----------------                    ---------------           --------------  --------
@@ -124,6 +132,8 @@ Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com' |
     Format-Table -AutoSize
 ```
 
+The output shows the user's direct report.
+
 ```Output
 id                                    displayName     userPrincipalName           createdDateTime       accountEnabled  userType
 --                                    -----------     -----------------           ---------------       --------------  --------
@@ -135,12 +145,42 @@ aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb  Isaiah Langer   IsaiahL@Contoso.com       
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
-$manager = Get-EntraUser -Filter "UserPrincipalName eq 'AdeleV@contoso.com'"
-Set-EntraUserManager -UserId 'SawyerM@contoso.com' -RefObjectId $manager.Id
+Set-EntraUserManager -UserId 'SawyerM@contoso.com' -ManagerId 'AdeleV@contoso.com'
 ```
 
 - `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
-- `-RefObjectId` - specifies the ID as a UserPrincipalName or User ObjectId) of the Microsoft Entra ID object to assign as a manager.
+- `-ManagerId` - specifies the ID as a UserPrincipalName or User ObjectId) of the Microsoft Entra ID object to assign as a manager.
+
+## List users without managers
+
+This example lists users without a manager, helping to identify orphaned accounts, service accounts, or misconfigured profiles for cleanup.
+
+```Powershell
+$allUsers = Get-EntraUser -All
+$usersWithoutManagers = foreach ($user in $allUsers) {
+    $manager = Get-EntraUserManager -UserId $user.Id -ErrorAction SilentlyContinue
+    if (-not $manager) {
+        [PSCustomObject]@{
+            Id                = $user.Id
+            DisplayName       = $user.DisplayName
+            UserPrincipalName = $user.UserPrincipalName
+            UserType          = $user.userType
+            AccountEnabled    = $user.accountEnabled
+            CreatedDateTime   = $user.createdDateTime
+        }
+    }
+}
+$usersWithoutManagers | Format-Table Id, DisplayName, UserPrincipalName, CreatedDateTime, UserType, AccountEnabled  -AutoSize
+```
+
+The output lists users without managers.
+
+```Output
+Id                                   DisplayName         UserPrincipalName                           CreatedDateTime           UserType   AccountEnabled
+--                                   -----------         -----------------                           ---------------           --------   --------------
+cccccccc-2222-3333-4444-dddddddddddd New User           NewUser@tenant.com                         10/7/2024 2:24:26 PM      Member     True
+bbbbbbbb-1111-2222-3333-cccccccccccc Sawyer Miller     SawyerM@contoso.com                        10/7/2024 12:33:36 AM     Member     True
+```
 
 ## List inactive users
 
@@ -150,6 +190,8 @@ The following example generates a list of disabled accounts.
 Connect-Entra -Scopes 'User.ReadWrite.All'
 Get-EntraUser -Filter "accountEnabled eq false" | Select-Object DisplayName, Id, Mail, UserPrincipalName
 ```
+
+The output lists inactive users.
 
 ```Output
 DisplayName    Id                                   Mail userPrincipalName
