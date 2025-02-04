@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 01/05/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
