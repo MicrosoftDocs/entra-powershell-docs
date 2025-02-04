@@ -156,6 +156,7 @@ Set-EntraUserManager -UserId 'SawyerM@contoso.com' -ManagerId 'AdeleV@contoso.co
 This example lists users without a manager, helping to identify orphaned accounts, service accounts, or misconfigured profiles for cleanup.
 
 ```Powershell
+Connect-Entra -Scopes 'User.Read.All'
 $allUsers = Get-EntraUser -All
 $usersWithoutManagers = foreach ($user in $allUsers) {
     $manager = Get-EntraUserManager -UserId $user.Id -ErrorAction SilentlyContinue
