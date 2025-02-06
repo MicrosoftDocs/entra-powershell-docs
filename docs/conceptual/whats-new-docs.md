@@ -33,15 +33,15 @@ This article lists all new articles that were added or had significant updates i
 **Updated articles**
 
 - [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md)
-  - Updates to reflect v0.22.0 module updates
+  - Updates to reflect module updates
   - Updated the MSOnline cmdlet map to capture all cmdlets
 - [Install the Microsoft Entra PowerShell module](installation.md)
   - Installation article improvements
   - Minor additions to installation instructions
-  - Updates to reflect v0.22.0 module updates
+  - Updates to reflect module updates
 - [Manage users with Microsoft Entra PowerShell](manage-user.md) - Edits to clean up content
-- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md) - Updates to reflect v0.22.0 module updates
-- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md) - Updates to reflect v0.22.0 module updates
+- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md) - Updates to reflect module updates
+- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md) - Updates to reflect module updates
 
 ### December 2024
 
@@ -66,27 +66,6 @@ This article lists all new articles that were added or had significant updates i
 
 - [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md): Added equivalents for the app proxy cmdlets. 
 - [Install the Microsoft Entra PowerShell module](installation.md): Updated the article in response to customer feedback.
-
-### October 2024
-
-**New articles**
-
-- [Manage devices](manage-devices.md): How to manage device identities and monitoring related events.
-- [Manage stale devices](manage-stale-devices.md): Best practices for efficient device management and compliance.
-- [Manage roles](manage-roles.md): How to assign roles to users.
-- [Manage user licenses](how-to-manage-user-licenses.md): How to manage Microsoft Entra user licenses.
-
-**Updated Articles**
-
-- [Assign app roles to a service principal](create-assign-app-roles.md): Enhanced parameter usability, replacing `ObjectId` with `UserId`.
-- [Create a custom application](create-custom-application.md): Added a PowerShell script for custom app creation.
-- [Manage apps](manage-apps.md): 
-  - Updated usability parameter switches.
-  - Added a section on listing applications that don’t require user assignment.
-- [Manage groups](manage-groups.md): Updated usability parameter switches.
-- [Manage users with Microsoft Entra PowerShell](manage-user.md): Updated usability parameter switches.
-- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md): Updated usability parameter switches.
-- [Migrate to Microsoft Entra PowerShell](migration-guide.md): Updated usability parameter switches.
 
 :::zone-end
 
