@@ -5,7 +5,7 @@ description: Navigate the Microsoft Entra PowerShell module to learn the core co
 author: csmulligan
 manager: CelesteDG
 ms.topic: quickstart
-ms.date: 01/21/2025
+ms.date: 02/09/2025
 ms.author: cmulligan
 
 #Customer intent: As an IT admin, I want to learn how to start using the Microsoft Entra PowerShell module, including authentication, core concepts, commands, and how to get help.

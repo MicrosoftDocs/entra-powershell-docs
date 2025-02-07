@@ -3,7 +3,7 @@ title: "Azure AD PowerShell to Microsoft Entra PowerShell cmdlet map"
 description: "Find the equivalents of Azure AD PowerShell cmdlets in Microsoft Entra PowerShell."
 
 ms.topic: reference
-ms.date: 01/13/2025
+ms.date: 02/09/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru

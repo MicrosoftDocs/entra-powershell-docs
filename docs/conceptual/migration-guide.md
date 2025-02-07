@@ -5,7 +5,7 @@ description: Learn how to use the Enable-EntraAzureADAlias command to run existi
 author: csmulligan
 manager: CelesteDG
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 02/09/2025
 ms.author: cmulligan
 
 #Customer intent: As an IT admin, I want to learn how to run my existing scripts from Azure AD PowerShell in Microsoft Entra PowerShell so that I can smoothly transition to using Microsoft Entra PowerShell in my operations.
@@ -22,9 +22,10 @@ The `Enable-EntraAzureADAlias` cmdlet enables compatibility mode through aliases
 To use Microsoft Entra PowerShell with your existing AzureAD PowerShell scripts, replace the `Connect-AzureAD` command with the three provided lines. These three lines are the beginning of your migrated AzureAD PowerShell script.
 
 ```powershell
-Import-Module -Name Microsoft.Entra
+Import-Module -Name Microsoft.Entra.Users
 Connect-Entra #Replaces Connect-AzureAD for auth
-Enable-EntraAzureADAlias #enable aliasing 
+Enable-EntraAzureADAlias #enable aliasing
+Get-AzureADUser -Top 2
 ```
 
 ### Example
@@ -103,4 +104,3 @@ When migrating from the Azure AD PowerShell module to Microsoft Entra PowerShell
 [testEntrascriptDefinition]: /powershell/module/microsoft.entra/test-entrascript
 [enable-entraazureadalias]: /powershell/module/microsoft.entra/enable-entraazureadalias
 [quickstart]: navigate-entraps.md
-[installation]: installation.md
