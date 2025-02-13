@@ -4,7 +4,7 @@ description: Learn how to manage and remove stale devices using Microsoft Entra 
 ms.service: entra-id  
 ms.subservice: devices  
 ms.topic: how-to  
-ms.date: 10/30/2024  
+ms.date: 02/12/2025  
 ms.author: jomondi  
 author: omondiatieno  
 manager: celested  
@@ -15,7 +15,11 @@ ms.reviewer: stevemutungi
 
 # Manage stale devices  
 
+In this article, you learn how to manage stale devices in Microsoft Entra ID using PowerShell. It covers detecting, disabling, and deleting devices that are no longer active.
+
 To complete the device lifecycle, registered devices should be unregistered when they aren't needed anymore. As a result of stolen, lost, broken devices, or OS reinstallations, you typically have some stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so you can focus your resources on managing devices that actually require management.  
+
+## Prerequisites
 
 To manage stale devices with Microsoft Entra PowerShell, you need:  
 
@@ -64,10 +68,10 @@ AccountEnabled DeviceId                             OperatingSystem OperatingSys
 A typical routine for cleaning up stale devices consists of the following steps:  
 
 1. Connect to Microsoft Entra ID using the [Connect-Entra][connect-entra] cmdlet.  
-2. Get the list of stale devices.  
-3. Disable the device using the [Set-EntraDevice][set-device] cmdlet to set `-AccountEnabled` to **False**.  
-4. Wait for the grace period of the set number of days before deleting the device.  
-5. Remove the device using the [Remove-EntraDevice][remove-device] cmdlet.  
+1. Get the list of stale devices.  
+1. Disable the device using the [Set-EntraDevice][set-device] cmdlet to set `-AccountEnabled` to **False**.  
+1. Wait for the grace period of the set number of days before deleting the device.  
+1. Remove the device using the [Remove-EntraDevice][remove-device] cmdlet.  
   
 ### Export list of stale devices
 
@@ -90,7 +94,7 @@ $staleDevices | Export-Csv "$env:UserProfile\Downloads\stale-devices1.csv" -NoTy
 Ensure to replace `$env:UserProfile` with the path where you want to save the file based on your environment. This example saves the CSV file directly to your Downloads folder.
 
 > [!WARNING]  
-> Some active devices may have a blank timestamp.  
+> Some active devices might have a blank timestamp.  
 
 ### Disable stale devices  
 
@@ -111,7 +115,7 @@ Set-EntraDevice -AccountEnabled $false
 ### Delete stale devices  
 
 > [!CAUTION]  
-> The `Remove-EntraDevice` cmdlet doesn't provide a warning. Running this command will delete devices without prompting. **There is no way to recover deleted devices**.  
+> The `Remove-EntraDevice` cmdlet doesn't provide a warning. Running this command deletes devices without prompting. **There is no way to recover deleted devices**.  
 
 Before you delete any devices, back up any BitLocker recovery keys you might need in the future. There's no way to recover BitLocker recovery keys after deleting the associated device.  
 
@@ -151,11 +155,13 @@ Managing devices using Microsoft Entra PowerShell provides a robust and efficien
 
 When configured, BitLocker keys for Windows 10 or newer devices are stored on the device object in Microsoft Entra ID. If you delete a stale device, you also delete the BitLocker keys stored on the device. Confirm that your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device.  
 
-<!-- link references -->
+[Manage devices identities][manage-devices]
 
+<!-- link references -->
 [cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-device-administrator  
 [installation]: installation.md
 [free-entra-id]: https://azure.microsoft.com/free/entra-id
 [set-device]: /powershell/module/microsoft.entra/set-entradevice
 [remove-device]: /powershell/module/microsoft.entra/remove-entradevice
 [connect-entra]: /powershell/module/microsoft.entra/connect-entra
+[manage-devices]: manage-devices.md

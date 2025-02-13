@@ -7,7 +7,7 @@ manager: CelesteDG
   
 ms.service: entra
 ms.topic: how-to  
-ms.date: 01/21/2024  
+ms.date: 02/12/2025  
 ms.author: jomondi    
 ms.reviewer: stevemutungi  
   
@@ -16,16 +16,20 @@ ms.reviewer: stevemutungi
   
 # Manage user and group assignments
   
+In this article, you learn how to manage user and group assignments to enterprise applications in Microsoft Entra ID using PowerShell. This scenario is crucial for maintaining security and compliance. It allows you to efficiently audit access, manage permissions, and mitigate unauthorized access risks within their organization.
+
 Enterprise applications in Microsoft Entra ID represent the service principals that allow users and groups to access various resources. You might need to export user and group assignments for several reasons. These reasons include performing audits and ensuring compliance with security policies. It also helps in managing user access efficiently and identifying any unauthorized access or potential security risks within the organization.
   
-Using Microsoft Entra PowerShell, you can retrieve and report on the assignments of users and groups to enterprise applications. This feature enables you to manage access effectively and ensure that only authorized users have the necessary permissions.
+Using Microsoft Entra PowerShell, you can retrieve and report on the assignments of users and groups to enterprise applications.
   
 ## Prerequisites  
   
 To report assignments of users and groups to enterprise apps with Microsoft Entra PowerShell, you need:  
   
 - A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-account].
-- One of the following roles: [Application Administrator][app-admin] or [Cloud Application Administrator][cloud-app-admin].
+- One of the following roles:
+  - [Application Administrator][app-admin]
+  - [Cloud Application Administrator][cloud-app-admin]
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
 ## Export user and group assignments to all service principals
@@ -147,7 +151,7 @@ The following example shows how to use Microsoft Entra PowerShell to unassign sp
     Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId "aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb" -All |Select-Object Id, AppRoleId, PrincipalDisplayName, PrincipalId, PrincipalType, ResourceDisplayName | Format-Table
     ```
 
-   This command retrieves all users and groups assigned to the specified service principal and displays their details. The Id column represents the unique ID of the assignment. Record the Id of the assignment you want to remove.
+   This command retrieves all users and groups assigned to the specified service principal and displays their details. The ID column represents the unique ID of the assignment. Record the ID of the assignment you want to remove.
 
     ```Output
     Id                                          AppRoleId                            PrincipalDisplayName     PrincipalId                          PrincipalType ResourceDisplayName
