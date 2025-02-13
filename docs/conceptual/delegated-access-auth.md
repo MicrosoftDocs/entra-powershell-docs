@@ -14,7 +14,9 @@ ms.reviewer: stevemutungi
 
 # Use delegated authentication
 
-This article explains how to use delegated access with the Microsoft Entra PowerShell module. Delegated access allows an application to perform actions on behalf of a user who is currently signed in. This scenario is ideal for one-time management tasks and environments that require manual sign-in, like those using multifactor authentication (MFA). It also makes it easier to test scripts, learn, and manage tasks spontaneously without the need to set up service principals or other app-only authentication methods that don't involve user interaction.
+In this article, you learn how to use delegated access with the Microsoft Entra PowerShell module. Delegated access allows an application to perform actions on behalf of a user who is currently signed in.
+
+This scenario is ideal for one-time management tasks and environments that require manual sign-in, like those using multifactor authentication (MFA). It also makes it easier to test scripts, learn, and manage tasks spontaneously without the need to set up service principals or other app-only authentication methods that don't involve user interaction.
 
 While the delegated access method of authentication is the recommended sign-in method, you can also use other interactive authentication methods such as:
 
@@ -29,7 +31,9 @@ In this article, you learn the various ways of signing into Microsoft Entra Powe
 To connect to Microsoft Entra PowerShell with delegated access, you need:
 
 - A Microsoft Entra ID account. If you don't already have one, you can [Create an account for free][entra-id-account].
-- One of the following roles: [Cloud Application Administrator][cloud-app-admin], or [Application Administrator][app-admin].
+- One of the following roles:
+  - [Cloud Application Administrator][cloud-app-admin]
+  - [Application Administrator][app-admin]
 - Microsoft Entra PowerShell module installed. Follow the [Installation][install] guide to install the module.
 
 ## Use delegated access with a custom application (Recommended)
@@ -108,7 +112,7 @@ Common authentication errors include:
 
 For a detailed guide on troubleshooting common errors, see the [Troubleshooting guide][troubleshooting-guide].
 
-## Next steps
+## Related content
 
 - [Manage groups][manage-groups]
 - [Manage users][manage-users]
