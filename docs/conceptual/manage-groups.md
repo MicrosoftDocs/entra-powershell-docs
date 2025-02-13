@@ -2,7 +2,7 @@
 title: Manage groups
 description: Learn how to create, edit, update, and delete a group using Microsoft Entra PowerShell.
 ms.topic: how-to
-ms.date: 10/05/2024
+ms.date: 02/12/2025
 author: csmulligan
 manager: CelesteDG
 ms.author: cmulligan
@@ -13,7 +13,7 @@ ms.reviewer: stevemutungi
 
 # Manage groups
 
-In this tutorial, you learn how to create, edit, update, and delete a group using Microsoft Entra PowerShell. You also learn how to add and remove users from a group.
+In this article, you learn how to manage groups in Microsoft Entra ID using Microsoft Entra PowerShell. The examples include creating and updating groups, adding users and owners, querying ownerless, and empty groups.
 
 ## Prerequisites
 

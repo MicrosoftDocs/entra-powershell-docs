@@ -5,7 +5,7 @@ description: Learn how to register, configure, and update apps in Microsoft Entr
 author: csmulligan
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 10/05/2024
+ms.date: 02/12/2025
 ms.author: cmulligan
 ms.reviewer: stevemutungi
 
@@ -14,15 +14,20 @@ ms.reviewer: stevemutungi
 
 # Manage apps
 
-Your app needs to be registered in Microsoft Entra ID before the Microsoft identity platform can authorize it to access data stored in Microsoft Entra or Microsoft 365 tenants. This condition applies to apps that you develop yourself, that your tenant owns, or that you access through an active subscription.
+In this article, you learn how to manage app registrations and service principal objects using Microsoft Entra PowerShell. It covers registering applications, configuring properties, assigning permissions, and managing app ownership.
 
-Many settings for apps are recorded as objects that can be accessed, updated, or deleted using Microsoft Entra PowerShell. In this article, you learn how to use Microsoft Entra PowerShell to manage app and service principal objects.
+An app needs to be registered in Microsoft Entra ID before the Microsoft identity platform can authorize it to access data stored in Microsoft Entra or Microsoft 365 tenants. This condition applies to apps that you develop yourself, that your tenant owns, or that you access through an active subscription.
+
+Many settings for apps are recorded as objects that can be accessed, updated, or deleted using Microsoft Entra PowerShell. These objects include applications, service principals, and app role assignments.
 
 ## Prerequisites
 
 To manage apps with Microsoft Entra PowerShell, you need:
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles:
+  - [Cloud Application Administrator][cloud-app-admin]
+  - [Application Administrator][app-admin]
 - Grant yourself the least privileged delegated permission indicated for the operation.
 - Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module](installation.md) guide to install the module.
 
@@ -87,7 +92,7 @@ For more information, see [Set-EntraApplication][set-entraapplication].
 
 ## Limit app sign-in to only assigned identities
 
-Limiting app sign-ins to only assigned identities using Microsoft Entra PowerShell ensures that only authorized users can access your applications, thereby enhancing security and control.
+Limiting app sign-ins to only assigned identities using Microsoft Entra PowerShell ensures that only authorized users can access your applications, thus enhancing security and control.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All'
@@ -101,7 +106,7 @@ Set-EntraServicePrincipal @servicePrincipalParams
 
 ## Assign permissions to an app
 
-You assign permissions to an app through the Microsoft Entra admin center or by using Microsoft Entra PowerShell. In PowerShell, you update the app's `requiredResourceAccess` property, including both existing and new permissions. If you only pass in new permissions, it removes any existing permissions that haven't been consented to.
+You assign permissions to an app through the Microsoft Entra admin center or by using Microsoft Entra PowerShell. In PowerShell, you update the app's `requiredResourceAccess` property, including both existing and new permissions. If you only pass in new permissions, it removes any existing permissions that don't have consent.
 
 Assigning permissions doesn't automatically grant them to the app. You must still grant admin consent using the Microsoft Entra admin center.
 
@@ -177,3 +182,5 @@ Azure Security Insights              22cc22cc-dd33-ee44-ff55-66aa66aa66aa   9878
 
 [manage-groups]: manage-groups.md
 [set-entraapplication]: /powershell/module/microsoft.entra/set-entraapplication
+[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
+[app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
