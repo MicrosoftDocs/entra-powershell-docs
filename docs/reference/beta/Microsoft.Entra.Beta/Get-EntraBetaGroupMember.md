@@ -3,7 +3,7 @@ title: Get-EntraBetaGroupMember
 description: This article provides details on the Get-EntraBetaGroupMember command.
 
 ms.topic: reference
-ms.date: 06/24/2024
+ms.date: 02/08/2025
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 manager: CelesteDG
@@ -64,7 +64,7 @@ Get-EntraBetaGroup -GroupId $group.Id | Get-EntraBetaGroupMember | Select-Object
 ```
 
 ```Output
-Id                                   DisplayName       @odata.type                     
+Id                                   DisplayName       @odata.type
 ------------------------------------ ----------------- -------------------------------
 dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
 eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
@@ -74,26 +74,26 @@ cccccccc-8888-9999-0000-dddddddddddd Contoso Group     #microsoft.graph.group
 
 This example retrieves the members of a specified group by its `GroupId` and selects only the `Id`, `DisplayName` and `@odata.type` properties for each member.
 
-- `-GroupId` Specifies the ID of a group.
+- `-GroupId` specifies the ID of a group.
 
 ### Example 2: Get two group member
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
 $group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroupMember -GroupId $group.Id -Top 2
+Get-EntraBetaGroupMember -GroupId $group.Id -Top 2 | Select-Object Id, DisplayName, '@odata.type'
 ```
 
 ```Output
-Id                                   DeletedDateTime
---                                   ---------------
-cccccccc-8888-9999-0000-dddddddddddd
-dddddddd-9999-0000-1111-eeeeeeeeeeee
+Id                                   DisplayName       @odata.type
+------------------------------------ ----------------- -------------------------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
+aaaaaaaa-6666-7777-8888-bbbbbbbbbbbb My Application    #microsoft.graph.servicePrincipal
 ```
 
-This example demonstrates how to retrieve top two groups from Microsoft Entra ID.  
+This example demonstrates how to retrieve top two groups from Microsoft Entra ID.
 
-- `-GroupId` specifies the ID of a group. 
+- `-GroupId` specifies the ID of a group.
 
 ### Example 3: Get all members within a group by group ID
 
@@ -104,7 +104,7 @@ Get-EntraBetaGroupMember -GroupId $group.Id -All | Select-Object Id, DisplayName
 ```
 
 ```Output
-Id                                   DisplayName       @odata.type                     
+Id                                   DisplayName       @odata.type
 ------------------------------------ ----------------- -------------------------------
 dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
 eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
@@ -116,26 +116,26 @@ This example retrieves all members within a group by group ID.
 
 - `-GroupId` specifies the ID of a group.
 
-### Example 4: Retrieve and Select Group Member Properties
+### Example 4: Get a group member by ID
 
 ```powershell
 Connect-Entra -Scopes 'GroupMember.Read.All'
 $group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaGroupMember -GroupId $group.Id | Select-Object DisplayName, '@odata.type' 
+Get-EntraBetaGroupMember -GroupId $group.Id | Select-Object Id, DisplayName, '@odata.type'
 ```
 
 ```Output
-displayName                          @odata.type
------------                          -----------
-test1                                #microsoft.graph.user
-test2                                #microsoft.graph.user
-test2                                #microsoft.graph.servicePrincipal
-test3                                #microsoft.graph.servicePrincipal
+Id                                   DisplayName       @odata.type
+------------------------------------ ----------------- -------------------------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
+eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
+aaaaaaaa-6666-7777-8888-bbbbbbbbbbbb My Application    #microsoft.graph.servicePrincipal
+cccccccc-8888-9999-0000-dddddddddddd Contoso Group     #microsoft.graph.group
 ```
 
-This example retrieves the members of a specified group by its `GroupId` and selects only the `DisplayName` and `@odata.type` properties for each member.
+This example demonstrates how to retrieve group member by ID.
 
-- `-GroupId` specifies the ID of a group.
+- `-GroupId` Specifies the ID of a group.
 
 ## Parameters
 

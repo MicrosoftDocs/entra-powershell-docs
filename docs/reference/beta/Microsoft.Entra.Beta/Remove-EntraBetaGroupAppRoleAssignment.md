@@ -41,7 +41,7 @@ The `Remove-EntraBetaGroupAppRoleAssignment` cmdlet removes a group application 
 Connect-Entra -Scopes 'Directory.ReadWrite.All'
 $group = Get-EntraBetaGroup -Filter "displayName eq 'Contoso Marketing'"
 $appRoleAssignment = Get-EntraBetaGroupAppRoleAssignment -GroupId $group.Id | Where-Object {$_.ResourceDisplayName -eq 'Box'}
-Remove-EntraBetaGroupAppRoleAssignment -GroupId $group -AppRoleAssignmentId $appRoleAssignment.Id
+Remove-EntraBetaGroupAppRoleAssignment -GroupId $group.Id -AppRoleAssignmentId $appRoleAssignment.Id
 ```
 
 This example demonstrates how to remove the specified group application role assignment.
