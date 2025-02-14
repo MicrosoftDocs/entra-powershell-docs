@@ -75,7 +75,7 @@ This article lists all new articles that were added or had significant updates i
 
 - [Version 1.0.2][posh-1.0.2] - **February 2025**
 
-  - **New Commands**: [Resolve-EntraIdTenant](/powershell/module/microsoft.entra/resolve-entratenant) - to resolve a Tenant ID or Domain Name to a Microsoft Entra ID Tenant.
+  - **New Commands**: [Resolve-EntraTenant](/powershell/module/microsoft.entra/resolve-entratenant) - to resolve a Tenant ID or Domain Name to a Microsoft Entra ID Tenant.
   - **Bug Fixes and command improvements**:
     - Fixed - [New-EntraApplicationFromApplicationTemplate](/powershell/module/microsoft.entra/new-entraapplicationfromapplicationtemplate). PR [#1346](https://github.com/microsoftgraph/entra-powershell/pull/1346).
     - Fixed - [Get-EntraBetaApplicationTemplate](/powershell/module/microsoft.entra.beta/get-entrabetaapplicationtemplate) and [Get-EntraApplicationTemplate](/powershell/module/microsoft.entra/get-entraapplicationtemplate). PR [#1344](https://github.com/microsoftgraph/entra-powershell/pull/1344)
