@@ -1,6 +1,6 @@
 ---
-title: Get-EntraObjectByObjectId
-description: This article provides details on the Get-EntraObjectByObjectId command.
+title: Get-EntraObjectByObject
+description: This article provides details on the Get-EntraObjectByObject command.
 
 
 ms.topic: reference
@@ -12,7 +12,7 @@ author: msewaweru
 
 external help file: Microsoft.Entra.DirectoryManagement-Help.xml
 Module Name: Microsoft.Entra
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraObjectByObjectId
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraObjectByObject
 
 schema: 2.0.0
 ---
