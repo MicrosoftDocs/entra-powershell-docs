@@ -73,6 +73,21 @@ This article lists all new articles that were added or had significant updates i
 
 ## The latest (recommended) version
 
+- [Version 1.0.2][posh-1.0.2] - **February 2025**
+
+  - **New Commands**: `Resolve-EntraIdTenant` - to resolve a Tenant ID or Domain Name to a Microsoft Entra ID Tenant.
+  - **Bug Fixes and command improvements**:
+    - Fixed - [New-EntraApplicationFromApplicationTemplate](https://learn.microsoft.com/powershell/module/microsoft.entra/new-entraapplicationfromapplicationtemplate). PR [#1346](https://github.com/microsoftgraph/entra-powershell/pull/1346).
+    - Fixed - [Get-EntraBetaApplicationTemplate](https://learn.microsoft.com/powershell/module/microsoft.entra.beta/get-entrabetaapplicationtemplate) and [Get-EntraApplicationTemplate](https://learn.microsoft.com/powershell/module/microsoft.entra/get-entraapplicationtemplate). PR [#1344](https://github.com/microsoftgraph/entra-powershell/pull/1344)
+    - Fixed [#1325](https://github.com/microsoftgraph/entra-powershell/issues/1325): `Get-EntraUser` example without command context.
+    - Fixed [#1328](https://github.com/microsoftgraph/entra-powershell/issues/1328): Expand methods in [Reset-EntraStrongAuthenticationMethodByUpn](https://learn.microsoft.com/powershell/module/microsoft.entra/reset-entrastrongauthenticationmethodbyupn).
+    - Fixed [#1326](https://github.com/microsoftgraph/entra-powershell/pull/1335): Remove `Format-Table` in [Get-EntraBetaDirSyncFeature](https://learn.microsoft.com/powershell/module/microsoft.entra.beta/get-entrabetadirsyncfeature)
+
+  - **Documentation enhancements**:
+    - Enhanced examples for over 140 cmdlets with user-friendly parameters, such as using `ManagerId` instead of `RefObjectId`.
+
+## Module version history
+
 - [Version 1.0.1][posh-1.0.1] - **January 2025**
 
   - **New Commands**: [Update-EntraOauth2PermissionGrant](/powershell/module/microsoft.entra/update-entraoauth2permissiongrant), [Get-EntraUserAuthenticationMethod](/powershell/module/microsoft.entra/get-entrauserauthenticationmethod), [Get-EntraBetaUserAuthenticationMethod](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationmethod), [Update-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/update-entrabetauserauthenticationrequirement), and [Get-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationrequirement).
@@ -84,8 +99,6 @@ This article lists all new articles that were added or had significant updates i
     - Improved examples for over 250 cmdlets, adding more examples and Microsoft Entra ID inbuilt roles.
     - Adding syntax sections for Global Secure Access commands.
     - Fixed example for [New-EntraBetaPrivateAccessApplicationSegment](/powershell/module/microsoft.entra.beta/new-entrabetaprivateaccessapplication).
-
-## Module version history
 
 - [Version 0.22.0][posh-0.22.0] - **January 2025**
 
@@ -124,6 +137,7 @@ This article lists all new articles that were added or had significant updates i
 
 [assign-app-roles]: create-assign-app-roles.md
 [cmdlet-map]: azuread-powershell-to-entra-powershell-mapping.md
+[posh-1.0.2]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.2
 [posh-1.0.1]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.1
 [posh-0.22.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/0.22.0
 [posh-0.21.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.21.0-preview
