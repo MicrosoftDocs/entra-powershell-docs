@@ -77,11 +77,11 @@ This article lists all new articles that were added or had significant updates i
 
   - **New Commands**: `Resolve-EntraIdTenant` - to resolve a Tenant ID or Domain Name to a Microsoft Entra ID Tenant.
   - **Bug Fixes and command improvements**:
-    - Fixed - [New-EntraApplicationFromApplicationTemplate](https://learn.microsoft.com/powershell/module/microsoft.entra/new-entraapplicationfromapplicationtemplate). PR [#1346](https://github.com/microsoftgraph/entra-powershell/pull/1346).
-    - Fixed - [Get-EntraBetaApplicationTemplate](https://learn.microsoft.com/powershell/module/microsoft.entra.beta/get-entrabetaapplicationtemplate) and [Get-EntraApplicationTemplate](https://learn.microsoft.com/powershell/module/microsoft.entra/get-entraapplicationtemplate). PR [#1344](https://github.com/microsoftgraph/entra-powershell/pull/1344)
+    - Fixed - [New-EntraApplicationFromApplicationTemplate](/powershell/module/microsoft.entra/new-entraapplicationfromapplicationtemplate). PR [#1346](https://github.com/microsoftgraph/entra-powershell/pull/1346).
+    - Fixed - [Get-EntraBetaApplicationTemplate](/powershell/module/microsoft.entra.beta/get-entrabetaapplicationtemplate) and [Get-EntraApplicationTemplate](/powershell/module/microsoft.entra/get-entraapplicationtemplate). PR [#1344](https://github.com/microsoftgraph/entra-powershell/pull/1344)
     - Fixed [#1325](https://github.com/microsoftgraph/entra-powershell/issues/1325): `Get-EntraUser` example without command context.
-    - Fixed [#1328](https://github.com/microsoftgraph/entra-powershell/issues/1328): Expand methods in [Reset-EntraStrongAuthenticationMethodByUpn](https://learn.microsoft.com/powershell/module/microsoft.entra/reset-entrastrongauthenticationmethodbyupn).
-    - Fixed [#1326](https://github.com/microsoftgraph/entra-powershell/pull/1335): Remove `Format-Table` in [Get-EntraBetaDirSyncFeature](https://learn.microsoft.com/powershell/module/microsoft.entra.beta/get-entrabetadirsyncfeature)
+    - Fixed [#1328](https://github.com/microsoftgraph/entra-powershell/issues/1328): Expand methods in [Reset-EntraStrongAuthenticationMethodByUpn](/powershell/module/microsoft.entra/reset-entrastrongauthenticationmethodbyupn).
+    - Fixed [#1326](https://github.com/microsoftgraph/entra-powershell/pull/1335): Remove `Format-Table` in [Get-EntraBetaDirSyncFeature](/powershell/module/microsoft.entra.beta/get-entrabetadirsyncfeature)
 
   - **Documentation enhancements**:
     - Enhanced examples for over 140 cmdlets with user-friendly parameters, such as using `ManagerId` instead of `RefObjectId`.
