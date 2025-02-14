@@ -42,8 +42,7 @@ When a group is renewed, the group expiration is extended by the number of days 
 
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Reset-EntraBetaLifeCycleGroup -GroupId $group.Id
+Reset-EntraBetaLifeCycleGroup -GroupId 'hhhhhhhh-8888-9999-8888-cccccccccccc'
 ```
 
 This example demonstrates how to renew a specified group.

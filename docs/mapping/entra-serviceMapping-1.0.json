@@ -1,5 +1,7 @@
 {
   "Add-EntraAdministrativeUnitMember": "Administrative units",
+  "Get-EntraDirectoryObject":"Directory",
+  "Resolve-EntraTenant":"Directory",
   "Add-EntraLifecyclePolicyGroup": "Groups",
   "Get-EntraAccountSku": "Licenses and subscriptions",
   "Get-EntraAdministrativeUnit": "Administrative units",

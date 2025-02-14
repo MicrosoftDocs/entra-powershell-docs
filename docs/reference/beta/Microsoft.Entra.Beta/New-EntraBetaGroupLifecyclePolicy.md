@@ -42,7 +42,12 @@ Creates a new groupLifecyclePolicy in Microsoft Entra ID.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.ReadWrite.All'
-New-EntraBetaGroupLifecyclePolicy -GroupLifetimeInDays 99 -ManagedGroupTypes 'Selected' -AlternateNotificationEmails 'example@contoso.com'
+$Params = @{
+    GroupLifetimeInDays = 99
+    ManagedGroupTypes = 'Selected'
+    AlternateNotificationEmails = 'example@contoso.com'
+}
+New-EntraBetaGroupLifecyclePolicy @params
 ```
 
 ```Output

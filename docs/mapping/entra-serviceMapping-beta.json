@@ -3,6 +3,8 @@
   "Set-EntraBetaUser": "Users",
   "New-EntraBetaUser": "Users",
   "Remove-EntraBetaUser": "Users",
+  "Get-EntraBetaDirectoryObject":"Directory",
+  "Resolve-EntraBetaTenant":"Directory",
   "Enable-EntraBetaGlobalSecureAccessTenant":"Global secure access",
   "Get-EntraBetaGlobalSecureAccessTenantStatus":"Global secure access",
   "Get-EntraBetaPrivateAccessApplication":"Global secure access",

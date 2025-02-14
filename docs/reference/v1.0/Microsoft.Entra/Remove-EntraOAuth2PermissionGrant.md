@@ -26,7 +26,7 @@ Removes an OAuth2PermissionGrant.
 
 ```powershell
 Remove-EntraOAuth2PermissionGrant
- -ObjectId <String>
+ -OAuth2PermissionGrantId <String>
  [<CommonParameters>]
 ```
 
@@ -52,21 +52,21 @@ In delegated scenarios using work or school accounts, the signed-in user must ha
 Connect-Entra -Scopes 'DelegatedPermissionGrant.ReadWrite.All'
 $sharePointSP = Get-EntraServicePrincipal | Where-Object { $_.DisplayName -eq 'Microsoft.SharePoint' }
 $sharePointOAuth2AllSitesRead = Get-EntraOAuth2PermissionGrant | Where-Object { $_.ResourceId -eq $sharePointSP.Id } | Where-Object { $_.Scope -eq 'AllSites.Read' }
-Remove-EntraOAuth2PermissionGrant -ObjectId $sharePointOAuth2AllSitesRead.Id
+Remove-EntraOAuth2PermissionGrant -OAuth2PermissionGrantId $sharePointOAuth2AllSitesRead.Id
 ```
 
 This example shows how to remove an OAuth2PermissionGrant object in Microsoft Entra ID.
 
 ## Parameters
 
-### -ObjectId
+### -OAuth2PermissionGrantId
 
 Specifies the ID of an OAuth2PermissionGrant object in Microsoft Entra ID.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
-Aliases:
+Aliases: ObjectId
 
 Required: True
 Position: Named
@@ -89,6 +89,6 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 [Get-EntraOAuth2PermissionGrant](Get-EntraOAuth2PermissionGrant.md)
 
-[Get-EntraServicePrincipal](Get-EntraServicePrincipal.md)
+[Get-EntraServicePrincipal](../Applications/Get-EntraServicePrincipal.md)
 
 [Update-EntraOAuth2PermissionGrant](Update-EntraOauth2PermissionGrant.md)

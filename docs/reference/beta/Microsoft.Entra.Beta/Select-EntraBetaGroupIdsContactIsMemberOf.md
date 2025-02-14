@@ -26,7 +26,7 @@ Get groups in which a contact is a member.
 
 ```powershell
 Select-EntraBetaGroupIdsContactIsMemberOf
- -ObjectId <String>
+ -OrgContactId <String>
  -GroupIdsForMembershipCheck <GroupIdsForMembershipCheck>
  [<CommonParameters>]
 ```
@@ -40,16 +40,16 @@ The `Select-EntraBetaGroupIdsContactIsMemberOf` cmdlet gets groups in Microsoft 
 ### Example 1: Get groups in which a contact is a member
 
 ```powershell
-Connect-Entra -Scopes 'OrgContact.Read.All,Group.Read.All'
-$group = New-Object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
-$group.GroupIds = (Get-EntraBetaGroup -Filter "displayName eq 'Sales and Marketing'").Id
-$contact = Get-EntraBetaContact -Filter "displayName eq 'Contoso Admin'"
-Select-EntraBetaGroupIdsContactIsMemberOf -ObjectId $contact.Id -GroupIdsForMembershipCheck $group
+Connect-Entra -Scopes 'OrgContact.Read.All', 'Group.Read.All'
+$Groups = New-Object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
+$Groups.GroupIds = (Get-EntraBetaGroup -Filter "DisplayName eq 'Entra PowerShell Group'").Id
+$UserID = (Get-EntraBetaContact -ObjectId 'hhhhhhhh-8888-9999-8888-cccccccccccc').Id
+Select-EntraBetaGroupIdsContactIsMemberOf -OrgContactId $UserID -GroupIdsForMembershipCheck $Groups
 ```
 
 This example demonstrates how to get groups in which a contact is a member.
 
-- `-ObjectId` parameter specifies the contact Object ID.
+- `-OrgContactId` parameter specifies the contact Object ID.
 - `-GroupIdsForMembershipCheck` parameter specifies the group Object ID.
 
 ## Parameters
@@ -70,14 +70,14 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -ObjectId
+### -OrgContactId
 
 Specifies the object ID of a contact in Microsoft Entra ID.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
-Aliases:
+Aliases: ObjectId
 
 Required: True
 Position: Named
@@ -97,5 +97,3 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 ## Notes
 
 ## Related Links
-
-[Get-EntraBetaContact](Get-EntraBetaContact.md)

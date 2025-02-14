@@ -59,8 +59,11 @@ The `Get-EntraBetaObjectSetting` cmdlet retrieves an object setting from Microso
 
 ```powershell
 Connect-Entra -Scopes 'Directory.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaObjectSetting -TargetType 'Groups' -TargetObjectId $group.Id
+$params = @{
+    TargetType = 'Groups'
+    TargetObjectId = 'aaaaaaaa-1111-1111-1111-000000000000'
+}
+Get-EntraBetaObjectSetting @params
 ```
 
 ```Output
@@ -78,9 +81,12 @@ This command retrieves  object setting from Microsoft Entra ID.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-$setting = Get-EntraBetaObjectSetting -TargetType 'Groups' -TargetObjectId $group.Id | Where-Object {$_.displayName -eq 'Group.Unified.Guest'}
-Get-EntraBetaObjectSetting -TargetType 'Groups' -TargetObjectId $group.Id -Id $setting.Id
+$params = @{
+    TargetType = 'Groups'
+    TargetObjectId = 'aaaaaaaa-1111-1111-1111-000000000000'
+    Id ='aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb'
+}
+Get-EntraBetaObjectSetting @params
 ```
 
 ```Output
@@ -99,8 +105,11 @@ This command retrieves Specific object setting from Microsoft Entra ID.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaObjectSetting -TargetType 'Groups' -TargetObjectId $group.Id -Top 1
+$params = @{
+    TargetType = 'Groups'
+    TargetObjectId = 'aaaaaaaa-1111-1111-1111-000000000000'
+}
+Get-EntraBetaObjectSetting @params -Top 1
 ```
 
 ```Output
@@ -118,8 +127,11 @@ This command retrieves top one object setting from Microsoft Entra ID.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.Read.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'Sales and Marketing'"
-Get-EntraBetaObjectSetting -TargetType 'Groups' -TargetObjectId $group.Id -All
+$params = @{
+    TargetType = 'Groups'
+    TargetObjectId = 'aaaaaaaa-1111-1111-1111-000000000000'
+}
+Get-EntraBetaObjectSetting @params -All
 ```
 
 ```Output
