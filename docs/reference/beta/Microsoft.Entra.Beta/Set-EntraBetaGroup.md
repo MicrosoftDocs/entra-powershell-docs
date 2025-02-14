@@ -60,7 +60,6 @@ This command updates the display name of a specified group in Microsoft Entra ID
 
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All'
-$group = Get-EntraBetaGroup -Filter "DisplayName eq 'HelpDesk Team Leaders'"
 Get-EntraBetaGroup -Filter "displayName eq 'HelpDesk Team Leaders'" | Set-EntraBetaGroup -Description 'HelpDesk Team Leaders Global'
 ```
 
@@ -81,7 +80,7 @@ This command updates the mail nickname of a specified group in Microsoft Entra I
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All'
 $group = Get-EntraBetaGroup -Filter "DisplayName eq 'HelpDesk Team Leaders'"
-Get-EntraBetaGroup -Filter "displayName eq 'HelpDesk Team Leaders'" | Set-EntraBetaGroup -Description 'HelpDesk Team Leaders Global'
+Get-EntraBetaGroup -Filter "displayName eq 'HelpDesk Team Leaders'" | Set-EntraBetaGroup -SecurityEnabled $true
 ```
 
 This command updates the security enabled of a specified group in Microsoft Entra ID.
