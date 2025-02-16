@@ -56,7 +56,7 @@ foreach ($app in $applications) {
 
 ```
 
->**Note:** This snippet is shortened for clarity. Access the [full sample for details](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/export-apps-with-expiring-secrets.ps1).
+>**Note:** This code snippet is shortened for readability. See the [full sample for details](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/export-apps-with-expiring-secrets.ps1).
 
 To use your script with the Microsoft Entra PowerShell module, replace the `Connect-AzureAD` cmdlet with the three lines provided in the snippet. You don’t need to rewrite the entire script.
 
@@ -83,7 +83,7 @@ foreach ($app in $applications) {
     $cert = $appCreds.KeyCredentials
 ```
 
->**Note:** This snippet is shortened for clarity. Access the [full modified sample for details](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/export-apps-with-expiring-secrets-modified.ps1).
+>**Note:** This code snippet is shortened for readability. See the [full modified sample for details](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/export-apps-with-expiring-secrets-modified.ps1).
 
 ## Test compatibility with Test-EntraScript command
 
