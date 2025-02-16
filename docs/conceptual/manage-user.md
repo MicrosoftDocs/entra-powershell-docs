@@ -104,6 +104,12 @@ Id                                   displayName                         created
 55ff55ff-aa66-bb77-cc88-99dd99dd99dd Pacific Admin Unit                                       #microsoft.graph.administrativeUnit
 ```
 
+**Note**: Use these commands to retrieve the objects a user belongs to:
+
+- [Get-EntraUserAdministrativeUnit](/powershell/module/microsoft.entra/get-entrauseradministrativeunit) - to retrieve a list of administrative units to which a user belongs.
+- [Get-EntraUserGroup](/powershell/module/microsoft.entra/get-entrausergroup) - to retrieve a list of groups a user belongs to.
+- [Get-EntraUserRole](/powershell/module/microsoft.entra/get-entrauserrole) - to retrieve a list of directory roles assigned to a user.
+
 ### Get a user's manager, direct reports and assign a manager to a user
 
 1. Get a user's manager.
