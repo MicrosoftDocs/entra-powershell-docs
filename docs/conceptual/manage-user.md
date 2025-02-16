@@ -59,6 +59,29 @@ DisplayName    Id                                     Mail    UserPrincipalName
 New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.com
 ```
 
+### Search users
+
+1. To search for a user by `mailNickname`, use this command:
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+Get-EntraUser -Filter "startswith(MailNickname,'AdeleV')"
+```
+
+2. To search for a user by `userPrincipalName`, use this command:
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
+```
+
+3. To search for users with the job title of 'Retail manager', use this command:
+
+```powershell
+
+Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
+```
+
 ### Retrieve a user's sign-in activity
 
 The following example shows how to retrieve the sign-in activity of a specific user.
@@ -157,7 +180,7 @@ Set-EntraUserManager -UserId 'SawyerM@contoso.com' -ManagerId 'AdeleV@contoso.co
 - `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
 - `-ManagerId` - specifies the ID as a UserPrincipalName or User ObjectId) of the Microsoft Entra ID object to assign as a manager.
 
-## List users without managers
+### List users without managers
 
 This example lists users without a manager, helping to identify orphaned accounts, service accounts, or misconfigured profiles for cleanup.
 
@@ -189,7 +212,7 @@ cccccccc-2222-3333-4444-dddddddddddd New User           NewUser@tenant.com      
 bbbbbbbb-1111-2222-3333-cccccccccccc Sawyer Miller     SawyerM@contoso.com                        10/7/2024 12:33:36 AM     Member     True
 ```
 
-## List inactive users
+### List inactive users
 
 The following example generates a list of disabled accounts.
 
@@ -207,7 +230,7 @@ Sawyer Miller  hhhhhhhh-7777-8888-9999-iiiiiiiiiiii      SawyerM@contoso.com
 Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 ```
 
-## Manage deleted users
+### Manage deleted users
 
 The following example lists recently deleted users.
 
@@ -231,7 +254,7 @@ Connect-Entra -Scopes 'User.ReadWrite.All'
 Get-EntraDeletedUser -All | Sort-Object -Property deletedDateTime -Descending
 ```
 
-## Upload or retrieve a photo for the user
+### Upload or retrieve a photo for the user
 
 1. Upload a photo for a user.
 
