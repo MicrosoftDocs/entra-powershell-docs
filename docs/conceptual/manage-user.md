@@ -207,7 +207,18 @@ Sawyer Miller  hhhhhhhh-7777-8888-9999-iiiiiiiiiiii      SawyerM@contoso.com
 Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 ```
 
-### Upload or retrieve a photo for the user
+## Manage deleted users
+
+The following example lists recently deleted users.
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+Get-EntraUser -Filter "accountEnabled eq false" | Select-Object DisplayName, Id, Mail, UserPrincipalName
+```
+
+
+
+## Upload or retrieve a photo for the user
 
 1. Upload a photo for a user.
 
@@ -235,13 +246,13 @@ The following example shows how to grant a user an administrative role.
 Connect-Entra -Scopes 'User.ReadWrite.All', 'RoleManagement.ReadWrite.Directory'
 $directoryRole = Get-EntraDirectoryRole -Filter "DisplayName eq 'Helpdesk Administrator'"
 $user = Get-EntraUser -Filter "UserPrincipalName eq 'SawyerM@contoso.com'"
-Add-EntraDirectoryRoleMember -DirectoryRoleId $directoryRole.Id -RefObjectId $user.Id
+Add-EntraDirectoryRoleMember -DirectoryRoleId $directoryRole.Id -MemberId $user.Id
 ```
 
 This command adds a user to a Microsoft Entra role. To retrieve roles, use the command [Get-EntraDirectoryRole](/powershell/module/microsoft.entra/get-entradirectoryrole).
 
 - `-DirectoryRoleId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
-- `-RefObjectId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
+- `-MemberId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
 
 ## Off-board a user
 
