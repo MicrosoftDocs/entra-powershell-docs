@@ -224,6 +224,13 @@ Id                                   UserPrincipalName                          
 dddddddd-3333-4444-5555-eeeeeeeeeeee {id}AveryS@contoso.com                         Avery Smith   False          2/12/2025 1:15:34 PM  3                 Member
 ```
 
+To retrieve deleted users sorted by deletion date, use this command:
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+Get-EntraDeletedUser -All | Sort-Object -Property deletedDateTime -Descending
+```
+
 ## Upload or retrieve a photo for the user
 
 1. Upload a photo for a user.
