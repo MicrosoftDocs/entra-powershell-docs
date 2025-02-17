@@ -313,7 +313,7 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
     Revoke-EntraUserAllRefreshToken -UserId 'SawyerM@contoso.com'
     ```
 
-Revoking authentication tokens invalidates them, thus preventing reaccess through cached logins or remembered sessions.
+    Revoking authentication tokens invalidates them, thus preventing reaccess through cached logins or remembered sessions.
 
 1. Disable a user.
 
@@ -322,7 +322,7 @@ Revoking authentication tokens invalidates them, thus preventing reaccess throug
     Set-EntraUser -UserId 'SawyerM@contoso.com' -AccountEnabled $false
     ```
 
-Disabling the account instantly blocks the user from accessing company resources, applications, and data.
+    Disabling the account instantly blocks the user from accessing company resources, applications, and data.
 
 1. Reset a user's password.
 
@@ -332,7 +332,7 @@ Disabling the account instantly blocks the user from accessing company resources
     Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
     ```
 
-Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
+    Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
 1. Disable a user's device.
 
@@ -343,7 +343,7 @@ Resetting the user's password ensures they can't use their old credentials to ac
     Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
     ```
 
-Disabling a user's device helps safeguard the organization's security, data, and resources.
+    Disabling a user's device helps safeguard the organization's security, data, and resources.
 
 1. Remove a user account.
 
@@ -352,8 +352,8 @@ Disabling a user's device helps safeguard the organization's security, data, and
     Remove-EntraUser -UserId 'SawyerM@contoso.com'
     ```
 
-> [!Note]
-> You can reclaim the user's assigned software and service licenses. See [Manage User License][manage-licenses] for details.
+    > [!Note]
+    > You can reclaim the user's assigned software and service licenses. See [Manage User License][manage-licenses] for details.
 
 ## Related content
 
