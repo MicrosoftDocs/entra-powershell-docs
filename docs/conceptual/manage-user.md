@@ -63,24 +63,24 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
 
 1. To search for a user by `mailNickname`, use this command:
 
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "startswith(MailNickname,'AdeleV')"
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -Filter "startswith(MailNickname,'AdeleV')"
+    ```
 
 1. To search for a user by `userPrincipalName`, use this command:
 
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
+    ```
 
 1. To search for users with the job title of `Retail manager`, use this command:
 
- ```powershell
- Connect-Entra -Scopes 'User.Read.All'
- Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
- ```
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
+    ```
 
 1. To search for users in Marketing department, use this command:
 
@@ -91,10 +91,10 @@ Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
 
 1. To find the five most recently created users, use this command:
 
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -All | Sort-Object -Property createdDateTime -Descending | Select-Object -First 5
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -All | Sort-Object -Property createdDateTime -Descending | Select-Object -First 5
+    ```
 
 ### Retrieve a user's sign-in activity
 
