@@ -176,6 +176,50 @@ $servicePrincipal = Get-EntraServicePrincipal -Filter "displayName eq 'Helpdesk 
 Get-EntraServicePrincipalOwnedObject -ServicePrincipalId $servicePrincipal.Id -All | Select-Object Id, DisplayName, '@odata.type'
 ```
 
+## Applications with expiring secrets and certificates
+
+### Expiring application secrets or passwords
+
+```powershell
+$expirationThreshold = (Get-Date).AddDays(30)
+$appsWithExpiringPasswords = Get-EntraApplication -All | Where-Object { $_.PasswordCredentials } | 
+ForEach-Object {
+    $app = $_
+    $app.PasswordCredentials | Where-Object { $_.EndDate -le $expirationThreshold } | 
+    ForEach-Object {
+        [PSCustomObject]@{
+            DisplayName       = $app.DisplayName
+            AppId             = $app.AppId
+            SecretDisplayName = $_.DisplayName
+            KeyId             = $_.KeyId
+            ExpiringSecret    = $_.EndDate
+        }
+    }
+}
+$appsWithExpiringPasswords | Format-Table DisplayName, AppId, SecretDisplayName, KeyId, ExpiringSecret -AutoSize
+```
+
+### Expiring certificates
+
+```powershell
+$expirationThreshold = (Get-Date).AddDays(30)
+$appsWithExpiringKeys = Get-EntraApplication -All | Where-Object { $_.KeyCredentials } | 
+ForEach-Object {
+    $app = $_
+    $app.KeyCredentials | Where-Object { $_.EndDate -le $expirationThreshold } | 
+    ForEach-Object {
+        [PSCustomObject]@{
+            DisplayName            = $app.DisplayName
+            AppId                  = $app.AppId
+            CertificateDisplayName = $_.DisplayName
+            KeyId                  = $_.KeyId
+            ExpiringKeys           = $_.EndDate
+        }
+    }
+}
+$appsWithExpiringKeys | Format-Table DisplayName, AppId, CertificateDisplayName, KeyId, ExpiringKeys -AutoSize
+```
+
 ## Related content
 
 - [Manage users](manage-user.md)
