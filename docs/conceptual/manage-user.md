@@ -77,17 +77,17 @@ Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
 
 1. To search for users with the job title of `Retail manager`, use this command:
 
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
-```
+ ```powershell
+ Connect-Entra -Scopes 'User.Read.All'
+ Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
+ ```
 
 1. To search for users in Marketing department, use this command:
 
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "department eq 'Marketing'"
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -Filter "department eq 'Marketing'"
+    ```
 
 1. To find the five most recently created users, use this command:
 
