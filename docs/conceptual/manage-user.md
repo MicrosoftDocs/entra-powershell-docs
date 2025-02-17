@@ -151,12 +151,12 @@ Id                                   displayName                         created
 
 1. Get a user's manager.
 
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUserManager -UserId 'SawyerM@contoso.com' |
-    Select-Object Id, displayName, userPrincipalName, createdDateTime, accountEnabled, userType |
-    Format-Table -AutoSize
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUserManager -UserId 'SawyerM@contoso.com' |
+        Select-Object Id, displayName, userPrincipalName, createdDateTime, accountEnabled, userType |
+        Format-Table -AutoSize
+    ```
 
 The output shows the user's manager.
 
@@ -168,12 +168,12 @@ id                                    displayName     userPrincipalName         
 
 1. List the users who report to a specific user.
 
-```powershell
-Connect-Entra -Scopes 'User.Read','User.Read.All'
-Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com' |
-    Select-Object Id, displayName, userPrincipalName, createdDateTime, accountEnabled, userType |
-    Format-Table -AutoSize
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.Read','User.Read.All'
+    Get-EntraUserDirectReport -UserId 'SawyerM@contoso.com' |
+        Select-Object Id, displayName, userPrincipalName, createdDateTime, accountEnabled, userType |
+        Format-Table -AutoSize
+    ```
 
 The output shows the user's direct report.
 
@@ -186,10 +186,10 @@ aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb  Isaiah Langer   IsaiahL@Contoso.com       
 
 1. Assign a manager to a user.
 
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All'
-Set-EntraUserManager -UserId 'SawyerM@contoso.com' -ManagerId 'AdeleV@contoso.com'
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.ReadWrite.All'
+    Set-EntraUserManager -UserId 'SawyerM@contoso.com' -ManagerId 'AdeleV@contoso.com'
+    ```
 
 - `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
 - `-ManagerId` - specifies the ID as a UserPrincipalName or User ObjectId) of the Microsoft Entra ID object to assign as a manager.
@@ -272,19 +272,19 @@ Get-EntraDeletedUser -All | Sort-Object -Property deletedDateTime -Descending
 
 1. Upload a photo for a user.
 
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All'
-Set-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com' -FilePath 'D:\UserThumbnailPhoto.jpg'
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.ReadWrite.All'
+    Set-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com' -FilePath 'D:\UserThumbnailPhoto.jpg'
+    ```
 
 This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
 
 1. Retrieve a user’s photo.
 
-```powershell
-Connect-Entra -Scopes 'ProfilePhoto.Read.All'
-Get-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com'
-```
+    ```powershell
+    Connect-Entra -Scopes 'ProfilePhoto.Read.All'
+    Get-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com'
+    ```
 
 This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the `UserId` parameter.
 
@@ -308,49 +308,49 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 
 1. Invalidate active sessions and tokens.
 
-```powershell
-Connect-Entra -Scopes 'Directory.AccessAsUser.All'
-Revoke-EntraUserAllRefreshToken -UserId 'SawyerM@contoso.com'
-```
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All'
+    Revoke-EntraUserAllRefreshToken -UserId 'SawyerM@contoso.com'
+    ```
 
 Revoking authentication tokens invalidates them, thus preventing reaccess through cached logins or remembered sessions.
 
 1. Disable a user.
 
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All'
-Set-EntraUser -UserId 'SawyerM@contoso.com' -AccountEnabled $false
-```
+    ```powershell
+    Connect-Entra -Scopes 'User.ReadWrite.All'
+    Set-EntraUser -UserId 'SawyerM@contoso.com' -AccountEnabled $false
+    ```
 
 Disabling the account instantly blocks the user from accessing company resources, applications, and data.
 
 1. Reset a user's password.
 
-```powershell
-Connect-Entra -Scopes 'Directory.AccessAsUser.All'
-$securePassword = ConvertTo-SecureString 'Some-strong-random-password' -AsPlainText -Force
-Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
-```
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All'
+    $securePassword = ConvertTo-SecureString 'Some-strong-random-password' -AsPlainText -Force
+    Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
+    ```
 
 Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
 1. Disable a user's device.
 
-```powershell
-Connect-Entra -Scopes 'Directory.AccessAsUser.All'
-$device = Get-EntraDevice -Filter "DisplayName eq 'Sawyer Laptop'"
-$owner = Get-EntraDeviceRegisteredOwner -DeviceId $device.Id
-Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
-```
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All'
+    $device = Get-EntraDevice -Filter "DisplayName eq 'Sawyer Laptop'"
+    $owner = Get-EntraDeviceRegisteredOwner -DeviceId $device.Id
+    Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
+    ```
 
 Disabling a user's device helps safeguard the organization's security, data, and resources.
 
 1. Remove a user account.
 
-```powershell
-Connect-Entra -Scopes 'Directory.AccessAsUser.All'
-Remove-EntraUser -UserId 'SawyerM@contoso.com'
-```
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All'
+    Remove-EntraUser -UserId 'SawyerM@contoso.com'
+    ```
 
 > [!Note]
 > You can reclaim the user's assigned software and service licenses. See [Manage User License][manage-licenses] for details.
