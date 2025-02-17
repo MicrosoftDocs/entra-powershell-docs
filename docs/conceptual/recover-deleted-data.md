@@ -34,7 +34,7 @@ To restore deleted groups, you need at least the [Groups Administrator](/entra/i
 
 ### Step 1: Find deleted groups
 
-Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup) cmdlet to find deleted groups. 
+Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup) cmdlet to find deleted groups.
 
 ```powershell
 Connect-Entra -Scopes 'Group.Read.All'
@@ -54,7 +54,7 @@ test24      33dd33dd-ee44-ff55-aa66-77bb77bb77bb test24       desc4       {Unifi
 
 ### Step 2: Restore soft-deleted groups
 
-After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the object ID of the deleted group.
+After identifying the group to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the object ID of the deleted group.
 
 ```powershell
 Connect-Entra -Scopes 'Group.ReadWrite.All' 
@@ -87,7 +87,7 @@ When you delete an application, the application registration by default enters t
 
 ### Step 1: Find deleted applications
 
-To restore a soft-deleted application, you can use the [Get-EntraDeletedApplication](/powershell/module/microsoft.entra/get-entradeletedapplication) cmdlet first, to get the deleted application's details.
+To restore a soft-deleted application, you can use the [Get-EntraDeletedApplication][get-entradeletedapplication] cmdlet first, to get the deleted application's details.
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
@@ -121,7 +121,7 @@ TestApp1    aaaaaaaa-bbbb-cccc-1111-222222222222 00001111-aaaa-2222-bbbb-3333ccc
 
 ### Step 2: Restore soft-deleted applications
 
-After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/restore-entradeleteddirectoryobject) cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
+After identifying the app to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the service principal ID. Restoring an application doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
@@ -143,6 +143,67 @@ Connect-Entra -Scopes 'Application.ReadWrite.All'
 Get-EntraDeletedApplication -Filter "displayName eq 'TestApp1'" | Restore-EntraDeletedDirectoryObject
 ```
 
+## Restore service principals
+
+To restore deleted service principal, you need one of the following Microsoft Entra roles: [Application Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator), [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator), or [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#hybrid-identity-administrator).
+
+### Step 1: Find deleted service principals
+
+To restore a soft-deleted service principal, you can use the [Get-EntraDeletedServicePrincipal][get-entradeletedserviceprincipal] cmdlet first, to get the deleted service principal's details.
+
+```powershell
+Connect-Entra -Scopes 'Application.Read.All'
+Get-EntraDeletedServicePrincipal -All
+```
+
+In the returned list, you can see the display name, ID, service principal ID, sign-in audience, and publisher domain of the deleted service principals.
+
+```Output
+DisplayName           Id                                   AppId                                SignInAudience ServicePrincipalType
+-----------           --                                   -----                                -------------- --------------------
+Contoso Fieldglass    bbbbbbbb-cccc-dddd-2222-333333333333 00001111-aaaa-2222-bbbb-3333cccc4444 AzureADMyOrg   Application
+Contoso Application   cccccccc-dddd-eeee-3333-444444444444 11112222-bbbb-3333-cccc-4444dddd5555                Application
+```
+
+To get the deleted service principal by display name use the following command:
+
+```powershell
+Connect-Entra -Scopes 'Application.Read.All'
+Get-EntraDeletedServicePrincipal -Filter "displayName eq 'Contoso Fieldglass'"
+```
+
+In the result, you can see the same details as in the previous example.
+
+```Output
+DisplayName           Id                                   AppId                                SignInAudience ServicePrincipalType
+-----------           --                                   -----                                -------------- --------------------
+Contoso Fieldglass    bbbbbbbb-cccc-dddd-2222-333333333333 00001111-aaaa-2222-bbbb-3333cccc4444 AzureADMyOrg   Application
+```
+
+### Step 2: Restore soft-deleted service principals
+
+After identifying the service principal to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the service principal ID. Restoring a service principal doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
+
+```powershell
+Connect-Entra -Scopes 'Application.ReadWrite.All' 
+Restore-EntraDeletedDirectoryObject -Id 'aaaaaaaa-bbbb-cccc-1111-222222222222'
+```
+
+Once the service principal is restored, the output shows the service principal ID and the deleted date and time as empty, indicating that the service principal has been restored.
+
+```Output
+Id                                   DeletedDateTime
+--                                   ---------------
+aaaaaaaa-bbbb-cccc-1111-222222222222
+```
+
+You can also restore the service principal in one step if you know its display name, using pipelining:
+
+```powershell
+Connect-Entra -Scopes 'Application.ReadWrite.All' 
+Get-EntraDeletedServicePrincipal -Filter "displayName eq 'Contoso Fieldglass'" | Restore-EntraDeletedDirectoryObject
+```
+
 ## Restore users
 
 To restore deleted users, you need at least the [User Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator) role.
@@ -151,16 +212,16 @@ After a user is deleted, their account remains in a suspended state for 30 days,
 
 ### Step 1: Find deleted users
 
-To restore a soft-deleted user with Microsoft Entra PowerShell, use the [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/get-entradeleteddirectoryobject) cmdlet to find the deleted user's ID.
+To restore a soft-deleted user with Microsoft Entra PowerShell, use the [Get-EntraDeletedUser][get-entradeleteduser] cmdlet to find the deleted user's ID.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-Get-EntraDeletedDirectoryObject -DirectoryObjectId '00aa00aa-bb11-cc22-dd33-44ee44ee44ee'
+Get-EntraDeletedUser -Filter "displayName eq 'Avery Smith'"
 ```
 
 ### Step 2: Restore soft-deleted users
 
-Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/restore-entradeleteddirectoryobject) cmdlet to restore the user.
+Once you have the deleted user's ID,  use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet to restore the user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -179,17 +240,111 @@ If you already know the user's ID, you can restore it in one step using pipelini
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
-Get-EntraDeletedDirectoryObject -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Restore-EntraDeletedDirectoryObject
+Get-EntraDeletedUser -Filter "displayName eq 'Avery Smith'" | Restore-EntraDeletedDirectoryObject
 ```
 
 > [!NOTE]
 > When a user is restored, any licenses assigned at the time of deletion are also restored, even if none are available. If you're consuming more licenses than you purchased, your organization could be temporarily out of compliance for license usage.
+
+## Restore administrative units
+
+To restore deleted administrative units, you need one of the following Microsoft Entra roles: [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator).
+
+### Step 1: Find deleted administrative units
+
+To restore a soft-deleted administrative unit, you can use the [Get-EntraDeletedAdministrativeUnit][get-entradeletedadministrativeunit] cmdlet first, to get the deleted administrative unit's details.
+
+```powershell
+Connect-Entra -Scopes 'AdministrativeUnit.Read.All'
+Get-EntraDeletedAdministrativeUnit -All | Format-List
+```
+
+The list shows the display name, ID, administrative unit ID, sign-in audience, and publisher domain of deleted administrative units.
+
+```Output
+DeletionAgeInDays             : 5
+DeletedDateTime               : 2/12/2025 12:40:52 PM
+Description                   : Pacific Administrative Unit
+DisplayName                   : Pacific Administrative Unit
+Extensions                    :
+Id                            : bbbbbbbb-cccc-dddd-2222-333333333333
+IsMemberManagementRestricted  :
+Members                       :
+MembershipRule                : (user.country -eq "Australia")
+MembershipRuleProcessingState : On
+MembershipType                : Dynamic
+ScopedRoleMembers             :
+Visibility                    : HiddenMembership
+AdditionalProperties          : {}
+```
+
+To get the deleted administrative unit by display name use the following command:
+
+```powershell
+Connect-Entra -Scopes 'AdministrativeUnit.Read.All'
+Get-EntraDeletedAdministrativeUnit -Filter "displayName eq 'Pacific Administrative Unit'"
+```
+
+In the result, you can see the same details as in the previous example.
+
+```Output
+DeletionAgeInDays             : 5
+DeletedDateTime               : 2/12/2025 12:40:52 PM
+Description                   : Pacific Administrative Unit
+DisplayName                   : Pacific Administrative Unit
+Extensions                    :
+Id                            : bbbbbbbb-cccc-dddd-2222-333333333333
+IsMemberManagementRestricted  :
+Members                       :
+MembershipRule                : (user.country -eq "Australia")
+MembershipRuleProcessingState : On
+MembershipType                : Dynamic
+ScopedRoleMembers             :
+Visibility                    : HiddenMembership
+AdditionalProperties          : {}
+```
+
+### Step 2: Restore soft-deleted administrative units
+
+After identifying the administrative unit to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the administrative unit ID. Restoring a administrative unit doesn’t automatically restore its administrative unit—you need to run this cmdlet separately to restore the deleted administrative unit.
+
+```powershell
+Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
+Restore-EntraDeletedDirectoryObject -Id 'aaaaaaaa-bbbb-cccc-1111-222222222222'
+```
+
+Once the administrative unit is restored, the output shows the administrative unit ID and the deleted date and time as empty, indicating that the administrative unit has been restored.
+
+```Output
+Id                                   DeletedDateTime
+--                                   ---------------
+aaaaaaaa-bbbb-cccc-1111-222222222222
+```
+
+You can also restore the administrative unit in one step if you know its display name, using pipelining:
+
+```powershell
+Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
+Get-EntraDeletedAdministrativeUnit -Filter "displayName eq 'Pacific Administrative Unit'" | Restore-EntraDeletedDirectoryObject
+```
 
 ## Related content
 
 For more examples visit the following articles:
 
 - [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup?)
-- [Get-EntraDeletedApplication](/powershell/module/microsoft.entra/get-entradeletedapplication)
+- [Get-EntraDeletedApplication][get-entradeletedapplication]
 - [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/get-entradeleteddirectoryobject?)
-- [Restore-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/restore-entradeleteddirectoryobject)
+- [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject]
+- [Get-EntraDeletedServicePrincipal][get-entradeletedserviceprincipal]
+- [Get-EntraDeletedUser][get-entradeleteduser]
+- [Get-EntraDeletedAdministrativeUnit][get-entradeletedadministrativeunit]
+- [Get-EntraDeletedDevice](/powershell/module/microsoft.entra/get-entradeleteddevice)
+
+<!-- Link definitions -->
+
+[restore-entradeleteddirectoryobject]: /powershell/module/microsoft.entra/restore-entradeleteddirectoryobject
+[get-entradeletedapplication]: /powershell/module/microsoft.entra/get-entradeletedapplication
+[get-entradeletedserviceprincipal]: /powershell/module/microsoft.entra/get-entradeletedserviceprincipal
+[get-entradeleteduser]: /powershell/module/microsoft.entra/get-entradeleteduser
+[get-entradeletedadministrativeunit]: /powershell/module/microsoft.entra/get-entradeletedadministrativeunit
