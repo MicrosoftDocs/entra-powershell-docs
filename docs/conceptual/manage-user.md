@@ -158,13 +158,13 @@ Id                                   displayName                         created
         Format-Table -AutoSize
     ```
 
-The output shows the user's manager.
+    The output shows the user's manager.
 
-```Output
-id                                    displayName     userPrincipalName                    createdDateTime           accountEnabled  userType
---                                    -----------     -----------------                    ---------------           --------------  --------
-11bb11bb-cc22-dd33-ee44-55ff55ff55ff  Patti Fernandez PattiF@Contoso.com                 10/7/2024 12:32:01 AM      True           Member
-```
+    ```Output
+    id                                    displayName     userPrincipalName                    createdDateTime           accountEnabled  userType
+    --                                    -----------     -----------------                    ---------------           --------------  --------
+    11bb11bb-cc22-dd33-ee44-55ff55ff55ff  Patti Fernandez PattiF@Contoso.com                 10/7/2024 12:32:01 AM      True           Member
+    ```
 
 1. List the users who report to a specific user.
 
@@ -175,14 +175,14 @@ id                                    displayName     userPrincipalName         
         Format-Table -AutoSize
     ```
 
-The output shows the user's direct report.
+    The output shows the user's direct report.
 
-```Output
-id                                    displayName     userPrincipalName           createdDateTime       accountEnabled  userType
---                                    -----------     -----------------           ---------------       --------------  --------
-bbbbbbbb-1111-2222-3333-cccccccccccc  Christie Cline  ChristieC@Contoso.com       10/7/2024 12:32:25 AM  True           Member
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb  Isaiah Langer   IsaiahL@Contoso.com         10/7/2024 12:33:16 AM  True           Member
-```
+    ```Output
+    id                                    displayName     userPrincipalName           createdDateTime       accountEnabled  userType
+    --                                    -----------     -----------------           ---------------       --------------  --------
+    bbbbbbbb-1111-2222-3333-cccccccccccc  Christie Cline  ChristieC@Contoso.com       10/7/2024 12:32:25 AM  True           Member
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb  Isaiah Langer   IsaiahL@Contoso.com         10/7/2024 12:33:16 AM  True           Member
+    ```
 
 1. Assign a manager to a user.
 
@@ -191,8 +191,8 @@ aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb  Isaiah Langer   IsaiahL@Contoso.com       
     Set-EntraUserManager -UserId 'SawyerM@contoso.com' -ManagerId 'AdeleV@contoso.com'
     ```
 
-- `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
-- `-ManagerId` - specifies the ID as a UserPrincipalName or User ObjectId) of the Microsoft Entra ID object to assign as a manager.
+    - `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
+    - `-ManagerId` - specifies the ID as a UserPrincipalName or User ObjectId) of the Microsoft Entra ID object to assign as a manager.
 
 ### List users without managers
 
@@ -277,7 +277,7 @@ Get-EntraDeletedUser -All | Sort-Object -Property deletedDateTime -Descending
     Set-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com' -FilePath 'D:\UserThumbnailPhoto.jpg'
     ```
 
-This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
+    This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
 
 1. Retrieve a user’s photo.
 
@@ -286,7 +286,7 @@ This example sets the thumbnail photo of the user specified with the UserId para
     Get-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com'
     ```
 
-This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the `UserId` parameter.
+    This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the `UserId` parameter.
 
 ### Grant users administrative roles in your organization
 
