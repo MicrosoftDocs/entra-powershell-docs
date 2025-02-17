@@ -5,7 +5,7 @@ description: "Learn how to install the Microsoft Entra PowerShell module."
 author: omondiatieno
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 01/27/2025
+ms.date: 02/09/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-install-win-linux-macos
@@ -176,6 +176,34 @@ You need to repeat this step for every new PowerShell session you start.
 For more information on other authentication scenarios, see [more authentication scenarios][auth-methods].
 
 ## Update the module
+
+If the module is installed, follow these steps to update it.
+
+### Verify installed version and location
+
+Run the following command to check the installed module version and its location:
+
+```PowerShell
+Get-InstalledModule Microsoft.Entra* | Format-Table Name,Version,InstalledLocation -AutoSize
+```
+
+This command shows the installed Microsoft Entra PowerShell module, its version, and installation location.
+
+```Output
+Name                                Version InstalledLocation
+----                                ------- -----------------
+Microsoft.Entra                     1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra\1.0.1
+Microsoft.Entra.Applications        1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Applications\1.0.1
+Microsoft.Entra.Authentication      1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Authentication\1.0.1
+Microsoft.Entra.DirectoryManagement 1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.DirectoryManagement\1.0.1
+Microsoft.Entra.Governance          1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Governance\1.0.1
+Microsoft.Entra.Groups              1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Groups\1.0.1
+Microsoft.Entra.Reports             1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Reports\1.0.1
+Microsoft.Entra.SignIns             1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.SignIns\1.0.1
+Microsoft.Entra.Users               1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Users\1.0.1
+```
+
+### Update to the latest version
 
 Use [Update-Module][update-module] to update to the latest version of the Microsoft Entra PowerShell.
 
