@@ -79,12 +79,12 @@ Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 
 ## Add user to a group
 
-Add a user to the group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID. You can get the User ID from the [Microsoft Entra admin center](https://entra.microsoft.com/) or by running the [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser) command.
+Add a user to the group by running the following command. The `GroupId` is the Group ID and the `MemberId` is the User ID. You can get the User ID from the [Microsoft Entra admin center](https://entra.microsoft.com/) or by running the [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser) command.
 
 ```powershell
 $group = Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 $user = Get-EntraUser -UserId 'SawyerM@contoso.com'
-Add-EntraGroupMember -GroupId $group.Id -RefObjectId $user.Id
+Add-EntraGroupMember -GroupId $group.Id -MemberId $user.Id
 ```
 
 To retrieve group members, use the command:
@@ -105,12 +105,12 @@ cccccccc-8888-9999-0000-dddddddddddd Contoso Group     #microsoft.graph.group
 
 ## Add user as a group owner
 
-Add a group owner to a group by running the following command. The `GroupId` is the Group ID and the `RefObjectId` is the User ID.
+Add a group owner to a group by running the following command. The `GroupId` is the Group ID and the `OwnerId` is the User ID.
 
 ```powershell
 $group = Get-EntraGroup -Filter "displayName eq 'Contoso marketing'"
 $owner = Get-EntraUser -UserId 'AdeleV@contoso.com'
-Add-EntraGroupOwner -GroupId $group.Id -RefObjectId $owner.Id
+Add-EntraGroupOwner -GroupId $group.Id -OwnerId $owner.Id
 ```
 
 To confirm the updated group owner, use the command:
