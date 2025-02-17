@@ -353,13 +353,14 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 ```
 
 > [!Note]
-> You can reclaim the user's assigned software and service licenses. See [Manage User License](./how-to-manage-user-licenses.md) for details.
+> You can reclaim the user's assigned software and service licenses. See [Manage User License][manage-licenses] for details.
 
 ## Related content
 
 - [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]
 - [Manage apps][manage-apps]
+- [Manage devices][manage-devices]
 
 <!-- link references -->
 
@@ -368,3 +369,4 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [manage-apps]: manage-apps.md
 [manage-licenses]: how-to-manage-user-licenses.md
+[manage-devices]: manage-devices.md
