@@ -1,5 +1,5 @@
 ---
-title: "Find Azure AD PowerShell and MSOnline cmdlets"
+title: "Find Azure AD PowerShell and MSOnline cmdlet equivalents in Microsoft Entra PowerShell"
 description: "Find the equivalents of Azure AD PowerShell cmdlets in Microsoft Entra PowerShell."
 
 ms.topic: reference
