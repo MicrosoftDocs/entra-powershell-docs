@@ -182,7 +182,7 @@ Contoso Fieldglass    bbbbbbbb-cccc-dddd-2222-333333333333 00001111-aaaa-2222-bb
 
 ### Step 2: Restore soft-deleted service principals
 
-After identifying the service principal to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the service principal ID. Restoring a service principal doesn’t automatically restore its service principal—you need to run this cmdlet separately to restore the deleted service principal.
+After identifying the service principal to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the service principal ID.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All' 
@@ -306,7 +306,7 @@ AdditionalProperties          : {}
 
 ### Step 2: Restore soft-deleted administrative units
 
-After identifying the administrative unit to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the administrative unit ID. Restoring an administrative unit doesn’t automatically restore its administrative unit—you need to run this cmdlet separately to restore the deleted administrative unit.
+After identifying the administrative unit to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the administrative unit ID.
 
 ```powershell
 Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
