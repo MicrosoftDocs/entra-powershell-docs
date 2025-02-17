@@ -30,7 +30,7 @@ To recover deleted data with Microsoft Entra PowerShell, you need:
 To restore deleted groups, you need at least the [Groups Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#groups-administrator) role. For role-assignable groups, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator) role.
 
 > [!NOTE]
-> Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups cannot be restored.
+> Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups can't be restored.
 
 ### Step 1: Find deleted groups
 
@@ -62,7 +62,7 @@ $group = Get-EntraDeletedGroup -Filter "displayName eq 'test21'"
 Restore-EntraDeletedDirectoryObject -Id $group.Id
 ```
 
-The output shows the group ID and the deleted date and time as empty, indicating that the group has been restored.
+The output shows the group ID and the deleted date and time as empty, indicating that the group is restored.
 
 ```Output
 Id                                   DeletedDateTime
@@ -104,7 +104,7 @@ TestApp2    bbbbbbbb-cccc-dddd-2222-333333333333 11112222-bbbb-3333-cccc-4444ddd
 TestApp3    cccccccc-dddd-eeee-3333-444444444444 22223333-cccc-4444-dddd-5555eeee6666  AzureADMyOrg   contoso.com
 ```
 
-To get the deleted application by display name use the following command:
+To get the deleted application by display name, use the following command:
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
@@ -128,7 +128,7 @@ Connect-Entra -Scopes 'Application.ReadWrite.All'
 Restore-EntraDeletedDirectoryObject -Id 'aaaaaaaa-bbbb-cccc-1111-222222222222'
 ```
 
-Once the application is restored, the output shows the application ID and the deleted date and time as empty, indicating that the application has been restored.
+Once the application is restored, the output shows the application ID and the deleted date and time as empty, indicating that the application is restored.
 
 ```Output
 Id                                   DeletedDateTime
@@ -165,7 +165,7 @@ Contoso Fieldglass    bbbbbbbb-cccc-dddd-2222-333333333333 00001111-aaaa-2222-bb
 Contoso Application   cccccccc-dddd-eeee-3333-444444444444 11112222-bbbb-3333-cccc-4444dddd5555                Application
 ```
 
-To get the deleted service principal by display name use the following command:
+To get the deleted service principal by display name, use the following command:
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
@@ -189,7 +189,7 @@ Connect-Entra -Scopes 'Application.ReadWrite.All'
 Restore-EntraDeletedDirectoryObject -Id 'aaaaaaaa-bbbb-cccc-1111-222222222222'
 ```
 
-Once the service principal is restored, the output shows the service principal ID and the deleted date and time as empty, indicating that the service principal has been restored.
+Once the service principal is restored, the output shows the service principal ID and the deleted date and time as empty, indicating that the service principal is restored.
 
 ```Output
 Id                                   DeletedDateTime
@@ -228,7 +228,7 @@ Connect-Entra -Scopes 'User.ReadWrite.All'
 Restore-EntraDeletedDirectoryObject -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' 
 ```
 
-The result shows the user ID and the deleted date and time as empty, indicating that the user has been restored.
+The result shows the user ID and the deleted date and time as empty, indicating that the user is restored.
 
 ```Output
 Id                                   DeletedDateTime
@@ -278,7 +278,7 @@ Visibility                    : HiddenMembership
 AdditionalProperties          : {}
 ```
 
-To get the deleted administrative unit by display name use the following command:
+To get the deleted administrative unit by display name, use the following command:
 
 ```powershell
 Connect-Entra -Scopes 'AdministrativeUnit.Read.All'
@@ -306,14 +306,14 @@ AdditionalProperties          : {}
 
 ### Step 2: Restore soft-deleted administrative units
 
-After identifying the administrative unit to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the administrative unit ID. Restoring a administrative unit doesn’t automatically restore its administrative unit—you need to run this cmdlet separately to restore the deleted administrative unit.
+After identifying the administrative unit to restore, use the [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject] cmdlet with the `-Id` parameter to specify the administrative unit ID. Restoring an administrative unit doesn’t automatically restore its administrative unit—you need to run this cmdlet separately to restore the deleted administrative unit.
 
 ```powershell
 Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
 Restore-EntraDeletedDirectoryObject -Id 'aaaaaaaa-bbbb-cccc-1111-222222222222'
 ```
 
-Once the administrative unit is restored, the output shows the administrative unit ID and the deleted date and time as empty, indicating that the administrative unit has been restored.
+Once the administrative unit is restored, the output shows the administrative unit ID and the deleted date and time as empty, indicating that the administrative unit is restored.
 
 ```Output
 Id                                   DeletedDateTime
