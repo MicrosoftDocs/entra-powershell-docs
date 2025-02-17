@@ -68,28 +68,28 @@ Connect-Entra -Scopes 'User.Read.All'
 Get-EntraUser -Filter "startswith(MailNickname,'AdeleV')"
 ```
 
-2. To search for a user by `userPrincipalName`, use this command:
+1. To search for a user by `userPrincipalName`, use this command:
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
 Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
 ```
 
-3. To search for users with the job title of `Retail manager`, use this command:
+1. To search for users with the job title of `Retail manager`, use this command:
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
 Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
 ```
 
-4. To search for users in Marketing department, use this command:
+1. To search for users in Marketing department, use this command:
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
 Get-EntraUser -Filter "department eq 'Marketing'"
 ```
 
-5. To find the five most recently created users, use this command:
+1. To find the five most recently created users, use this command:
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
@@ -166,7 +166,7 @@ id                                    displayName     userPrincipalName         
 11bb11bb-cc22-dd33-ee44-55ff55ff55ff  Patti Fernandez PattiF@Contoso.com                 10/7/2024 12:32:01 AM      True           Member
 ```
 
-2. List the users who report to a specific user.
+1. List the users who report to a specific user.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read','User.Read.All'
@@ -184,7 +184,7 @@ bbbbbbbb-1111-2222-3333-cccccccccccc  Christie Cline  ChristieC@Contoso.com     
 aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb  Isaiah Langer   IsaiahL@Contoso.com         10/7/2024 12:33:16 AM  True           Member
 ```
 
-3. Assign a manager to a user.
+1. Assign a manager to a user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -279,7 +279,7 @@ Set-EntraUserThumbnailPhoto -UserId 'SawyerM@contoso.com' -FilePath 'D:\UserThum
 
 This example sets the thumbnail photo of the user specified with the UserId parameter to the image specified with the FilePath parameter.
 
-2. Retrieve a user’s photo.
+1. Retrieve a user’s photo.
 
 ```powershell
 Connect-Entra -Scopes 'ProfilePhoto.Read.All'
@@ -315,7 +315,7 @@ Revoke-EntraUserAllRefreshToken -UserId 'SawyerM@contoso.com'
 
 Revoking authentication tokens invalidates them, thus preventing reaccess through cached logins or remembered sessions.
 
-2. Disable a user.
+1. Disable a user.
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -324,7 +324,7 @@ Set-EntraUser -UserId 'SawyerM@contoso.com' -AccountEnabled $false
 
 Disabling the account instantly blocks the user from accessing company resources, applications, and data.
 
-3. Reset a user's password.
+1. Reset a user's password.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
@@ -334,7 +334,7 @@ Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
 
 Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
-4. Disable a user's device.
+1. Disable a user's device.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
@@ -345,7 +345,7 @@ Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
 
 Disabling a user's device helps safeguard the organization's security, data, and resources.
 
-5. Remove a user account.
+1. Remove a user account.
 
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
