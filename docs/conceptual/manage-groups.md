@@ -142,10 +142,10 @@ $groupsWithoutOwners | Format-Table DisplayName, Id, GroupTypes
 ```
 
 ```Output
-DisplayName           Id                                   GroupTypes
------------           --                                   ----------
-Contoso marketing          aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb {}
-HelpDesk admin group  eeeeeeee-4444-5555-6666-ffffffffffff {}
+DisplayName              Id                                   GroupTypes
+-----------              --                                   ----------
+Contoso marketing        aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb {}
+HelpDesk admin group     eeeeeeee-4444-5555-6666-ffffffffffff {}
 ```
 
 To query groups without members (empty groups), run the following command.
@@ -162,10 +162,10 @@ $groupsWithoutMembers | Format-Table DisplayName, Id, GroupTypes
 ```
 
 ```Output
-DisplayName           Id                                   GroupTypes
------------           --                                   ----------
-Contoso marketing          aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb {}
-HelpDesk admin group  eeeeeeee-4444-5555-6666-ffffffffffff {}
+DisplayName             Id                                   GroupTypes
+-----------            --                                   ----------
+Contoso marketing      aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb {}
+HelpDesk admin group   eeeeeeee-4444-5555-6666-ffffffffffff {}
 ```
 
 ## Clean up resources
