@@ -75,11 +75,25 @@ Connect-Entra -Scopes 'User.Read.All'
 Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
 ```
 
-3. To search for users with the job title of 'Retail manager', use this command:
+3. To search for users with the job title of `Retail manager`, use this command:
 
 ```powershell
-
+Connect-Entra -Scopes 'User.Read.All'
 Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
+```
+
+4. To search for users in Marketing department, use this command:
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+Get-EntraUser -Filter "department eq 'Marketing'"
+```
+
+5. To find the five most recently created users, use this command:
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+Get-EntraUser -All | Sort-Object -Property createdDateTime -Descending | Select-Object -First 5
 ```
 
 ### Retrieve a user's sign-in activity
@@ -339,7 +353,7 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 ```
 
 > [!Note]
-> You can also reclaim any licenses for software and services that were assigned to the user.
+> You can reclaim the user's assigned software and service licenses. See [Manage User License](./how-to-manage-user-licenses.md) for details.
 
 ## Related content
 
