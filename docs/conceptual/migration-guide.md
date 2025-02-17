@@ -5,7 +5,7 @@ description: Learn how to use the Enable-EntraAzureADAlias command to run existi
 author: csmulligan
 manager: CelesteDG
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 02/09/2025
 ms.author: cmulligan
 
 #Customer intent: As an IT admin, I want to learn how to run my existing scripts from Azure AD PowerShell in Microsoft Entra PowerShell so that I can smoothly transition to using Microsoft Entra PowerShell in my operations.
@@ -24,7 +24,8 @@ To use Microsoft Entra PowerShell with your existing AzureAD PowerShell scripts,
 ```powershell
 Import-Module -Name Microsoft.Entra
 Connect-Entra #Replaces Connect-AzureAD for auth
-Enable-EntraAzureADAlias #enable aliasing 
+Enable-EntraAzureADAlias #enable aliasing
+Get-AzureADApplication -Top 2
 ```
 
 ### Example
@@ -55,7 +56,9 @@ foreach ($app in $applications) {
 
 ```
 
-To use your script with the Microsoft Entra PowerShell module, replace the `Connect-AzureAD` cmdlet with the three lines provided in the snippet. You don’t need to rewrite the entire script. 
+**Note:** This code snippet is shortened for readability. See the [full sample for details](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/export-apps-with-expiring-secrets.ps1).
+
+To use your script with the Microsoft Entra PowerShell module, replace the `Connect-AzureAD` cmdlet with the three lines provided in the snippet. You don’t need to rewrite the entire script.
 
 The following script is the migrated script.
 
@@ -80,6 +83,8 @@ foreach ($app in $applications) {
     $cert = $appCreds.KeyCredentials
 ```
 
+**Note:** This code snippet is shortened for readability. See the [full modified sample for details](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/export-apps-with-expiring-secrets-modified.ps1).
+
 ## Test compatibility with Test-EntraScript command
 
 The [Test-EntraScript][testEntrascriptDefinition] cmdlet verifies if a script with Azure AD PowerShell commands works with the Microsoft Entra PowerShell module. If there are compatibility issues, it lists them, including the line number, issue type, incompatible command, and the specific code snippet.
@@ -103,4 +108,3 @@ When migrating from the Azure AD PowerShell module to Microsoft Entra PowerShell
 [testEntrascriptDefinition]: /powershell/module/microsoft.entra/test-entrascript
 [enable-entraazureadalias]: /powershell/module/microsoft.entra/enable-entraazureadalias
 [quickstart]: navigate-entraps.md
-[installation]: installation.md
