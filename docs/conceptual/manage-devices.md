@@ -157,8 +157,8 @@ To maintain a clean and secure environment, delete devices that are no longer in
 > [!IMPORTANT]
 >
 > - You must be a Cloud Device Administrator, Intune Administrator, or Windows 365 Administrator to delete a device.
-> - Printers can't be deleted before they are deleted from Universal Print.  
-> - Windows Autopilot devices can't be deleted before they are deleted from Intune.  
+> - Printers can't be deleted before they're deleted from Universal Print.  
+> - Windows Autopilot devices can't be deleted before they're deleted from Intune.  
 > - Deleting a device:  
 >   - Prevents it from accessing your Microsoft Entra resources.  
 >   - Removes all details attached to the device, such as BitLocker keys for Windows devices.  
