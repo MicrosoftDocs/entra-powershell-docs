@@ -135,6 +135,13 @@ woodgrove-win11-client     Windows             2
 
 ### Search devices
 
+1. Retrive specific device using `DeviceId`
+
+    ```powershell
+    Connect-Entra -Scopes 'Device.Read.All'  
+    Get-EntraDevice -Filter "DeviceId eq 'dddddddd-5555-6666-7777-eeeeeeeeeeee'" 
+    ```
+
 1. List non-compliant devices
 
     ```powershell
