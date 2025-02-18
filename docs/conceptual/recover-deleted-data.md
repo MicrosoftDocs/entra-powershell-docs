@@ -332,14 +332,8 @@ Get-EntraDeletedAdministrativeUnit -Filter "displayName eq 'Pacific Administrati
 
 For more examples visit the following articles:
 
-- [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup?)
-- [Get-EntraDeletedApplication][get-entradeletedapplication]
-- [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/get-entradeleteddirectoryobject?)
+- [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/get-entradeleteddirectoryobject)
 - [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject]
-- [Get-EntraDeletedServicePrincipal][get-entradeletedserviceprincipal]
-- [Get-EntraDeletedUser][get-entradeleteduser]
-- [Get-EntraDeletedAdministrativeUnit][get-entradeletedadministrativeunit]
-- [Get-EntraDeletedDevice](/powershell/module/microsoft.entra/get-entradeleteddevice)
 
 <!-- Link definitions -->
 
