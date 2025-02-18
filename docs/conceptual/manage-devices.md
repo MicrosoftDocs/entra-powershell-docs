@@ -211,4 +211,3 @@ Ensure to replace `$env:UserProfile` with the path where you want to save the fi
 [windows-365-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#windows-365-administrator
 [installation]: installation.md
 [free-entra-id]: https://azure.microsoft.com/free/entra-id
-[stale-devices]: manage-stale-devices.md
