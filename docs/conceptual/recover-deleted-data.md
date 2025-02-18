@@ -2,7 +2,7 @@
 title: Recover deleted data
 description: Learn how to restore soft-deleted users, groups, and apps with Microsoft Entra PowerShell. Learn cmdlets, steps, and pipelining solutions for one-step data recovery.
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 02/18/2025
 author: csmulligan
 manager: CelesteDG
 ms.author: cmulligan
@@ -23,11 +23,18 @@ To recover deleted data with Microsoft Entra PowerShell, you need:
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module](installation.md) guide to install the module.
-- Grant yourself the least privileged delegated permission indicated for the operation.
+- One of the following roles: 
+  - [Groups Administrator][groups-administrator] to restore deleted groups
+  - [User Administrator][user-administrator] to restore deleted users
+  - [Privileged Role Administrator][privileged-role-administrator] to restore role-assignable groups and deleted administrative units
+  - To restore deleted applications or service principals:
+     - [Application Administrator][application-administrator]
+     - [Cloud Application Administrator][cloud-application-administrator]
+     - [Hybrid Identity Administrator][hybrid-identity-administrator]
 
 ## Restore groups
 
-To restore deleted groups, you need at least the [Groups Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#groups-administrator) role. For role-assignable groups, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator) role.
+The following steps will guide you through restoring deleted groups.
 
 > [!NOTE]
 > Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups can't be restored.
@@ -80,7 +87,7 @@ Get-EntraDeletedGroup -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' | Restore-Entra
 
 ## Restore applications
 
-To restore deleted applications, you need one of the following Microsoft Entra roles: [Application Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator), [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator), or [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#hybrid-identity-administrator).
+The following steps will guide you through restoring deleted applications.
 
 Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals).
 When you delete an application, the application registration by default enters the soft-deleted state.
@@ -145,7 +152,7 @@ Get-EntraDeletedApplication -Filter "displayName eq 'TestApp1'" | Restore-EntraD
 
 ## Restore service principals
 
-To restore deleted service principal, you need one of the following Microsoft Entra roles: [Application Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator), [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator), or [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#hybrid-identity-administrator).
+The following steps will guide you through restoring service principals.
 
 ### Step 1: Find deleted service principals
 
@@ -206,9 +213,7 @@ Get-EntraDeletedServicePrincipal -Filter "displayName eq 'Contoso Fieldglass'" |
 
 ## Restore users
 
-To restore deleted users, you need at least the [User Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator) role.
-
-After a user is deleted, their account remains in a suspended state for 30 days, during which it can be fully restored. Once this 30-day period ends, the account is permanently deleted, and management of soft-deleted users is no longer possible.
+The following steps will guide you through restoring deleted users. After a user is deleted, their account remains in a suspended state for 30 days, during which it can be fully restored. Once this 30-day period ends, the account is permanently deleted, and management of soft-deleted users is no longer possible.
 
 ### Step 1: Find deleted users
 
@@ -248,7 +253,7 @@ Get-EntraDeletedUser -Filter "displayName eq 'Avery Smith'" | Restore-EntraDelet
 
 ## Restore administrative units
 
-To restore deleted administrative units, you need one of the following Microsoft Entra roles: [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator).
+The following steps will guide you through restoring administrative units.
 
 ### Step 1: Find deleted administrative units
 
@@ -342,3 +347,9 @@ For more examples visit the following articles:
 [get-entradeletedserviceprincipal]: /powershell/module/microsoft.entra/get-entradeletedserviceprincipal
 [get-entradeleteduser]: /powershell/module/microsoft.entra/get-entradeleteduser
 [get-entradeletedadministrativeunit]: /powershell/module/microsoft.entra/get-entradeletedadministrativeunit
+[application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#application-administrator
+[cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#cloud-application-administrator
+[hybrid-identity-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#hybrid-identity-administrator
+[user-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#user-administrator
+[groups-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#groups-administrator
+[privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#privileged-role-administrator
