@@ -115,6 +115,7 @@ Workplace   393
 ### List duplicate devices
 
 ```powershell
+Connect-Entra -Scopes 'Device.Read.All'  
 Get-EntraDevice -All -Select DisplayName, OperatingSystem |
 Group-Object DisplayName |
 Where-Object { $_.Count -gt 1 } |
@@ -131,6 +132,43 @@ iPhone                     iOS               175
 samsungSM-S928B            Android            15
 woodgrove-win11-client     Windows             2
 ```
+
+### Search devices
+
+1. List non-compliant devices
+
+    ```powershell
+    Connect-Entra -Scopes 'Device.Read.All'
+    Get-EntraDevice -Filter "isCompliant eq false"
+    ```
+
+1. List jail broken devices
+
+    ```powershell
+    Connect-Entra -Scopes 'Device.Read.All'
+    Get-EntraDevice -All | Where-Object { $_.isRooted -eq $true }
+    ```
+
+1. List managed devices
+
+    ```powershell
+    Connect-Entra -Scopes 'Device.Read.All'
+    Get-EntraDevice -Filter "isManaged eq true"
+    ```
+
+1. List enabled devices
+
+    ```powershell
+    Connect-Entra -Scopes 'Device.Read.All'
+    Get-EntraDevice -Filter "accountEnabled eq true" -All
+    ```
+
+1. List devices with specific operating system and version
+
+    ```powershell
+    Connect-Entra -Scopes 'Device.Read.All'
+    Get-EntraDevice -Filter "operatingSystem eq 'Windows Server' and operatingSystemVersion eq '10.0.20348.3091'"
+    ```
 
 ## Enable or disable a Microsoft Entra device  
 
