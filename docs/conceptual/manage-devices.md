@@ -85,7 +85,7 @@ DeletedDateTime Id                                   AccountEnabled ApproximateL
                 bbbbbbbb-1111-2222-3333-cccccccccccc False          10/2/2024 10:26:38 AM                                                     hhhhhhhh-7777-8888-9999-iiiiiiiiiiii
 ```
 
-This example demonstrates how to retrieve all devices whose display name starts with "Woodgrove."
+This example demonstrates how to retrieve all devices whose display name starts with "Woodgrove".
 
 ### Get the number of devices grouped by Join Type
 
@@ -110,6 +110,26 @@ Name      Count
 EntraID      66
 ServerAd     18
 Workplace   393
+```
+
+### List duplicate devices
+
+```powershell
+Get-EntraDevice -All -Select DisplayName, OperatingSystem |
+Group-Object DisplayName |
+Where-Object { $_.Count -gt 1 } |
+Select-Object Name, @{Name = "OperatingSystem"; Expression = { ($_.Group | Select-Object -First 1).OperatingSystem } }, Count | Sort-Object Count -Descending |
+Format-Table Name, OperatingSystem, Count -AutoSize 
+```
+
+The output lists duplicate devices by display name, operating system, and count.
+
+```Output
+Name                       OperatingSystem Count
+----                       --------------- -----
+iPhone                     iOS               175
+samsungSM-S928B            Android            15
+woodgrove-win11-client     Windows             2
 ```
 
 ## Enable or disable a Microsoft Entra device  
