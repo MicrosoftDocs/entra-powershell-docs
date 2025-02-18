@@ -59,6 +59,28 @@ DisplayName    Id                                     Mail    UserPrincipalName
 New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.com
 ```
 
+### Manage user passwords
+
+1. To update user's password by administrator, use this command:
+
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All'
+    $newPassword = '<strong-password>'
+    $securePassword = ConvertTo-SecureString $newPassword -AsPlainText -Force
+    Set-EntraUserPassword -UserId 'SawyerM@contoso.com' -Password $securePassword
+    ```
+
+1. Update the password for the signed-in user (self-serve)
+
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All'
+    $currentPassword = ConvertTo-SecureString '<strong-password>' -AsPlainText -Force
+    $newPassword = ConvertTo-SecureString '<strong-password>' -AsPlainText -Force
+    Update-EntraSignedInUserPassword -CurrentPassword $currentPassword -NewPassword $newPassword
+    ```
+
+    This command allow users to change their own passwords without admin privileges.
+
 ### Search users
 
 1. To search for a user by `mailNickname`, use this command:
