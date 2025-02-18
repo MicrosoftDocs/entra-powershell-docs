@@ -21,7 +21,7 @@ In this article, you learn how to manage roles using Microsoft Entra PowerShell.
 To manage roles with Microsoft Entra PowerShell, you need:
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The following roles to find role definitions and role assignments: [Directory Readers][directory-readers] 
+- The following role is used to find role definitions and assignments: [Directory Readers][directory-readers] 
 - The following role to create and assign roles, and to remove role assignments: [Privileged Role Administrator][privileged-role-administrator]
 - Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module](installation.md) guide to install the module.
 
