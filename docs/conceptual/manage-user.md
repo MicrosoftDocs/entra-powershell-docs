@@ -70,7 +70,7 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
     Set-EntraUserPassword -UserId 'SawyerM@contoso.com' -Password $securePassword
     ```
 
-1. Update the password for the signed-in user (self-serve)
+1. To update the password for the signed-in user (self-serve), use this command:
 
     ```powershell
     Connect-Entra -Scopes 'Directory.AccessAsUser.All'
@@ -79,7 +79,7 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
     Update-EntraSignedInUserPassword -CurrentPassword $currentPassword -NewPassword $newPassword
     ```
 
-    This command allow users to change their own passwords without admin privileges.
+    This command allows users to change their own passwords without admin privileges.
 
 ### Search users
 
