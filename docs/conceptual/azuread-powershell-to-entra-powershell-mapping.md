@@ -3,7 +3,7 @@ title: "Azure AD PowerShell to Microsoft Entra PowerShell cmdlet map"
 description: "Find the equivalents of Azure AD PowerShell cmdlets in Microsoft Entra PowerShell."
 
 ms.topic: reference
-ms.date: 01/13/2025
+ms.date: 02/09/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -375,6 +375,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Get-MsolServicePrincipalCredential| [Get-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra/Get-EntraServicePrincipalKeyCredential) |
 | Get-MsolSubscription| [Get-EntraSubscribedSku](/powershell/module/microsoft.entra/Get-EntraSubscribedSku) |
 | Get-MsolUser| [Get-EntraUser](/powershell/module/microsoft.entra/Get-EntraUser) |
+| Get-MsolUserRole| [Get-EntraUserRole](/powershell/module/microsoft.entra/get-entrauserrole) |
 | New-MsolAdministrativeUnit| [New-EntraAdministrativeUnit](/powershell/module/microsoft.entra/New-EntraAdministrativeUnit) |
 | New-MsolDomain| [New-EntraDomain](/powershell/module/microsoft.entra/New-EntraDomain) |
 | New-MsolGroup| [New-EntraGroup](/powershell/module/microsoft.entra/New-EntraGroup) |
