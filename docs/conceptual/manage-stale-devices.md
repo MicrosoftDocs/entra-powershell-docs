@@ -15,9 +15,9 @@ ms.reviewer: stevemutungi
 
 # Manage stale devices  
 
-In this article, you learn how to manage stale devices in Microsoft Entra ID using PowerShell. It covers detecting, disabling, and deleting devices that are no longer active.
+To complete the device lifecycle, registered devices should be unregistered when they aren't needed anymore. As a result of stolen, lost, broken devices, or OS reinstallations, you typically have some stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so you can focus your resources on managing devices that actually require management.
 
-To complete the device lifecycle, registered devices should be unregistered when they aren't needed anymore. As a result of stolen, lost, broken devices, or OS reinstallations, you typically have some stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so you can focus your resources on managing devices that actually require management.  
+In this article, you learn how to manage stale devices in Microsoft Entra ID using PowerShell. It covers detecting, disabling, and deleting devices that are no longer active.
 
 ## Prerequisites
 
@@ -155,7 +155,9 @@ Managing devices using Microsoft Entra PowerShell provides a robust and efficien
 
 When configured, BitLocker keys for Windows 10 or newer devices are stored on the device object in Microsoft Entra ID. If you delete a stale device, you also delete the BitLocker keys stored on the device. Confirm that your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device.  
 
-[Manage devices identities][manage-devices]
+## Related content
+
+- [Manage devices identities][manage-devices]
 
 <!-- link references -->
 [cloud-device-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-device-administrator  

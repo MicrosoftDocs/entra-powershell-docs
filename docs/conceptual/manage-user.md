@@ -183,7 +183,7 @@ cccccccc-2222-3333-4444-dddddddddddd New User           NewUser@tenant.com      
 bbbbbbbb-1111-2222-3333-cccccccccccc Sawyer Miller     SawyerM@contoso.com                        10/7/2024 12:33:36 AM     Member     True
 ```
 
-## List inactive users
+## List disabled users
 
 The following example generates a list of disabled accounts.
 
@@ -192,7 +192,7 @@ Connect-Entra -Scopes 'User.ReadWrite.All'
 Get-EntraUser -Filter "accountEnabled eq false" | Select-Object DisplayName, Id, Mail, UserPrincipalName
 ```
 
-The output lists inactive users.
+The output lists disabled users.
 
 ```Output
 DisplayName    Id                                   Mail userPrincipalName

@@ -15,13 +15,11 @@ ms.reviewer: stevemutungi
 ---  
   
 # Manage user and group assignments
-  
-In this article, you learn how to manage user and group assignments to enterprise applications in Microsoft Entra ID using PowerShell. This scenario is crucial for maintaining security and compliance. It allows you to efficiently audit access, manage permissions, and mitigate unauthorized access risks within their organization.
 
 Enterprise applications in Microsoft Entra ID represent the service principals that allow users and groups to access various resources. You might need to export user and group assignments for several reasons. These reasons include performing audits and ensuring compliance with security policies. It also helps in managing user access efficiently and identifying any unauthorized access or potential security risks within the organization.
-  
-Using Microsoft Entra PowerShell, you can retrieve and report on the assignments of users and groups to enterprise applications.
-  
+
+In this article, you learn how to manage user and group assignments to enterprise applications in Microsoft Entra ID using PowerShell. This scenario is crucial for maintaining security and compliance. It allows you to efficiently audit access, manage permissions, and mitigate unauthorized access risks within their organization.
+
 ## Prerequisites  
   
 To report assignments of users and groups to enterprise apps with Microsoft Entra PowerShell, you need:  
