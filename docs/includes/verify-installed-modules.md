@@ -41,7 +41,7 @@ Version              Name                                Repository           De
 Get-InstalledModule -Name Microsoft.Entra.Beta*
 ```
 
-This command shows the installed Microsoft Entra PowerShell module, its version, and installation location. The output version should match the [latest version](https://www.powershellgallery.com/packages/Microsoft.Entra) on the PowerShell Gallery. You're now ready to use the module.
+This command shows the installed Microsoft Entra PowerShell module, its version, and installation location. The output version should match the [latest version](https://www.powershellgallery.com/packages/Microsoft.Entra.Beta) on the PowerShell Gallery. You're now ready to use the module.
 
 ```Output
 Name                                Version InstalledLocation
@@ -63,7 +63,7 @@ To verify if a specific submodule for example, `Users` is installed, run:
 Get-InstalledModule -Name Microsoft.Entra.Beta.Users
 ```
 
-The output version should match the [latest version](https://www.powershellgallery.com/packages/Microsoft.Entra.Users) on the PowerShell Gallery.
+The output version should match the [latest version](https://www.powershellgallery.com/packages/Microsoft.Entra.Users.Beta) on the PowerShell Gallery.
 
 ```Output
 Version              Name                                Repository           Description
