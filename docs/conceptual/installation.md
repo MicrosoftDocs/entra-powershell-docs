@@ -183,7 +183,7 @@ For more information on other authentication scenarios, see [more authentication
 
 If the module is installed, follow these steps to update it.
 
-First, verify the module version and location using the guidance in the [verify installation](#verify-installed-version-and-location) section.
+First, verify the module version and location using the guidance in the [verify installation](#verify-installed-module-version-and-location) section.
 
 ### Update to the latest version
 
