@@ -63,7 +63,7 @@ To verify if a specific submodule for example, `Users` is installed, run:
 Get-InstalledModule -Name Microsoft.Entra.Beta.Users
 ```
 
-The output version should match the [latest version](https://www.powershellgallery.com/packages/Microsoft.Entra.Users.Beta) on the PowerShell Gallery.
+The output version should match the [latest version](https://www.powershellgallery.com/packages/Microsoft.Entra.Beta.Users) on the PowerShell Gallery.
 
 ```Output
 Version              Name                                Repository           Description
