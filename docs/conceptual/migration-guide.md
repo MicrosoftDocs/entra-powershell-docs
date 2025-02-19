@@ -5,8 +5,7 @@ description: Learn how to use the Enable-EntraAzureADAlias command to run existi
 author: csmulligan
 manager: CelesteDG
 ms.topic: concept-article
-ms.date: 02/12/2025
-ms.author: cmulligan
+ms.date: 02/09/2025
 
 #Customer intent: As an IT admin, I want to learn how to run my existing scripts from Azure AD PowerShell in Microsoft Entra PowerShell so that I can smoothly transition to using Microsoft Entra PowerShell in my operations.
 ---
@@ -26,7 +25,7 @@ To use Microsoft Entra PowerShell with your existing AzureAD PowerShell scripts,
 Import-Module -Name Microsoft.Entra.Users
 Connect-Entra #Replaces Connect-AzureAD for auth
 Enable-EntraAzureADAlias #enable aliasing
-Get-AzureADUser -Top 2
+Get-AzureADApplication -Top 2
 ```
 
 ### Example
@@ -57,6 +56,8 @@ foreach ($app in $applications) {
 
 ```
 
+**Note:** This code snippet is shortened for readability. See the [full sample for details](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/export-apps-with-expiring-secrets.ps1).
+
 To use your script with the Microsoft Entra PowerShell module, replace the `Connect-AzureAD` cmdlet with the three lines provided in the snippet. You don’t need to rewrite the entire script.
 
 The following script is the migrated script.
@@ -81,6 +82,8 @@ foreach ($app in $applications) {
     $secret = $appCreds.PasswordCredentials
     $cert = $appCreds.KeyCredentials
 ```
+
+**Note:** This code snippet is shortened for readability. See the [full modified sample for details](https://github.com/microsoftgraph/entra-powershell/blob/main/samples/export-apps-with-expiring-secrets-modified.ps1).
 
 ## Test compatibility with Test-EntraScript command
 

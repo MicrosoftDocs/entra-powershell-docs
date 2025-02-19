@@ -3,7 +3,7 @@ title: Get-EntraBetaGroupOwner
 description: This article provides details on the Get-EntraBetaGroupOwner command.
 
 ms.topic: reference
-ms.date: 06/24/2024
+ms.date: 02/08/2025
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 manager: CelesteDG
@@ -55,14 +55,15 @@ Get-EntraBetaGroup -GroupId $group.Id | Get-EntraBetaGroupOwner | Select-Object 
 ```
 
 ```Output
-id                                   displayName       @odata.type
---                                   -----------       -----------
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Adele Vance #microsoft.graph.user
+Id                                   DisplayName       @odata.type
+------------------------------------ ----------------- -------------------------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
+eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
 ```
 
 This example demonstrates how to retrieve the owner of a specific group.
 
-- `-GroupId` parameter specifies the ID of a group.
+- `-GroupId` Parameter specifies the ID of a group.
 
 ### Example 2: Gets all group owners
 
@@ -73,14 +74,15 @@ Get-EntraBetaGroupOwner -GroupId $group.Id -All | Select-Object Id, DisplayName,
 ```
 
 ```Output
-id                                   displayName       @odata.type
---                                   -----------       -----------
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Adele Vance #microsoft.graph.user
+Id                                   DisplayName       @odata.type
+------------------------------------ ----------------- -------------------------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
+eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
 ```
 
-This example demonstrates how to retrieve the all owner of a specific group.  
+This example demonstrates how to retrieve the all owner of a specific group.
 
-- `-GroupId` parameter specifies the ID of a group.  
+- `-GroupId` Parameter specifies the ID of a group.
 
 ### Example 3: Gets two group owners
 
@@ -91,9 +93,10 @@ Get-EntraBetaGroupOwner -GroupId $group.Id -Top 2 | Select-Object Id, DisplayNam
 ```
 
 ```Output
-id                                   displayName       @odata.type
---                                   -----------       -----------
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Adele Vance #microsoft.graph.user
+Id                                   DisplayName       @odata.type
+------------------------------------ ----------------- -------------------------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee Sawyer Miller     #microsoft.graph.user
+eeeeeeee-4444-5555-6666-ffffffffffff Alex Wilber       #microsoft.graph.user
 ```
 
 This example demonstrates how to retrieve the top two owners of a specific group.
