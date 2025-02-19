@@ -150,7 +150,7 @@ Installing specific modules is ideal for automation scenarios such as using Azur
 
 :::zone-end
 
-### Verify installed version and location
+### Verify installed module version and location
 
 After the installation is completed, you can verify the installed submodules, their version, and location with the following command.
 
