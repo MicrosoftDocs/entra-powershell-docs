@@ -57,7 +57,7 @@ Import-PackageProvider PowerShellGet -MinimumVersion 2.0 -Force
 
 ### Function capacity 4096 has been exceeded for this scope
 
-In PowerShell 5.1, you might see the error: "_Function {cmdlet-name} can't be created because function capacity 4096 has been exceeded._" To fix this error, increase the function limit by running the command below, then try to import the module again.
+In PowerShell 5.1, you might see the error: "_Function {cmdlet-name} can't be created because function capacity 4096 has been exceeded._" To fix this error, increase the function limit by running the following command, then try to import the module again.
 
 ```powershell
 $MaximumFunctionCount = 32768
@@ -83,7 +83,7 @@ To fix this error, make sure that you're using the correct credentials and have 
 ## Cmdlet not recognized
 
 PowerShell doesn't recognize the cmdlet that you're trying to run.
-To fix this error, make sure the Microsoft Entra PowerShell module is installed correctly. You can check this by running:
+To fix this error, make sure the Microsoft Entra PowerShell module is installed correctly. You can check this status by running:
 
 ```powershell
 Get-Module -Name Microsoft.Entra -ListAvailable
@@ -107,7 +107,7 @@ Install-Module <Module-Name> -Required Version x.x
 ## Permission errors
 
 You might receive errors related to insufficient permissions when attempting to execute commands or scripts.
-To fix this error, make sure that you have the necessary permissions to perform the operation. You may need to adjust permissions in the Microsoft Entra admin center.
+To fix this error, make sure that you have the necessary permissions to perform the operation. You might need to adjust permissions in the Microsoft Entra admin center.
 
 ## Module update issues
 
@@ -130,9 +130,9 @@ To fix this error, use `$Error[0].Exception | Format-List -Force` to get detaile
 
 ## Proxy blocks connection
 
-If you get errors from `Install-Module` that the PowerShell Gallery is unreachable, you may be behind a proxy. Different operating systems and network environment have different requirements for configuring a system-wide proxy. Contact your system administrator for your proxy settings and how to configure them for your environment.
+If you get errors from `Install-Module` that the PowerShell Gallery is unreachable, you might be behind a proxy. Different operating systems and network environment have different requirements for configuring a system-wide proxy. Contact your system administrator for your proxy settings and how to configure them for your environment.
 
-PowerShell itself may not be configured to use this proxy automatically. With PowerShell 5.1 and later, configure the PowerShell session to use a proxy using the following commands:
+PowerShell itself might not be configured to use this proxy automatically. With PowerShell 5.1 and later, configure the PowerShell session to use a proxy using the following commands:
 
 ```powershell
 $webClient = New-Object -TypeName System.Net.WebClient

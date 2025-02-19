@@ -3,7 +3,7 @@ title: "Create a custom application"
 description: "Learn how to create a custom application that you can use to authenticate to Microsoft Entra PowerShell."
 
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 02/11/2025
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
@@ -15,17 +15,24 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 # Create a custom application
 
-:::zone pivot="powershell"
+In this article, you learn how to create a custom application and grant it permissions using Microsoft Entra PowerShell. This process involves defining roles, assigning users and groups, and setting API permissions to manage Microsoft Entra resources effectively.
+
+Understanding these steps is essential for securely managing access and ensuring that applications have the appropriate permissions. It helps maintain security and operational efficiency within the Microsoft Entra ecosystem.
 
 ## Prerequisites
 
 To create a custom application and grant it permissions, you need:
 
 - A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][entraid-account].
-- One of the following roles: Cloud Application Administrator, or Application Administrator.
+- One of the following roles:
+  - [Privileged Role Administrator][privileged-role-admin]
+  - [Cloud Application Administrator][cloud-app-admin]
+  - [Application Administrator][app-admin]
 - Required scopes (PowerShell): `AppRoleAssignment.ReadWrite.All`, `Application.ReadWrite.All`, `User.Read.All`, `Group.Read.All`, `DelegatedPermissionGrant.ReadWrite.All`
 
-### Create an application using PowerShell
+:::zone pivot="powershell"
+
+## Create an application using PowerShell
 
 Use the custom application to isolate and limit the permissions granted for a Microsoft Entra resource.
 
@@ -44,14 +51,14 @@ $app = New-EntraApplication -DisplayName $appName -PublicClient @{ RedirectUris 
 $servicePrincipal = New-EntraServicePrincipal -AppId $app.AppId
 ```
 
-### Enable assignment required feature
+## Enable assignment required feature using PowerShell
 
 ```powershell
 # Set service principal parameters
 Set-EntraServicePrincipal -ServicePrincipalId $servicePrincipal.Id -AppRoleAssignmentRequired $True
 ```
 
-### Assign users and groups
+### Assign users and groups using PowerShell
 
 ```powershell
 # Get a user and a group
@@ -66,9 +73,9 @@ $emptyGuidGroup = [Guid]::Empty.ToString()
 New-EntraGroupAppRoleAssignment -GroupId $group.Id -PrincipalId $group.Id -ResourceId $servicePrincipal.Id -Id $emptyGuidGroup
 ```
 
-### Define required resources and permissions
+## Define required resources and permissions using PowerShell
 
-#### [Delegated permissions](#tab/delegated)
+### [Delegated permissions](#tab/delegated)
 
 ```powershell
 # Get Graph service principal
@@ -91,7 +98,7 @@ $requiredResourceAccessDelegated.ResourceAccess = $resourceAccessDelegated
 Set-EntraApplication -ApplicationId $app.Id -RequiredResourceAccess $requiredResourceAccessDelegated
 ```
 
-#### [Application permissions](#tab/application)
+### [Application permissions](#tab/application)
 
 ```powershell
 # Get Graph service principal
@@ -116,11 +123,11 @@ Set-EntraApplication -ApplicationId $app.Id -RequiredResourceAccess $requiredRes
 
 ---
 
-### Assign API permissions to the custom application
+## Assign API permissions to the app using PowerShell
 
 You can assign either delegated permissions or application permissions to the application.
 
-#### [Delegated permissions](#tab/delegated)
+### [Delegated permissions](#tab/delegated)
 
 ```powershell
 $delegatedPermission = 'User.Read.All'
@@ -132,7 +139,7 @@ $graphServicePrincipal = Get-EntraServicePrincipal -Filter "AppId eq '$graphApiI
 New-EntraOauth2PermissionGrant -ClientId $servicePrincipal.Id -ConsentType 'AllPrincipals' -ResourceId $graphServicePrincipal.Id -Scope $delegatedPermission
 ```
 
-#### [Application permissions](#tab/application)
+### [Application permissions](#tab/application)
 
 ```powershell
 $applicationPermission = 'Group.Read.All'
@@ -148,7 +155,7 @@ New-EntraServicePrincipalAppRoleAssignment -ObjectId $servicePrincipal.Id -Resou
 
 ---
 
-#### Resources
+### Resources
 
 Download and run the complete script:
 
@@ -158,13 +165,6 @@ Download and run the complete script:
 :::zone-end
 
 :::zone pivot="ui"
-
-## Prerequisites
-
-To create a custom application and grant it permissions, you need:
-
-- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][entraid-account].
-- One of the following roles: Cloud Application Administrator, or Application Administrator.
 
 ## Create an application in the Microsoft Entra admin center
 
@@ -182,7 +182,7 @@ To create custom applications for connecting to Microsoft Entra ID using Microso
 >[!NOTE]
 > In the app's **Overview** section, copy the Application (client ID) and Directory (tenant) ID. You use the values when connecting to Microsoft Entra ID.
 
-### Enable assignment required feature
+## Enable assignment required feature in the Microsoft Entra admin center
 
 To manage the resources that your application gets access to in your tenant, locate the application's service principal in the **Enterprise applications** pane.
 
@@ -190,13 +190,13 @@ To manage the resources that your application gets access to in your tenant, loc
 1. Under **Manage**, select **Properties** and set **Assignment required?** to **Yes**.
 1. Select **Save**.
 
-### Assign users and groups
+### Assign users and groups in the Microsoft Entra admin center
 
 1. Under **Manage**, select **Users and groups**.
 1. Select **Add user/group** and add the users and groups permitted to use this application.
 1. Once you add all the users and groups, select **Assign**.
 
-### Assign API permissions to the custom application
+## Assign API permissions to the app in the Microsoft Entra admin center
 
 You need to set up Microsoft Graph permissions for the new application to connect to Microsoft Entra ID and manage Microsoft Entra resources.
 
@@ -220,8 +220,19 @@ Connect-Entra -ClientId <Your_APPLICATION_Id_Here> -TenantId <Your_TENANT_Id_Her
 
 For more connection options, see the [Connect-Entra][connect-entra-command] command details.
 
+## Related content
+
+- [Authentication scenarios][auth-scenarios]
+- [Enable app-only authentication][app-only-auth]
+- [Delegated authentication][delegated-auth]
+
 <!-- link references -->
 [entra-admin-portal]: https://entra.microsoft.com/
+[privileged-role-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
+[app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
 [connect-entra-command]: /powershell/module/microsoft.entra/connect-entra
 [entraid-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[app-only-auth]: app-only-access-auth.md
+[delegated-auth]: delegated-access-auth.md
+[auth-scenarios]: authentication-scenarios.md
