@@ -16,7 +16,7 @@ keywords: Microsoft Entra powershell, entra-powershell, manage entra resources u
 #customer intent: As a PowerShell user, I want an overview of the latest features of Microsoft Entra PowerShell module and all the related doc updates.
 ---
 
-# What's new in the Microsoft Entra PowerShell module
+# What's new in Microsoft Entra PowerShell
 
 This article lists all new articles that were added or had significant updates in the last month. It also lists the new features in the Microsoft Entra PowerShell module to manage Microsoft Entra resources.
 
@@ -64,7 +64,7 @@ This article lists all new articles that were added or had significant updates i
 
 #### Updated articles
 
-- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md): Added equivalents for the app proxy cmdlets. 
+- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md): Added equivalents for the app proxy cmdlets.
 - [Install the Microsoft Entra PowerShell module](installation.md): Updated the article in response to customer feedback.
 
 :::zone-end
@@ -113,7 +113,7 @@ This article lists all new articles that were added or had significant updates i
 
 - [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
 
-  - **Bug fixes**: Fixed bugs caused by splitting the Entra PowerShell module into modular submodules (failing tests, pipeline updates).  
+  - **Bug fixes**: Fixed bugs caused by splitting the Microsoft Entra PowerShell module into modular submodules (failing tests, pipeline updates).  
   - **Dependency version update**: Upgraded Microsoft Graph PowerShell SDK from `2.15.0` to `2.25.0`.
 
 - [Version 0.20.0-preview][posh-0.20.0] - **December 2024**

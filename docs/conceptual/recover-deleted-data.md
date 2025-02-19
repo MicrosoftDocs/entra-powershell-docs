@@ -2,7 +2,7 @@
 title: Recover deleted data
 description: Learn how to restore soft-deleted users, groups, and apps with Microsoft Entra PowerShell. Learn cmdlets, steps, and pipelining solutions for one-step data recovery.
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 02/12/2025
 author: csmulligan
 manager: CelesteDG
 ms.author: cmulligan
@@ -11,7 +11,7 @@ ms.reviewer: stevemutungi
 #Customer intent: As an IT admin I want to learn how to recover deleted data in Microsoft Entra PowerShell so that I can restore deleted objects in my organization.
 ---
 
-# Recover deleted data with Microsoft Entra PowerShell
+# Recover deleted data
 
 If you accidentally delete data from your directory, you can recover it using Microsoft Entra PowerShell. You can restore deleted objects, such as applications, groups, service principals, administrative units, or user objects, within 30 days of deletion. After 30 days, the data is permanently deleted and can't be recovered.
 
@@ -30,11 +30,11 @@ To recover deleted data with Microsoft Entra PowerShell, you need:
 To restore deleted groups, you need at least the [Groups Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#groups-administrator) role. For role-assignable groups, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator) role.
 
 > [!NOTE]
-> Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups cannot be restored.
+> Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups can't be restored.
 
 ### Step 1: Find deleted groups
 
-Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup) cmdlet to find deleted groups. 
+Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup) cmdlet to find deleted groups.
 
 ```powershell
 Connect-Entra -Scopes 'Group.Read.All'
@@ -63,7 +63,6 @@ Restore-EntraDeletedDirectoryObject -Id $group.Id
 ```
 
 The output shows the group ID and the deleted date and time as empty, indicating that the group has been restored.
-
 ```Output
 Id                                   DeletedDateTime
 --                                   ---------------
@@ -104,7 +103,7 @@ TestApp2    bbbbbbbb-cccc-dddd-2222-333333333333 11112222-bbbb-3333-cccc-4444ddd
 TestApp3    cccccccc-dddd-eeee-3333-444444444444 22223333-cccc-4444-dddd-5555eeee6666  AzureADMyOrg   contoso.com
 ```
 
-To get the deleted application by display name use the following command:
+To get the deleted application by display name, use the following command:
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
@@ -129,7 +128,6 @@ Restore-EntraDeletedDirectoryObject -Id 'aaaaaaaa-bbbb-cccc-1111-222222222222'
 ```
 
 Once the application is restored, the output shows the application ID and the deleted date and time as empty, indicating that the application has been restored.
-
 ```Output
 Id                                   DeletedDateTime
 --                                   ---------------
@@ -168,7 +166,6 @@ Restore-EntraDeletedDirectoryObject -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee'
 ```
 
 The result shows the user ID and the deleted date and time as empty, indicating that the user has been restored.
-
 ```Output
 Id                                   DeletedDateTime
 --                                   ---------------
