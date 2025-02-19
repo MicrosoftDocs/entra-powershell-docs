@@ -1,7 +1,7 @@
 ### [v1.0](#tab/v1)
 
 ```powershell
-Get-InstalledModule -Name Microsoft.Entra.* |
+Get-InstalledModule -Name Microsoft.Entra* |
 Where-Object { $_.Name -notmatch "Beta" } | Format-Table Name, Version, InstalledLocation -AutoSize
 ```
 
