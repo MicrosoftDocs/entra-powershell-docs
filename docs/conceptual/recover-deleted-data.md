@@ -166,8 +166,7 @@ Connect-Entra -Scopes 'User.ReadWrite.All'
 Restore-EntraDeletedDirectoryObject -Id '00aa00aa-bb11-cc22-dd33-44ee44ee44ee' 
 ```
 
-The result shows the user ID and the deleted date and time as empty, indicating that the user is restored.
-
+The result shows the user ID and the deleted date and time as empty, indicating that the user has been restored.
 ```Output
 Id                                   DeletedDateTime
 --                                   ---------------
