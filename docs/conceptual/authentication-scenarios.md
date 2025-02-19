@@ -14,7 +14,7 @@ ms.reviewer: stevemutungi
 
 # Microsoft Entra PowerShell authentication scenarios
 
-The Microsoft Entra PowerShell module supports several authentication scenarios. This article describes the authentication scenarios for signing into Microsoft Entra ID from the module. The method you choose depends on your use case.
+This article describes the authentication scenarios for signing into Microsoft Entra ID from the module. The Microsoft Entra PowerShell module supports several authentication scenarios. The scenario you choose depends on your use case.
 
 For example, if you're using the module for ad-hoc management of Microsoft Entra resources, you can sign in using an interactive sign-in. If you're writing a script for automation, you can sign in with a service principal. If you're running the module in an Azure resource, you can sign in with a managed identity.
 
