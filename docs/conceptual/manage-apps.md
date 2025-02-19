@@ -14,11 +14,11 @@ ms.reviewer: stevemutungi
 
 # Manage apps
 
-In this article, you learn how to manage app registrations and service principal objects using Microsoft Entra PowerShell. It covers registering applications, configuring properties, assigning permissions, and managing app ownership.
-
 An app needs to be registered in Microsoft Entra ID before the Microsoft identity platform can authorize it to access data stored in Microsoft Entra or Microsoft 365 tenants. This condition applies to apps that you develop yourself, that your tenant owns, or that you access through an active subscription.
 
 Many settings for apps are recorded as objects that can be accessed, updated, or deleted using Microsoft Entra PowerShell. These objects include applications, service principals, and app role assignments.
+
+In this article, you learn how to manage app registrations and service principal objects using Microsoft Entra PowerShell. It covers registering applications, configuring properties, assigning permissions, and managing app ownership.
 
 ## Prerequisites
 

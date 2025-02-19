@@ -15,9 +15,11 @@ ms.reviewer: stevemutungi
    
 # Manage devices  
 
-In this article, you learn how to effectively manage device identities and settings using Microsoft Entra PowerShell. It covers tasks such as viewing, filtering, enabling, disabling, and deleting devices, and exporting device data.
+Microsoft Entra PowerShell offers powerful cmdlets for managing device identities and monitoring related events. Effective device management is essential for maintaining security, ensuring compliance, and supporting smooth operations within an organization.
 
-Microsoft Entra PowerShell offers powerful cmdlets for managing device identities and monitoring related events. Effective device management is essential for maintaining security, ensuring compliance, and supporting smooth operations within an organization. With Microsoft Entra PowerShell, you can add, update, and remove devices as needed, as well as retrieve device information, view detailed device data, and manage device settings. This article provides a comprehensive guide to managing devices using Microsoft Entra PowerShell.  
+With Microsoft Entra PowerShell, you can add, update, and remove devices as needed, as well as retrieve device information, view detailed device data, and manage device settings. This article provides a comprehensive guide to managing devices using Microsoft Entra PowerShell.
+
+In this article, you learn how to effectively manage device identities and settings using Microsoft Entra PowerShell. It covers tasks such as viewing, filtering, enabling, disabling, and deleting devices, and exporting device data.
 
 ## Prerequisites  
 
