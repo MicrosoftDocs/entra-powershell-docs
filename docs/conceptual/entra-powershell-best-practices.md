@@ -15,7 +15,7 @@ ms.reviewer: stevemutungi
 
 # Microsoft Entra PowerShell best practices
 
-In this article, you learn how to implement Microsoft Entra PowerShell best practices. These best practices include app registration, security enhancements, performance optimizations, and maintenance strategies.
+In this article, you learn how to implement Microsoft Entra PowerShell best practices which include app registration, security enhancements, performance optimizations, and maintenance strategies.
 
 Understanding these practices is crucial for minimizing security risks, optimizing performance, and maintaining up-to-date systems. It's essential for safeguarding sensitive data and ensuring smooth operations in any organization.
 
