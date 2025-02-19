@@ -62,8 +62,7 @@ $group = Get-EntraDeletedGroup -Filter "displayName eq 'test21'"
 Restore-EntraDeletedDirectoryObject -Id $group.Id
 ```
 
-The output shows the group ID and the deleted date and time as empty, indicating that the group is restored.
-
+The output shows the group ID and the deleted date and time as empty, indicating that the group has been restored.
 ```Output
 Id                                   DeletedDateTime
 --                                   ---------------
