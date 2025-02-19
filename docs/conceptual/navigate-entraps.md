@@ -5,7 +5,7 @@ description: Navigate the Microsoft Entra PowerShell module to learn the core co
 author: csmulligan
 manager: CelesteDG
 ms.topic: quickstart
-ms.date: 01/21/2025
+ms.date: 02/09/2025
 ms.author: cmulligan
 
 #Customer intent: As an IT admin, I want to learn how to start using the Microsoft Entra PowerShell module, including authentication, core concepts, commands, and how to get help.
@@ -56,13 +56,45 @@ This command shows all the cmdlets, functions, and aliases included in the modul
 ```Output
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Function        Add-EntraApplicationOwner                          0.22.0     Microsoft.Entra
-Function        Get-EntraApplication                               0.22.0     Microsoft.Entra
-Function        Get-EntraApplicationExtensionProperty              0.22.0     Microsoft.Entra
-Function        Get-EntraApplicationKeyCredential                  0.22.0     Microsoft.Entra
-Function        Get-EntraApplicationLogo                           0.22.0     Microsoft.Entra
-Function        Get-EntraApplicationOwner                          0.22.0     Microsoft.Entra
-Function        Get-EntraApplicationPasswordCredential             0.22.0     Microsoft.Entra
+Function        Add-EntraApplicationOwner                          1.0.1     Microsoft.Entra
+Function        Get-EntraApplication                               1.0.1     Microsoft.Entra
+Function        Get-EntraApplicationExtensionProperty              1.0.1     Microsoft.Entra
+Function        Get-EntraApplicationKeyCredential                  1.0.1     Microsoft.Entra
+Function        Get-EntraApplicationLogo                           1.0.1     Microsoft.Entra
+Function        Get-EntraApplicationOwner                          1.0.1     Microsoft.Entra
+Function        Get-EntraApplicationPasswordCredential             1.0.1     Microsoft.Entra
+```
+
+## View supported properties and methods for a command
+
+To see more properties beyond the default output, run the following command to view all supported properties:
+
+```powershell
+Get-EntraUser -UserId 'rsmith@contoso.com' | Get-Member
+```
+
+This command displays all user properties and methods.
+
+```Output
+accountEnabled                        NoteProperty          bool accountEnabled=True
+ageGroup                              NoteProperty          object ageGroup=null
+businessPhones                        NoteProperty          Object[]
+city                                  NoteProperty          string city=Bellevue
+companyName                           NoteProperty          object companyName=null
+consentProvidedForMinor               NoteProperty          object
+country                               NoteProperty          string
+createdDateTime                       NoteProperty          datetime createdDateTime
+creationType                          NoteProperty          object creationType=null
+deletedDateTime                       NoteProperty          object deletedDateTime=null
+DeletionTimestamp                     NoteProperty          object DeletionTimestamp=null
+department                            NoteProperty          string department=Retail
+DirSyncEnabled                        NoteProperty          object DirSyncEnabled=null
+displayName                           NoteProperty          string displayName=Adele Vance
+employeeHireDate                      NoteProperty          object employeeHireDate=null
+employeeId                            NoteProperty          object employeeId=null
+employeeLeaveDateTime                 NoteProperty          object employeeLeaveDateTime=null
+employeeOrgData                       NoteProperty          object employeeOrgData=null
+employeeType                          NoteProperty          object employeeType=null
 ```
 
 ## Get help

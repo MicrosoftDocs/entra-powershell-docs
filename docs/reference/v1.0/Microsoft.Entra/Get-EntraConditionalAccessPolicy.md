@@ -53,6 +53,14 @@ In delegated scenarios involving work or school accounts, the signed-in user mus
 - Global Reader  
 - Conditional Access Administrator 
 
+In delegated scenarios involving work or school accounts, the signed-in user must have a Microsoft Entra role or a custom role with the required permissions to act on behalf of another user. The following least privileged roles support this operation:
+
+- Global Secure Access Administrator (read standard properties)  
+- Security Reader (read standard properties)  
+- Security Administrator (read standard properties)  
+- Global Reader  
+- Conditional Access Administrator  
+
 ## Examples
 
 ### Example 1: Retrieves a list of all conditional access policies in Microsoft Entra ID
