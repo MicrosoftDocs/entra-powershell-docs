@@ -42,7 +42,7 @@ To use app-only access with the Microsoft Entra PowerShell module, you need:
 You should have this information to authenticate using a certificate.
 
 - Certificate subject or thumbprint of the certificate uploaded to your Microsoft Entra app registration.
-- Application ID for your app registration. If you don't already have an app registration, see, [Create a custom application][create-custom-application].
+- Application ID for your app registration. If you don't already have an app registration, see [Create a custom application][create-custom-application].
 - Your tenant ID.
 
 In this section, you learn how to use a certificate to authenticate with the Microsoft Entra PowerShell module. You can use the certificate thumbprint, certificate name, or the certificate itself to authenticate. To authenticate using the given examples, you need to sign in with at least a [Privileged Role Administrator][privileged-role-admin] role.
