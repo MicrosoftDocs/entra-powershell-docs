@@ -17,9 +17,9 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 # Grant and revoke API permissions programmatically
 
-In this article, you learn how to grant and revoke API permissions and app roles using Microsoft Entra PowerShell. This guide covers both delegated permissions, which allow apps to act on behalf of users, and app roles, which enable apps to access APIs with their own identity.
-
 When you grant API permissions to a client app in Microsoft Entra ID, the permission grants are recorded as objects that can be accessed, updated, or deleted like other objects. Using Microsoft Entra PowerShell cmdlets to directly create permission grants is a programmatic alternative to [interactive consent][interactive-consent] and can be useful for automation scenarios, bulk management, or other custom operations in your organization.
+
+In this article, you learn how to grant and revoke API permissions and app roles using Microsoft Entra PowerShell. This guide covers both delegated permissions, which allow apps to act on behalf of users, and app roles, which enable apps to access APIs with their own identity.
 
 ## Prerequisites
 

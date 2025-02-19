@@ -17,9 +17,9 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 # Install Microsoft Entra PowerShell
 
-In this article, you learn how to install, verify, update, and troubleshoot the Microsoft Entra PowerShell module across the different operating systems.
-
 Installing the module helps IT professionals efficiently manage Microsoft Entra resources. It ensures seamless integration and functionality across various platforms, enhancing their ability to automate and streamline administrative tasks.
+
+In this article, you learn how to install, verify, update, and troubleshoot the Microsoft Entra PowerShell module across the different operating systems.
 
 The Microsoft Entra PowerShell module is split into two modules, each with submodules that can be installed separately. The two main modules are:
 
@@ -150,9 +150,9 @@ Installing specific modules is ideal for automation scenarios such as using Azur
 
 :::zone-end
 
-### Verify installation
+### Verify installed version and location
 
-After the installation is completed, you can verify the installed submodules and their version with the following command.
+After the installation is completed, you can verify the installed submodules, their version, and location with the following command.
 
 [!INCLUDE [dependencies](../includes/verify-installed-modules.md)]
 
@@ -183,29 +183,7 @@ For more information on other authentication scenarios, see [more authentication
 
 If the module is installed, follow these steps to update it.
 
-### Verify installed version and location
-
-Run the following command to check the installed module version and its location:
-
-```PowerShell
-Get-InstalledModule Microsoft.Entra* | Format-Table Name,Version,InstalledLocation -AutoSize
-```
-
-This command shows the installed Microsoft Entra PowerShell module, its version, and installation location.
-
-```Output
-Name                                Version InstalledLocation
-----                                ------- -----------------
-Microsoft.Entra                     1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra\1.0.1
-Microsoft.Entra.Applications        1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Applications\1.0.1
-Microsoft.Entra.Authentication      1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Authentication\1.0.1
-Microsoft.Entra.DirectoryManagement 1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.DirectoryManagement\1.0.1
-Microsoft.Entra.Governance          1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Governance\1.0.1
-Microsoft.Entra.Groups              1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Groups\1.0.1
-Microsoft.Entra.Reports             1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Reports\1.0.1
-Microsoft.Entra.SignIns             1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.SignIns\1.0.1
-Microsoft.Entra.Users               1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Users\1.0.1
-```
+First, verify the module version and location using the guidance in the [verify installation](#verify-installed-version-and-location) section.
 
 ### Update to the latest version
 
