@@ -127,8 +127,7 @@ Connect-Entra -Scopes 'Application.ReadWrite.All'
 Restore-EntraDeletedDirectoryObject -Id 'aaaaaaaa-bbbb-cccc-1111-222222222222'
 ```
 
-Once the application is restored, the output shows the application ID and the deleted date and time as empty, indicating that the application is restored.
-
+Once the application is restored, the output shows the application ID and the deleted date and time as empty, indicating that the application has been restored.
 ```Output
 Id                                   DeletedDateTime
 --                                   ---------------
