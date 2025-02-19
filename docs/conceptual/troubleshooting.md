@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common errors
+title: Troubleshoot common errors in Microsoft Entra PowerShell
 description: Learn how to fix installation, authentication, performance, and other issues in Microsoft Entra PowerShell.
 
 ms.topic: troubleshooting
@@ -12,7 +12,7 @@ ms.author: cmulligan
 
 ---
 
-# Troubleshoot common errors
+# Troubleshoot common errors in Microsoft Entra PowerShell
 
 This article explains how to determine, diagnose, and fix issues that you might encounter when using Microsoft Entra PowerShell.
 

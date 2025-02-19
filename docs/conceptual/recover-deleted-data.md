@@ -13,9 +13,9 @@ ms.reviewer: stevemutungi
 
 # Recover deleted data
 
-This article explains how to find and recover deleted data using Microsoft Entra PowerShell.
-
 If you accidentally delete data from your directory, you can recover it using Microsoft Entra PowerShell. You can restore deleted objects, such as applications, groups, service principals, administrative units, or user objects, within 30 days of deletion. After 30 days, the data is permanently deleted and can't be recovered.
+
+This article explains how to find and recover deleted data using Microsoft Entra PowerShell.
 
 ## Prerequisites
 
