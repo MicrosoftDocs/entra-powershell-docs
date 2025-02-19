@@ -61,7 +61,7 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
 
 ### Manage user passwords
 
-1. To update user's password by administrator, use this command:
+1. To update a user's password by administrator, use this command:
 
     ```powershell
     Connect-Entra -Scopes 'Directory.AccessAsUser.All'
