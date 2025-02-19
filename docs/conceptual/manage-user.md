@@ -1,5 +1,5 @@
 ---
-title: "Manage users with Microsoft Entra PowerShell"
+title: "Manage users"
 description: "This article provides IT admins with instructions on how to use Microsoft Entra PowerShell for user management tasks. It covers creating users, tracking sign-in activity, managing group memberships and roles, handling user photos, and off-boarding procedure."
 
 author: omondiatieno
@@ -13,7 +13,7 @@ ms.reviewer: stevemutungi
 #customer intent: As an IT admin, I want to learn how to effectively manage users in my organization using Microsoft Entra PowerShell, so that I can perform tasks such as creating users, retrieving user sign-in activity, managing user's group memberships and roles, and off-boarding users efficiently.
 ---
 
-# Manage users with Microsoft Entra PowerShell
+# Manage users
 
 Users are the representation of a Microsoft Entra work or school user account or a personal Microsoft account in Microsoft Entra ID. The user resource in Microsoft Entra PowerShell is the representation of a user, and includes relationships and resources that are relevant to the user.
 
@@ -216,7 +216,7 @@ Id                                   displayName                         created
     - `-UserId` - specifies the ID (as a UserPrincipalName or User ObjectId) of a user in Microsoft Entra ID.
     - `-ManagerId` - specifies the ID as a UserPrincipalName or User ObjectId) of the Microsoft Entra ID object to assign as a manager.
 
-### List users without managers
+## List users without managers
 
 This example lists users without a manager, helping to identify orphaned accounts, service accounts, or misconfigured profiles for cleanup.
 
@@ -248,7 +248,7 @@ cccccccc-2222-3333-4444-dddddddddddd New User           NewUser@tenant.com      
 bbbbbbbb-1111-2222-3333-cccccccccccc Sawyer Miller     SawyerM@contoso.com                        10/7/2024 12:33:36 AM     Member     True
 ```
 
-### List inactive users
+## List disabled users
 
 The following example generates a list of disabled accounts.
 
@@ -257,7 +257,7 @@ Connect-Entra -Scopes 'User.ReadWrite.All'
 Get-EntraUser -Filter "accountEnabled eq false" | Select-Object DisplayName, Id, Mail, UserPrincipalName
 ```
 
-The output lists inactive users.
+The output lists disabled users.
 
 ```Output
 DisplayName    Id                                   Mail userPrincipalName
@@ -376,6 +376,7 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 
     > [!Note]
     > You can reclaim the user's assigned software and service licenses. See [Manage User License][manage-licenses] for details.
+
 
 ## Related content
 
