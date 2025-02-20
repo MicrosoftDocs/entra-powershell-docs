@@ -1,8 +1,8 @@
 ---
-title: What is Microsoft Entra PowerShell overview?
+title: What is Microsoft Entra PowerShell?
 description: "Learn about the features of Microsoft Entra PowerShell that help you derive insights and analytics, and build unique, intelligent apps in Microsoft Entra ID."
 ms.topic: overview
-ms.date: 01/28/2025
+ms.date: 02/12/2025
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
@@ -12,9 +12,11 @@ ms.reviewer: stevemutungi
 ---
 # What is Microsoft Entra PowerShell?
 
-The Microsoft Entra PowerShell module is a command-line tool that allows administrators to manage and automate Microsoft Entra resources programmatically. This includes efficiently managing users, groups, applications, service principals, policies, and more. The module builds upon and is part of the Microsoft Graph PowerShell SDK. It’s fully interoperable with all cmdlets in the Microsoft Graph PowerShell SDK, enabling you to perform complex operations with simple, well-documented commands. The module also offers a backward compatibility option to streamline migration from [the retiring AzureAD PowerShell module][azureAdModuleDeprecationLink]. Microsoft Entra PowerShell works with Windows PowerShell 5.1 and PowerShell 7+. For the best experience on Windows, Linux, and macOS, we recommend using PowerShell 7 or later.
+The Microsoft Entra PowerShell module is a command-line tool that allows administrators to manage and automate Microsoft Entra resources programmatically. These capabilities include efficiently managing users, groups, applications, service principals, policies, and more. The module builds upon and is part of the Microsoft Graph PowerShell SDK. It’s fully interoperable with all cmdlets in the Microsoft Graph PowerShell SDK, enabling you to perform complex operations with simple, well-documented commands.
 
-## Benefits of Microsoft Entra PowerShell 
+The module also offers a backward compatibility option to streamline migration from [the retiring AzureAD PowerShell module][azureAdModuleDeprecationLink]. Microsoft Entra PowerShell works with Windows PowerShell 5.1 and PowerShell 7+. For the best experience on Windows, Linux, and macOS, we recommend using PowerShell 7 or later.
+
+## Benefits of Microsoft Entra PowerShell
 
 Microsoft Entra PowerShell provides the following benefits:
 
@@ -44,14 +46,12 @@ The following section outlines the known issues with the Microsoft Entra PowerSh
 | Feature                   | Issue                                                                                                                                 | Workaround/Comments                                         |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
 | `-All` parameter          | We don't support `-All` Boolean parameter as was the case with Azure AD PowerShell module. `-All` is supported as a switch parameter. | Replace `-All:$true` with `-All` parameter in your scripts. |
-| `-SearchString` parameter | The parameter `-SearchString` might not work as expected.                                                                             |
+| `-SearchString` parameter | The parameter `-SearchString` might not work as expected.                                                                             | No workaround available.                                    |
 
-## Next steps
+## Related content
 
-- Create a free [Microsoft Entra ID account][free-entra-id]
 - Got questions? Check out our [Frequently Asked Questions][faqs]
 
-[free-entra-id]: https://azure.microsoft.com/free/entra-id
 [migration-guide]: migration-guide.md
 [get-started]: navigate-entraps.md
 [installation]: installation.md
@@ -59,5 +59,4 @@ The following section outlines the known issues with the Microsoft Entra PowerSh
 [faqs]: entra-powershell-faqs.yml
 [best-practices-guide]: entra-powershell-best-practices.md
 [azureAdModuleDeprecationLink]: https://techcommunity.microsoft.com/blog/identity/action-required-msonline-and-azuread-powershell-retirement---2025-info-and-resou/4364991
-[powershellInstallLink]: /powershell/scripting/install/installing-powershell
 [enable-entraazureadalis]: /powershell/module/microsoft.entra/enable-entraazureadalias
