@@ -2,7 +2,7 @@
 title: Manage groups
 description: Learn how to create, edit, update, and delete a group using Microsoft Entra PowerShell.
 ms.topic: how-to
-ms.date: 10/05/2024
+ms.date: 02/20/2025
 author: csmulligan
 manager: CelesteDG
 ms.author: cmulligan

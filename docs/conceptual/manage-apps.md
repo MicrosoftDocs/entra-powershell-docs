@@ -5,7 +5,7 @@ description: Learn how to register, configure, and update apps in Microsoft Entr
 author: csmulligan
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 10/05/2024
+ms.date: 02/20/2025
 ms.author: cmulligan
 ms.reviewer: stevemutungi
 

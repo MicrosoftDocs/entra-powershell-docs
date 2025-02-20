@@ -4,7 +4,7 @@ description: Learn how to use Microsoft Entra PowerShell to manage device identi
 ms.service: entra-id  
 ms.subservice: devices  
 ms.topic: how-to  
-ms.date: 10/30/2024  
+ms.date: 02/20/2025
 ms.author: jomondi  
 author: omondiatieno  
 manager: celested  
@@ -139,42 +139,95 @@ woodgrove-win11-client     Windows             2
 
     ```powershell
     Connect-Entra -Scopes 'Device.Read.All'  
-    Get-EntraDevice -Filter "DeviceId eq 'dddddddd-5555-6666-7777-eeeeeeeeeeee'" 
+    Get-EntraDevice -Filter "DeviceId eq 'dddddddd-5555-6666-7777-eeeeeeeeeeee'" | Select-Object Id, AccountEnabled,DeviceId, DisplayName
+    ```
+
+    The output shows device details based on a `DeviceId` search.
+
+    ```Output
+    Id                                   AccountEnabled DeviceId                             DisplayName
+    --                                   -------------- --------                             -----------
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           True dddddddd-5555-6666-7777-eeeeeeeeeeee ADFS Device
     ```
 
 1. List non-compliant devices
 
     ```powershell
     Connect-Entra -Scopes 'Device.Read.All'
-    Get-EntraDevice -Filter "isCompliant eq false"
+    Get-EntraDevice -Filter "isCompliant eq false" | Select-Object Id, isCompliant,DeviceId, DisplayName
+    ```
+
+    The output lists non-compliant devices.
+
+    ```Output
+    Id                                   IsCompliant DeviceId                             DisplayName
+    --                                   ----------- --------                             -----------
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb       False gggggggg-6666-7777-8888-hhhhhhhhhhhh ADFS Device
+    bbbbbbbb-1111-2222-3333-cccccccccccc       False hhhhhhhh-7777-8888-9999-iiiiiiiiiiii Woodgrove Device
     ```
 
 1. List jail broken devices
 
     ```powershell
     Connect-Entra -Scopes 'Device.Read.All'
-    Get-EntraDevice -All | Where-Object { $_.isRooted -eq $true }
+    Get-EntraDevice -All | Where-Object { $_.isRooted -eq $true } | Select-Object Id, IsRooted,DeviceId, DisplayName
+    ```
+
+    The output lists jail broken devices.
+
+    ```Output
+    Id                                   IsRooted DeviceId                             DisplayName   
+    --                                   -------- --------                             -----------   
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb     True gggggggg-6666-7777-8888-hhhhhhhhhhhh ADFS Device
     ```
 
 1. List managed devices
 
     ```powershell
     Connect-Entra -Scopes 'Device.Read.All'
-    Get-EntraDevice -Filter "isManaged eq true"
+    Get-EntraDevice -Filter "isManaged eq true" | Select-Object Id, isManaged,DeviceId, DisplayName
+    ```
+
+    The output lists managed devices.
+
+    ```Output
+    Id                                   IsManaged DeviceId                             DisplayName
+    --                                   --------- --------                             -----------
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb      True gggggggg-6666-7777-8888-hhhhhhhhhhhh ADFS Device
+    bbbbbbbb-1111-2222-3333-cccccccccccc      True hhhhhhhh-7777-8888-9999-iiiiiiiiiiii Woodgrove Device
     ```
 
 1. List enabled devices
 
     ```powershell
     Connect-Entra -Scopes 'Device.Read.All'
-    Get-EntraDevice -Filter "accountEnabled eq true" -All
+    Get-EntraDevice -Filter "accountEnabled eq true" -All | Select-Object Id, AccountEnabled,DeviceId, DisplayName
+    ```
+
+    The output lists enabled devices.
+
+    ```Output
+    Id                                   AccountEnabled DeviceId                             DisplayName
+    --                                   -------------- --------                             -----------
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           True gggggggg-6666-7777-8888-hhhhhhhhhhhh ADFS Device
+    bbbbbbbb-1111-2222-3333-cccccccccccc           True hhhhhhhh-7777-8888-9999-iiiiiiiiiiii Woodgrove Device
     ```
 
 1. List devices with specific operating system and version
 
     ```powershell
     Connect-Entra -Scopes 'Device.Read.All'
-    Get-EntraDevice -Filter "operatingSystem eq 'Windows Server' and operatingSystemVersion eq '10.0.20348.3091'"
+    Get-EntraDevice -Filter "operatingSystem eq 'Windows Server' and operatingSystemVersion eq '10.0.20348.3091'" | 
+        Select-Object Id, AccountEnabled,DeviceId, DisplayName, operatingSystem, operatingSystemVersion | Format-Table -AutoSize
+    ```
+
+    The output shows user details based on a `operatingSystem` and `operatingSystemVersion` search.
+
+    ```Output
+    Id                                   AccountEnabled DeviceId                             DisplayName       OperatingSystem  OperatingSystemVersion
+    --                                   -------------- --------                             -----------       ---------------  ----------------------
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           True gggggggg-6666-7777-8888-hhhhhhhhhhhh ADFS Device       Windows Server   10.0.20348.3091
+    bbbbbbbb-1111-2222-3333-cccccccccccc           True hhhhhhhh-7777-8888-9999-iiiiiiiiiiii Woodgrove Device  Windows Server   10.0.20348.3091
     ```
 
 ## Enable or disable a Microsoft Entra device  

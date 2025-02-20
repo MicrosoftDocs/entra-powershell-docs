@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 01/05/2025
+ms.date: 02/20/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -90,11 +90,27 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
     Get-EntraUser -Filter "startswith(MailNickname,'AdeleV')"
     ```
 
+    The output shows user details based on a `mailNickname` search.
+
+    ```Output
+    DisplayName      Id                                   Mail                 UserPrincipalName     
+    -----------      --                                   ----                 -----------------     
+    Adell Vance      aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com  adelev@contoso.com     
+    ```
+
 1. To search for a user by `userPrincipalName`, use this command:
 
     ```powershell
     Connect-Entra -Scopes 'User.Read.All'
     Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
+    ```
+
+    The output shows user details based on a `userPrincipalName` search.
+
+    ```Output
+    DisplayName      Id                                   Mail                 UserPrincipalName     
+    -----------      --                                   ----                 -----------------     
+    Sawyer Miller   aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb SawyerM@contoso.com  SawyerM@contoso.com   
     ```
 
 1. To search for users with the job title of `Retail manager`, use this command:
@@ -104,6 +120,14 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
     Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
     ```
 
+    The output shows user details based on a `jobTitle` search.
+
+    ```Output
+    DisplayName      Id                                   Mail                 UserPrincipalName     
+    -----------      --                                   ----                 -----------------     
+    Sawyer Miller   aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb SawyerM@contoso.com  SawyerM@contoso.com   
+    ```
+
 1. To search for users in Marketing department, use this command:
 
     ```powershell
@@ -111,11 +135,32 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
     Get-EntraUser -Filter "department eq 'Marketing'"
     ```
 
+    The output shows user details based on a `department` search.
+
+    ```Output
+    DisplayName     Id                                   Mail                          UserPrincipalName     
+    -----------     --                                   ----                          -----------------     
+    Adell Vance     aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com           adelev@contoso.com     
+    Christie Cline  bbbbbbbb-1111-2222-3333-cccccccccccc christiec@contoso.com        christiec@contoso.com  
+    ```
+
 1. To find the five most recently created users, use this command:
 
     ```powershell
     Connect-Entra -Scopes 'User.Read.All'
     Get-EntraUser -All | Sort-Object -Property createdDateTime -Descending | Select-Object -First 5
+    ```
+
+    The output lists recently deleted users.
+
+    ```Output
+    DisplayName     Id                                   Mail                          UserPrincipalName     
+    -----------     --                                   ----                          -----------------     
+    Adell Vance     aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com           adelev@contoso.com     
+    Christie Cline  bbbbbbbb-1111-2222-3333-cccccccccccc christiec@contoso.com        christiec@contoso.com  
+    Sawyer Miller   cccccccc-2222-3333-4444-dddddddddddd sawyerm@contoso.com          sawyerm@contoso.com    
+    Kez Michael     hhhhhhhh-7777-8888-9999-iiiiiiiiiiii KezM@contoso.com             KezM@contoso.com       
+    Avery Smith     eeeeeeee-4444-5555-6666-ffffffffffff AveryS@contoso.com           AveryS@contoso.com     
     ```
 
 ### Retrieve a user's sign-in activity
