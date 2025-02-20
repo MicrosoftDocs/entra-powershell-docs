@@ -28,13 +28,13 @@ To manage devices with Microsoft Entra PowerShell, you need:
   - [Windows 365 Administrator][windows-365-admin] (read only)  
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
-## View and filter your devices  
+### View and filter your devices  
 
 Use Microsoft Entra PowerShell to filter the device list by the following attributes:
 
 Device ID, Display Name, Enabled State, Compliance State, Join Type, Activity Timestamp, OS Type, OS Version, Device Type, MDM, Autopilot, Extension Attributes, Administrative Unit, Owner, Manufacturer, Model, and Serial Number.
 
-### View all devices  
+## View all devices  
 
 To view all devices, use the following cmdlet:  
 
@@ -52,7 +52,7 @@ AccountEnabled DeviceId                             OperatingSystem ApproximateL
           True dddddddd-5555-6666-7777-eeeeeeeeeeee Windows         10/15/2024 8:28:18 PM         DESKTOP-1111
 ```
 
-### Get a device by ID  
+## Get a device by ID  
 
 To retrieve a specific device by its ID, use:  
 
@@ -87,7 +87,7 @@ DeletedDateTime Id                                   AccountEnabled ApproximateL
 
 This example demonstrates how to retrieve all devices whose display name starts with "Woodgrove".
 
-### Get the number of devices grouped by Join Type
+## Get the number of devices grouped by Join Type
 
 To find out all the types of devices joined to your directory using Microsoft Entra PowerShell, you can use the `Get-EntraDevice` cmdlet and group the results by the `TrustType` property.
 
@@ -112,7 +112,7 @@ ServerAd     18
 Workplace   393
 ```
 
-### List duplicate devices
+## List duplicate devices
 
 ```powershell
 Connect-Entra -Scopes 'Device.Read.All'  
@@ -133,7 +133,7 @@ samsungSM-S928B            Android            15
 woodgrove-win11-client     Windows             2
 ```
 
-### Search devices
+## Search devices
 
 1. Retrive specific device using `DeviceId`
 

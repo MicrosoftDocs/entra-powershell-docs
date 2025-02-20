@@ -59,7 +59,7 @@ DisplayName    Id                                     Mail    UserPrincipalName
 New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.com
 ```
 
-### Manage user passwords
+## Manage user passwords
 
 1. To update a user's password by administrator, use this command:
 
@@ -81,7 +81,7 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
 
     This command allows users to change their own passwords without admin privileges.
 
-### Search users
+## Search users
 
 1. To search for a user by `mailNickname`, use this command:
 
@@ -163,7 +163,7 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
     Avery Smith     eeeeeeee-4444-5555-6666-ffffffffffff AveryS@contoso.com           AveryS@contoso.com     
     ```
 
-### Retrieve a user's sign-in activity
+## Retrieve a user's sign-in activity
 
 The following example shows how to retrieve the sign-in activity of a specific user.
 
@@ -187,7 +187,7 @@ displayName                       : Sawyer Miller
 userPrincipalName                 : SawyerM@contoso.com
 ```
 
-### List a user's group memberships
+## List a user's group memberships
 
 The following example lists the groups that a user is a member of.
 
@@ -214,7 +214,7 @@ Use these commands to list the entities a user belongs to:
 - [Get-EntraUserGroup](/powershell/module/microsoft.entra/get-entrausergroup) - to retrieve a list of groups a user belongs to.
 - [Get-EntraUserRole](/powershell/module/microsoft.entra/get-entrauserrole) - to retrieve a list of directory roles assigned to a user.
 
-### Get a user's manager, direct reports and assign a manager to a user
+## Get a user's manager, direct reports and assign a manager to a user
 
 1. Get a user's manager.
 
@@ -311,7 +311,7 @@ Sawyer Miller  hhhhhhhh-7777-8888-9999-iiiiiiiiiiii      SawyerM@contoso.com
 Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 ```
 
-### Manage deleted users
+## Manage deleted users
 
 1. List recently deleted users.
 
@@ -355,7 +355,7 @@ Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 
     This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the `UserId` parameter.
 
-### Grant users administrative roles in your organization
+## Grant users administrative roles in your organization
 
 The following example shows how to grant a user an administrative role.
 
@@ -401,13 +401,23 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 
     Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
-1. Disable a user's device.
+1. Remove device ownership.
 
     ```powershell
     Connect-Entra -Scopes 'Directory.AccessAsUser.All'
     $device = Get-EntraDevice -Filter "DisplayName eq 'Sawyer Laptop'"
     $owner = Get-EntraDeviceRegisteredOwner -DeviceId $device.Id
     Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
+    ```
+
+    Removing device ownership during offboarding prevents unauthorized access and ensures security compliance.
+
+1. Disable a user's device.
+
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All', 'Device.ReadWrite.All'
+    $device = Get-EntraDevice -Filter "DisplayName eq 'Woodgrove Desktop'"
+    Set-EntraDevice -DeviceObjectId $device.ObjectId -AccountEnabled $false
     ```
 
     Disabling a user's device helps safeguard the organization's security, data, and resources.
@@ -421,7 +431,6 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 
     > [!Note]
     > You can reclaim the user's assigned software and service licenses. See [Manage User License][manage-licenses] for details.
-
 
 ## Related content
 
