@@ -163,7 +163,7 @@ Id                                   displayName                         created
 55ff55ff-aa66-bb77-cc88-99dd99dd99dd Pacific Admin Unit                                       #microsoft.graph.administrativeUnit
 ```
 
-**Note**: Use these commands to retrieve the objects a user belongs to:
+Use these commands to list the entities a user belongs to:
 
 - [Get-EntraUserAdministrativeUnit](/powershell/module/microsoft.entra/get-entrauseradministrativeunit) - to retrieve a list of administrative units to which a user belongs.
 - [Get-EntraUserGroup](/powershell/module/microsoft.entra/get-entrausergroup) - to retrieve a list of groups a user belongs to.
