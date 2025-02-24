@@ -18,7 +18,7 @@ ms.reviewer: stevemutungi
 
 If you use Microsoft Entra PowerShell modules, it's important to understand the versioning, release schedule, and breaking change policies to manage updates effectively and reduce the risk of disruptions.
 
-This article covers the versioning scheme used by Microsoft Entra PowerShell modules, the release cadence for planned updates, and the policies for breaking changes. For information about the latest version of the module, see [The latest (recommended) version](whats-new-docs.md?pivots=module-version-history#the-latest-recommended-version). 
+This article covers the versioning scheme used by Microsoft Entra PowerShell modules, the release cadence for planned updates, and the policies for breaking changes. For information about the latest version of the module, see [The latest (recommended) version](whats-new-docs.md?pivots=module-version-history#the-latest-recommended-version).
 
 ## Versioning
 
@@ -42,7 +42,7 @@ Planned updates to the Microsoft Entra PowerShell module are released on the fir
 
 - **Major versions**: If a breaking change is necessary, a major version increment is released. For example, version 1.6.0 to version 2.0.0. Major version updates are released no more often than two times per year.
 
-  We may make exceptions to this policy for security or reliability issues.
+  We might make exceptions to this policy for security or reliability issues.
 
 - **Minor versions**: 10 per calendar year that doesn't introduce breaking changes. The second number in
   the version number is updated. For example, version 1.0.0 to version 1.1.0.

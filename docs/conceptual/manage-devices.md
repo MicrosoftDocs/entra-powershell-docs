@@ -1,10 +1,10 @@
 ---  
-title: Manage devices in Microsoft Entra ID  
+title: Manage devices
 description: Learn how to use Microsoft Entra PowerShell to manage device identities and monitor related event information.  
 ms.service: entra-id  
 ms.subservice: devices  
 ms.topic: how-to  
-ms.date: 10/30/2024  
+ms.date: 02/12/2025 
 ms.author: jomondi  
 author: omondiatieno  
 manager: celested  
@@ -13,9 +13,13 @@ ms.reviewer: stevemutungi
 #customer intent: As an IT admin, I want to have a comprehensive guide on managing device identities using Microsoft Entra PowerShell, so that I can ensure security and compliance within my organization. 
 ---  
    
-# Manage devices in Microsoft Entra ID  
+# Manage devices  
 
-Microsoft Entra PowerShell offers powerful cmdlets for managing device identities and monitoring related events. Effective device management is essential for maintaining security, ensuring compliance, and supporting smooth operations within an organization. With Microsoft Entra PowerShell, you can add, update, and remove devices as needed, as well as retrieve device information, view detailed device data, and manage device settings. This article provides a comprehensive guide to managing devices using Microsoft Entra PowerShell.  
+Microsoft Entra PowerShell offers powerful cmdlets for managing device identities and monitoring related events. Effective device management is essential for maintaining security, ensuring compliance, and supporting smooth operations within an organization.
+
+With Microsoft Entra PowerShell, you can add, update, and remove devices as needed, as well as retrieve device information, view detailed device data, and manage device settings. This article provides a comprehensive guide to managing devices using Microsoft Entra PowerShell.
+
+In this article, you learn how to effectively manage device identities and settings using Microsoft Entra PowerShell. It covers tasks such as viewing, filtering, enabling, disabling, and deleting devices, and exporting device data.
 
 ## Prerequisites  
 
@@ -137,8 +141,8 @@ To maintain a clean and secure environment, delete devices that are no longer in
 > [!IMPORTANT]
 >
 > - You must be a Cloud Device Administrator, Intune Administrator, or Windows 365 Administrator to delete a device.
-> - Printers can't be deleted before they are deleted from Universal Print.  
-> - Windows Autopilot devices can't be deleted before they are deleted from Intune.  
+> - Printers can't be deleted before they're deleted from Universal Print.  
+> - Windows Autopilot devices can't be deleted before they're deleted from Intune.  
 > - Deleting a device:  
 >   - Prevents it from accessing your Microsoft Entra resources.  
 >   - Removes all details attached to the device, such as BitLocker keys for Windows devices.  
@@ -179,10 +183,9 @@ Get-EntraDevice -All `
 
 Ensure to replace `$env:UserProfile` with the path where you want to save the file based on your environment. This example saves the CSV file directly to your Downloads folder.
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Manage stale devices](manage-stale-devices.md)
+[Manage stale devices][stale-devices]
 
 <!-- link references -->
 
