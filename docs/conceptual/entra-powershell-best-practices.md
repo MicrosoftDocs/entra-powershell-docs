@@ -59,12 +59,7 @@ Apply the following consent and authorization best practices in your app to enha
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All'
-$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Contoso Demo App'"
-$parameters = @{
-    ServicePrincipalId = $servicePrincipal.Id
-    AppRoleAssignmentRequired = $True
-}
-Set-EntraServicePrincipal @parameters
+Get-EntraServicePrincipal -Filter "DisplayName eq 'Contoso Demo App'" | Set-EntraServicePrincipal -AppRoleAssignmentRequired $true
 ```
 
 ## Performance optimizations
@@ -106,7 +101,7 @@ Keeping your module up to date is crucial for several reasons. Firstly, it allow
 Update-Module -Name Microsoft.Entra
 ```
 
-After upgrading your module, remove the older versions.
+After [updating your module][update-module], remove the older versions.
 
 ### Use Get-Help
 
@@ -149,3 +144,4 @@ Get-EntraUser -Top 1 -Debug 5>> <your-log-filepath>
 [consent-types]: /azure/active-directory/develop/v2-permissions-and-consent#consent-types
 [overview]: overview.md
 [faq]: entra-powershell-faqs.yml
+[update-module]: /powershell/entra-powershell/installation#update-the-module

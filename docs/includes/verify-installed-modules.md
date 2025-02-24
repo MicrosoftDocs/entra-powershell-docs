@@ -2,7 +2,7 @@
 
 ```powershell
 Get-InstalledModule -Name Microsoft.Entra* |
-Where-Object { $_.Name -notmatch "Beta" } | Format-Table Name,Version,InstalledLocation -AutoSize
+Where-Object { $_.Name -notmatch "Beta" } | Format-Table Name, Version, InstalledLocation -AutoSize
 ```
 
 This command shows the installed Microsoft Entra PowerShell module, its version, and installation location. The output version should match the [latest version](https://www.powershellgallery.com/packages/Microsoft.Entra) on the PowerShell Gallery. You're now ready to use the module.
@@ -68,5 +68,5 @@ The output version should match the [latest version](https://www.powershellgalle
 ```Output
 Version              Name                                Repository           Description
 -------              ----                                ----------           -----------
-1.0.1                Microsoft.Entra.Beta.Users               PSGallery            Microsoft Entra PowerShell
+1.0.1                Microsoft.Entra.Beta.Users          PSGallery            Microsoft Entra PowerShell
 ```
