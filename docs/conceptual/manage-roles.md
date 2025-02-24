@@ -70,7 +70,7 @@ To grant access to users in Microsoft Entra ID, assign Microsoft Entra roles. Th
 
 ### Assign roles to users
 
-1. First get the user you want to assign a role to, using the `Get-EntraUser` command.
+1. Use [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser) to retrieve the user for role assignment.
 
     ```powershell
     Connect-Entra -Scopes 'User.Read.All'
@@ -88,7 +88,7 @@ To grant access to users in Microsoft Entra ID, assign Microsoft Entra roles. Th
 1. Use the `Get-EntraDirectoryRoleDefinition` command to get the role ID (`RoleDefinitionId`) you want to assign.
 
     ```powershell
-    Connect-Entra -Scopes 'RoleManagement.Read.Directory','EntitlementManagement.Read.All'
+    Connect-Entra -Scopes 'RoleManagement.Read.Directory', 'EntitlementManagement.Read.All'
     $directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Helpdesk Administrator'"
     ```
 
