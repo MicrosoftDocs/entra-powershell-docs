@@ -3,7 +3,7 @@ title: "Microsoft Entra PowerShell best practices"
 description: "Learn how to optimize performance, enhance security, and ensure scalability when working with Microsoft Entra PowerShell."
 
 ms.topic: concept-article
-ms.date: 10/05/2024
+ms.date: 02/12/2025
 ms.service: entra
 author: omondiatieno
 manager: CelesteDG
@@ -15,9 +15,11 @@ ms.reviewer: stevemutungi
 
 # Microsoft Entra PowerShell best practices
 
-This article shares best practices for using the Microsoft Entra PowerShell module to boost performance, enhance security, and scale reliably.
+In this article, you learn how to implement Microsoft Entra PowerShell best practices which include app registration, security enhancements, performance optimizations, and maintenance strategies.
 
-## Register an app instead of using a Microsoft Enterprise app
+Understanding these practices is crucial for minimizing security risks, optimizing performance, and maintaining up-to-date systems. It's essential for safeguarding sensitive data and ensuring smooth operations in any organization.
+
+## Register an app instead of using an enterprise app
 
 You can register your own applications tailored to different use cases with specific permissions, such as for marketing or help desk teams. This approach allows for more granular permission management and minimizes the security impact if an app is compromised. To create a registered app, see [Create a custom application][create-a-custom-app].
 
@@ -35,13 +37,13 @@ Apply the following consent and authorization best practices in your app to enha
 
 - **Apply least privilege**: Grant users and apps only the lowest privileged permission they require to call the Microsoft Entra resource. Choose the least privileged permissions. For example, if the app reads only the profile of the currently signed-in user, grant `User.Read` instead of `User.ReadBasic.All`. For a full list of permissions, see [permissions reference][permissions-ref].
 
-- **Use Disconnect-Entra**: Always run [Disconnect-Entra][disconnect-entra] to remove all credentials and contexts associated with an account. This properly cleans up and closes connections when they're no longer needed, reducing the risk of unauthorized access if the session is left open or someone else accesses your PowerShell environment.
+- **Use Disconnect-Entra**: Always run [Disconnect-Entra][disconnect-entra] to remove all credentials and contexts associated with an account. This cmdlet properly cleans up and closes connections when they're no longer needed. It reduces the risk of unauthorized access if the session is left open or someone else accesses your PowerShell environment.
 
 - **Use the correct permission type based on scenarios**: Avoid using both application and delegated permissions in the same app. If you're building an interactive application where a signed-in user is present, your application should use *delegated permissions*. If, however, your application runs without a signed-in user, such as a background service or daemon, your application should use *application permissions*.
 
-- **Be thoughtful with application permissions**: Avoid using application permissions for interactive scenarios to prevent security and compliance risks, as this can unintentionally elevate a user's privileges and bypass administrator policies.
+- **Be thoughtful with application permissions**: Avoid using application permissions for interactive scenarios to prevent security and compliance risks, as it can unintentionally elevate a user's privileges and bypass administrator policies.
 
-- **Be thoughtful when configuring your app**: This affects end user and admin experiences, along with application adoption and security. For example:
+- **Be thoughtful when configuring your app**: The configuration affects end user and admin experiences, along with application adoption and security. For example:
 
   - Your application's name, logo, domain, publisher verification status, privacy statement, and terms of use show up in consent and other experiences. Configure these settings carefully so that your end users understand them.
   - Consider who consents to your application - either end users or administrators - and configure your application to [request permissions appropriately][request-permissions].
@@ -57,12 +59,7 @@ Apply the following consent and authorization best practices in your app to enha
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All'
-$servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'Contoso Demo App'"
-$parameters = @{
-    ServicePrincipalId = $servicePrincipal.Id
-    AppRoleAssignmentRequired = $True
-}
-Set-EntraServicePrincipal @parameters
+Get-EntraServicePrincipal -Filter "DisplayName eq 'Contoso Demo App'" | Set-EntraServicePrincipal -AppRoleAssignmentRequired $true
 ```
 
 ## Performance optimizations
@@ -104,7 +101,7 @@ Keeping your module up to date is crucial for several reasons. Firstly, it allow
 Update-Module -Name Microsoft.Entra
 ```
 
-After upgrading your module, remove the older versions.
+After [updating your module][update-module], remove the older versions.
 
 ### Use Get-Help
 
@@ -131,6 +128,11 @@ Get-EntraUser -Top 1 -Debug 5>> <your-log-filepath>
 - `5` - represents the stream number, `Debug Stream`. For more information about streams, see [Output Streams][outputStreamLink].
 - `>>` - represents the redirection operator. For more information about redirection operators, see [Redirection Operators][redirectOperatorLink].
 
+## Related content
+
+- [Microsoft Entra PowerShell Overview][overview]
+- [Microsoft Entra PowerShell FAQs][faq]
+
 <!-- link references -->
 [permissions-ref]: /graph/permissions-reference
 [entra-recommendations]: /entra/identity/monitoring-health/overview-recommendations
@@ -140,3 +142,6 @@ Get-EntraUser -Top 1 -Debug 5>> <your-log-filepath>
 [disconnect-entra]: /powershell/module/microsoft.entra/disconnect-entra
 [request-permissions]: /azure/active-directory/develop/active-directory-v2-scopes
 [consent-types]: /azure/active-directory/develop/v2-permissions-and-consent#consent-types
+[overview]: overview.md
+[faq]: entra-powershell-faqs.yml
+[update-module]: /powershell/entra-powershell/installation#update-the-module
