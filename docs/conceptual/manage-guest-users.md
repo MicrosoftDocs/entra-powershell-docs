@@ -1,19 +1,19 @@
 ---
-title: "Manage guest users with Microsoft Entra PowerShell"
+title: "Manage guest users"
 description: "This guide provides detailed instructions on how to manage guest user accounts. It includes examples on inviting, viewing, disabling, and removing guest users."
 
 author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 11/27/2024
+ms.date: 02/12/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to effectively manage guest user accounts in Microsoft Entra using Microsoft Entra PowerShell so that I can maintain the security and integrity of my organization's data.
 ---
 
-# Manage guest users with Microsoft Entra PowerShell
+# Manage guest users
 
 Guest accounts in Microsoft Entra let external users access specific resources like files, teams, or sites without being full members of your organization. These accounts are typically used for collaboration with partners, contractors, or clients who need temporary access to your organization's resources.
 
@@ -237,7 +237,7 @@ $guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All
 Check each guest user for expiration.
 
 >[!NOTE]
->This script removes all guest users whose accounts have expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
+>This script removes all guest users whose accounts are expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
 
 ```powershell
 foreach ($guest in $guestUsers) {
