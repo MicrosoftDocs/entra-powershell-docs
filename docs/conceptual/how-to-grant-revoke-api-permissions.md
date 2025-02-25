@@ -3,7 +3,7 @@ title: "Grant and revoke API permissions programmatically"
 description: "Learn how to programmatically grant and revoke delegated and application API permissions for an app using Microsoft Entra PowerShell to. This method is an alternative to interactive admin consent."
 
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 02/12/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -15,22 +15,29 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 #Customer intent: As a developer, I want to learn how to grant and revoke API permissions for an app using Microsoft Entra PowerShel, and bypass the interactive consent prompt available on the Microsoft Entra Admin center.
 ---
 
-# Grant and revoke API permissions
+# Grant and revoke API permissions programmatically
 
 When you grant API permissions to a client app in Microsoft Entra ID, the permission grants are recorded as objects that can be accessed, updated, or deleted like other objects. Using Microsoft Entra PowerShell cmdlets to directly create permission grants is a programmatic alternative to [interactive consent][interactive-consent] and can be useful for automation scenarios, bulk management, or other custom operations in your organization.
+
+In this article, you learn how to grant and revoke API permissions and app roles using Microsoft Entra PowerShell. This guide covers both delegated permissions, which allow apps to act on behalf of users, and app roles, which enable apps to access APIs with their own identity.
+
+## Prerequisites
+
+To successfully complete the steps in this article, you need:
+
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
+- To use Microsoft Entra PowerShell, you need one of the following roles:
+  - [Privileged Role Administrator][privileged-role-administrator]
+  - [Application Administrator][application-administrator]
+  - [Cloud Application Administrator][cloud-application-administrator]
 
 <!-- start the grant-delegated-permissions zone -->
 ::: zone pivot="grant-delegated-permissions"
 
-In this article, you learn how to grant and revoke delegated permissions that are exposed by an API to an app. Delegated permissions, also called scopes, or OAuth2 permissions, allow an app to call an API on behalf of a signed-in user.
+In this section, you learn how to grant and revoke delegated permissions that are exposed by an API to an app. Delegated permissions, also called scopes, or OAuth2 permissions, allow an app to call an API on behalf of a signed-in user.
 
-## Prerequisites
-
-To successfully complete this guide, make sure you have the required prerequisites:
-
-- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
-- To use Microsoft Entra PowerShell, you need a [Privileged Role Administrator][privileged-role-administrator], [Application Administrator][application-administrator], or [Cloud Application Administrator][cloud-application-administrator] role in the tenant with the necessary permissions. For this guide, you need `Application.Read.All` and `DelegatedPermissionGrant.ReadWrite.All` delegated permissions. To grant these permissions in Microsoft Entra PowerShell, run the following command.
+You need `Application.Read.All` and `DelegatedPermissionGrant.ReadWrite.All` delegated permissions. To grant these permissions in Microsoft Entra PowerShell, run the following command.
 
   ```powershell
   Connect-Entra -Scopes "Application.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All"
@@ -43,7 +50,7 @@ To successfully complete this guide, make sure you have the required prerequisit
 
 Before you can grant delegated permissions, you first identify the delegated permissions to grant and the resource service principal that exposes the delegated permissions. Delegated permissions are defined in the `oauth2PermissionScopes` object of a service principal.
 
-In this article, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
+In this section, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
 
 ```powershell
 Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property Oauth2PermissionScopes |
@@ -76,7 +83,8 @@ Value                   : User.ReadWrite
 AdditionalProperties    : {}
 ```
 
-**Note:** Output is shortened for readability.
+> [!NOTE]
+> Output is shortened for readability.
 
 ## Step 2: Create a client service principal
 
@@ -172,18 +180,12 @@ When a delegated permission grant is deleted, the access it granted is revoked. 
 <!-- start the grant-application-permissions zone -->
 ::: zone pivot="grant-application-permissions"
 
-In this article, you learn how to grant app roles that are exposed by an API to an app. App roles, also called application permissions, or direct access permissions, allow an app to call an API with its own identity.
+In this section, you learn how to grant app roles that are exposed by an API to an app. App roles, also called application permissions, or direct access permissions, allow an app to call an API with its own identity.
+
+You need `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions. To set these permissions in Microsoft Entra PowerShell, run the following command.
 
 >[!Caution]
 >Be Careful! Permissions created programmatically are not subject to review or confirmation. They take effect immediately.
-
-## Prerequisites
-
-To successfully complete this guide, make sure you have the required prerequisites:
-
-- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
-- To use Microsoft Entra PowerShell, a [Privileged Role Administrator][privileged-role-administrator] role in the tenant with the necessary permissions is required. For this guide, you need `Application.Read.All` and `AppRoleAssignment.ReadWrite.All` delegated permissions. To set these permissions in Microsoft Entra PowerShell, run the following command.
 
   ```powershell
   Connect-Entra -Scopes "Application.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
@@ -196,7 +198,7 @@ To successfully complete this guide, make sure you have the required prerequisit
 
 Before you can grant app roles, you first identify the app roles to grant and the resource service principal that exposes the app roles. App roles are defined in the `appRoles` object of a service principal.
 
-In this article, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
+In this section, you use the `Microsoft Graph` service principal in the tenant as your resource service principal.
 
 ```powershell
 Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft Graph'" -Property AppRoles |
@@ -226,7 +228,8 @@ Value                : User.ReadWrite.All
 AdditionalProperties : {}
 ```
 
-**Note:** Output is shortened for readability.
+> [!NOTE]
+> Output is shortened for readability.
 
 ## Step 2: Create a client service principal
 
@@ -342,6 +345,11 @@ $roleAssignment = Get-EntraServicePrincipalAppRoleAssignedTo -ServicePrincipalId
 Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $clientServicePrincipal.Id -AppRoleAssignmentId $roleAssignment.Id
 ```
 
+## Related content
+
+- [Manage roles][manage-roles]
+- [Best practices for working with permissions][best-practices]
+
 ## Contributors
 
 - [Daniel Bradley](https://www.linkedin.com/in/danielbradley2/) | Microsoft MVP
@@ -357,3 +365,5 @@ Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $clientService
 [privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
 [cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
+[manage-roles]: manage-roles.md
+[best-practices]: entra-powershell-best-practices.md

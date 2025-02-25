@@ -1,23 +1,25 @@
 ---
-title: "Manage user licenses with Microsoft Entra PowerShell"
+title: "Manage user licenses"
 description: "Learn how to manage Microsoft Entra user licenses with the Microsoft Entra PowerShell."
 
 author: msewaweru
 manager: CelesteDG
 ms.service: entra-powershell
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 02/12/2025
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
 #customer intent: As an admin, I want to manage the assignment of Entra licenses to users using the Microsoft Entra PowerShell.
 ---
 
-# Manage user licenses with Microsoft Entra PowerShell
+# Manage user licenses
+
+In this article, you learn how to manage user licenses using Microsoft Entra PowerShell. It includes tasks such as assigning, revoking, and auditing licenses for individual and multiple users.
+
+These steps are crucial for optimizing resource allocation, ensuring compliance, and maintaining cost-effective operations within your organization.
 
 Most Microsoft Entra services require a license for access, and only users with active licenses can use these services. Licenses are assigned per tenant and can't be transferred to other tenants. You can manage licenses for your organization using Microsoft Entra PowerShell.
-
-This guide covers how to view, assign, and remove user licenses in your tenant.
 
 ## Prerequisites
 
