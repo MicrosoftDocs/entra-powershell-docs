@@ -29,7 +29,7 @@ To manage users with Microsoft Entra PowerShell, you need:
 
 You can access a user's information and manage their data on their behalf or as an app with its own identity.
 
-## Manage users in your organization
+## Create a user and manage a user's password
 
 To manage users, you can perform the following common user management tasks:
 
@@ -59,7 +59,7 @@ DisplayName    Id                                     Mail    UserPrincipalName
 New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.com
 ```
 
-## Manage user passwords
+### Manage user password
 
 1. To update a user's password by administrator, use this command:
 
