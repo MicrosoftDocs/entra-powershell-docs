@@ -6,7 +6,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 01/05/2025
+ms.date: 02/20/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -29,7 +29,7 @@ To manage users with Microsoft Entra PowerShell, you need:
 
 You can access a user's information and manage their data on their behalf or as an app with its own identity.
 
-## Manage users in your organization
+## Create a user and manage a user's password
 
 To manage users, you can perform the following common user management tasks:
 
@@ -59,7 +59,111 @@ DisplayName    Id                                     Mail    UserPrincipalName
 New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.com
 ```
 
-### Retrieve a user's sign-in activity
+### Manage user password
+
+1. To update a user's password by administrator, use this command:
+
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All'
+    $newPassword = '<strong-password>'
+    $securePassword = ConvertTo-SecureString $newPassword -AsPlainText -Force
+    Set-EntraUserPassword -UserId 'SawyerM@contoso.com' -Password $securePassword
+    ```
+
+1. To update the password for the signed-in user (self-serve), use this command:
+
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All'
+    $currentPassword = ConvertTo-SecureString '<strong-password>' -AsPlainText -Force
+    $newPassword = ConvertTo-SecureString '<strong-password>' -AsPlainText -Force
+    Update-EntraSignedInUserPassword -CurrentPassword $currentPassword -NewPassword $newPassword
+    ```
+
+    This command allows users to change their own passwords without admin privileges.
+
+## Search users
+
+1. To search for a user by `mailNickname`, use this command:
+
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -Filter "startswith(MailNickname,'AdeleV')"
+    ```
+
+    The output shows user details based on a `mailNickname` search.
+
+    ```Output
+    DisplayName      Id                                   Mail                 UserPrincipalName     
+    -----------      --                                   ----                 -----------------     
+    Adell Vance      aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com  adelev@contoso.com     
+    ```
+
+1. To search for a user by `userPrincipalName`, use this command:
+
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -Filter "userPrincipalName eq 'SawyerM@contoso.com'"
+    ```
+
+    The output shows user details based on a `userPrincipalName` search.
+
+    ```Output
+    DisplayName      Id                                   Mail                 UserPrincipalName     
+    -----------      --                                   ----                 -----------------     
+    Sawyer Miller   aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb SawyerM@contoso.com  SawyerM@contoso.com   
+    ```
+
+1. To search for users with the job title of `Retail manager`, use this command:
+
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
+    ```
+
+    The output shows user details based on a `jobTitle` search.
+
+    ```Output
+    DisplayName      Id                                   Mail                 UserPrincipalName     
+    -----------      --                                   ----                 -----------------     
+    Sawyer Miller   aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb SawyerM@contoso.com  SawyerM@contoso.com   
+    ```
+
+1. To search for users in Marketing department, use this command:
+
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -Filter "department eq 'Marketing'"
+    ```
+
+    The output shows user details based on a `department` search.
+
+    ```Output
+    DisplayName     Id                                   Mail                          UserPrincipalName     
+    -----------     --                                   ----                          -----------------     
+    Adell Vance     aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com           adelev@contoso.com     
+    Christie Cline  bbbbbbbb-1111-2222-3333-cccccccccccc christiec@contoso.com        christiec@contoso.com  
+    ```
+
+1. To find the five most recently created users, use this command:
+
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All'
+    Get-EntraUser -All | Sort-Object -Property createdDateTime -Descending | Select-Object -First 5
+    ```
+
+    The output lists recently deleted users.
+
+    ```Output
+    DisplayName     Id                                   Mail                          UserPrincipalName     
+    -----------     --                                   ----                          -----------------     
+    Adell Vance     aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com           adelev@contoso.com     
+    Christie Cline  bbbbbbbb-1111-2222-3333-cccccccccccc christiec@contoso.com        christiec@contoso.com  
+    Sawyer Miller   cccccccc-2222-3333-4444-dddddddddddd sawyerm@contoso.com          sawyerm@contoso.com    
+    Kez Michael     hhhhhhhh-7777-8888-9999-iiiiiiiiiiii KezM@contoso.com             KezM@contoso.com       
+    Avery Smith     eeeeeeee-4444-5555-6666-ffffffffffff AveryS@contoso.com           AveryS@contoso.com     
+    ```
+
+## Retrieve a user's sign-in activity
 
 The following example shows how to retrieve the sign-in activity of a specific user.
 
@@ -83,7 +187,7 @@ displayName                       : Sawyer Miller
 userPrincipalName                 : SawyerM@contoso.com
 ```
 
-### List a user's group memberships
+## List a user's group memberships
 
 The following example lists the groups that a user is a member of.
 
@@ -104,7 +208,13 @@ Id                                   displayName                         created
 55ff55ff-aa66-bb77-cc88-99dd99dd99dd Pacific Admin Unit                                       #microsoft.graph.administrativeUnit
 ```
 
-### Get a user's manager, direct reports and assign a manager to a user
+Use these commands to list the entities a user belongs to:
+
+- [Get-EntraUserAdministrativeUnit](/powershell/module/microsoft.entra/get-entrauseradministrativeunit) - to retrieve a list of administrative units to which a user belongs.
+- [Get-EntraUserGroup](/powershell/module/microsoft.entra/get-entrausergroup) - to retrieve a list of groups a user belongs to.
+- [Get-EntraUserRole](/powershell/module/microsoft.entra/get-entrauserrole) - to retrieve a list of directory roles assigned to a user.
+
+## Get a user's manager, direct reports and assign a manager to a user
 
 1. Get a user's manager.
 
@@ -201,6 +311,30 @@ Sawyer Miller  hhhhhhhh-7777-8888-9999-iiiiiiiiiiii      SawyerM@contoso.com
 Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 ```
 
+## Manage deleted users
+
+1. List recently deleted users.
+
+    ```powershell
+    Connect-Entra -Scopes 'User.ReadWrite.All'
+    Get-EntraDeletedUser -All | Select-Object Id, UserPrincipalName, DisplayName, AccountEnabled, DeletedDateTime, DeletionAgeInDays, UserType | Format-Table -AutoSize
+    ```
+
+    The output lists deleted users.
+
+    ```Output
+    Id                                   UserPrincipalName                              DisplayName   AccountEnabled DeletedDateTime       DeletionAgeInDays UserType
+    --                                   -----------------                              -----------   -------------- ---------------       ----------------- --------
+    dddddddd-3333-4444-5555-eeeeeeeeeeee {id}AveryS@contoso.com                         Avery Smith   False          2/12/2025 1:15:34 PM  3                 Member
+    ```
+
+1. Retrieve deleted users sorted by deletion date.
+
+    ```powershell
+    Connect-Entra -Scopes 'User.ReadWrite.All'
+    Get-EntraDeletedUser -All | Sort-Object -Property deletedDateTime -Descending
+    ```
+
 ### Upload or retrieve a photo for the user
 
 1. Upload a photo for a user.
@@ -221,7 +355,7 @@ Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 
     This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the `UserId` parameter.
 
-### Grant users administrative roles in your organization
+## Grant users administrative roles in your organization
 
 The following example shows how to grant a user an administrative role.
 
@@ -229,13 +363,13 @@ The following example shows how to grant a user an administrative role.
 Connect-Entra -Scopes 'User.ReadWrite.All', 'RoleManagement.ReadWrite.Directory'
 $directoryRole = Get-EntraDirectoryRole -Filter "DisplayName eq 'Helpdesk Administrator'"
 $user = Get-EntraUser -Filter "UserPrincipalName eq 'SawyerM@contoso.com'"
-Add-EntraDirectoryRoleMember -DirectoryRoleId $directoryRole.Id -RefObjectId $user.Id
+Add-EntraDirectoryRoleMember -DirectoryRoleId $directoryRole.Id -MemberId $user.Id
 ```
 
 This command adds a user to a Microsoft Entra role. To retrieve roles, use the command [Get-EntraDirectoryRole](/powershell/module/microsoft.entra/get-entradirectoryrole).
 
 - `-DirectoryRoleId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
-- `-RefObjectId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
+- `-MemberId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
 
 ## Off-board a user
 
@@ -267,13 +401,23 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 
     Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.
 
-1. Disable a user's device.
+1. Remove device ownership.
 
     ```powershell
     Connect-Entra -Scopes 'Directory.AccessAsUser.All'
     $device = Get-EntraDevice -Filter "DisplayName eq 'Sawyer Laptop'"
     $owner = Get-EntraDeviceRegisteredOwner -DeviceId $device.Id
     Remove-EntraDeviceRegisteredOwner -DeviceId $device.Id -OwnerId $owner.Id
+    ```
+
+    Removing device ownership during offboarding prevents unauthorized access and ensures security compliance.
+
+1. Disable a user's device.
+
+    ```powershell
+    Connect-Entra -Scopes 'Directory.AccessAsUser.All', 'Device.ReadWrite.All'
+    $device = Get-EntraDevice -Filter "DisplayName eq 'Woodgrove Desktop'"
+    Set-EntraDevice -DeviceObjectId $device.ObjectId -AccountEnabled $false
     ```
 
     Disabling a user's device helps safeguard the organization's security, data, and resources.
@@ -286,13 +430,14 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
     ```
 
     > [!Note]
-    > You can also reclaim any licenses for software and services that were assigned to the user.
+    > You can reclaim the user's assigned software and service licenses. See [Manage User License][manage-licenses] for details.
 
 ## Related content
 
 - [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]
 - [Manage apps][manage-apps]
+- [Manage devices][manage-devices]
 
 <!-- link references -->
 
@@ -301,3 +446,4 @@ This command adds a user to a Microsoft Entra role. To retrieve roles, use the c
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [manage-apps]: manage-apps.md
 [manage-licenses]: how-to-manage-user-licenses.md
+[manage-devices]: manage-devices.md
