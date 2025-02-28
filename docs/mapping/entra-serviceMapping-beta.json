@@ -306,5 +306,7 @@
   "Get-EntraBetaUserInactiveSignIn": "Users",
   "Get-EntraBetaUserRole": "Users",
   "Get-EntraBetaUserAuthenticationMethod": "Users",
-  "Get-EntraBetaDeletedAdministrativeUnit": "Administrative units"
+  "Get-EntraBetaDeletedAdministrativeUnit": "Administrative units",
+  "Get-EntraBetaUserSponsor":"Users",
+"Remove-EntraBetaUserSponsor":"Users"
 }

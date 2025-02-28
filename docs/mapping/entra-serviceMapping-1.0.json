@@ -253,5 +253,7 @@
   "Get-EntraUserAdministrativeUnit": "Users",
   "Get-EntraUserRole": "Users",
   "Get-EntraUserGroup": "Users",
-  "Get-EntraDeletedServicePrincipal": "Service principal"
+  "Get-EntraDeletedServicePrincipal": "Service principal",
+  "Get-EntraUserSponsor":"Users",
+"Remove-EntraUserSponsor":"Users"
 }

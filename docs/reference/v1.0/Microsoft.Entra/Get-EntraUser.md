@@ -2,7 +2,6 @@
 title: Get-EntraUser
 description: This article provides details on the Get-EntraUser command.
 
-
 ms.topic: reference
 ms.date: 02/09/2025
 ms.author: eunicewaweru
@@ -76,7 +75,7 @@ Avery Smith      dddddddd-3333-4444-5555-eeeeeeeeeeee AveryS@contoso.com    Aver
 Sawyer Miller    eeeeeeee-4444-5555-6666-ffffffffffff SawyerM@contoso.com   SawyerM@contoso.com
 ```
 
-This example demonstrates how to get top three users from Microsoft Entra ID.
+This example demonstrates how to get top three users from Microsoft Entra ID. You can use `-Limit` as an alias for `-Top`.
 
 ### Example 2: Get a user by ID
 
@@ -238,11 +237,11 @@ Connect-Entra -Scopes 'User.Read.All'
 $guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All
 $guestUsersWithLicenses = foreach ($guest in $guestUsers) {
     if ($guest.AssignedLicenses.Count -gt 0) {
-        [pscustomobject]@{
-            Id               = $guest.Id
-            DisplayName      = $guest.DisplayName
+        [PSCustomObject]@{
+            Id                = $guest.Id
+            DisplayName       = $guest.DisplayName
             UserPrincipalName = $guest.UserPrincipalName
-            AssignedLicenses = ($guest.AssignedLicenses | ForEach-Object { $_.SkuId }) -join ", "
+            AssignedLicenses  = ($guest.AssignedLicenses | ForEach-Object { $_.SkuId }) -join ", "
         }
     }
 }
@@ -265,9 +264,9 @@ $allUsers = Get-EntraUser -All
 $usersWithoutManagers = foreach ($user in $allUsers) {
     $manager = Get-EntraUserManager -ObjectId $user.Id -ErrorAction SilentlyContinue
     if (-not $manager) {
-        [pscustomobject]@{
-            Id               = $user.Id
-            DisplayName      = $user.DisplayName
+        [PSCustomObject]@{
+            Id                = $user.Id
+            DisplayName       = $user.DisplayName
             UserPrincipalName = $user.UserPrincipalName
         }
     }
@@ -299,6 +298,32 @@ Sawyer Miller   sawyerm_gmail.com#EXT#@contoso.com                bbbbbbbb-1111-
 ```
 
 This example demonstrates how to retrieve list all guest users.
+
+### Example 14: List five recently created users
+
+```powershell
+Get-EntraUser -All | Sort-Object -Property createdDateTime -Descending | Select-Object -First 5
+```
+
+### Example 15: List of users with Global Administrator role
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All', 'RoleManagement.Read.Directory'
+$roleId = Get-EntraDirectoryRoleTemplate | Where-Object { $_.DisplayName -eq 'Global Administrator' } | Select-Object -ExpandProperty Id
+$globalAdmins = Get-EntraDirectoryRoleAssignment -Filter "roleDefinitionId eq '$roleId'" | ForEach-Object {
+    Get-EntraUser -UserId $_.PrincipalId
+}
+$globalAdmins | Select-Object Id, DisplayName, UserPrincipalName, CreatedDateTime, AccountEnabled | Format-Table -AutoSize
+```
+
+```Output
+id                                   displayName   userPrincipalName        createdDateTime          accountEnabled
+--                                   -----------   -----------------        ---------------          --------------
+cccccccc-2222-3333-4444-dddddddddddd Angel Brown   AngelB@contoso.com       3/7/2024 12:34:59 AM     True
+dddddddd-3333-4444-5555-eeeeeeeeeeee Avery Smith   AveryS@contoso.com       10/1/2024 9:47:06 AM     True
+```
+
+This example shows how to list all users with a specific role, such as `Global Administrator`. Microsoft recommends assigning the Global Administrator role to fewer than five people for best practice. See [best practices](https://learn.microsoft.com/entra/identity/role-based-access-control/best-practices).
 
 ## Parameters
 
@@ -417,3 +442,5 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 [Remove-EntraUser](Remove-EntraUser.md)
 
 [Set-EntraUser](Set-EntraUser.md)
+
+[Manage users](https://learn.microsoft.com/powershell/entra-powershell/manage-user)
