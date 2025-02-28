@@ -55,7 +55,7 @@ Remove-EntraBetaGroup -GroupId $group.Id
 
 This example demonstrates how to remove a group in Microsoft Entra ID.
 
-- `GroupId` parameter specifies the group ID.
+- `GroupId` parameter specifies the group ID .
 
 ### Example 2: Remove a group using pipelining
 
