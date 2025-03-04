@@ -28,19 +28,21 @@ This article lists all new articles that were added or had significant updates i
 
 #### Updated articles
 
-- [Create a custom application](create-custom-application.md) - Module GA docs bug bash updates
-- [Grant and revoke API permissions programmatically](how-to-grant-revoke-api-permissions.md) - Module GA docs bug bash updates
-- [Install Microsoft Entra PowerShell](installation.md) - Article improvements based on usability improvements on the module
-- [Manage apps](manage-apps.md) - Article improvements based on usability improvements on the module
-- [Manage devices](manage-devices.md) - Article improvements based on usability improvements on the module
-- [Manage groups](manage-groups.md) - Conceptual Articles improvements - based on usability improvements on the module
-- [Manage roles](manage-roles.md) - Module GA docs bug bash updates
-- [Manage stale devices](manage-stale-devices.md) - Module GA docs bug bash updates
-- [Manage users](manage-user.md) - Article improvements based on usability improvements on the module
-- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md) - Module GA docs bug bash updates
-- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md) - Module GA docs bug bash updates
-- [Recover deleted data](recover-deleted-data.md) - Article improvements based on usability improvements on the module
-- [Use app-only authentication](app-only-access-auth.md) - Module GA docs bug bash updates
+Improvements based on module usability and docs bug bash feedback:
+
+- [Create a custom application](create-custom-application.md)
+- [Grant and revoke API permissions programmatically](how-to-grant-revoke-api-permissions.md)
+- [Install Microsoft Entra PowerShell](installation.md)
+- [Manage apps](manage-apps.md)
+- [Manage devices](manage-devices.md)
+- [Manage groups](manage-groups.md)
+- [Manage roles](manage-roles.md)
+- [Manage stale devices](manage-stale-devices.md)
+- [Manage users](manage-user.md)
+- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md)
+- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md)
+- [Recover deleted data](recover-deleted-data.md)
+- [Use app-only authentication](app-only-access-auth.md)
 
 ### January 2025
 
