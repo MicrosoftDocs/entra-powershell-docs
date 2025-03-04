@@ -91,3 +91,59 @@ This article lists all new articles that were added or had significant updates i
   - **Documentation enhancements**:
     - Enhanced examples for over 140 cmdlets with user-friendly parameters, such as using `ManagerId` instead of `RefObjectId`.
 
+## Module version history
+
+- [Version 1.0.1][posh-1.0.1] - **January 2025**
+
+  - **New Commands**: [Get-EntraBetaUserAuthenticationMethod](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationmethod), [Update-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/update-entrabetauserauthenticationrequirement), and [Get-EntraBetaUserAuthenticationRequirement](/powershell/module/microsoft.entra.beta/get-entrabetauserauthenticationrequirement).
+  - **Bug Fixes and command improvements**:
+    - RequiredResourceAccess can't be an array. [#1229](https://github.com/microsoftgraph/entra-powershell/pull/1229).
+    - [Get-EntraContext](/powershell/module/microsoft.entra/get-entracontext) - include Microsoft Entra PowerShell version in the response.
+
+  - **Documentation enhancements**:
+    - Improved examples for over 250 cmdlets, adding more examples and Microsoft Entra ID inbuilt roles.
+    - Adding syntax sections for Global Secure Access commands.
+    - Fixed example for [New-EntraBetaPrivateAccessApplicationSegment](/powershell/module/microsoft.entra.beta/new-entrabetaprivateaccessapplication).
+
+- [Version 0.22.0][posh-0.22.0] - **January 2025**
+
+  - **New capability**: Install submodules automatically when installing the umbrella module (Microsoft.Entra).
+  - **New Commands**: [Get-EntraDeletedAdministrativeUnit](/powershell/module/microsoft.entra/get-entradeletedadministrativeunit), [Get-EntraDeletedDevice](/powershell/module/microsoft.entra/get-entradeleteddevice), [Get-EntraUserAuthenticationMethod](/powershell/module/microsoft.entra/get-entrauserauthenticationmethod), [Get-EntraUserInactiveSignIn](/powershell/module/microsoft.entra/get-entrauserinactivesignin), [Get-EntraDeletedUser](/powershell/module/microsoft.entra/get-entradeleteduser), [Update-EntraOauth2PermissionGrant](/powershell/module/microsoft.entra/update-entraoauth2permissiongrant), [Get-EntraUserAdministrativeUnit](/powershell/module/microsoft.entra/get-entrauseradministrativeunit), [Get-EntraUserRole](/powershell/module/microsoft.entra/get-entrauserrole), [Get-EntraUserGroup](/powershell/module/microsoft.entra/get-entrausergroup), and [Get-EntraDeletedServicePrincipal](/powershell/module/microsoft.entra/get-entradeletedserviceprincipal).
+  - **Bug Fixes**:
+    - Fixed [#1178](https://github.com/microsoftgraph/entra-powershell/issues/1178): Add a command to update an existing OAuth2PermissionGrant.
+    - Fixed [#1147](https://github.com/microsoftgraph/entra-powershell/issues/1147): Add `-Limit` as an alias for `-Top` and `-Select` as an alias for `-Property`.
+    - Fixed [#929](https://github.com/microsoftgraph/entra-powershell/issues/929): Refactored [Connect-Entra](/powershell/module/microsoft.entra/connect-entra) to act as a proxy command for `Connect-MgGraph`.
+  - **Enhancements**:
+    - Improved examples for over 100 cmdlets.
+
+- [Version 0.21.0-preview][posh-0.21.0] - **January 2025**
+
+  - **Bug fixes**: Fixed bugs caused by splitting the Microsoft Entra PowerShell module into modular submodules (failing tests, pipeline updates).  
+  - **Dependency version update**: Upgraded Microsoft Graph PowerShell SDK from `2.15.0` to `2.25.0`.
+
+- [Version 0.20.0-preview][posh-0.20.0] - **December 2024**
+
+  - **Engineering build**: Split the module into submodules.
+  - **Module rename**: Renamed the module from `Microsoft.Graph.Entra` to `Microsoft.Entra`.
+
+- [Version 0.19.0-preview][posh-0.19.0] - **November 2024**
+
+  - **New Global Secure Access Commands**: Added four cmdlets: [Enable-EntraBetaGlobalSecureAccessTenant](/powershell/module/microsoft.entra.beta/enable-entrabetaglobalsecureaccesstenant), [New-EntraBetaPrivateAccessApplication](/powershell/module/microsoft.entra.beta/new-entrabetaprivateaccessapplication), [Get-EntraBetaPrivateAccessApplication](/powershell/module/microsoft.entra.beta/get-entrabetaprivateaccessapplication), and [Get-EntraBetaGlobalSecureAccessTenantStatus](/powershell/module/microsoft.entra.beta/get-entrabetaglobalsecureaccesstenantstatus).
+  - **Bug Fixes**:
+    - Fixed [#1164](https://github.com/microsoftgraph/entra-powershell/issues/1164): Resolved missing types in certain Beta commands.
+    - Fixed [#1163](https://github.com/microsoftgraph/entra-powershell/issues/1163): Removed duplicate examples.
+  - **Enhancements**:
+    - Improved examples for over 130 cmdlets.
+    - Added directory sync features and configurations examples.
+  - **Security**:
+    - Implemented security hardening measures in the release pipeline.
+
+:::zone-end
+
+<!-- link references -->
+[posh-1.0.2]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.2
+[posh-1.0.1]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.1
+[posh-0.22.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/0.22.0
+[posh-0.21.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.21.0-preview
+[posh-0.20.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.20.0-preview
+[posh-0.19.0]: https://www.powershellgallery.com/packages/Microsoft.Graph.Entra/0.19.0-preview
