@@ -11,7 +11,7 @@ manager: CelesteDG
 author: msewaweru
 
 external help file: Microsoft.Entra.Users-Help.xml
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Beta
 online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Remove-EntraBetaUserSponsor
 
 schema: 2.0.0
