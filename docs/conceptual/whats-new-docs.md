@@ -24,6 +24,26 @@ This article lists all new articles that were added or had significant updates i
 
 ## What's new in docs
 
+### February 2025
+
+#### Updated articles
+
+Improvements based on module usability and docs bug bash feedback:
+
+- [Create a custom application](create-custom-application.md)
+- [Grant and revoke API permissions programmatically](how-to-grant-revoke-api-permissions.md)
+- [Install Microsoft Entra PowerShell](installation.md)
+- [Manage apps](manage-apps.md)
+- [Manage devices](manage-devices.md)
+- [Manage groups](manage-groups.md)
+- [Manage roles](manage-roles.md)
+- [Manage stale devices](manage-stale-devices.md)
+- [Manage users](manage-user.md)
+- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md)
+- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md)
+- [Recover deleted data](recover-deleted-data.md)
+- [Use app-only authentication](app-only-access-auth.md)
+
 ### January 2025
 
 #### New articles
@@ -53,19 +73,6 @@ This article lists all new articles that were added or had significant updates i
 
 - [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md) - Updated the article with minor edits.
 - [Troubleshoot the Microsoft Entra PowerShell module](troubleshooting.md) - Updated the troubleshooting article to use a consistent format.
-
-### November 2024
-
-#### New articles
-
-- [Grant and revoke API permissions](how-to-grant-revoke-api-permissions.md): Learn how to grant and revoke API permissions for an application.
-- [Manage guest users with Microsoft Entra PowerShell](manage-guest-users.md): Learn how to manage guest users in your organization.
-- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md): Learn how to recover deleted data using Microsoft Entra PowerShell.
-
-#### Updated articles
-
-- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md): Added equivalents for the app proxy cmdlets.
-- [Install the Microsoft Entra PowerShell module](installation.md): Updated the article in response to customer feedback.
 
 :::zone-end
 
