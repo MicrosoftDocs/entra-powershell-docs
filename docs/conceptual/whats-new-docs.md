@@ -92,7 +92,7 @@ Improvements based on module usability and docs bug bash feedback:
     - [New-EntraAdministrativeUnit](/powershell/module/microsoft.entra/new-entraadministrativeunit) - improvements - additional parameters such as `membershipRule`, `membershipRuleProcessingState`, and `membershipType` based on Microsoft Graph API [changelog](https://developer.microsoft.com/en-us/graph/changelog/?search=3ea44add-bba5-48f7-9c74-1f1588d988d5).
     - Enhancement: Added the `DeletionAgeInDays` response property to commands [Get-EntraDeletedApplication](/powershell/module/microsoft.entra/get-entradeletedapplication), [Get-EntraDeletedServicePrincipal](/powershell/module/microsoft.entra/get-entradeletedserviceprincipal), [Get-EntraDeletedAdministrativeUnit](/powershell/module/microsoft.entra/get-entradeletedadministrativeunit), [Get-EntraDeletedDevice](/powershell/module/microsoft.entra/get-entradeleteddevice), [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup), and [Get-EntraDeletedUser](/powershell/module/microsoft.entra/get-entradeleteduser).
   - **Documentation enhancements**:
-    - Enhanced examples for over 35 cmdlets with richer examples.
+    - Enhanced over 35 cmdlets with richer examples.
 
 ## Module version history
 
