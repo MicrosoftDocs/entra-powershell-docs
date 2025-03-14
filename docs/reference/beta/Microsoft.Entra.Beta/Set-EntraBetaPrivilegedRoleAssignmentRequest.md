@@ -1,6 +1,6 @@
 ---
-title: Set-EntraBetaPrivilegedRoleAssignmentRequest
-description: This article provides details on the Set-EntraBetaPrivilegedRoleAssignmentRequest command.
+title: Set-EntraBetaDirectoryRoleAssignmentRequest
+description: This article provides details on the Set-EntraBetaDirectoryRoleAssignmentRequest command.
 
 
 ms.topic: reference
@@ -8,7 +8,6 @@ ms.date: 07/19/2024
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 manager: CelesteDG
-author: msewaweru
 
 external help file: Microsoft.Entra.Beta.Governance-Help.xml
 Module Name: Microsoft.Entra.Beta
