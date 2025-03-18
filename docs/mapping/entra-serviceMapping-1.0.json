@@ -255,5 +255,6 @@
   "Get-EntraUserGroup": "Users",
   "Get-EntraDeletedServicePrincipal": "Service principal",
   "Get-EntraUserSponsor":"Users",
-  "Remove-EntraUserSponsor":"Users"
+  "Remove-EntraUserSponsor":"Users",
+  "Get-EntraSubscription":"Licenses and subscriptions"
 }
