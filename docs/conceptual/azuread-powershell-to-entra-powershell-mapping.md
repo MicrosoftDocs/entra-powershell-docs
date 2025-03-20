@@ -3,7 +3,7 @@ title: "Find Azure AD PowerShell and MSOnline cmdlet equivalents in Microsoft En
 description: "Find the equivalents of Azure AD PowerShell cmdlets in Microsoft Entra PowerShell."
 
 ms.topic: reference
-ms.date: 02/09/2025
+ms.date: 03/20/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
