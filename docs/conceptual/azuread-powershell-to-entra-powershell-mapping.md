@@ -373,7 +373,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Get-MsolScopedRoleMember| [Get-EntraScopedRoleMembership](/powershell/module/microsoft.entra/Get-EntraScopedRoleMembership) |
 | Get-MsolServicePrincipal| [Get-EntraServicePrincipal](/powershell/module/microsoft.entra/Get-EntraServicePrincipal) |
 | Get-MsolServicePrincipalCredential| [Get-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra/Get-EntraServicePrincipalKeyCredential) |
-| Get-MsolSubscription| [Get-EntraSubscribedSku](/powershell/module/microsoft.entra/Get-EntraSubscribedSku) |
+| Get-MsolSubscription| [Get-EntraSubscription](/powershell/module/microsoft.entra/get-entrasubscription) |
 | Get-MsolUser| [Get-EntraUser](/powershell/module/microsoft.entra/Get-EntraUser) |
 | Get-MsolUserRole| [Get-EntraUserRole](/powershell/module/microsoft.entra/get-entrauserrole) |
 | New-MsolAdministrativeUnit| [New-EntraAdministrativeUnit](/powershell/module/microsoft.entra/New-EntraAdministrativeUnit) |
