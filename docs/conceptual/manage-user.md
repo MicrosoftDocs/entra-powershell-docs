@@ -151,7 +151,7 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
     Get-EntraUser -All | Sort-Object -Property createdDateTime -Descending | Select-Object -First 5
     ```
 
-    The output lists recently deleted users.
+    The output lists the five recently created users.
 
     ```Output
     DisplayName     Id                                   Mail                          UserPrincipalName     
