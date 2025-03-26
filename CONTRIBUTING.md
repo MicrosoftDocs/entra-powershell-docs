@@ -20,7 +20,7 @@ Submit bugs and suggestions by selecting the "👍🏾Feedback" control below th
 
 ### Edit in GitHub
 
-Follow the guidance for [editing documentation in the browser][quick-edits]in our contributor guide.
+Follow the guidance for [editing documentation in the browser][quick-edits] in our contributor guide.
 
 ## Pull requests
 
