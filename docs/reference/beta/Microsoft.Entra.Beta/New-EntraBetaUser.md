@@ -234,7 +234,7 @@ Accept wildcard characters: False
 
 ### -Country
 
-Specifies the user's country.
+Specifies the user's country/region.
 
 ```yaml
 Type: System.String

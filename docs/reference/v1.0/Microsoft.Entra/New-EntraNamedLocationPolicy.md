@@ -66,14 +66,14 @@ Id                                   CreatedDateTime     DisplayName            
 bbbbbbbb-1111-2222-3333-cccccccccccc 31-07-2024 10:45:27 IP named location policy 31-07-2024 10:45:27
 ```
 
-This command creates a new country named location policy in Microsoft Entra ID.
+This command creates a new country/region named location policy in Microsoft Entra ID.
 
 - `-OdataType` parameter specifies the odata type of a named location policy.
 - `-DisplayName` parameter specifies the display name of a named location policy.
 - `-IsTrusted` parameter specifies the IsTrusted value for the named location policy.
 - `-IpRanges` parameter specifies List of IP address ranges in IPv4 CIDR format (e.g., 1.2.3.4/32) or any valid IPv6 format as specified in IETF RFC596.
 
-### Example 2: Creates a new country named location policy in Microsoft Entra ID
+### Example 2: Creates a new country/region named location policy in Microsoft Entra ID
 
 ```powershell
 Connect-Entra -Scopes 'Policy.ReadWrite.ConditionalAccess'
@@ -87,7 +87,7 @@ Id                                   CreatedDateTime     DisplayName            
 cccccccc-2222-3333-4444-dddddddddddd 31-07-2024 10:46:16 Country named location policy 31-07-2024 10:46:16
 ```
 
-This command creates a new country named location policy in Microsoft Entra ID.
+This command creates a new country/region named location policy in Microsoft Entra ID.
 
 - `-OdataType` parameter specifies the odata type of a named location policy.
 - `-DisplayName` parameter specifies the display name of a named location policy.
