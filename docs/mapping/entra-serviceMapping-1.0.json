@@ -256,5 +256,7 @@
   "Get-EntraDeletedServicePrincipal": "Service principal",
   "Get-EntraUserSponsor":"Users",
   "Remove-EntraUserSponsor":"Users",
-  "Get-EntraSubscription":"Licenses and subscriptions"
+  "Get-EntraSubscription":"Licenses and subscriptions",
+  "Get-EntraAuthenticationMethodUserRegistrationDetailReport":"Authentication",
+  "Set-EntraUserSponsor":"Users"
 }
