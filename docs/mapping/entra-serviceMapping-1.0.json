@@ -257,6 +257,6 @@
   "Get-EntraUserSponsor":"Users",
   "Remove-EntraUserSponsor":"Users",
   "Get-EntraSubscription":"Licenses and subscriptions",
-  "Get-EntraAuthenticationMethodUserRegistrationDetailReport":"Users",
+  "Get-EntraAuthenticationMethodUserRegistrationDetailReport":"Authentication",
   "Set-EntraUserSponsor":"Users"
 }

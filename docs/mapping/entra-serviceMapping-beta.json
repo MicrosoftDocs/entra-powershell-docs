@@ -311,6 +311,6 @@
   "Remove-EntraBetaUserSponsor":"Users",
   "Get-EntraBetaSubscription":"Licenses and subscriptions",
   "Get-EntraBetaCrossTenantAccessActivity":"Users",
-  "Get-EntraBetaAuthenticationMethodUserRegistrationDetailReport":"Users",
+  "Get-EntraBetaAuthenticationMethodUserRegistrationDetailReport":"Authentication",
   "Set-EntraBetaUserSponsor":"Users"
 }
