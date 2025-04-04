@@ -238,7 +238,7 @@ Accept wildcard characters: False
 
 ### -Country
 
-Specifies the user's country.
+Specifies the user's country/region.
 
 ```yaml
 Type: System.String
@@ -641,7 +641,7 @@ Accept wildcard characters: False
 
 A two letter country code (ISO standard 3166).
 
-Required for users that are assigned licenses due to legal requirement to check for availability of services in countries.
+Required for users that are assigned licenses due to legal requirement to check for availability of services in countries/regions.
 
 Examples include: "US", "JP", and "GB".
 

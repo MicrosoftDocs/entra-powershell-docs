@@ -79,7 +79,7 @@ $type = '#microsoft.graph.countryNamedLocation'
 Set-EntraBetaNamedLocationPolicy -PolicyId $policy.Id -OdataType $type -IncludeUnknownCountriesAndRegions $true
 ```
 
-This command updates a country named location policy in Microsoft Entra ID by PolicyId.
+This command updates a country/region named location policy in Microsoft Entra ID by PolicyId.
 
 - `-PolicyId` parameter specifies the Id of a named location policy.
 - `-OdataType` parameter specifies the odata type of a named location policy.

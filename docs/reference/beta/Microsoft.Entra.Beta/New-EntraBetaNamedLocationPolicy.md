@@ -66,7 +66,7 @@ Id                                   CreatedDateTime     DisplayName            
 bbbbbbbb-1111-2222-3333-cccccccccccc 31-07-2024 10:45:27 IP named location policy 31-07-2024 10:45:27
 ```
 
-This command creates a new country named location policy in Microsoft Entra ID.
+This command creates a new country/region named location policy in Microsoft Entra ID.
 
 - `-OdataType` parameter specifies the odata type of a named location policy.
 - `-DisplayName` parameter specifies the display name of a named location policy.
@@ -87,7 +87,7 @@ Id                                   CreatedDateTime     DisplayName            
 cccccccc-2222-3333-4444-dddddddddddd 31-07-2024 10:46:16 Country named location policy 31-07-2024 10:46:16
 ```
 
-This command creates a new country named location policy in Microsoft Entra ID.
+This command creates a new country/region named location policy in Microsoft Entra ID.
 
 - `-OdataType` parameter specifies the odata type of a named location policy.
 - `-DisplayName` parameter specifies the display name of a named location policy.
