@@ -119,6 +119,10 @@ bbbbbbbb-1111-2222-3333-cccccccccccc https://login.microsoftonline.com/redeem?rd
 cccccccc-2222-3333-4444-dddddddddddd https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
 ```
 
+## Reset guest user redemption status
+
+In Microsoft Entra ID, resetting the redemption status of a guest user is necessary when you want to allow the user to redeem their invitation again. This can be helpful if the user has not completed the redemption process or if their status needs to be reset for any reason. Below is a PowerShell script that demonstrates how to reset the redemption status for a guest user by sending them a new invitation.
+
 ## View and export guest user accounts
 
 To view and export guest users:
