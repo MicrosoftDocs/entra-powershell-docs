@@ -80,17 +80,31 @@ Improvements based on module usability and docs bug bash feedback:
 
 ## The latest (recommended) version
 
+- [Version 1.0.5][posh-1.0.5] - **March 2025**
+
+  - **New Commands**:
+    - [Get-EntraAuthenticationMethodUserRegistrationDetailReport](/powershell/module/microsoft.entra/get-entraauthenticationmethoduserregistrationdetailreport) - to retrieve authentication method registration report.
+    - [Set-EntraUserSponsor](/powershell/module/microsoft.entra/set-entrausersponsor) - to update a user's sponsor.
+  - **Bug Fixes and command improvements**:
+    - Fixed -Add SendCertificateChain to `Connect-Entra` command.
+    - Fixed - `Reset-EntraBetaStrongAuthenticationMethodByUpn` - added missing authentication method.
+    - Fixed - `Set-EntraUserExtension` - Add support for support `ExtensionNameValues` parameter.
+    - Added parameter validations for the Per-user MFA-based commands.
+  - **Documentation enhancements**:
+    - Add per-user MFA report example.
+    - Add disable password policy example.
+
+## Module version history
+
 - [Version 1.0.4][posh-1.0.4] - **March 2025**
 
   - **New Commands**:
     - [Get-EntraSubscription](/powershell/module/microsoft.entra/get-entrasubscription) - to retrieve the organization's commercial subscriptions.
-    - [Get-EntraBetaCrossTenantAccessActivity](/powershell/module/microsoft.entra.beta/get-entrabetacrosstenantaccessactivity) - to retrieve user sign-in activity associated with external tenants..
+    - [Get-EntraBetaCrossTenantAccessActivity](/powershell/module/microsoft.entra.beta/get-entrabetacrosstenantaccessactivity) - to retrieve user sign-in activity associated with external tenants.
   - **Bug Fixes and command improvements**:
     - Added AliasesToExport values in the psd1 files.
   - **Documentation enhancements**:
     - More examples for common scenarios based on product group engagement.
-
-## Module version history
 
 - [Version 1.0.3][posh-1.0.3] - **February 2025**
 
@@ -154,6 +168,7 @@ Improvements based on module usability and docs bug bash feedback:
 
 :::zone-end
 
+[posh-1.0.5]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.5
 [posh-1.0.4]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.4
 [posh-1.0.3]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.3
 [posh-1.0.2]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.2
