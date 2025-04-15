@@ -82,9 +82,9 @@ $NewUsers = import-csv -Path $CsvFilePath
 Foreach ($NewUser in $NewUsers) {
 
 # Construct the UserPrincipalName, the MailNickName and the DisplayName from the input data in the file 
-$UPN = $NewUser.Firstname + "." + $NewUser.LastName + "@" + $Directory
-    $DisplayName = $NewUser.Firstname + " " + $NewUser.Lastname
-    $MailNickName = $NewUser.Firstname + "." + $NewUser.LastName
+$UPN = $NewUser.FirstName + "." + $NewUser.LastName + "@" + $Directory
+    $DisplayName = $NewUser.FirstName + " " + $NewUser.LastName
+    $MailNickName = $NewUser.FirstName + "." + $NewUser.LastName
 
 # Now that we have all the necessary data for to create the new user, we can execute the New-EntraUser cmdlet  
 New-EntraUser -UserPrincipalName $UPN -AccountEnabled $true -DisplayName $DisplayName -GivenName $NewUser.FirstName -MailNickName $MailNickName -Surname $NewUser.LastName -Department $NewUser.Department -JobTitle $NewUser.JobTitle -PasswordProfile $PasswordProfile
