@@ -58,6 +58,55 @@ DisplayName    Id                                     Mail    UserPrincipalName
 New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.com
 ```
 
+### Bulk create users
+
+To create multiple users in bulk, you can use a CSV file. The CSV file should contain the necessary user attributes, such as `DisplayName`, `UserPrincipalName`, and `PasswordProfile`.
+
+```powershell
+# Connect to Microsoft Entra PowerShell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+
+# These are vairable you need to update to reflect your environment
+$Directory = "contoso.com"
+$NewUserPassword = "newuserpasswords" # This is the password that will be used for all new users. You can change this to whatever you like, but it must meet the password complexity requirements of your tenant.
+$CsvFilePath = "C:\work\users.csv" #Update this to the path of your CSV file
+
+# Create a new Password Profile for the new users. We'll be using the same password for all new users in this example
+$PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
+$PasswordProfile.Password = $NewUserPassword
+
+# Import the csv file. You will need to specify the path and file name of the CSV file in this cmdlet
+$NewUsers = import-csv -Path $CsvFilePath
+
+# Loop through all new users in the file. We'll use the ForEach cmdlet for this.
+Foreach ($NewUser in $NewUsers) {
+
+# Construct the UserPrincipalName, the MailNickName and the DisplayName from the input data in the file 
+$UPN = $NewUser.Firstname + "." + $NewUser.LastName + "@" + $Directory
+    $DisplayName = $NewUser.Firstname + " " + $NewUser.Lastname
+    $MailNickName = $NewUser.Firstname + "." + $NewUser.LastName
+
+# Now that we have all the necessary data for to create the new user, we can execute the New-EntraUser cmdlet  
+New-EntraUser -UserPrincipalName $UPN -AccountEnabled $true -DisplayName $DisplayName -GivenName $NewUser.FirstName -MailNickName $MailNickName -Surname $NewUser.LastName -Department $NewUser.Department -JobTitle $NewUser.JobTitle -PasswordProfile $PasswordProfile
+   }
+```
+
+The CSV file should have the following format:
+
+| FirstName | LastName | Department | JobTitle             |
+|-----------|----------|------------|----------------------|
+| Adele     | Vance    | Marketing  | Marketing Manager    |
+| Christie  | Cline    | Marketing  | Marketing Coordinator|
+
+The output displays details of the newly created users.
+
+```Output
+DisplayName Id                                   Mail UserPrincipalName
+----------- --                                   ---- -----------------
+Adele Vance aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb      Adele.Vance@13thsymphonycontoso.com
+Christie Cline bbbbbbbb-2222-3333-4444-cccccccccccc      Christie.Cline2@contoso.com
+```
+
 ### Update a user's password
 
 1. To update a user's password by administrator, use this command:
