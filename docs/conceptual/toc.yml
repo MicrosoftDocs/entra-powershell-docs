@@ -31,6 +31,8 @@ items:
       href: manage-user.md
     - name: Manage guest users
       href: manage-guest-users.md
+    - name: Offboard users
+      href: offboard-user.md
   - name: Manage user licenses  
     href: how-to-manage-user-licenses.md
   - name: Manage devices
