@@ -66,7 +66,7 @@ To create multiple users in bulk, you can use a CSV file. The CSV file should co
 # Connect to Microsoft Entra PowerShell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
-# These are vairable you need to update to reflect your environment
+# These are variables you need to update to reflect your environment
 $Directory = "contoso.com"
 $NewUserPassword = "newuserpasswords" # This is the password that will be used for all new users. You can change this to whatever you like, but it must meet the password complexity requirements of your tenant.
 $CsvFilePath = "C:\work\users.csv" #Update this to the path of your CSV file
