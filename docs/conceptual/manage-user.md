@@ -1,11 +1,11 @@
 ---
 title: Manage users with Microsoft Entra PowerShell
-description: "This article provides IT admins with instructions on how to use Microsoft Entra PowerShell for user management tasks. Learn more to streamline your processes."
+description: 'This article provides IT admins with instructions on how to use Microsoft Entra PowerShell for user management tasks. Learn more to streamline your processes.'
 author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 04/11/2025
+ms.date: 04/15/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -101,6 +101,8 @@ New User       aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb           NewUser@contoso.co
     This example demonstrates how to retrieve the thumbnail photo of a user that is specified through the value of the `UserId` parameter.
 
 ## Grant users administrative roles in your organization
+
+Granting users administrative roles in your organization allows them to perform specific tasks and manage resources. You can assign users to roles such as Group Administrator, User Administrator, or other custom roles.
 
 The following example shows how to grant a user an administrative role.
 
@@ -364,7 +366,6 @@ Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 
 - [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]
-- [Manage apps][manage-apps]
 - [Manage devices][manage-devices]
 
 <!-- link references -->
@@ -372,6 +373,5 @@ Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 [installation]: installation.md
 [tutorial-groups]: manage-groups.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[manage-apps]: manage-apps.md
 [manage-licenses]: how-to-manage-user-licenses.md
 [manage-devices]: manage-devices.md

@@ -1,19 +1,18 @@
 ---
-title: "Manage guest users"
-description: "This guide provides detailed instructions on how to manage guest user accounts. It includes examples on inviting, viewing, disabling, and removing guest users."
-
+title: Manage guest accounts using Microsoft Entra PowerShell
+description: 'Manage guest accounts with Microsoft Entra PowerShell. Learn how to invite, view, and disable guest users, ensuring your organization stays secure.'
 author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 04/15/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to effectively manage guest user accounts in Microsoft Entra using Microsoft Entra PowerShell so that I can maintain the security and integrity of my organization's data.
 ---
 
-# Manage guest users
+# Manage guest accounts using Microsoft Entra PowerShell
 
 Guest accounts in Microsoft Entra let external users access specific resources like files, teams, or sites without being full members of your organization. These accounts are typically used for collaboration with partners, contractors, or clients who need temporary access to your organization's resources.
 
@@ -33,6 +32,8 @@ To manage guest users with Microsoft Entra PowerShell, you need:
 You can access a user's information and manage their data on their behalf or as an app with its own identity.
 
 ## Invite guest user accounts
+
+You can invite guest users to your organization using Microsoft Entra PowerShell. This process allows external users to access specific resources in your organization without being full members. You can invite a single guest user or bulk invite multiple guest users at once.
 
 ### Invite a single guest user account
 
@@ -119,10 +120,6 @@ bbbbbbbb-1111-2222-3333-cccccccccccc https://login.microsoftonline.com/redeem?rd
 cccccccc-2222-3333-4444-dddddddddddd https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
 ```
 
-## Reset guest user redemption status
-
-In Microsoft Entra ID, resetting the redemption status of a guest user is necessary when you want to allow the user to redeem their invitation again. This can be helpful if the user has not completed the redemption process or if their status needs to be reset for any reason. Below is a PowerShell script that demonstrates how to reset the redemption status for a guest user by sending them a new invitation.
-
 ## View and export guest user accounts
 
 To view and export guest users:
@@ -154,6 +151,28 @@ DisplayName   Id   Mail                            UserPrincipalName
 externaluser1      externaluser1@externaldomain1.com
 externaluser2      externaluser2@externaldomain2.com
 externaluser3      externaluser3@externaldomain3.com
+```
+
+## Reset guest user redemption status
+
+In Microsoft Entra ID, resetting the redemption status of a guest user is necessary when you want to allow the user to redeem their invitation again. This can be helpful if the user has not completed the redemption process or if their status needs to be reset for any reason. Below is a PowerShell script that demonstrates how to reset the redemption status for a guest user by sending them a new invitation.
+
+First identify the guest user and send a new invitation: This resets the redemption status by inviting the guest user again.
+
+```powershell
+# Define the email of the guest user
+$userEmail = 'guestUser@contoso.com'
+
+# Get the user by email
+$user = Get-MgUser -Filter "mail eq '$userEmail'"
+
+Connect-Entra -Scopes 'User.Invite.All'
+# Send a new invitation to reset redemption status
+New-MgInvitation -InvitedUserEmailAddress $user.Mail `
+                  -InviteRedirectUrl "https://contoso.com" `
+                  -ResetRedemption `
+                  -SendInvitationMessage `
+                  -InvitedUser $user
 ```
 
 ## Disable guest user accounts
@@ -238,7 +257,9 @@ $guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All
 
 ```
 
-Check each guest user for expiration.
+Check each guest user for expiration. In this example, we assume that guest accounts expire 90 days after creation.
+
+```powershell
 
 >[!NOTE]
 >This script removes all guest users whose accounts are expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
@@ -259,7 +280,6 @@ foreach ($guest in $guestUsers) {
         }
     }
 }
-
 ```
 
 <!-- link references -->

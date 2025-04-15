@@ -5,7 +5,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 04/11/2025
+ms.date: 04/15/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -105,12 +105,10 @@ Remove-EntraUser -UserId 'SawyerM@contoso.com'
 
 - [Manage user licenses][manage-licenses]
 - [Manage groups][tutorial-groups]
-- [Manage apps][manage-apps]
-- [Manage devices][manage-devices]
+- [Onboard a user][manage-user]
 
 <!-- link references -->
 
 [tutorial-groups]: manage-groups.md
-[manage-apps]: manage-apps.md
 [manage-licenses]: how-to-manage-user-licenses.md
-[manage-devices]: manage-devices.md
+[manage-user]: manage-user.md
