@@ -258,5 +258,8 @@
   "Remove-EntraUserSponsor":"Users",
   "Get-EntraSubscription":"Licenses and subscriptions",
   "Get-EntraAuthenticationMethodUserRegistrationDetailReport":"Authentication",
-  "Set-EntraUserSponsor":"Users"
+  "Set-EntraUserSponsor":"Users",
+  "Get-EntraUserCBAAuthorizationInfo":"Certificate based authentication",
+  "Get-EntraUserCertificateUserIdsFromCertificate":"Certificate based authentication",
+  "Set-EntraUserCBACertificateUserId":"Certificate based authentication"
 }
