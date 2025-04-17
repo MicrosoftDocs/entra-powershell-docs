@@ -312,5 +312,6 @@
   "Get-EntraBetaSubscription":"Licenses and subscriptions",
   "Get-EntraBetaCrossTenantAccessActivity":"Reports",
   "Get-EntraBetaAuthenticationMethodUserRegistrationDetailReport":"Authentication",
-  "Set-EntraBetaUserSponsor":"Users"
+  "Set-EntraBetaUserSponsor":"Users",
+  "Set-EntraBetaAppRoleToApplicationUser":"Governance"
 }
