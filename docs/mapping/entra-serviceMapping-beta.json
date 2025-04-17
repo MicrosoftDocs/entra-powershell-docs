@@ -313,5 +313,5 @@
   "Get-EntraBetaCrossTenantAccessActivity":"Reports",
   "Get-EntraBetaAuthenticationMethodUserRegistrationDetailReport":"Authentication",
   "Set-EntraBetaUserSponsor":"Users",
-  "Set-EntraBetaAppRoleToApplicationUser":"Users"
+  "Set-EntraBetaAppRoleToApplicationUser":"Governance"
 }
