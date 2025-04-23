@@ -5,7 +5,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.date: 04/23/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -128,29 +128,19 @@ Connect to Microsoft Entra with at least a [Guest Inviter][guest-inviter] role.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
-
-# Define the current date.
-$now = Get-Date  
-
-# Initialize an array to store the report data.
-$report = @()  
+ 
 
 # Retrieve all guest user accounts.
-$guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displayName", "mail", "createdDateTime"
-
-#view the guest users
-$guestUsers
-
+Get-EntraUser -Filter "userType eq 'Guest'" -All -Property "displayName", "mail", "createdDateTime", "AccountEnabled" | Select-Object "displayName", "mail", "createdDateTime", "AccountEnabled"
 ```
 
 The script  retrieves all guest user accounts from Microsoft Entra ID with their display names, email addresses, and creation dates, and then displays the list of those guest users.
 
 ```Output
-DisplayName   Id   Mail                            UserPrincipalName
------------   --   ----                            -----------------
-externaluser1      externaluser1@externaldomain1.com
-externaluser2      externaluser2@externaldomain2.com
-externaluser3      externaluser3@externaldomain3.com
+DisplayName   Id   Mail                               createdDateTime      AccountEnabled
+-----------   --   ----                               ---------------      --------------
+externaluser1      externaluser1@externaldomain1.com  13/09/2024 18:37:33  True
+externaluser2      externaluser2@externaldomain2.com  15/02/2024 15:05:31  True
 ```
 
 ## Reset guest user redemption status
@@ -160,6 +150,8 @@ In Microsoft Entra ID, resetting the redemption status of a guest user is necess
 First identify the guest user and send a new invitation: This resets the redemption status by inviting the guest user again.
 
 ```powershell
+Connect-Entra -Scopes 'User.Invite.All'
+
 # Define the email of the guest user
 $userEmail = 'guestUser@contoso.com'
 
@@ -187,12 +179,9 @@ Connect to Microsoft Entra with at least a [User Administrator][user-admin] role
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
-
-# Define the user ID of the guest account to disable.
-$guestUserId = '<guestUserId> for example, myuser#EXT#@contoso.com or user Object Id'
   
 # Disable the guest user account.
-Set-EntraUser -UserId $guestUserId -AccountEnabled $false
+Get-EntraUser -Filter "userType eq 'Guest' and mail eq 'myuser#EXT#@contoso.com'" | Set-EntraUser -AccountEnabled $false
 ```
 
 ### Disable all guest user accounts
@@ -202,13 +191,8 @@ Run the following cmdlet to disable all guest user accounts.
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
-# Retrieve all guest user accounts.
-$guestUsers = Get-EntraUser | Where-Object { $_.UserType -eq 'Guest' }
-
-foreach ($guest in $guestUsers) {
-    # Disable the guest user account
-    Set-EntraUser -UserId $guest.Id -AccountEnabled $false
-}
+# Disable the guest user account
+Get-EntraUser | Where-Object { $_.UserType -eq 'Guest' } | Set-EntraUser -AccountEnabled $false
 ```
 
 ## View and export expired guest user accounts
@@ -249,37 +233,13 @@ Connect to Microsoft Entra with at least a [User Administrator][user-admin] role
 ```powershell  
 Connect-Entra -Scopes "User.ReadWrite.All"
 
-# Define the current date.
-$now = Get-Date  
-
-# Retrieve all guest users.
-$guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All
-
-```
-
-Check each guest user for expiration. In this example, we assume that guest accounts expire 90 days after creation.
-
-```powershell
+In this example, we assume that guest accounts expire 90 days after creation.
 
 >[!NOTE]
 >This script removes all guest users whose accounts are expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
 
 ```powershell
-foreach ($guest in $guestUsers) {
-    # Calculate the expiration date based on the creation date
-    $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)
-    
-    # Check if the account is expired
-    if ($guestExpirationDate -lt $now) {
-        # Check if the guest user ID is not null or empty
-        if (![string]::IsNullOrEmpty($guest.Id)) {
-            # Delete the expired guest account
-            Remove-EntraUser -UserId $guest.Id
-        } else {
-            Write-Output "Guest user ID is null or empty for user: $($guest.DisplayName)"
-        }
-    }
-}
+$age = (Get-Date).AddDays(-90).ToString("yyyy-MM-ddTHH:mm:ssZ") Get-EntraUser -Filter "userType eq 'Guest' and createdDateTime le $age" -All | Remove-EntraUser
 ```
 
 <!-- link references -->
