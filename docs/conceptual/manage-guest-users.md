@@ -5,7 +5,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 04/23/2025
+ms.date: 04/29/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -230,15 +230,15 @@ To view and export expired guest user accounts:
 
 Connect to Microsoft Entra with at least a [User Administrator][user-admin] role:
 
-```powershell  
-Connect-Entra -Scopes "User.ReadWrite.All"
-
 In this example, we assume that guest accounts expire 90 days after creation.
 
 >[!NOTE]
 >This script removes all guest users whose accounts are expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
 
 ```powershell
+
+Connect-Entra -Scopes "User.ReadWrite.All"
+
 $age = (Get-Date).AddDays(-90).ToString("yyyy-MM-ddTHH:mm:ssZ") Get-EntraUser -Filter "userType eq 'Guest' and createdDateTime le $age" -All | Remove-EntraUser
 ```
 

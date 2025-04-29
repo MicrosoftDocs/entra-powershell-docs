@@ -30,7 +30,7 @@ You can access a user's information and manage their data on their behalf or as 
 
 ## Onboard a user
 
-To onboard a user, you can create a new user account in Microsoft Entra ID. This process involves setting up the user's profile, including their display name, email address, and password.
+To onboard a user, you create a new user account in Microsoft Entra ID. This process involves setting up the user's profile, including their display name, email address, and password.
 
 ### Create a user
 
@@ -66,45 +66,30 @@ To create multiple users in bulk, you can use a CSV file. The CSV file should co
 # Connect to Microsoft Entra PowerShell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
-# These are variables you need to update to reflect your environment
-$Directory = "contoso.com"
-$NewUserPassword = "newuserpasswords" # This is the password that will be used for all new users. You can change this to whatever you like, but it must meet the password complexity requirements of your tenant.
-$CsvFilePath = "C:\work\users.csv" #Update this to the path of your CSV file
-
 # Create a new Password Profile for the new users. We'll be using the same password for all new users in this example
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
-$PasswordProfile.Password = $NewUserPassword
+$PasswordProfile.Password = '<Your-Password>'
 
 # Import the csv file. You will need to specify the path and file name of the CSV file in this cmdlet
-$NewUsers = import-csv -Path $CsvFilePath
+$NewUsers = import-csv -Path '<path-to-your-csv-file>'
 
-# Loop through all new users in the file. We'll use the ForEach cmdlet for this.
-Foreach ($NewUser in $NewUsers) {
-
-# Construct the UserPrincipalName, the MailNickName and the DisplayName from the input data in the file 
-$UPN = $NewUser.FirstName + "." + $NewUser.LastName + "@" + $Directory
-    $DisplayName = $NewUser.FirstName + " " + $NewUser.LastName
-    $MailNickName = $NewUser.FirstName + "." + $NewUser.LastName
-
-# Now that we have all the necessary data for to create the new user, we can execute the New-EntraUser cmdlet  
-New-EntraUser -UserPrincipalName $UPN -AccountEnabled $true -DisplayName $DisplayName -GivenName $NewUser.FirstName -MailNickName $MailNickName -Surname $NewUser.LastName -Department $NewUser.Department -JobTitle $NewUser.JobTitle -PasswordProfile $PasswordProfile
-   }
+# Loop through all new users in the file to create them in Microsoft Entra ID
+ForEach ($user in $NewUsers) {
+    # Create a new user in Microsoft Entra ID
+    New-EntraUser -UserPrincipalName $user.'EmailAddress' -DisplayName $user.'DisplayName' -GivenName $user.'FirstName' -Surname $user.'LastName' -Department $user.'Department' -MailNickname $user.'MailNickname' -AccountEnabled $true -PasswordProfile $passwordProfile
+    }
 ```
 
-The CSV file should have the following format:
-
-| FirstName | LastName | Department | JobTitle             |
-|-----------|----------|------------|----------------------|
-| Adele     | Vance    | Marketing  | Marketing Manager    |
-| Christie  | Cline    | Marketing  | Marketing Coordinator|
+| FirstName | LastName | DisplayName | EmailAddress       | Department | MailNickName |
+|-----------|----------|-------------|--------------------|------------|--------------|
+| Adele     | Vance    | Adele Vance | adelev@contoso.com | Marketing  | adelev       |
 
 The output displays details of the newly created users.
 
 ```Output
 DisplayName Id                                   Mail UserPrincipalName
 ----------- --                                   ---- -----------------
-Adele Vance aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb      Adele.Vance@13thsymphonycontoso.com
-Christie Cline bbbbbbbb-2222-3333-4444-cccccccccccc      Christie.Cline2@contoso.com
+Adele Vance aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb      adelev@contoso.com
 ```
 
 ### Update a user's password
@@ -153,19 +138,7 @@ Christie Cline bbbbbbbb-2222-3333-4444-cccccccccccc      Christie.Cline2@contoso
 
 Granting users administrative roles in your organization allows them to perform specific tasks and manage resources. You can assign users to roles such as Group Administrator, User Administrator, or other custom roles.
 
-The following example shows how to grant a user an administrative role.
-
-```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All', 'RoleManagement.ReadWrite.Directory'
-$directoryRole = Get-EntraDirectoryRole -Filter "DisplayName eq 'Helpdesk Administrator'"
-$user = Get-EntraUser -Filter "UserPrincipalName eq 'SawyerM@contoso.com'"
-Add-EntraDirectoryRoleMember -DirectoryRoleId $directoryRole.Id -MemberId $user.Id
-```
-
-This command adds a user to a Microsoft Entra role. To retrieve roles, use the command [Get-EntraDirectoryRole](/powershell/module/microsoft.entra/get-entradirectoryrole).
-
-- `-DirectoryRoleId` - specifies the unique identifier (ObjectId) of the directory role to which you want to add a member.
-- `-MemberId` - specifies the unique identifier (ObjectId) of the user, group, or service principal that you want to add as a member of the specified directory role.
+To learn how to assign roles to users using Microsoft Entra PowerShell, see [Assign roles to users](manage-roles.md#assign-roles-to-users).
 
 ## Search users
 

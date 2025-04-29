@@ -5,7 +5,7 @@ author: omondiatieno
 manager: CelesteDG
 ms.service: entra
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.date: 04/29/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
@@ -74,8 +74,8 @@ Connect-Entra -Scopes 'Directory.AccessAsUser.All'
 Remove-EntraUser -UserId 'SawyerM@contoso.com'
 ```
 
-> [!Note]
-> You can reclaim the user's assigned software and service licenses. See [Manage User License][manage-licenses] for details.
+>[!Note]
+> You can reclaim the user's assigned software and service licenses. See [Manage user license][manage-licenses] for details.
 
 ## Manage deleted users
 
