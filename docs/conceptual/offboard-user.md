@@ -14,9 +14,9 @@ ms.reviewer: stevemutungi
 ---
 # Offboard users with Microsoft Entra PowerShell
 
-Microsoft Entra PowerShell offers IT administrators a powerful and streamlined way to offboard users securely. This article shows you how to terminate active sessions and tokens, disable user accounts and devices, reset passwords, remove device ownership, and manage deleted user records. By following these steps, you can ensure that departing users lose access to company resources immediately, helping maintain organizational security and compliance.
+Microsoft Entra PowerShell offers IT administrators a powerful and streamlined way to offboard users securely. This article describes how to terminate active sessions and tokens. It also shows how to disable user accounts and devices, reset passwords, remove device ownership, and manage deleted user records. By following these steps, you can ensure that departing users lose access to company resources immediately, helping maintain organizational security and compliance.
 
-These actions help standardize offboarding, minimizes risk, and simplifies user lifecycle management.
+These actions help standardize offboarding, minimize risk, and simplify user lifecycle management.
 
 ## Invalidate active sessions and tokens
 

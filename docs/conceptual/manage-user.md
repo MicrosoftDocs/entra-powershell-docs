@@ -234,7 +234,7 @@ Avery Smith     eeeeeeee-4444-5555-6666-ffffffffffff AveryS@contoso.com         
 
 ## Audit users by certain criteria
 
-You can audit users by certain criteria, such as sign-in activity, and group memberships. This helps you track user activity and manage their access to resources.
+You can audit users by certain criteria, such as sign-in activity, and group memberships. This feature helps you track user activity and manage their access to resources.
 
 ### Retrieve a user's sign-in activity
 
