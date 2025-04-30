@@ -4,7 +4,6 @@ description: "This article describes versioning, release cadence, and breaking c
 
 ms.topic: concept-article
 ms.date: 01/23/2025
-ms.service: entra
 
 author: omondiatieno
 manager: CelesteDG
