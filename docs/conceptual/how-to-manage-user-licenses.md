@@ -15,7 +15,7 @@ ms.reviewer: stevemutungi
 
 # Manage user licenses using Microsoft Entra PowerShell
 
-This article shows you how to use Microsoft Entra PowerShell to manage user licenses in your organization. You'll learn how to:
+This article shows you how to use Microsoft Entra PowerShell to manage user licenses in your organization. You learn how to:
 
 - Review and audit license assignments
 - Assign licenses to individual and multiple users
