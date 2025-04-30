@@ -26,7 +26,7 @@ Microsoft Entra services require licenses for access. Using PowerShell, you can 
 
 ## Prerequisites
 
-Before you start, you need:
+To complete this guide, ensure you have the necessary prerequisites:
 
 1. Install the Microsoft Entra PowerShell module. Follow our [installation guide](installation.md).
 2. Sign in as a user with the [License Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#license-administrator) role. You need `User.ReadWrite.All` and `Organization.Read.All` permissions. Run this command to set them:
@@ -100,11 +100,6 @@ $usersWithLicense = Get-EntraUser -All | Where-Object {
 $usersWithLicense | Select-Object DisplayName, UserPrincipalName, AccountEnabled |
     Format-Table -AutoSize
 ```
-
-This command shows you:
-- User display name
-- User principal name (email)
-- Whether the account is enabled
 
 ## Assign licenses to users
 
