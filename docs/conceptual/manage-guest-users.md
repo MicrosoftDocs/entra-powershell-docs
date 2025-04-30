@@ -152,19 +152,13 @@ First identify the guest user and send a new invitation: This resets the redempt
 ```powershell
 Connect-Entra -Scopes 'User.Invite.All'
 
-# Define the email of the guest user
-$userEmail = 'guestUser@contoso.com'
-
-# Get the user by email
-$user = Get-MgUser -Filter "mail eq '$userEmail'"
-
-Connect-Entra -Scopes 'User.Invite.All'
-# Send a new invitation to reset redemption status
-New-MgInvitation -InvitedUserEmailAddress $user.Mail `
-                  -InviteRedirectUrl "https://contoso.com" `
-                  -ResetRedemption `
-                  -SendInvitationMessage `
-                  -InvitedUser $user
+$user = Get-MgUser -Filter "startsWith(mail, 'johndoe@gmail.com')"
+New-MgInvitation `
+    -InvitedUserEmailAddress $user.Mail `
+    -InviteRedirectUrl "https://myapps.contoso.com" `
+    -ResetRedemption `
+    -SendInvitationMessage `
+    -InvitedUser $user
 ```
 
 ## Disable guest user accounts
@@ -201,7 +195,12 @@ To view and export expired guest user accounts:
 
 1. Expand the previous example to retrieve guest users and check each one for expiration. In this example, we assume that guest accounts expire 90 days after creation.
 
-    ```powershell  
+    ```powershell
+    $report = @() 
+    $now = Get-Date  
+    # Retrieve all guest users.
+    $guestUsers = Get-EntraUser -Filter "userType eq 'Guest'" -All
+
     foreach ($guest in $guestUsers) {
         # Calculate the expiration date based on the creation date
         $guestExpirationDate = $guest.CreatedDateTime.AddDays(90)
@@ -236,10 +235,10 @@ In this example, we assume that guest accounts expire 90 days after creation.
 >This script removes all guest users whose accounts are expired. This action is irreversible and should be used with caution. Always ensure you have a backup or a recovery plan in place before removing user accounts.
 
 ```powershell
-
 Connect-Entra -Scopes "User.ReadWrite.All"
 
-$age = (Get-Date).AddDays(-90).ToString("yyyy-MM-ddTHH:mm:ssZ") Get-EntraUser -Filter "userType eq 'Guest' and createdDateTime le $age" -All | Remove-EntraUser
+$age = (Get-Date).AddDays(-90).ToString("yyyy-MM-ddTHH:mm:ssZ") 
+Get-EntraUser -Filter "userType eq 'Guest' and createdDateTime le $age" -All | Remove-EntraUser
 ```
 
 <!-- link references -->
