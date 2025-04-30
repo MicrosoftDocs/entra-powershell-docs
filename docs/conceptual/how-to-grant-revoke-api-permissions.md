@@ -3,7 +3,7 @@ title: "Grant and revoke API permissions programmatically"
 description: "Learn how to programmatically grant and revoke delegated and application API permissions for an app using Microsoft Entra PowerShell to. This method is an alternative to interactive admin consent."
 
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 04/30/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -15,7 +15,7 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 #Customer intent: As a developer, I want to learn how to grant and revoke API permissions for an app using Microsoft Entra PowerShel, and bypass the interactive consent prompt available on the Microsoft Entra Admin center.
 ---
 
-# Grant and revoke API permissions programmatically
+# Grant and revoke API permissions using Microsoft Entra PowerShell
 
 When you grant API permissions to a client app in Microsoft Entra ID, the permission grants are recorded as objects that can be accessed, updated, or deleted like other objects. Using Microsoft Entra PowerShell cmdlets to directly create permission grants is a programmatic alternative to [interactive consent][interactive-consent] and can be useful for automation scenarios, bulk management, or other custom operations in your organization.
 
