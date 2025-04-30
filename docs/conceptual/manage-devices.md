@@ -1,7 +1,6 @@
 ---  
 title: Manage devices
 description: Learn how to use Microsoft Entra PowerShell to manage device identities and monitor related event information.  
-ms.subservice: devices  
 ms.topic: how-to  
 
 ms.date: 02/20/2025
