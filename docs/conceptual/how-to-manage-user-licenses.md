@@ -4,7 +4,6 @@ description: "Learn how to manage Microsoft Entra user licenses using Microsoft 
 
 author: msewaweru
 manager: CelesteDG
-ms.service: entra-powershell
 ms.topic: how-to
 ms.date: 04/30/2025
 ms.author: eunicewaweru

@@ -4,8 +4,7 @@ description: "This article shows how to report user and group assignments to ser
   
 author: omondiatieno
 manager: CelesteDG  
-  
-ms.service: entra
+
 ms.topic: how-to  
 ms.date: 02/12/2025  
 ms.author: jomondi    
