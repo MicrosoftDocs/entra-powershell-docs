@@ -4,7 +4,6 @@ description: "Learn how to manage Microsoft Entra user licenses with the Microso
 
 author: msewaweru
 manager: CelesteDG
-ms.service: entra-powershell
 ms.topic: how-to
 ms.date: 02/12/2025
 ms.author: eunicewaweru
