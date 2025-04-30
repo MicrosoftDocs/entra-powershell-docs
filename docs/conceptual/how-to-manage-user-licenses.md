@@ -1,38 +1,41 @@
 ---
-title: "Manage user licenses"
-description: "Learn how to manage Microsoft Entra user licenses with the Microsoft Entra PowerShell."
+title: "Manage user licenses using Microsoft Entra PowerShell"
+description: "Learn how to manage Microsoft Entra user licenses using Microsoft Entra PowerShell."
 
 author: msewaweru
 manager: CelesteDG
 ms.service: entra-powershell
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 04/30/2025
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
 #customer intent: As an admin, I want to manage the assignment of Entra licenses to users using the Microsoft Entra PowerShell.
 ---
 
-# Manage user licenses
+# Manage user licenses using Microsoft Entra PowerShell
 
-In this article, you learn how to manage user licenses using Microsoft Entra PowerShell. It includes tasks such as assigning, revoking, and auditing licenses for individual and multiple users.
+This article shows you how to use Microsoft Entra PowerShell to manage user licenses in your organization. You learn how to:
 
-These steps are crucial for optimizing resource allocation, ensuring compliance, and maintaining cost-effective operations within your organization.
+- Review and audit license assignments
+- Assign licenses to individual and multiple users
+- Remove licenses from users
+- Manage inactive user licenses
 
-Most Microsoft Entra services require a license for access, and only users with active licenses can use these services. Licenses are assigned per tenant and can't be transferred to other tenants. You can manage licenses for your organization using Microsoft Entra PowerShell.
+Microsoft Entra services require licenses for access. Using PowerShell, you can efficiently manage these licenses across your tenant to optimize costs and ensure appropriate access for your users.
 
 ## Prerequisites
 
 To complete this guide, ensure you have the necessary prerequisites:
 
-1. The Microsoft Entra PowerShell module is installed. Follow the [installation guide](installation.md) to install the module.
-1. Run Microsoft Entra PowerShell as a user with the [License Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#license-administrator) role. This guide requires `User.ReadWrite.All` and `Organization.Read.All` permissions. To set them, run:
+1. Install the Microsoft Entra PowerShell module. Follow our [installation guide](installation.md).
+2. Sign in as a user with the [License Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#license-administrator) role. You need `User.ReadWrite.All` and `Organization.Read.All` permissions. Run this command to set them:
 
     ```powershell
     Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All'
     ```
 
-1. Users to assign licenses are created in your tenant and assigned a location. To find user accounts that don't have a `UsageLocation`, run this command:
+3. Make sure your users have a location assigned. To find users without a `UsageLocation`, run:
 
     ```powershell
     Connect-Entra -Scopes 'User.ReadWrite.All'
@@ -40,17 +43,17 @@ To complete this guide, ensure you have the necessary prerequisites:
     $users | Select-Object Id, DisplayName, UserPrincipalName, UsageLocation
     ```
 
-    To assign a location to a user, run this command:
+    To set a user's location, run:
 
      ```powershell
      Set-EntraUser -UserId 'GjeEdla@Contoso.com' -UsageLocation 'US'
      ```
 
-## Review available license plans
+## Review available Microsoft Entra license plans and usage
 
-Use the `Get-EntraSubscribedSku` cmdlet to view the available license plans in your tenant. Reading subscription license plans requires the `Organization.Read.All` permission scope.
+To see your available license plans, run the `Get-EntraSubscribedSku` cmdlet. You need the `Organization.Read.All` permission.
 
-To view summary information about your current licensing plans and the available licenses for each plan, run this command:
+To check your current licensing plans, available licenses, and consumption status, run:
 
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All'
@@ -68,19 +71,34 @@ SkuPartNumber        : EMS
 ConsumedUnits        : 3
 ```
 
-- `SkuPartNumber`: The name for the license plan.
-- `Enabled`: Number of licenses that you purchased for a specific licensing plan.
-- `ConsumedUnits`: Number of licenses assigned to users from a specific licensing plan.
+The output shows important license information:
+- `SkuPartNumber`: The unique identifier of your license plan (for example, 'EMS' for Enterprise Mobility + Security)
+- `Enabled`: Total number of purchased licenses available for this plan
+- `ConsumedUnits`: Number of licenses currently assigned to users
+- `LockedOut`, `Suspended`, `Warning`: Status indicators for license health monitoring
 
-### Retrieve users assigned to a specific license
+### Find and audit users with specific licenses
 
-To get all the users assigned to a specific license, use the `Get-EntraUser` cmdlet with the `AssignedLicenses` parameter. The `AssignedLicenses` parameter filters users based on the licenses assigned to them.
+To find all users who have a particular license assigned, use this two-step process:
+
+1. Get the SKU ID for the target license plan
+2. Filter your user list to find those with matching licenses
 
 ```powershell
 Connect-Entra -Scopes 'Organization.Read.All'
+
+# Get the SKU ID for EMSPREMIUM license plan
 $skuId = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'EMSPREMIUM' }).SkuId
-$usersWithLicense = Get-EntraUser -All | Where-Object {$_.AssignedLicenses -and ($_.AssignedLicenses.SkuId -contains $skuId)}
-$usersWithLicense | Select-Object Id, DisplayName, UserPrincipalName, AccountEnabled, UserType | Format-Table -AutoSize
+
+# Find users who have this license
+$usersWithLicense = Get-EntraUser -All | Where-Object {
+    $_.AssignedLicenses -and 
+    ($_.AssignedLicenses.SkuId -contains $skuId)
+}
+
+# Display the results
+$usersWithLicense | Select-Object DisplayName, UserPrincipalName, AccountEnabled |
+    Format-Table -AutoSize
 ```
 
 ## Assign licenses to users
