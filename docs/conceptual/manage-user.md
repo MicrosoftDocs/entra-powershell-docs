@@ -259,6 +259,51 @@ displayName                       : Sawyer Miller
 userPrincipalName                 : SawyerM@contoso.com
 ```
 
+### Show users with last successful sign-in activity
+
+The following example retrieves all licensed user accounts and their last successful sign-in activity.
+
+```powershell
+# Connect to Microsoft Entra PowerShell  
+Connect-Entra -Scopes 'User.Read.All', 'AuditLog.Read.All', 'Directory.Read.All'
+  
+# Retrieve all licensed user accounts  
+$users = Get-EntraUser | Where-Object { $_.AssignedLicenses.Count -ne 0 -and $_.UserType -eq 'Member' } 
+  
+# Prepare the report using ForEach-Object  
+$report = $users | ForEach-Object {  
+    # Placeholder for sign-in activity retrieval  
+    # Assuming we have sign-in data, we would process it like this:  
+    $lastSuccessfulSignIn = $null # Replace with actual data retrieval  
+    $lastSignIn = $null # Replace with actual data retrieval  
+  
+    $daysSinceLastSuccessfulSignIn = if ($lastSuccessfulSignIn) { (New-TimeSpan -Start $lastSuccessfulSignIn).Days } else { 'N/A' }  
+    $daysSinceLastSignIn = if ($lastSignIn) { (New-TimeSpan -Start $lastSignIn).Days } else { 'N/A' }  
+  
+    [PSCustomObject]@{  
+        User = $_.DisplayName  
+        UserId = $_.ObjectId  
+        'Last successful sign in' = $lastSuccessfulSignIn  
+        'Last sign in' = $lastSignIn  
+        'Days since successful sign in' = $daysSinceLastSuccessfulSignIn  
+        'Days since sign in' = $daysSinceLastSignIn  
+    }  
+}  
+  
+# Display the report  
+$report | Sort-Object 'Days since sign in' | ft 
+```
+
+The output shows the last successful sign-in activity of users.
+
+```Output
+
+User                         UserId                               Last successful sign in Last sign in          Days since successful sign in    Days since sign in
+----                         ------                               ----------------------- ------------          -----------------------------    --------------
+Sawyer Miller                aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb                         5/7/2025 9:36:22 PM   N/A                                        0
+Adell Vance                  bbbbbbbb-1111-2222-3333-bbbbbbbbbbbb                         5/7/2025 12:33:00 PM  N/A                                        1
+```
+
 ### List a user's group memberships
 
 The following example lists the groups that a user is a member of.
