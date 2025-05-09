@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 03/20/2025
+ms.date: 05/09/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -23,6 +23,18 @@ This article lists all new articles that were added or had significant updates i
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### April 2025
+
+#### New articles
+
+- [Offboard users](offboard-user.md) - Learn to offboard users by invalidating sessions, resetting passwords, and removing device ownership.
+
+#### Updated articles
+
+- [Manage guest users](manage-guest-users.md) - Refined code snippets to improve readability and ensure alignment with best practices.
+- [Manage users](manage-user.md) - Refined code snippets to improve readability and ensure alignment with best practices.
+- [Manage user licenses using Microsoft Entra PowerShell](how-to-manage-user-licenses.md) - Improved metadata and keywords for better search engine visibility.
 
 ### February 2025
 
@@ -62,17 +74,6 @@ Improvements based on module usability and docs bug bash feedback:
 - [Manage users with Microsoft Entra PowerShell](manage-user.md) - Edits to clean up content
 - [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md) - Updates to reflect module updates
 - [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md) - Updates to reflect module updates
-
-### December 2024
-
-#### New articles
-
-- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md) - Consolidated the steps to get started with the Microsoft Entra PowerShell module.
-
-#### Updated articles
-
-- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md) - Updated the article with minor edits.
-- [Troubleshoot the Microsoft Entra PowerShell module](troubleshooting.md) - Updated the troubleshooting article to use a consistent format.
 
 :::zone-end
 
