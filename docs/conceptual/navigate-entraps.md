@@ -5,7 +5,7 @@ description: Navigate the Microsoft Entra PowerShell module to learn the core co
 author: csmulligan
 manager: CelesteDG
 ms.topic: quickstart
-ms.date: 02/09/2025
+ms.date: 05/08/2025
 ms.author: cmulligan
 
 #Customer intent: As an IT admin, I want to learn how to start using the Microsoft Entra PowerShell module, including authentication, core concepts, commands, and how to get help.
@@ -15,7 +15,7 @@ ms.author: cmulligan
 
 Microsoft Entra PowerShell is a powerful tool for managing and administering Entra resources directly from PowerShell.
 
-This article helps you navigate the module by outlining its core concepts.
+This article helps you navigate the module and outlines its core concepts.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ This article helps you navigate the module by outlining its core concepts.
 
 ## Sign in
 
-Each cmdlet in Microsoft Entra PowerShell is protected by one or more permission scopes. To use Microsoft Entra PowerShell, the user logging in must consent to the required permission scopes for the cmdlet you plan to use.  You specify the permissions in the `Connect-Entra` cmdlet. Sign in with an admin account of your tenant, if prompted.
+Each cmdlet in Microsoft Entra PowerShell is protected by one or more permission scopes. To use Microsoft Entra PowerShell, users signing in must consent to the required permission scopes for the cmdlet they plan to use. Specify the permissions in the `Connect-Entra` cmdlet. Sign in with an admin account for your tenant, if prompted.
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
