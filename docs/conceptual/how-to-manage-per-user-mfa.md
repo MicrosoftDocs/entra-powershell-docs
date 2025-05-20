@@ -25,7 +25,7 @@ To successfully complete the steps in this article, you need:
   - [Authentication Policy Administrator][authentication-policy-administrator]
   - [Global Reader][global-reader]
 
-## Reporting on Per-User MFA state
+## Reporting on per-user MFA state
 
 There are two methods to report on MFA state for all users or a subset of users.
 
@@ -52,9 +52,7 @@ $users | ForEach-Object {
 $usersReport | ft
 ```
 
-### Filtering
-
-If you want to enumerate per-user MFA state for a subset of users, you can use the `-Filter` and `-Top` parameters of [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser).
+To enumerate per-user MFA state for a subset of users, you can use the `-Filter` and `-Top` parameters of [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser).
 
 ## Batching for improved performance
 
@@ -104,7 +102,7 @@ Update-EntraBetaUserAuthenticationRequirement -UserId '<user@contoso.com>' -PerU
 ## Related content
 
 - API reference: [Configuring authentication methods][configure-authentication-methods]
-- Reset strong authentication method: using [Reset-EntraStrongAuthenticationMethodByUpn][reset-entrastrongauthenticationaethodbyupn]
+- Reset strong authentication method using [Reset-EntraStrongAuthenticationMethodByUpn][reset-entrastrongauthenticationaethodbyupn]
 
 <!-- links -->
 [authentication-policy-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#authentication-policy-administrator
