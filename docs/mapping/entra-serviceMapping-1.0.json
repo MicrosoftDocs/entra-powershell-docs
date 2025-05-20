@@ -218,7 +218,6 @@
   "Get-EntraContext": "Authentication",
   "Get-EntraEnvironment": "Authentication",
   "Test-EntraScript": "Migration",
-  "Get-EntraUnsupportedCommand": "Migration",
   "Get-EntraObjectSetting": "Groups",
   "New-EntraApplicationFromApplicationTemplate": "Applications",
   "New-EntraFeatureRolloutPolicy": "Policies",
