@@ -54,7 +54,7 @@ $usersReport | ft
 
 ### Filtering
 
-If you want to enumerate per-user MFA state for a subset of users, you can use the `-Filter` and `-Top` parameters of [Get-EntraUser](/powershell/module/entra/get-entrauser).
+If you want to enumerate per-user MFA state for a subset of users, you can use the `-Filter` and `-Top` parameters of [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser).
 
 ## Batching for improved performance
 
