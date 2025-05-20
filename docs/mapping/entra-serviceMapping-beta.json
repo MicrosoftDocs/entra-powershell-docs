@@ -264,7 +264,6 @@
   "Get-EntraBetaScopedRoleMembership": "Administrative units",
   "Get-EntraBetaServicePrincipalPolicy": "Policies",
   "Get-EntraBetaSubscribedSku": "Licenses and subscriptions",
-  "Get-EntraUnsupportedCommand": "Reports",
   "New-EntraBetaAttributeSet": "Custom security attributes",
   "New-EntraBetaConditionalAccessPolicy": "Policies",
   "New-EntraBetaInvitation": "Invitations",
