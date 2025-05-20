@@ -142,6 +142,50 @@ externaluser1      externaluser1@externaldomain1.com  13/09/2024 18:37:33  True
 externaluser2      externaluser2@externaldomain2.com  15/02/2024 15:05:31  True
 ```
 
+## Manage guest user sponsorship
+
+In Microsoft Entra ID, guest user sponsorship allows you to manage the sponsorship of guest users. This feature is useful for organizations that want to control and monitor the access of external users. You can view the sponsors of a guest user and remove a sponsor from a guest user.
+To manage guest user sponsorship, you can assign, view and remove a sponsor from a guest user. You need at least a [User Administrator][user-admin] role to perform these actions.
+
+### Assign a sponsor to a guest user
+
+The following example shows how to assign a sponsor to a guest user in Microsoft Entra ID. You can use the `New-EntraUserSponsor` cmdlet to assign a sponsor to a specified guest user.
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+
+Get-EntraUser -Filter "mail eq 'guestuser@contoso.com'" |
+    New-EntraUserSponsor -SponsorId 'sponsor@contoso.com'
+```
+
+This example assigns a sponsor to a guest user in Microsoft Entra ID. The `UserId` parameter specifies the guest user, and the `SponsorId` parameter specifies the sponsor.
+
+### View a guest user's sponsors
+
+The following example shows how to view a guest user's sponsors in Microsoft Entra ID. You can use the `Get-EntraUserSponsor` cmdlet to retrieve the sponsors of a specified guest user.
+
+```powershell
+Connect-Entra -Scopes 'User.Read.All'
+
+Get-EntraUser -Filter "mail eq 'guestuser@contoso.com'" |
+    Get-EntraUserSponsor
+```
+
+This example retrieves the sponsors of a guest user in Microsoft Entra ID. The `UserId` parameter specifies the guest user.
+
+### Remove a sponsor from a guest user
+
+The following example shows how to remove a sponsor from a guest user in Microsoft Entra ID. You can use the `Remove-EntraUserSponsor` cmdlet to remove a sponsor from a specified guest user.
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+
+Get-EntraUser -Filter "mail eq 'guestuser@contoso.com'" |
+    Remove-EntraUserSponsor -SponsorId 'sponsor@contoso.com'
+```
+
+This example removes a sponsor from a guest user in Microsoft Entra ID. The `UserId` parameter specifies the guest user, and the `SponsorId` parameter specifies the sponsor to be removed.
+
 ## Reset guest user redemption status
 
 In Microsoft Entra ID, resetting the redemption status of a guest user is necessary when you want to allow the user to redeem their invitation again. This feature is helpful if the user doesn't complete the redemption process or if their status needs to be reset for any reason. The following example demonstrates how to reset the redemption status for a guest user by sending them a new invitation.
