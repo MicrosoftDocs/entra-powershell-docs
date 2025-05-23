@@ -141,26 +141,7 @@ To learn how to assign roles to users using Microsoft Entra PowerShell, see [Ass
 
 ## Search users
 
-### Search for a user by `mailNickname`
-
-To search for a user by `mailNickname`, use this command:
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "startswith(MailNickname,'AdeleV')"
-```
-
-The output shows user details based on a `mailNickname` search.
-
-```Output
-DisplayName      Id                                   Mail                 UserPrincipalName     
------------      --                                   ----                 -----------------     
-Adell Vance      aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com  adelev@contoso.com     
-```
-
-### Search for a user by `userPrincipalName`
-
-To search for a user by `userPrincipalName`, use this command:
+You can search for users in your organization using various attributes such as `displayName`, `mailNickname`, `userPrincipalName`, `department` and `jobTitle`. The following example shows how to search for a user by `userPrincipalName`
 
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
@@ -173,62 +154,6 @@ The output shows user details based on a `userPrincipalName` search.
 DisplayName      Id                                   Mail                 UserPrincipalName     
 -----------      --                                   ----                 -----------------     
 Sawyer Miller   aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb SawyerM@contoso.com  SawyerM@contoso.com   
-```
-
-### Search for users by job title
-
-To search for users with the job title of `Retail manager`, use this command:
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "jobTitle eq 'Retail Manager'"
-```
-
-The output shows user details based on a `jobTitle` search.
-
-```Output
-DisplayName      Id                                   Mail                 UserPrincipalName     
------------      --                                   ----                 -----------------     
-Sawyer Miller   aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb SawyerM@contoso.com  SawyerM@contoso.com   
-```
-
-### Search for users in Marketing department
-
-To search for users in Marketing department, use this command:
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -Filter "department eq 'Marketing'"
-```
-
-The output shows user details based on a `department` search.
-
-```Output
-DisplayName     Id                                   Mail                          UserPrincipalName     
------------     --                                   ----                          -----------------     
-Adell Vance     aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com           adelev@contoso.com     
-Christie Cline  bbbbbbbb-1111-2222-3333-cccccccccccc christiec@contoso.com        christiec@contoso.com  
-```
-
-### Search for users by most recently created
-
-To find the five most recently created users, use this command:
-
-```powershell
-Connect-Entra -Scopes 'User.Read.All'
-Get-EntraUser -All | Sort-Object -Property createdDateTime -Descending | Select-Object -First 5
-```
-
-The output lists recently created users.
-
-```Output
-DisplayName     Id                                   Mail                          UserPrincipalName     
------------     --                                   ----                          -----------------     
-Adell Vance     aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb adelev@contoso.com           adelev@contoso.com     
-Christie Cline  bbbbbbbb-1111-2222-3333-cccccccccccc christiec@contoso.com        christiec@contoso.com  
-Sawyer Miller   cccccccc-2222-3333-4444-dddddddddddd sawyerm@contoso.com          sawyerm@contoso.com    
-Kez Michael     hhhhhhhh-7777-8888-9999-iiiiiiiiiiii KezM@contoso.com             KezM@contoso.com       
-Avery Smith     eeeeeeee-4444-5555-6666-ffffffffffff AveryS@contoso.com           AveryS@contoso.com     
 ```
 
 ## Audit users by certain criteria
@@ -259,50 +184,33 @@ displayName                       : Sawyer Miller
 userPrincipalName                 : SawyerM@contoso.com
 ```
 
-### Show users with last successful sign-in activity
+### Download user sign-in activity
 
-The following example retrieves all licensed user accounts and their last successful sign-in activity.
+The following example retrieves all licensed user accounts and their last successful sign-in activity. It exports the data to a CSV file for further analysis.
 
 ```powershell
 # Connect to Microsoft Entra PowerShell  
-Connect-Entra -Scopes 'User.Read.All', 'AuditLog.Read.All', 'Directory.Read.All'
-  
-# Retrieve all licensed user accounts  
-$users = Get-EntraUser | Where-Object { $_.AssignedLicenses.Count -ne 0 -and $_.UserType -eq 'Member' } 
-  
-# Prepare the report using ForEach-Object  
-$report = $users | ForEach-Object {  
-    # Placeholder for sign-in activity retrieval  
-    # Assuming we have sign-in data, we would process it like this:  
-    $lastSuccessfulSignIn = $null # Replace with actual data retrieval  
-    $lastSignIn = $null # Replace with actual data retrieval  
-  
-    $daysSinceLastSuccessfulSignIn = if ($lastSuccessfulSignIn) { (New-TimeSpan -Start $lastSuccessfulSignIn).Days } else { 'N/A' }  
-    $daysSinceLastSignIn = if ($lastSignIn) { (New-TimeSpan -Start $lastSignIn).Days } else { 'N/A' }  
-  
-    [PSCustomObject]@{  
-        User = $_.DisplayName  
-        UserId = $_.ObjectId  
-        'Last successful sign in' = $lastSuccessfulSignIn  
-        'Last sign in' = $lastSignIn  
-        'Days since successful sign in' = $daysSinceLastSuccessfulSignIn  
-        'Days since sign in' = $daysSinceLastSignIn  
-    }  
-}  
-  
-# Display the report  
-$report | Sort-Object 'Days since sign in' | ft 
+
+Connect-Entra -Scopes 'User.Read.All','AuditLog.Read.All','Directory.Read.All'
+
+try {
+     Get-EntraUser -All -Property Id, UserPrincipalName, DisplayName, SignInActivity -ErrorAction Stop |
+         Select-Object `
+             Id, `
+             UserPrincipalName, `
+             DisplayName, `
+             @{ Name = 'LastSignInDateTime';           Expression = { $_.SignInActivity.LastSignInDateTime } }, `
+             @{ Name = 'LastSuccessfulSignInDateTime'; Expression = { $_.SignInActivity.LastSuccessfulSignInDateTime } } |
+         Export-Csv -Path 'C:\temp\lastSignIns.csv' -NoTypeInformation -Encoding UTF8 -ErrorAction Stop
+
+     Write-Host "Sign-in activity exported successfully to lastSignIns.csv"
+ }
+ catch {
+     Write-Error "Failed to retrieve or export data: $_"
+ }
 ```
 
-The output shows the last successful sign-in activity of users.
-
-```Output
-
-User                         UserId                               Last successful sign in Last sign in          Days since successful sign in    Days since sign in
-----                         ------                               ----------------------- ------------          -----------------------------    --------------
-Sawyer Miller                aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb                         5/7/2025 9:36:22 PM   N/A                                        0
-Adell Vance                  bbbbbbbb-1111-2222-3333-bbbbbbbbbbbb                         5/7/2025 12:33:00 PM  N/A                                        1
-```
+This example retrieves both the last sign-in and last successful sign-in dates for all users in your organization. The data is then exported to a CSV file named `lastSignIns.csv` in the `C:\temp` directory.
 
 ### List a user's group memberships
 
