@@ -42,13 +42,12 @@ To invite a single guest user to your organization with at least a [Guest Invite
 # Connect to Microsoft Entra
 Connect-Entra -Scopes 'User.Invite.All'
 
-# Invite a guest user and assign them a sponsor
+# Invite a single guest user
 New-EntraInvitation `
     -InvitedUserEmailAddress 'guestUser@contoso.com' `
     -InviteRedirectUrl 'https://contoso.com' `
     -SendInvitationMessage $true `
-    -InvitedUserDisplayName 'Guest User' `
-    -Sponsor 'sponsorUser@contoso.com' 
+    -InvitedUserDisplayName 'Guest User'
 ```
 
 This script sends an invitation to a guest user with the email address `guestUser@contoso.com`, directing them to `https://contoso.com` upon acceptance. The following output shows the details of the invited guest user.
