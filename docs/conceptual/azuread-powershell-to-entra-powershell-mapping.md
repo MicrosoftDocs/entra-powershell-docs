@@ -89,7 +89,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Get-AzureADMSLifecyclePolicyGroup | [Get-EntraLifecyclePolicyGroup](/powershell/module/microsoft.entra/Get-EntraLifecyclePolicyGroup) |
 | Get-AzureADMSNamedLocationPolicy | [Get-EntraNamedLocationPolicy](/powershell/module/microsoft.entra/Get-EntraNamedLocationPolicy) |
 | Get-AzureADOAuth2PermissionGrant | [Get-EntraOAuth2PermissionGrant](/powershell/module/microsoft.entra/Get-EntraOAuth2PermissionGrant) |
-| Get-AzureADObjectByObjectId | [Get-EntraObjectByObjectId](/powershell/module/microsoft.entra/Get-EntraObjectByObjectId) |
+| Get-AzureADObjectByObjectId | |
 | Get-AzureADMSPermissionGrantConditionSet | [Get-EntraPermissionGrantConditionSet](/powershell/module/microsoft.entra/Get-EntraPermissionGrantConditionSet) |
 | Get-AzureADMSPermissionGrantPolicy | [Get-EntraPermissionGrantPolicy](/powershell/module/microsoft.entra/Get-EntraPermissionGrantPolicy) |
 | Get-AzureADMSRoleAssignment | [Get-EntraDirectoryRoleAssignment](/powershell/module/microsoft.entra/get-entradirectoryroleassignment) |
@@ -109,7 +109,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Get-AzureADSubscribedSku | [Get-EntraSubscribedSku](/powershell/module/microsoft.entra/Get-EntraSubscribedSku) |
 | Get-AzureADTenantDetail | [Get-EntraTenantDetail](/powershell/module/microsoft.entra/Get-EntraTenantDetail) |
 | Get-AzureADTrustedCertificateAuthority | [Get-EntraTrustedCertificateAuthority](/powershell/module/microsoft.entra/Get-EntraTrustedCertificateAuthority) |
-| Get-AzureADMSUnsupportedCommand | [Get-EntraUnsupportedCommand](/powershell/module/microsoft.entra/Get-EntraUnsupportedCommand) |
+| Get-AzureADMSUnsupportedCommand | |
 | Get-AzureADUser | [Get-EntraUser](/powershell/module/microsoft.entra/Get-EntraUser) |
 | Get-AzureADUserAppRoleAssignment | [Get-EntraUserAppRoleAssignment](/powershell/module/microsoft.entra/Get-EntraUserAppRoleAssignment) |
 | Get-AzureADUserCreatedObject | [Get-EntraUserCreatedObject](/powershell/module/microsoft.entra/Get-EntraUserCreatedObject) |
