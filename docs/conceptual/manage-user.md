@@ -22,7 +22,7 @@ The user resource provides a straightforward way for you to access and manipulat
 To manage users with Microsoft Entra PowerShell, you need:
 
 - A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-acount].
-- One of the following roles: [User Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator), or [Group Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#groups-administrator).
+- At least the [Cloud Application Administrator][cloud-app-admin] role.
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
 You can access a user's information and manage their data on their behalf or as an app with its own identity.
@@ -184,7 +184,7 @@ displayName                       : Sawyer Miller
 userPrincipalName                 : SawyerM@contoso.com
 ```
 
-### Download user sign-in activity
+### Download all users' sign-in activity
 
 The following example retrieves all licensed user accounts and their last successful sign-in activity. It exports the data to a CSV file for further analysis.
 
@@ -345,6 +345,7 @@ Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 <!-- link references -->
 
 [installation]: installation.md
+[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator
 [tutorial-groups]: manage-groups.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [manage-licenses]: how-to-manage-user-licenses.md

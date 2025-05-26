@@ -42,7 +42,7 @@ To invite a single guest user to your organization with at least a [Guest Invite
 # Connect to Microsoft Entra
 Connect-Entra -Scopes 'User.Invite.All'
 
-# Invite a single guest user
+#Invite the guest user
 New-EntraInvitation `
     -InvitedUserEmailAddress 'guestUser@contoso.com' `
     -InviteRedirectUrl 'https://contoso.com' `
