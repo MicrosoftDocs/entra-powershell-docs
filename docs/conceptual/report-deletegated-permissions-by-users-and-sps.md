@@ -25,13 +25,12 @@ To retrieve all delegated permissions assigned to users and service principals, 
   - [Cloud Application Administrator][cloud-app-admin]
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
-## List delegated permissions for users
+## List delegated permissions for users and service principals
 
 ```powershell
 # Define file name for CSV output
 $downloadsFolder = [System.Environment]::GetFolderPath('MyDocuments')
 $csvOutputFile = Join-Path -Path $downloadsFolder -ChildPath "DelegatedPermissions.csv"
-
 
 # Scopes to ignore for reporting purposes
 [array]$IgnoredScopes = "openid", "profile", "offline_access"
@@ -42,8 +41,6 @@ $resourceIds = @{}
 
 # Get all users
 $users = Get-EntraUser -Filter "userType eq 'Member'"
-
-
 
 $Report = [System.Collections.Generic.List[Object]]::new()
 
@@ -81,7 +78,6 @@ ForEach ($user in $users) {
     }
 }
 # Get AllPrincipals delegated permissions
-
 [array]$AllPermissions = Get-EntraOauth2PermissionGrant | Where-Object {$_.ConsentType -eq 'AllPrincipals'} 
 
 [int]$i = 0
@@ -127,71 +123,9 @@ $Report | Export-Csv -Path $CSVOutputFile -NoTypeInformation -Encoding UTF8
 Write-Host ("CSV output file written to {0}" -f $CSVOutputFile)
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- link references -->
 
 [installation]: installation.md
 [create-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
-[manage-user.md]: manage-user.md
-[manage-apps]: manage-apps.md
-[get-service-principal-app-role-assignto]: /powershell/module/microsoft.entra/get-entraserviceprincipalapproleassignedto
-[remove-service-principal-app-role-assignment]: /powershell/module/microsoft.entra/Remove-EntraServicePrincipalAppRoleAssignment
