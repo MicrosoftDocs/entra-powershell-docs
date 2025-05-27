@@ -57,6 +57,10 @@ items:
     href: /entra/identity-platform/howto-create-self-signed-certificate?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json
   - name: Recover deleted data
     href: recover-deleted-data.md
+- name: Reports
+  items:
+  - name: Delegated permissions held by users and service principals
+    href: report-deletegated-permissions-by-users-and-sps.md
 - name: Migrate
   items:
   - name: Run Azure AD PowerShell scripts in compatibility mode
