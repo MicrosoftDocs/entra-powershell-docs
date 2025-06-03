@@ -1,11 +1,11 @@
 ---
-title: "Manage Per-User MFA Settings in Microsoft Entra"
-description: "Learn how to configure Per-User MFA settings, report on MFA states, and reset authentication methods using Microsoft Entra tools"
+title: Manage Per-User MFA Settings in Microsoft Entra ID
+description: Learn how to configure Per-User MFA settings, report on MFA states, and reset authentication methods using Microsoft Entra tools.
 
 author: msewaweru
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 06/03/2025
 ms.author: eunicewaweru
 
 #customer intent: 1. As an IT admin, I want to report on Per-User MFA states so that I can monitor and manage user authentication settings effectively.
@@ -13,7 +13,7 @@ ms.author: eunicewaweru
 
 # Manage per-user MFA settings in Microsoft Entra ID
 
-Multi-Factor Authentication (MFA) is a key security feature that helps protect user accounts from unauthorized access. While Conditional Access and Security Defaults are the recommended methods for enforcing MFA in Microsoft Entra, there are scenarios where managing MFA settings on a per-user basis is necessary. This article explains how to report on and manage per-user MFA states using Microsoft Entra PowerShell, including how to view current MFA status, update user settings, and optimize reporting for large environments. Follow these steps to help ensure your organization’s identities remain secure and compliant.
+Multi-Factor Authentication (MFA) is a key security feature that helps protect user accounts from unauthorized access. While Conditional Access and Security Defaults are the recommended methods for enforcing MFA in Microsoft Entra ID, there are scenarios where managing MFA settings on a per-user basis is necessary. For example, use per-user settings when some users have unique security needs, access sensitive information that requires extra protection, or when you're gradually rolling out MFA. This article explains how to report on and manage per-user MFA states using Microsoft Entra PowerShell, including how to view current MFA status, update user settings, and optimize reporting for large environments. Follow these steps to help ensure your organization’s identities remain secure and compliant.
 
 ## Prerequisites
 
@@ -25,11 +25,11 @@ To successfully complete the steps in this article, you need:
   - [Authentication Policy Administrator][authentication-policy-administrator]
   - [Global Reader][global-reader]
 
-## Reporting on per-user MFA state
+## Report on per-user MFA state
 
 There are two methods to report on MFA state for all users or a subset of users.
 
-The `Get-EntraAuthenticationMethodUserRegistrationDetailReport` report is a performant way to show MFA status for all users in a tenant. The `isMfaCapable` property of this report will return true if the user is enabled for MFA and has at least 1 MFA authentication method enabled. While the `isMfaCapable` property is a valid way to report on MFA state for users, it is not the exact equivalent of `StrongAuthenticationRequirements` in `Get-MsoLUser`, which distinguishes between *disabled*, *enabled*, and *enforced* states.
+The `Get-EntraAuthenticationMethodUserRegistrationDetailReport` report is a performant way to show MFA status for all users in a tenant. The `isMfaCapable` property of this report will return true if the user is enabled for MFA and has at least one MFA authentication method enabled. While the `isMfaCapable` property is a valid way to report on MFA state for users, it's not the exact equivalent of `StrongAuthenticationRequirements` in `Get-MsolUser`, which distinguishes between *disabled*, *enabled*, and *enforced* states.
 
 For per-user MFA state , the `PerUserMFAState` property is the exact equivalent of the `strongAuthenticationRequirments`.
 
@@ -52,9 +52,18 @@ $users | ForEach-Object {
 $usersReport | ft
 ```
 
+```output
+Id                                   DisplayName          UserPrincipalName                      PerUserMFAState
+--                                   -----------          -----------------                      ---------------
+aaaaaaaa-bbbb-cccc-1111-222222222222 Amari Rivera         AmaRive@Contoso.com                    enabled
+bbbbbbbb-1111-2222-3333-cccccccccccc Avery Howard         AveHowa@Contoso.com                    enforced
+cccccccc-2222-3333-4444-dddddddddddd Adrian King          AdrKin@Contoso.com                     disabled
+dddddddd-3333-4444-5555-eeeeeeeeeeee Dakota Sanchez       DakSan@Contoso.com                     disabled
+```
+
 To enumerate per-user MFA state for a subset of users, you can use the `-Filter` and `-Top` parameters of [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser).
 
-## Batching for improved performance
+## Apply batch requests for improved performance
 
 Microsoft Graph supports JSON-batching for API requests, allowing a client to send up to 20 individual requests in a single API request. These batched requests are performed by the service, and then all results returned in a single response. This can reduce the round-trip latency for API operations if you are requesting authentication requirements or methods for a large number of users.
 This example script enumerates all users in a tenant, and then requests authentication requirements for each user. The authentication requirements requests are batched into groups of 20 and sent to the `$batch` Microsoft Graph API:
@@ -90,7 +99,7 @@ for($i=0;$i -lt $usersReport.count;$i+=20){
 $usersReport
 ```
 
-## Managing per-user MFA settings
+## Manage per-user MFA settings
 
 To update the MFA Status of a user, use [Update-EntraBetaUserAuthenticationRequirement][update-entrabetaUserauthenticationrequirement].
 
