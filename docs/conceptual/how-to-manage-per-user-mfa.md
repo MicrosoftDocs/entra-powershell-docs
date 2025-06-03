@@ -11,7 +11,7 @@ ms.author: eunicewaweru
 #customer intent: 1. As an IT admin, I want to report on Per-User MFA states so that I can monitor and manage user authentication settings effectively.
 ---
 
-# Manage per-user MFA settings in Microsoft Entra
+# Manage per-user MFA settings in Microsoft Entra ID
 
 Multi-Factor Authentication (MFA) is a key security feature that helps protect user accounts from unauthorized access. While Conditional Access and Security Defaults are the recommended methods for enforcing MFA in Microsoft Entra, there are scenarios where managing MFA settings on a per-user basis is necessary. This article explains how to report on and manage per-user MFA states using Microsoft Entra PowerShell, including how to view current MFA status, update user settings, and optimize reporting for large environments. Follow these steps to help ensure your organization’s identities remain secure and compliant.
 
