@@ -1,9 +1,9 @@
 ---
-title: Report applications with secrets and certificates due to expire
-description: "Learn how to report and export applications with secrets and certificates due to expire in Microsoft Entra using PowerShell."
+title: View and export apps with expiring secrets and certificates
+description: Learn how to report and export applications with expiring secrets and certificates in Microsoft Entra ID using PowerShell.
 
 ms.topic: how-to
-ms.date: 05/28/2025
+ms.date: 06/03/2025
 author: msewaweru
 manager: CelesteDG
 ms.author: eunicewaweru
@@ -11,10 +11,23 @@ ms.author: eunicewaweru
 #customer intent: As an admin, I want to list applications with secrets and certificates that are about to expire, so that I can proactively manage credentials and maintain security.
 ---
 
-# View and export applications with secrets and certificates due to expire
+# View and export apps with expiring secrets and certificates
 
 As an administrator, it’s important to proactively manage application credentials to maintain security in your organization. This article shows you how to use PowerShell to view and export a list of applications in Microsoft Entra ID that have secrets or certificates due to expire. You learn how to filter results by expiration date, include already expired credentials if needed, and export the data to a CSV file for further review or action.
 
+## Prerequisites
+
+To retrieve all applications with expiring secrets and certificates in Microsoft Entra ID, you need:  
+
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-account].
+- One of the following roles:
+  - [Application Administrator][app-admin]
+  - [Cloud Application Administrator][cloud-app-admin]
+- Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
+
+## Export apps
+
+The following script generates applications with expiring secrets and certificates. You define the period to cover and choose whether to include apps with secrets and certificates that already expired.
 
 ```powershell
 Connect-Entra -Scopes 'Application.Read.All'
@@ -180,3 +193,10 @@ Write-Host $Messages.Export.Info -ForegroundColor Green
 $Path = Read-Host -Prompt $Messages.Export.Prompt
 $Logs | Export-Csv $Path -NoTypeInformation -Encoding UTF8
 ```
+
+<!-- link references -->
+
+[installation]: installation.md
+[create-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
+[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
