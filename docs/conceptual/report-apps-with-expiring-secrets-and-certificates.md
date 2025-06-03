@@ -13,7 +13,7 @@ ms.author: eunicewaweru
 
 # View and export apps with expiring secrets and certificates
 
-As an administrator, it’s important to proactively manage application credentials to maintain security in your organization. This article shows you how to use PowerShell to view and export a list of applications in Microsoft Entra ID that have secrets or certificates due to expire. You learn how to filter results by expiration date, include already expired credentials if needed, and export the data to a CSV file for further review or action.
+As an administrator, it’s important to proactively manage application credentials to maintain security in your organization. This article shows you how to use PowerShell to view and export a list of applications in Microsoft Entra ID that have expiring secrets or certificates. You learn how to filter results by expiration date, include already expired credentials if needed, and export the data to a CSV file for further review or action.
 
 ## Prerequisites
 
