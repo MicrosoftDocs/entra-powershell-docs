@@ -1,6 +1,6 @@
 ---
-title: "Report delegated permissions for users and service principals"
-description: "Learn how to report and export delegated permissions assigned to users and service principals in Microsoft Entra using PowerShell."
+title: Report delegated permissions for users and service principals
+description: "Learn how to report and export delegated permissions assigned to users and service principals in Microsoft Entra ID using PowerShell."
 
 ms.topic: how-to
 ms.date: 05/27/2025
@@ -28,6 +28,7 @@ To retrieve all delegated permissions assigned to users and service principals, 
 ## List delegated permissions for users and service principals
 
 ```powershell
+Connect-Entra -Scopes 'User.Read.All', 'Application.Read.All', 'Directory.Read.All'
 # Define file name for CSV output
 $downloadsFolder = [System.Environment]::GetFolderPath('MyDocuments')
 $csvOutputFile = Join-Path -Path $downloadsFolder -ChildPath "DelegatedPermissions.csv"
