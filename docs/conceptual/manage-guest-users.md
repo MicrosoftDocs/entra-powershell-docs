@@ -4,16 +4,16 @@ description: 'Manage guest accounts with Microsoft Entra PowerShell. Learn how t
 author: omondiatieno
 manager: CelesteDG
 ms.topic: how-to
-ms.date: 04/29/2025
+ms.date: 06/04/2025
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
-#customer intent: As an IT admin, I want to effectively manage guest user accounts in Microsoft Entra using Microsoft Entra PowerShell so that I can maintain the security and integrity of my organization's data.
+#customer intent: As an IT admin, I want to effectively manage guest user accounts in Microsoft Entra ID using Microsoft Entra PowerShell so that I can maintain the security and integrity of my organization's data.
 ---
 
 # Manage guest accounts using Microsoft Entra PowerShell
 
-Guest accounts in Microsoft Entra let external users access specific resources like files, teams, or sites without being full members of your organization. These accounts are typically used for collaboration with partners, contractors, or clients who need temporary access to your organization's resources.
+Guest accounts in Microsoft Entra ID let external users access specific resources like files, teams, or sites without being full members of your organization. These accounts are typically used for collaboration with partners, contractors, or clients who need temporary access to your organization's resources.
 
 Managing guest accounts effectively is crucial for maintaining the security and integrity of your organization's data. As an admin, you need to ensure that guest accounts are only given the necessary permissions and access to perform their intended tasks. Regularly reviewing and auditing these accounts is also important to identify any inactive or expired accounts that should be removed. This exercise not only helps to reduce potential security risks but also ensures efficient use of your organization's resources. By managing guest accounts well, you can provide a secure and productive environment for external collaboration.
 
@@ -27,8 +27,6 @@ To manage guest users with Microsoft Entra PowerShell, you need:
   - [Guest Inviter][guest-inviter]
   - [External Identity Provider Administrator][-external-identity-provider-admin]
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
-
-You can access a user's information and manage their data on their behalf or as an app with its own identity.
 
 ## Invite guest user accounts
 
@@ -109,14 +107,13 @@ foreach ($invitation in $invitations) {
 
 This script imports a list of invitations from a CSV file. It defines a custom message for the invited users, and then iterates through each invitation to send an invitation to each user with their email address.
 
-The following output shows the details of the invited guest user.
+The following output shows the details of the invited guest users.
 
 ```Output
 Id                                   InviteRedeemUrl
 --                                   ---------------                                                      
 aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
 bbbbbbbb-1111-2222-3333-cccccccccccc https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
-cccccccc-2222-3333-4444-dddddddddddd https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitation…
 ```
 
 ## View and export guest user accounts
@@ -144,7 +141,8 @@ externaluser2      externaluser2@externaldomain2.com  15/02/2024 15:05:31  True
 
 ## Manage guest user sponsorship
 
-In Microsoft Entra ID, guest user sponsorship allows you to manage the sponsorship of guest users. This feature is useful for organizations that want to control and monitor the access of external users. You can view the sponsors of a guest user and remove a sponsor from a guest user.
+In Microsoft Entra ID, guest sponsorship allows you to designate specific users or groups as sponsors for guest users, giving them the ability to manage the guest user's access and permissions. This feature is useful for organizations that want to control and monitor the access of external users.
+
 To manage guest user sponsorship, you can assign, view and remove a sponsor from a guest user. You need at least a [User Administrator][user-admin] role to perform these actions.
 
 ### Assign a sponsor to a guest user
@@ -154,8 +152,8 @@ The following example shows how to assign a sponsor to a guest user in Microsoft
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
-Get-EntraUser -Filter "mail eq 'guestuser@contoso.com'" |
-    New-EntraUserSponsor -SponsorId 'sponsor@contoso.com'
+$sponsor = Get-EntraUser -UserId 'SponsorEmail@contoso.com'
+Set-EntraUserSponsor -UserId 'guestuser@contoso.com' -Type User -SponsorIds $sponsor.Id
 ```
 
 This example assigns a sponsor to a guest user in Microsoft Entra ID. The `UserId` parameter specifies the guest user, and the `SponsorId` parameter specifies the sponsor.
@@ -167,11 +165,17 @@ The following example shows how to view a guest user's sponsors in Microsoft Ent
 ```powershell
 Connect-Entra -Scopes 'User.Read.All'
 
-Get-EntraUser -Filter "mail eq 'guestuser@contoso.com'" |
-    Get-EntraUserSponsor
+Get-EntraUserSponsor -UserId 'guestuser@contoso.com' -All | Select-Object Id, DisplayName, '@odata.type', CreatedDateTime | Format-Table -AutoSize
 ```
 
 This example retrieves the sponsors of a guest user in Microsoft Entra ID. The `UserId` parameter specifies the guest user.
+
+```Output
+id                                   displayName          @odata.type           createdDateTime
+--                                   -----------      -----------           ---------------
+aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb GuestUser Sponsor 1  #microsoft.graph.user 5/6/2025 11:29:26 PM
+bbbbbbbb-1111-2222-3333-bbbbbbbbbbbb GuestUser Sponsor 2  #microsoft.graph.user 5/6/2025 11:29:27 PM
+```
 
 ### Remove a sponsor from a guest user
 
@@ -180,8 +184,8 @@ The following example shows how to remove a sponsor from a guest user in Microso
 ```powershell
 Connect-Entra -Scopes 'User.ReadWrite.All'
 
-Get-EntraUser -Filter "mail eq 'guestuser@contoso.com'" |
-    Remove-EntraUserSponsor -SponsorId 'sponsor@contoso.com'
+$sponsor = Get-EntraUserSponsor -UserId 'SawyerM@contoso.com' | Where-Object { $_.displayName -eq 'Adele Vance (Fabrikam)' }
+Remove-EntraUserSponsor -UserId 'SawyerM@Contoso.com' -SponsorId $sponsor.Id
 ```
 
 This example removes a sponsor from a guest user in Microsoft Entra ID. The `UserId` parameter specifies the guest user, and the `SponsorId` parameter specifies the sponsor to be removed.
@@ -218,7 +222,7 @@ Connect to Microsoft Entra with at least a [User Administrator][user-admin] role
 Connect-Entra -Scopes 'User.ReadWrite.All'
   
 # Disable the guest user account.
-Get-EntraUser -Filter "userType eq 'Guest' and mail eq 'myuser#EXT#@contoso.com'" | Set-EntraUser -AccountEnabled $false
+Get-EntraUser -Filter "userType eq 'Guest' and mail eq 'guestUser@contoso.com'" | Set-EntraUser -AccountEnabled $false
 ```
 
 ### Disable all guest user accounts
