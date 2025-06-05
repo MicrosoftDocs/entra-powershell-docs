@@ -110,12 +110,12 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ## Notes
 
-## Related Links
+## Related links
 
 [Get-EntraBetaServicePrincipal](Get-EntraBetaServicePrincipal.md)
 
 [Get-EntraBetaServicePrincipalOwner](Get-EntraBetaServicePrincipalOwner.md)
 
-[Get-EntraBetaUser](Get-EntraBetaUser.md)
+[Get-EntraBetaUser](../Users/Get-EntraBetaUser.md)
 
 [Remove-EntraBetaServicePrincipalOwner](Remove-EntraBetaServicePrincipalOwner.md)

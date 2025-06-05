@@ -138,14 +138,14 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ## Notes
 
-## Related Links
+## Related links
 
-[Remove-EntraDeletedApplication](Remove-EntraDeletedApplication.md)
+[Remove-EntraDeletedApplication](../Applications/Remove-EntraDeletedApplication.md)
 
-[Restore-EntraDeletedApplication](Restore-EntraDeletedApplication.md)
+[Restore-EntraDeletedApplication](../Applications/Restore-EntraDeletedApplication.md)
 
 [Remove-EntraDeletedDirectoryObject](Remove-EntraDeletedDirectoryObject.md)
 
-[Get-EntraDeletedApplication](Get-EntraDeletedApplication.md)
+[Get-EntraDeletedApplication](../Applications/Get-EntraDeletedApplication.md)
 
 [Get-EntraDeletedDirectoryObject](Get-EntraDeletedDirectoryObject.md)

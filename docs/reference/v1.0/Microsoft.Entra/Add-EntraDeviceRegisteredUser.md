@@ -100,12 +100,12 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ## Notes
 
-## Related Links
+## Related links
 
 [Get-EntraDevice](Get-EntraDevice.md)
 
 [Get-EntraDeviceRegisteredUser](Get-EntraDeviceRegisteredUser.md)
 
-[Get-EntraUser](Get-EntraUser.md)
+[Get-EntraUser](../Users/Get-EntraUser.md)
 
 [Remove-EntraDeviceRegisteredUser](Remove-EntraDeviceRegisteredUser.md)
