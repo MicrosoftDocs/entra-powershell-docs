@@ -61,6 +61,8 @@ items:
   items:
   - name: Delegated permissions held by users and service principals
     href: report-deletegated-permissions-by-users-and-sps.md
+  - name: Applications with expiring secrets and certificates
+    href: report-apps-with-expiring-secrets-certificates.md
 - name: Migrate
   items:
   - name: Run Azure AD PowerShell scripts in compatibility mode
