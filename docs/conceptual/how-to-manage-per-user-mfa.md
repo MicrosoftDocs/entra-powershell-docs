@@ -31,7 +31,7 @@ There are two methods to report on MFA state for all users or a subset of users.
 
 The `Get-EntraAuthenticationMethodUserRegistrationDetailReport` report is a performant way to show MFA status for all users in a tenant. The `isMfaCapable` property of this report will return true if the user is enabled for MFA and has at least one MFA authentication method enabled. While the `isMfaCapable` property is a valid way to report on MFA state for users, it's not the exact equivalent of `StrongAuthenticationRequirements` in `Get-MsolUser`, which distinguishes between *disabled*, *enabled*, and *enforced* states.
 
-For per-user MFA state , the `PerUserMFAState` property is the exact equivalent of the `strongAuthenticationRequirments`.
+For per-user MFA state , the `PerUserMFAState` property is the exact equivalent of the `strongAuthenticationRequirements`.
 
 To report on this setting for all users or a list of users in PowerShell, you enumerate users and then request the authentication requirements setting per user.
 
