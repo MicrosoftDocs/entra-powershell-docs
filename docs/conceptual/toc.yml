@@ -59,8 +59,8 @@ items:
     href: recover-deleted-data.md
 - name: Reports
   items:
-  - name: Applications with secrets and certificates due to expire
-    href: report-apps-with-expiring-secrets-and-certificates.md
+  - name: Applications with expiring secrets and certificates
+    href: report-apps-with-expiring-secrets-certificates.md
 - name: Migrate
   items:
   - name: Run Azure AD PowerShell scripts in compatibility mode
