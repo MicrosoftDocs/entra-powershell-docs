@@ -60,7 +60,7 @@ items:
 - name: Reports
   items:
   - name: Delegated permissions held by users and service principals
-    href: report-deletegated-permissions-by-users-service-principals.md
+    href: report-delegated-permissions-by-users-service-principals.md
   - name: Applications with expiring secrets and certificates
     href: report-apps-with-expiring-secrets-certificates.md
 - name: Migrate
