@@ -1,6 +1,6 @@
 ---
 title: View and export apps with expiring secrets and certificates
-description: Learn how to report and export applications with expiring secrets and certificates in Microsoft Entra ID using PowerShell.
+description: Learn how to maintain your organization’s security by using PowerShell to export Microsoft Entra ID applications with expiring secrets or certificates.
 
 ms.topic: how-to
 ms.date: 06/03/2025
