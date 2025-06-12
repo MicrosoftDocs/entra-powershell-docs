@@ -19,17 +19,12 @@ This article walks you through using Microsoft Entra PowerShell to manage admini
 - Create administrative units.
 - Add members to administrative units
 - Assign roles administrative units.
-- 
-- Sign in as a delegated administrator to verify role assignments.
-- Clean up the demo environment after completing the tasks.
+- Clean up the administrative units.
 
 ## Prerequisites
 
 - A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-account].
-- One of the following roles:
-  - Create: Privileged Role Administrator
-  - Assign roles: Privileged Role Administrator
-  - Privileged Role Administrator
+- At least the [Privileged Role Administrator][application-administrator] role. 
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
 ## Create administrative units
@@ -66,7 +61,9 @@ $administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq '<admi
 $user = Get-EntraUser -UserId 'SawyerM@contoso.com'
 Add-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -MemberId $user.Id
 ```
-<!--- This script doesn;t run for me: Add-EntraAdministrativeUnitMember: A parameter cannot be found that matches parameter name 'MemberId'. --->
+<!--- This script doesn;t run for me: Add-EntraAdministrativeUnitMember: A parameter cannot be found that matches parameter name 'MemberId'. This works:
+Add-EntraAdministrativeUnitMember -RefObjectId '78dcd7f1-344f-4dfe-84d3-1a99f8b365d0' -AdministrativeUnitId '8d4e6cc9-0073-4799-a94b-6b1711c87633'
+It works only with user ID though, RefObjectId doesn;t work with goupId--->
 
 - `AdministrativeUnitId` parameter specifies the ID of an administrative unit.
 - `MemberId` parameter specifies the ID of the user, group or device you want to add as a member of the administrative unit.
@@ -126,14 +123,39 @@ Remove-EntraScopedRoleMembership -AdministrativeUnitId $administrativeUnit.Id -S
 - `-AdministrativeUnitId` parameter specifies the ID of an administrative unit.
 - `-ScopedRoleMembershipId` parameter specifies the ID of the scoped role membership to remove. To obtain the details of a scoped role membership, you can use the `Get-EntraScopedRoleMembership` command.
 
-To remove administrative unit member from Microsoft Entra ID run the following `Remove-EntraAdministrativeUnitMember` cmdlet. To get the administrative unit Id you can use the command `Get-EntraAdministrativeUnit`.
+To remove an administrative unit member from Microsoft Entra ID run the following `Remove-EntraAdministrativeUnitMember` cmdlet.
+
+```powershell
+Connect-Entra -Scopes 'AdministrativeUnit.Read.All'
+$administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq 'Pacific Administrative Unit'"
+$adminUnitMember = Get-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id | Select-Object Id, DisplayName,'@odata.type' | Where-Object {$_.DisplayName -eq 'Saywer Miller'}
+Remove-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -MemberId $adminUnitMember.Id
+```
+
+- `-AdministrativeUnitId` parameter specifies the ID of an administrative unit.
+- `-MemberId` parameter specifies the ID of the administrative unit member.
+
+To remove administrative unit from Microsoft Entra ID run the following `Remove-EntraAdministrativeUnit` cmdlet. 
+
+```powershell
+Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
+$administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq '<administrative-unit-display-name>'"
+Remove-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id
+```
+
+## Related content
+
+- [Administrative units][administrative-units]
+
+<!-- Link definitions -->
+
+[administrative-units]: /powershell/module/microsoft.entra/?view=entra-powershell#administrative-units
+[application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#privileged-role-administrator
+[installation]: installation.md
+[create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 
 
-Remove-EntraAdministrativeUnit	
-Removes an administrative unit.
 
-Remove-EntraAdministrativeUnitMember	
-Removes an administrative unit member.
 
 
 
