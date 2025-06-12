@@ -35,6 +35,8 @@ items:
       href: offboard-user.md
   - name: Manage user licenses  
     href: how-to-manage-user-licenses.md
+  - name: Manage per-user MFA
+    href: how-to-manage-per-user-mfa.md
   - name: Manage devices
     items:
     - name: Manage device entities
