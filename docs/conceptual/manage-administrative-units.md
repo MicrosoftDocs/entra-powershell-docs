@@ -12,29 +12,30 @@ ms.author: cmulligan
 ---
 # Manage administrative units
 
-Managing administrative units in Microsoft Entra ID enables IT administrators to delegate permissions more granularly within an organization. Administrative units serve as containers for users, groups, or devices, facilitating role-based access control for specific organizational segments. For an overview of administrative units in Microsoft Entra ID, see [Administrative units](/entra/identity/role-based-access-control/administrative-units).
+Managing administrative units in Microsoft Entra ID lets IT admins delegate permissions more granularly in an organization. Administrative units are containers for users, groups, or devices, and help with role-based access control for specific organizational segments. For an overview of administrative units in Microsoft Entra ID, see [Administrative units](/entra/identity/role-based-access-control/administrative-units).
 
-This article walks you through using Microsoft Entra PowerShell to manage administrative units effectively, with scripts that come together to form a complete demo. By following this guide, you'll learn how to:
+This article shows you how to use Microsoft Entra PowerShell to manage administrative units with scripts that form a complete demo. By following this guide, you learn how to: 
 
-- Create administrative units.
+- Create administrative units 
+- Assign roles to administrative units 
 - Add members to administrative units
-- Assign roles administrative units.
-- Clean up the administrative units.
+- Update administrative units
+- Clean up the resources
 
 ## Prerequisites
 
-- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-account].
+- A Microsoft Entra user account. If you don't have one, [create an account for free][create-account].
 - At least the [Privileged Role Administrator][application-administrator] role. 
-- Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
+- Microsoft Entra PowerShell module. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
 ## Create administrative units
 
-To create an administrative unit in Microsoft Entra ID you have to use the `New-EntraAdministrativeUnit` cmdlet. Administrative units can be used to delegate permissions for users, groups, and devices within a specific organizational segment.
+Create an administrative unit in Microsoft Entra ID by using the `New-EntraAdministrativeUnit` cmdlet. Administrative units let you delegate permissions for users, groups, and devices within a specific organizational segment.
 
-To create administrative unit, run:
+To create an administrative unit, run:
 
 ```powershell
-    Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
+Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
 New-EntraAdministrativeUnit -DisplayName 'Pacific Administrative Unit' -Description 'Administrative Unit for Pacific region'    
 ```
 
@@ -44,33 +45,9 @@ DeletedDateTime Id                                   Description DisplayName IsM
                 bbbbbbbb-1111-2222-3333-cccccccccccc Pacific Administrative Unit     test111     False
 ```
 
-This example demonstrates how to create an administrative unit.
+## Assign roles to administrative units
 
-- `-DisplayName` parameter specifies the display name for the Administrative unit object.
-- `-Description` parameter specifies a description for the Administrative unit object.
-
-## Add members to administrative units
-
-You can add users, groups, or devices as members of an administrative unit using the `Add-EntraAdministrativeUnitMember` cmdlet. This cmdlet allows you to specify the administrative unit and the member you want to add.
-
-The following example demonstrates adding a user as an administrative unit member. Use `Get-EntraAdministrativeUnit` to find the administrative unit ID and `Get-EntraUser` to find the user ID.
-
-```powershell
-Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
-$administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq '<administrativeunit-display-name>'"
-$user = Get-EntraUser -UserId 'SawyerM@contoso.com'
-Add-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -MemberId $user.Id
-```
-<!--- This script doesn;t run for me: Add-EntraAdministrativeUnitMember: A parameter cannot be found that matches parameter name 'MemberId'. This works:
-Add-EntraAdministrativeUnitMember -RefObjectId '78dcd7f1-344f-4dfe-84d3-1a99f8b365d0' -AdministrativeUnitId '8d4e6cc9-0073-4799-a94b-6b1711c87633'
-It works only with user ID though, RefObjectId doesn;t work with goupId--->
-
-- `AdministrativeUnitId` parameter specifies the ID of an administrative unit.
-- `MemberId` parameter specifies the ID of the user, group or device you want to add as a member of the administrative unit.
-
-## Assign roles administrative units
-
-To assign scoped role membership to an administrative unit, you can use the `Add-EntraScopedRoleMembership` cmdlet. The following example shows how to add a user to the specified role within the specified administrative unit.
+Assign scoped role membership to an administrative unit by using the `Add-EntraScopedRoleMembership` cmdlet. The following example shows how to add a user to a role in an administrative unit.
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
@@ -88,15 +65,27 @@ Id                                                                Administrative
 dddddddddddd-bbbb-aaaa-bbbb-cccccccccccc aaaaaaaa-bbbb-aaaa-bbbb-cccccccccccc bbbbbbbb-1111-2222-3333-cccccccccccc
 ```
 
-- `-AdministrativeUnitId` Parameter specifies the ID of an administrative unit.
-- `-RoleObjectId` Parameter specifies the ID of a directory role.
-- `-RoleMemberInfo` Parameter specifies a RoleMemberInfo object.
+## Add members to administrative units
+
+Add users, groups, or devices to an administrative unit with the `Add-EntraAdministrativeUnitMember` cmdlet. This cmdlet lets you specify the administrative unit and the member to add.
+
+The following example shows how to add a user as an administrative unit member. Use `Get-EntraAdministrativeUnit` to find the administrative unit ID and `Get-EntraUser` to find the user ID. The `MemberId` parameter specifies the ID of the user, group, or device to add as a member of the administrative unit.
+
+```powershell
+Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
+$administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq '<administrativeunit-display-name>'"
+$user = Get-EntraUser -UserId 'SawyerM@contoso.com'
+Add-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -MemberId $user.Id
+```
+<!--- This script doesn't run for me: Add-EntraAdministrativeUnitMember: A parameter cannot be found that matches parameter name 'MemberId'. This works:
+Add-EntraAdministrativeUnitMember -RefObjectId '78dcd7f1-344f-4dfe-84d3-1a99f8b365d0' -AdministrativeUnitId '8d4e6cc9-0073-4799-a94b-6b1711c87633'
+It works only with user ID though, RefObjectId doesn't work with goupId--->
 
 ## Update administrative units
 
-To update an existing administrative unit, you can use the `Set-EntraAdministrativeUnit` cmdlet. This cmdlet allows you to modify properties such as display name and description.
+Update an existing administrative unit with the `Set-EntraAdministrativeUnit` cmdlet. Use this cmdlet to change properties like display name and description.
 
-To update the display name an administrative unit, run:
+To update the display name of an administrative unit, run:
 
 ```powershell
 Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
@@ -104,13 +93,9 @@ $administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq 'Pacif
 Set-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id -DisplayName 'Pacific Admin Unit' -Description 'Pacific Admin Unit Description' -MembershipType 'Assigned'
 ```
 
-- `-AdministrativeUnitId` parameter specifies the ID of an administrative unit.
-- `-DisplayName` parameter specifies the display name for the administrative unit.
-- `-Description` parameter specifies the description for the administrative unit.
-
 ## Clean up administrative units
 
-To remove a scoped role membership from Microsoft Entra ID run the following `Remove-EntraScopedRoleMembership` cmdlet. To get the administrative unit Id you can use the command `Get-EntraAdministrativeUnit`.
+Remove a scoped role membership from Microsoft Entra ID by running the `Remove-EntraScopedRoleMembership` cmdlet. Get the administrative unit ID with the `Get-EntraAdministrativeUnit` command. Get details of a scoped role membership for the `ScopedRoleMembershipId` parameter with the `Get-EntraScopedRoleMembership` command.
 
 ```powershell
 Connect-Entra -Scopes 'RoleManagement.Read.Directory'
@@ -120,10 +105,7 @@ $roleMembership = Get-EntraScopedRoleMembership -AdministrativeUnitId $administr
 Remove-EntraScopedRoleMembership -AdministrativeUnitId $administrativeUnit.Id -ScopedRoleMembershipId $roleMembership.Id
 ```
 
-- `-AdministrativeUnitId` parameter specifies the ID of an administrative unit.
-- `-ScopedRoleMembershipId` parameter specifies the ID of the scoped role membership to remove. To obtain the details of a scoped role membership, you can use the `Get-EntraScopedRoleMembership` command.
-
-To remove an administrative unit member from Microsoft Entra ID run the following `Remove-EntraAdministrativeUnitMember` cmdlet.
+Remove an administrative unit member from Microsoft Entra ID by running the `Remove-EntraAdministrativeUnitMember` cmdlet.
 
 ```powershell
 Connect-Entra -Scopes 'AdministrativeUnit.Read.All'
@@ -132,10 +114,7 @@ $adminUnitMember = Get-EntraAdministrativeUnitMember -AdministrativeUnitId $admi
 Remove-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -MemberId $adminUnitMember.Id
 ```
 
-- `-AdministrativeUnitId` parameter specifies the ID of an administrative unit.
-- `-MemberId` parameter specifies the ID of the administrative unit member.
-
-To remove administrative unit from Microsoft Entra ID run the following `Remove-EntraAdministrativeUnit` cmdlet. 
+Remove an administrative unit from Microsoft Entra ID by running the `Remove-EntraAdministrativeUnit` cmdlet.
 
 ```powershell
 Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
@@ -149,7 +128,7 @@ Remove-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id
 
 <!-- Link definitions -->
 
-[administrative-units]: /powershell/module/microsoft.entra/?view=entra-powershell#administrative-units
+[administrative-units]: /powershell/module/microsoft.entra/entra-powershell#administrative-units
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#privileged-role-administrator
 [installation]: installation.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
