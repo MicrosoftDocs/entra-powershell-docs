@@ -19,7 +19,7 @@ This article shows you how to use Microsoft Entra PowerShell to manage administr
 - Create administrative units 
 - Assign roles to administrative units 
 - Add members to administrative units
-- Update administrative units
+- Update properties of administrative units
 - Clean up the resources
 
 ## Prerequisites
@@ -81,7 +81,7 @@ Add-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -
 Add-EntraAdministrativeUnitMember -RefObjectId '78dcd7f1-344f-4dfe-84d3-1a99f8b365d0' -AdministrativeUnitId '8d4e6cc9-0073-4799-a94b-6b1711c87633'
 It works only with user ID though, RefObjectId doesn't work with goupId--->
 
-## Update administrative units
+## Update properties of administrative units
 
 Update an existing administrative unit with the `Set-EntraAdministrativeUnit` cmdlet. Use this cmdlet to change properties like display name and description.
 
@@ -93,7 +93,7 @@ $administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq 'Pacif
 Set-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id -DisplayName 'Pacific Admin Unit' -Description 'Pacific Admin Unit Description' -MembershipType 'Assigned'
 ```
 
-## Clean up administrative units
+## Clean up resources
 
 Remove a scoped role membership from Microsoft Entra ID by running the `Remove-EntraScopedRoleMembership` cmdlet. Get the administrative unit ID with the `Get-EntraAdministrativeUnit` command. Get details of a scoped role membership for the `ScopedRoleMembershipId` parameter with the `Get-EntraScopedRoleMembership` command.
 
@@ -128,7 +128,7 @@ Remove-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id
 
 <!-- Link definitions -->
 
-[administrative-units]: /powershell/module/microsoft.entra/entra-powershell#administrative-units
+[administrative-units]: https://learn.microsoft.com/en-us/powershell/module/microsoft.entra/?view=entra-powershell#administrative-units
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#privileged-role-administrator
 [installation]: installation.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
