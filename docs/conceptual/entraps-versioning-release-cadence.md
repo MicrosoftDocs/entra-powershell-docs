@@ -6,7 +6,7 @@ ms.topic: concept-article
 ms.date: 01/23/2025
 
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.author: jomondi
 ms.reviewer: stevemutungi
 

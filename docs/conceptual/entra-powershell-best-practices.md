@@ -5,7 +5,7 @@ description: "Learn how to optimize performance, enhance security, and ensure sc
 ms.topic: concept-article
 ms.date: 02/12/2025
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.author: jomondi
 ms.reviewer: stevemutungi
 

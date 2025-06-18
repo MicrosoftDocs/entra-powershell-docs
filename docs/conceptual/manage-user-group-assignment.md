@@ -3,7 +3,7 @@ title: "Manage user and group assignments"
 description: "This article shows how to report user and group assignments to service principals and unassign users and groups using Microsoft Entra PowerShell."  
   
 author: omondiatieno
-manager: CelesteDG  
+manager: mwongerapk  
 
 ms.topic: how-to  
 ms.date: 02/12/2025  

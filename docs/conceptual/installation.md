@@ -3,7 +3,7 @@ title: "Install Microsoft Entra PowerShell"
 description: "Learn how to install the Microsoft Entra PowerShell module."
 
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 02/09/2025
 ms.author: jomondi

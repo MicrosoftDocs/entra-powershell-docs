@@ -5,7 +5,7 @@ description: "Learn how to create a custom application that you can use to authe
 ms.topic: how-to
 ms.date: 02/11/2025
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.author: jomondi
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-create-custom-app

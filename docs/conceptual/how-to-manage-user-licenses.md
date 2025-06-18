@@ -3,7 +3,7 @@ title: "Manage user licenses using Microsoft Entra PowerShell"
 description: "Learn how to manage Microsoft Entra user licenses using Microsoft Entra PowerShell."
 
 author: msewaweru
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 04/30/2025
 ms.author: eunicewaweru

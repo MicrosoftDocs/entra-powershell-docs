@@ -5,7 +5,7 @@ description: "Learn how to use the delegated access method of authentication to 
 ms.topic: how-to
 ms.date: 10/05/2024
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.author: jomondi
 ms.reviewer: stevemutungi
 
