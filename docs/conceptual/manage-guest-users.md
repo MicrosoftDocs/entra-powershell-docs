@@ -2,7 +2,7 @@
 title: Manage guest accounts using Microsoft Entra PowerShell
 description: 'Manage guest accounts with Microsoft Entra PowerShell. Learn how to invite, view, and disable guest users, ensuring your organization stays secure.'
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 06/04/2025
 ms.author: jomondi

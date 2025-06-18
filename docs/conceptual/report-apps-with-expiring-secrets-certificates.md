@@ -5,7 +5,7 @@ description: Learn how to maintain your organization’s security by using Power
 ms.topic: how-to
 ms.date: 06/03/2025
 author: msewaweru
-manager: CelesteDG
+manager: mwongerapk
 ms.author: eunicewaweru
 
 #customer intent: As an admin, I want to list applications with secrets and certificates that are about to expire, so that I can proactively manage credentials and maintain security.

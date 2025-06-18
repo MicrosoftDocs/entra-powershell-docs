@@ -4,7 +4,7 @@ description: "Learn about the features of Microsoft Entra PowerShell that help y
 ms.topic: overview
 ms.date: 02/12/2025
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.author: jomondi
 ms.reviewer: stevemutungi
 

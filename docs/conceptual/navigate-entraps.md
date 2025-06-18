@@ -3,7 +3,7 @@ title: Navigate the Microsoft Entra PowerShell module
 description: Navigate the Microsoft Entra PowerShell module to learn the core concepts, commands, and how to get help.
 
 author: csmulligan
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: quickstart
 ms.date: 05/08/2025
 ms.author: cmulligan

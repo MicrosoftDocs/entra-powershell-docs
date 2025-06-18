@@ -5,7 +5,7 @@ description: "Find the equivalents of Azure AD PowerShell cmdlets in Microsoft E
 ms.topic: reference
 ms.date: 03/20/2025
 author: msewaweru
-manager: CelesteDG
+manager: mwongerapk
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-legacy-modules

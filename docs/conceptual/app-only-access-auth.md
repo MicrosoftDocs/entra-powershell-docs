@@ -3,7 +3,7 @@ title: "Use app-only authentication"
 description: "Learn how to use app-only authentication to enable non-interactive scenarios with the Microsoft Entra PowerShell module."
 
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 02/11/2025
 ms.author: jomondi

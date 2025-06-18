@@ -5,7 +5,7 @@ description: Learn how to fix installation, authentication, performance, and oth
 ms.topic: troubleshooting
 ms.date: 01/21/2025
 author: csmulligan
-manager: CelesteDG
+manager: mwongerapk
 ms.author: cmulligan
 
 #Customer intent: As a Microsoft Entra PowerShell user, I want to troubleshoot and fix common errors, so that I can ensure the smooth operation of my scripts and commands.

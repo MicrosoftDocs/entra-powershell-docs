@@ -5,7 +5,7 @@ description: "Learn how to programmatically grant and revoke delegated and appli
 ms.topic: how-to
 ms.date: 04/30/2025
 author: msewaweru
-manager: CelesteDG
+manager: mwongerapk
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
