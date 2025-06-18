@@ -5,7 +5,7 @@ description: Learn how to report and export delegated permissions assigned to us
 ms.topic: how-to
 ms.date: 05/27/2025
 author: msewaweru
-manager: CelesteDG
+manager: mwongerapk
 ms.author: eunicewaweru
 
 #customer intent: As an admin, I want to list delegated permissions for users and service principals, so that I can review access and maintain security.

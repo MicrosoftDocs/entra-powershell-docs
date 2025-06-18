@@ -2,7 +2,7 @@
 title: Offboard users with Microsoft Entra PowerShell
 description: "Learn to offboard users seamlessly by invalidating sessions, resetting passwords, and removing device ownership."
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 04/29/2025
 ms.author: jomondi

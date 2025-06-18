@@ -3,7 +3,7 @@ title: Run legacy scripts in compatibility mode
 description: Learn how to use the Enable-EntraAzureADAlias command to run existing AzureAD PowerShell scripts in Microsoft Entra PowerShell with minimal modifications.
 
 author: csmulligan
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: concept-article
 ms.date: 02/09/2025
 

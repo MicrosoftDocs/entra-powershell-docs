@@ -4,7 +4,7 @@ description: Learn how to restore soft-deleted users, groups, and apps with Micr
 ms.topic: how-to
 ms.date: 02/20/2025
 author: csmulligan
-manager: CelesteDG
+manager: mwongerapk
 ms.author: cmulligan
 ms.reviewer: stevemutungi
 

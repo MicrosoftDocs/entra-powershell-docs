@@ -4,7 +4,7 @@ description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
 ms.date: 05/09/2025
 author: msewaweru
-manager: CelesteDG
+manager: mwongerapk
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 

@@ -3,7 +3,7 @@ title: Manage roles
 description: Learn to assign roles to users using Microsoft Entra PowerShell, with guidance on both standard role assignments and those involving Privileged Identity Management (PIM).
 
 author: csmulligan
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 02/12/2025
 ms.author: cmulligan

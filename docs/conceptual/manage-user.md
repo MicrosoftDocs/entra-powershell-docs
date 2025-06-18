@@ -2,7 +2,7 @@
 title: Manage users with Microsoft Entra PowerShell
 description: 'This article provides IT admins with instructions on how to use Microsoft Entra PowerShell for user management tasks. Learn more to streamline your processes.'
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 04/15/2025
 ms.author: jomondi

@@ -5,7 +5,7 @@ description: "Learn about Microsoft Entra PowerShell's sign-in scenarios for var
 ms.topic: concept-article
 ms.date: 06/26/2024
 author: omondiatieno
-manager: CelesteDG
+manager: mwongerapk
 ms.author: jomondi
 ms.reviewer: stevemutungi
 

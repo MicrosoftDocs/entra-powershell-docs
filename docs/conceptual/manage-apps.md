@@ -3,7 +3,7 @@ title: Manage apps
 description: Learn how to register, configure, and update apps in Microsoft Entra PowerShell.
 
 author: csmulligan
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 02/20/2025
 ms.author: cmulligan

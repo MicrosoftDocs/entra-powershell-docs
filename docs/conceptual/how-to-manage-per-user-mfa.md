@@ -3,7 +3,7 @@ title: Manage Per-User MFA Settings in Microsoft Entra ID
 description: Learn how to configure Per-User MFA settings, report on MFA states, and reset authentication methods using Microsoft Entra tools.
 
 author: msewaweru
-manager: CelesteDG
+manager: mwongerapk
 ms.topic: how-to
 ms.date: 06/03/2025
 ms.author: eunicewaweru
