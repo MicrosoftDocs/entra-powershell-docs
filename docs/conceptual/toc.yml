@@ -63,6 +63,8 @@ items:
   items:
   - name: Delegated permissions held by users and service principals
     href: report-delegated-permissions-by-users-service-principals.md
+  - name: Expired and expiring user passwords
+    href: Report-users-expired-password.md
   - name: Applications with expiring secrets and certificates
     href: report-apps-with-expiring-secrets-certificates.md
 - name: Migrate
