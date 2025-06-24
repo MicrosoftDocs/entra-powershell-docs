@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Entra PowerShell authentication scenarios"
-description: "Learn about Microsoft Entra PowerShell's sign-in scenarios for various use cases, ensuring secure and efficient authentication."
+title: Microsoft Entra PowerShell authentication scenarios
+description: Learn about Microsoft Entra PowerShell's sign-in scenarios for various use cases, ensuring secure and efficient authentication.
 
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 06/24/2025
 author: omondiatieno
 manager: mwongerapk
 ms.author: jomondi
@@ -68,7 +68,7 @@ To keep your Microsoft Entra resources secure, restrict permissions of the ident
 
 We recommend the use of a custom application to help isolate and limit the permissions granted for Microsoft Entra PowerShell usage. To learn how to create a custom application and grant it permissions in Microsoft Entra ID, see [Create a custom application to connect with Microsoft Entra PowerShell][create-custom-app].
 
-## See Also
+## Related content
 
 - [Authenticate with delegated access][delegated-authentication]
 - [Authenticate with app-only access][apponly-authentication]
