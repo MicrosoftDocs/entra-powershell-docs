@@ -4,12 +4,12 @@ description: This article provides details on the Enable-EntraAzureADAlias comma
 external help file: Microsoft.Entra.Applications-Help.xml
 Locale: en-US
 manager: CelesteDG
-Module Name: Microsoft.Entra.Applications
+Module Name: Microsoft.Entra
 ms.author: eunicewaweru
 ms.date: 06/26/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Applications/Enable-EntraAzureADAlias
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Enable-EntraAzureADAlias
 schema: 2.0.0
 title: Enable-EntraAzureADAlias
 ---
