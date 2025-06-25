@@ -194,9 +194,9 @@ Use the following troubleshooting guidance to resolve common issues when running
 
 | Issue | Description | Solution |
 |-------|-------------|----------|
-| Permission Denied Errors | Access denied when running the script due to insufficient permissions | Ensure your account has the required roles and permissions. Reconnect with all necessary scopes:<br>`Connect-Entra -Scopes "User.Read.All", "Domain.Read.All", "Organization.Read.All", "AuditLog.Read.All"` |
-| Missing Sign-in Data | Sign-in activity data is not available or cannot be retrieved | Sign-in activity may not be available in all environments. The script handles this gracefully and continues without this data. |
-| Large Tenant Performance | Script runs slowly or times out when processing large numbers of users | For tenants with many users, consider:<br>- Running during off-peak hours<br>- Implementing progress tracking<br>- Adding error retry logic |
+| Permission denied errors | Access denied when running the script due to insufficient permissions | Ensure your account has the required roles and permissions. Reconnect with all necessary scopes:<br>`Connect-Entra -Scopes "User.Read.All", "Domain.Read.All", "Organization.Read.All", "AuditLog.Read.All"` |
+| Missing sign-in data | Sign-in activity data is not available or cannot be retrieved | Sign-in activity may not be available in all environments. The script handles this gracefully and continues without this data. |
+| Large tenant performance | Script runs slowly or times out when processing large numbers of users | For tenants with many users, consider:<br>- Running during off-peak hours<br>- Implementing progress tracking<br>- Adding error retry logic |
 
 ## Related content
 
