@@ -160,19 +160,13 @@ ForEach ($User in $Users) {
 $Report | Export-Csv -Path $CSVOutputFile -NoTypeInformation -Encoding UTF8
 ```
 
-The script generates the following output:
-
-A CSV report with:
-
-- Detailed data for all processed users
-- Importable format for further analysis
-- Filterable columns for custom reporting
+The script generates a CSV report with detailed data for all processed users.
 
 Each user record includes:
 
 - User information - Display name, UPN, department, job title
 - Password data - Last change date, expiry date, days to expiration
-- Sign-in activity - Last sign-in date and frequency (when available)
+- Sign-in activity - Last sign-in date and days since last sign-in (when available)
 - Policy status - Whether password expiration is disabled
 - Account status - Whether the account is enabled
 
