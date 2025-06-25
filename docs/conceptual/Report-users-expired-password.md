@@ -39,12 +39,12 @@ Connect-Entra -Scopes "User.Read.All", "Domain.Read.All", "Organization.Read.All
 
 The script performs the following operations:
 
-- Retrieves tenant password policy - Gets the default domain password validity period  
-- Identifies licensed users - Filters for active users with assigned licenses  
-- Calculates password expiration dates - Uses last password change date and policy settings  
-- Generates comprehensive reports - Creates both CSV and HTML output files  
-- Provides statistical analysis - Shows averages and trends  
-- Highlights urgent cases - Identifies passwords expiring within 30 days or already expired  
+- Retrieves tenant password policy by getting the default domain password validity period  
+- Filters for active users with assigned licenses  
+- Calculates password expiration dates using the last password change date and policy settings  
+- Generates comprehensive reports by creating a CSV output file 
+- Provides statistical analysis that averages and trends  
+- Highlights urgent cases for passwords expiring within 30 days or already expired  
 
 ## Run the password expiration report script
 
