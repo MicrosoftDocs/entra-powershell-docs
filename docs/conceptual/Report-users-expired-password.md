@@ -19,7 +19,6 @@ This article shows you how to create a comprehensive password expiration report 
 The scenario outlined in this article assumes that you already have the following items:
 
 - Microsoft Entra PowerShell module installed. Follow the [installation guide][installation-guide] to install the module.
-- **PowerShell 7.0** or later version
 - One of the following roles: [Global Reader][global-reader], [User Administrator][user-administrator], [Authentication Administrator][authentication-administrator], or [Cloud application administrator][cloud-application-admin]
 - **Permissions** to your Microsoft Entra tenant:
   - `User.Read.All` - Required to read user profile information
