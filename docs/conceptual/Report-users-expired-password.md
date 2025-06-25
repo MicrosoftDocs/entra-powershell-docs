@@ -52,7 +52,8 @@ The following script creates a complete password expiration report:
 
 ```powershell
 
-$CSVOutputFile = "c:\temp\PasswordExpirationReport-Entra.CSV"
+$Documents = [Environment]::GetFolderPath("MyDocuments")
+$CSVOutputFile = Join-Path $Documents "PasswordExpirationReport-Entra.CSV"
 
 # Check what the tenant password expiration policy is
 try {
