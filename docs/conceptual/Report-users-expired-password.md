@@ -27,7 +27,7 @@ The scenario outlined in this article assumes that you already have the followin
   - `AuditLog.Read.All` - Required to read user sign-in activity (optional)
 
 > [!NOTE]
-> Sign-in activity data (`AuditLog.Read.All`) might not be available in all Microsoft Entra PowerShell environments. The script handles this gracefully and continues without sign-in data if unavailable.
+> Sign-in activity data (`AuditLog.Read.All`) might not be available in all Microsoft Entra PowerShell environments. The script handles this and continues without sign-in data if unavailable.
 
 Before running the script, establish a connection to your Microsoft Entra tenant:
 
