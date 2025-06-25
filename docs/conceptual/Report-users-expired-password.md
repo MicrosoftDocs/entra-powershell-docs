@@ -206,6 +206,7 @@ Use the following troubleshooting guidance to resolve common issues when running
 <!-- Link references -->
 [global-reader]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator#global-reader
 [user-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator#user-administrator
+[cloud-application-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator#cloud-application-administrator
 [authentication-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator#authentication-administrator
 [apps-expiring-secrets]: report-apps-with-expiring-secrets-certificates.md
 [manage-user]: manage-user.md
