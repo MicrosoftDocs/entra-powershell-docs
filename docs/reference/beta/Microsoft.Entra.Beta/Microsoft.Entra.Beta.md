@@ -316,7 +316,7 @@ Gets a directory setting template.
 
 Gets the directory synchronization settings.
 
-### [Get-EntraBetaDirSyncfeature](Get-EntraBetaDirSyncfeature.md)
+### [Get-EntraBetaDirSyncFeature](Get-EntraBetaDirSyncFeature.md)
 
 Checks the status of directory synchronization features for a tenant.
 
