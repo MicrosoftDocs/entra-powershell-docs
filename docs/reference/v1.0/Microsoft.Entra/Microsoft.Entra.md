@@ -272,7 +272,7 @@ Gets directory role templates.
 
 Gets the directory synchronization settings.
 
-### [Get-EntraDirSyncfeature](Get-EntraDirSyncfeature.md)
+### [Get-EntraDirSyncFeature](Get-EntraDirSyncFeature.md)
 
 Checks the status of directory synchronization features for a tenant.
 
