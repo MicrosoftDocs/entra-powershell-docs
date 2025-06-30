@@ -43,7 +43,7 @@ The script performs the following operations:
 - Filters for active users with assigned licenses  
 - Calculates password expiration dates using the last password change date and policy settings  
 - Generates comprehensive reports by creating a CSV output file 
-- Provides statistical analysis that averages and trends  
+- Provides statistical analysis that shows averages and trends  
 - Highlights urgent cases for passwords expiring within 30 days or already expired  
 
 ## Run the password expiration report script
@@ -176,7 +176,7 @@ You can modify the script for your specific needs using the following customizat
 
 | Customization               | Description                                                                    | Code example                                                                                                           |
 |-----------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| Change the warning threshold | Modify the number of days before password expiration to trigger warnings        | <br>`# Set your desired warning threshold (e.g. 14 days)<br>if ($DaystoExpiration -is [int] -and <br>&nbsp;&nbsp;$DaystoExpiration -lt 14 -and $DaystoExpiration -gt 0) {<br>    # …<br>}
+| Change the warning threshold | Modify the number of days before password expiration to trigger warnings        | <br># Set your desired warning threshold (e.g. 14 days)<br>if ($DaystoExpiration -is [int] -and <br>&nbsp;&nbsp;$DaystoExpiration -lt 14 -and $DaystoExpiration -gt 0) {<br>    # …<br>}
 | Filter by Department        | Process only users from a specific department                                   | <br># Add department filtering<br>[Array]$Users = Get-EntraUser -All -Property … \|<br>&nbsp;&nbsp;Where-Object {<br>&nbsp;&nbsp;&nbsp;&nbsp;$_.AssignedLicenses.Count -gt 0 -and<br>&nbsp;&nbsp;&nbsp;&nbsp;$_.UserType -eq 'Member' -and<br>&nbsp;&nbsp;&nbsp;&nbsp;$_.Department -eq "IT Department"<br>&nbsp;&nbsp;} \|<br>&nbsp;&nbsp;Sort-Object DisplayName |
 | Change Output Locations     | Modify the file paths where CSV and HTML reports are saved                       | <br># Customize output file paths<br>$CSVOutputFile  = "D:\Reports\PasswordReport.CSV"<br>$HtmlReportFile = "D:\Reports\PasswordReport.html" |
 
