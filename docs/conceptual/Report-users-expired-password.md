@@ -178,7 +178,6 @@ You can modify the script for your specific needs using the following customizat
 |-----------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | Change the warning threshold | Modify the number of days before password expiration to trigger warnings        | <br># Set your desired warning threshold (e.g. 14 days)<br>if ($DaystoExpiration -is [int] -and <br>&nbsp;&nbsp;$DaystoExpiration -lt 14 -and $DaystoExpiration -gt 0) {<br>    # …<br>}
 | Filter by Department        | Process only users from a specific department                                   | <br># Add department filtering<br>[Array]$Users = Get-EntraUser -All -Property … \|<br>&nbsp;&nbsp;Where-Object {<br>&nbsp;&nbsp;&nbsp;&nbsp;$_.AssignedLicenses.Count -gt 0 -and<br>&nbsp;&nbsp;&nbsp;&nbsp;$_.UserType -eq 'Member' -and<br>&nbsp;&nbsp;&nbsp;&nbsp;$_.Department -eq "IT Department"<br>&nbsp;&nbsp;} \|<br>&nbsp;&nbsp;Sort-Object DisplayName |
-| Change Output Locations     | Modify the file paths where CSV and HTML reports are saved                       | <br># Customize output file paths<br>$CSVOutputFile  = "D:\Reports\PasswordReport.CSV"<br>$HtmlReportFile = "D:\Reports\PasswordReport.html" |
 
 You can also schedule this script to run regularly to keep your password expiration data up-to-date.
 
@@ -195,7 +194,7 @@ Use the following troubleshooting guidance to resolve common issues when running
 | Issue | Description | Solution |
 |-------|-------------|----------|
 | Permission denied errors | Access denied when running the script due to insufficient permissions | Ensure your account has the required roles and permissions. Reconnect with all necessary scopes:<br>`Connect-Entra -Scopes "User.Read.All", "Domain.Read.All", "Organization.Read.All", "AuditLog.Read.All"` |
-| Missing sign-in data | Sign-in activity data is not available or cannot be retrieved | Sign-in activity may not be available in all environments. The script handles this gracefully and continues without this data. |
+| Missing sign-in data | Sign-in activity data is not available or cannot be retrieved | Sign-in activity may not be available in all environments. The script handles this issue and continues without this data. |
 | Large tenant performance | Script runs slowly or times out when processing large numbers of users | For tenants with many users, consider:<br>- Running during off-peak hours<br>- Implementing progress tracking<br>- Adding error retry logic |
 
 ## Related content
