@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 05/09/2025
+ms.date: 07/01/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -23,6 +23,19 @@ This article lists all new articles that were added or had significant updates i
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### June 2025
+
+#### New articles
+
+- [Generate a password expiration report using Microsoft Entra PowerShell](report-users-expired-password.md) - Learn how to generate and export a report of users with expired or soon-to-expire passwords using PowerShell.
+- [Manage per-user MFA settings in Microsoft Entra ID](how-to-manage-per-user-mfa.md) - Learn how to configure and manage multi-factor authentication settings for individual users using PowerShell.
+- [View and export apps with expiring secrets and certificates](report-apps-with-expiring-secrets-certificates.md) - Learn how to identify and export a list of applications with secrets or certificates that are about to expire using PowerShell.
+- [View and export delegated permissions for users and service principals](report-delegated-permissions-by-users-service-principals.md) - Learn how to identify and export delegated permissions assigned to users and service principals using PowerShell.
+
+#### Updated articles
+
+- [Manage guest accounts using Microsoft Entra PowerShell](manage-guest-users.md) - Add examples for managing guest sponsors
 
 ### April 2025
 
@@ -55,25 +68,6 @@ Improvements based on module usability and docs bug bash feedback:
 - [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md)
 - [Recover deleted data](recover-deleted-data.md)
 - [Use app-only authentication](app-only-access-auth.md)
-
-### January 2025
-
-#### New articles
-
-- [Manage user and group assignments](manage-user-group-assignment.md) - Learn how to report and remove user and group assignments to service principals.
-
-#### Updated articles
-
-- [Find Azure AD PowerShell and MSOnline cmdlets in Microsoft Entra PowerShell](azuread-powershell-to-entra-powershell-mapping.md)
-  - Updates to reflect module updates
-  - Updated the MSOnline cmdlet map to capture all cmdlets
-- [Install the Microsoft Entra PowerShell module](installation.md)
-  - Installation article improvements
-  - Minor additions to installation instructions
-  - Updates to reflect module updates
-- [Manage users with Microsoft Entra PowerShell](manage-user.md) - Edits to clean up content
-- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md) - Updates to reflect module updates
-- [Recover deleted data with Microsoft Entra PowerShell](recover-deleted-data.md) - Updates to reflect module updates
 
 :::zone-end
 
