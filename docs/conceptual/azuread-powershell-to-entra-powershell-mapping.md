@@ -89,7 +89,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Get-AzureADMSLifecyclePolicyGroup | [Get-EntraLifecyclePolicyGroup](/powershell/module/microsoft.entra/Get-EntraLifecyclePolicyGroup) |
 | Get-AzureADMSNamedLocationPolicy | [Get-EntraNamedLocationPolicy](/powershell/module/microsoft.entra/Get-EntraNamedLocationPolicy) |
 | Get-AzureADOAuth2PermissionGrant | [Get-EntraOAuth2PermissionGrant](/powershell/module/microsoft.entra/Get-EntraOAuth2PermissionGrant) |
-| Get-AzureADObjectByObjectId | |
+| Get-AzureADObjectByObjectId |[Get-EntraDirectoryObject](/powershell/module/microsoft.entra/get-entradirectoryobject)|
 | Get-AzureADMSPermissionGrantConditionSet | [Get-EntraPermissionGrantConditionSet](/powershell/module/microsoft.entra/Get-EntraPermissionGrantConditionSet) |
 | Get-AzureADMSPermissionGrantPolicy | [Get-EntraPermissionGrantPolicy](/powershell/module/microsoft.entra/Get-EntraPermissionGrantPolicy) |
 | Get-AzureADMSRoleAssignment | [Get-EntraDirectoryRoleAssignment](/powershell/module/microsoft.entra/get-entradirectoryroleassignment) |
