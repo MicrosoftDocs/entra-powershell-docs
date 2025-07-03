@@ -49,7 +49,7 @@
   "skip_source_output_uploading": false,
   "contribution_branch_mappings": {},
   "monikerPath": [
-    "mapping/MAML2Yaml/monikerMapping.json"
+    "mapping/monikerMapping.json"
   ],
   "need_generate_pdf_url_template": false,
   "xref_query_tags": [
