@@ -380,6 +380,10 @@ Retrieve a list of permission grants consented for this group.
 
 This cmdlet is used to retrieve the configured identity providers in the directory.
 
+### [Get-EntraBetaInactiveSignInUser](Get-EntraBetaInactiveSignInUser.md)
+
+Retrieve users who have not had interactive sign-ins since a specified number of days ago.
+
 ### [Get-EntraBetaLifecyclePolicyGroup](Get-EntraBetaLifecyclePolicyGroup.md)
 
 Retrieves the lifecycle policy object to which a group belongs.
