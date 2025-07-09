@@ -97,7 +97,7 @@ Improvements based on module usability and docs bug bash feedback:
 - [Version 1.0.8][posh-1.0.8] - **May 2025**
 
   - **New Commands**:
-    - [Test-EntraScript](/powershell/module/microsoft.entra/test-entrascript?view=entra-powershell)
+    - [Test-EntraScript](/powershell/module/microsoft.entra/test-entrascript)
 
   - **Bug Fixes and command improvements**:
     - Fixed - Sub-modules must have the same version as the root module. PR [#1464](https://github.com/microsoftgraph/entra-powershell/pull/1464).
