@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/24/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Test-EntraScript
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Graph.Entra.Beta/Test-EntraScript
 schema: 2.0.0
 title: Test-EntraScript
 ---

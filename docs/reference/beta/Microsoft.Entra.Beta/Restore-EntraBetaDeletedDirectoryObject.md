@@ -26,6 +26,7 @@ Restore a previously deleted object.
 Restore-EntraBetaDeletedDirectoryObject
  -Id <String>
  [-AutoReconcileProxyConflict]
+ [-NewUserPrincipalName <String>]
  [<CommonParameters>]
 ```
 
@@ -89,6 +90,25 @@ This example shows how to restore a deleted object in Microsoft Entra ID.
 - `-Id` parameter specifies the Id of the directory object to restore.
 - `-AutoReconcileProxyConflict` parameter removes any conflicting proxy addresses while restoring a soft-deleted user whose one or more proxy addresses are currently used for an active user.
 
+### Example 3: Restoring a Deleted User and assigning a new UserPrincipalName
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+$deletedUser = Get-EntraBetaDeletedUser -Filter "DisplayName eq 'Sawyer M'"
+Restore-EntraBetaDeletedDirectoryObject -Id $deletedUser.Id -NewUserPrincipalName 'SawyerM@contoso.com'
+```
+
+```Output
+Id                                   DeletedDateTime
+--                                   ---------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee
+```
+
+This example shows how to restore a deleted object in Microsoft Entra ID.
+
+- `-Id` parameter specifies the Id of the directory object to restore.
+- `-NewUserPrincipalName` assigns a new UserPrincipalName to the restored user.
+
 ## Parameters
 
 ### -Id
@@ -123,6 +143,28 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
+### -NewUserPrincipalName
+
+The user principal name (UPN) assigned to the restored user.
+
+The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822.
+
+By convention, this UPN should map to the user's email name.
+
+The general format is "alias@domain".
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
@@ -139,12 +181,12 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ## Related links
 
-[Remove-EntraBetaDeletedApplication](Remove-EntraBetaDeletedApplication.md)
+[Remove-EntraBetaDeletedApplication](../Applications/Remove-EntraBetaDeletedApplication.md)
 
-[Restore-EntraBetaDeletedApplication](Restore-EntraBetaDeletedApplication.md)
+[Restore-EntraBetaDeletedApplication](../Applications/Restore-EntraBetaDeletedApplication.md)
 
 [Remove-EntraBetaDeletedDirectoryObject](Remove-EntraBetaDeletedDirectoryObject.md)
 
-[Get-EntraBetaDeletedApplication](Get-EntraBetaDeletedApplication.md)
+[Get-EntraBetaDeletedApplication](../Applications/Get-EntraBetaDeletedApplication.md)
 
 [Get-EntraBetaDeletedDirectoryObject](Get-EntraBetaDeletedDirectoryObject.md)

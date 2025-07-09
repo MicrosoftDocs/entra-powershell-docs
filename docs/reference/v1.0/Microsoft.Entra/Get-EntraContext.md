@@ -24,7 +24,7 @@ Retrieve information about your current session
 
 ### GetQuery (Default)
 
-```
+```powershell
 Get-EntraContext [<CommonParameters>]
 ```
 
