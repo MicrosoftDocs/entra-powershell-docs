@@ -53,8 +53,8 @@
   ],
   "need_generate_pdf_url_template": false,
   "xref_query_tags": [
-        "/dotnet",
-        "/uwp/api"
+    "/dotnet",
+    "/uwp/api"
   ],
   "dependent_packages": [
     {
