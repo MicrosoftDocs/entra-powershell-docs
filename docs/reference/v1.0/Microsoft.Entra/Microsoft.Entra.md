@@ -340,6 +340,10 @@ Retrieves a list of permission grants consented to for a group.
 
 This cmdlet is used to retrieve the configured identity providers in the directory.
 
+### [Get-EntraInactiveSignInUser](Get-EntraInactiveSignInUser.md)
+
+Retrieve users who have not had interactive sign-ins since a specified number of days ago.
+
 ### [Get-EntraLifecyclePolicyGroup](Get-EntraLifecyclePolicyGroup.md)
 
 Retrieves the lifecycle policy object to which a group belongs.

@@ -1,7 +1,7 @@
 ---
 author: msewaweru
 description: This article provides details on the Test-EntraScript command.
-external help file: Microsoft.Graph.Entra.Beta-help.xml
+external help file: Microsoft.Entra.Beta-help.xml
 Locale: en-US
 manager: CelesteDG
 Module Name: Microsoft.Entra.Beta
