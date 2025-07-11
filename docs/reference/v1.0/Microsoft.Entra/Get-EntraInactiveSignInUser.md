@@ -17,7 +17,7 @@ title: Get-EntraInactiveSignInUser
 
 ## Synopsis
 
-Retrieve users without an interactive sign-ins since a specified number of days ago.
+Retrieve users without an interactive sign-in since a specified number of days ago.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ Get-EntraInactiveSignInUser
 
 ## Description
 
-The `Get-EntraInactiveSignInUser` cmdlet retrieves users who did not sign in interactively within a specified number of days. This can be useful for identifying inactive accounts in your Microsoft Entra ID environment.
+The `Get-EntraInactiveSignInUser` cmdlet retrieves users who didn't sign in interactively within a specified number of days. This cmdlet can be useful for identifying inactive accounts in your Microsoft Entra ID environment.
 
 ## Examples
 
-### Example 1: Retrieve users who did not sign in for 30 days
+### Example 1: Retrieve users who didn't sign in for 30 days
 
 ```powershell
 Connect-Entra -Scopes 'AuditLog.Read.All','User.Read.All'
@@ -102,7 +102,7 @@ This command retrieves guest users without an interactive sign-in within the las
 
 ### -LastSignInBeforeDaysAgo
 
-Specifies the number of days since the last interactive sign-in. Users who did not sign in within this period will be returned.
+Specifies the number of days since the last interactive sign-in. Users who didn't sign in within this period are returned.
 
 ```yaml
 Type: System.Int32
@@ -146,7 +146,7 @@ You can pipe an integer value to the `-LastSignInBeforeDaysAgo` parameter.
 
 ### System.Object
 
-Returns a list of users who did not sign in within the specified period.
+Returns a list of users who didn't sign in within the specified period.
 
 ## Notes
 
