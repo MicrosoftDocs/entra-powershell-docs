@@ -11,8 +11,8 @@
       "type_mapping": {
         "ZonePivotGroups": "Toc",
         "Conceptual": "Content",
-        "PowershellModule": "Content",
-        "PowershellCmdlet": "Content"
+        "PowerShellModule1": "Content",
+        "PowerShellCmdlet1": "Content"
       },
       "build_entry_point": "docs",
       "template_folder": "_themes",
