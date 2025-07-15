@@ -15,11 +15,11 @@ title: Get-EntraInactiveSignInUser
 
 # Get-EntraInactiveSignInUser
 
-## Synopsis
+## SYNOPSIS
 
 Retrieve users without an interactive sign-in since a specified number of days ago.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Get-EntraInactiveSignInUser 
@@ -28,11 +28,11 @@ Get-EntraInactiveSignInUser
 [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Get-EntraInactiveSignInUser` cmdlet retrieves users who didn't sign in interactively within a specified number of days. This cmdlet can be useful for identifying inactive accounts in your Microsoft Entra ID environment.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Retrieve users who didn't sign in for 30 days
 
@@ -98,7 +98,7 @@ CreatedDaysAgo                   : 30
 
 This command retrieves guest users without an interactive sign-in within the last 90 days.
 
-## Parameters
+## PARAMETERS
 
 ### -LastSignInBeforeDaysAgo
 
@@ -136,18 +136,18 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### System.Int32
 
 You can pipe an integer value to the `-LastSignInBeforeDaysAgo` parameter.
 
-## Outputs
+## OUTPUTS
 
 ### System.Object
 
 Returns a list of users who didn't sign in within the specified period.
 
-## Notes
+## NOTES
 
-## Related Links
+## RELATED LINKS
