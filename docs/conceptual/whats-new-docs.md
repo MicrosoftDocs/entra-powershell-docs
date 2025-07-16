@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 07/01/2025
+ms.date: 07/16/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -82,15 +82,15 @@ Improvements based on module usability and docs bug bash feedback:
   
   - **Bug Fixes and command improvements**:
     - Fixed Visibility parameter validation in `Set-EntraGroup`. PR [#1488](https://github.com/microsoftgraph/entra-powershell/pull/1488).
-    - Fixed `NewEntraApplicationKeyCredential`.PR [#1491](https://github.com/microsoftgraph/entra-powershell/pull/1491) 
+    - Fixed `NewEntraApplicationKeyCredential`.PR [#1491](https://github.com/microsoftgraph/entra-powershell/pull/1491).
     - Fixed metadata to support new PlatyPS build pipeline. PR [#1493](https://github.com/microsoftgraph/entra-powershell/pull/1493).
     - Fixed `New-EntraBetaPrivateAccessApplication` cmdletbinding. PR [#1495](https://github.com/microsoftgraph/entra-powershell/pull/1495).
+    - Added `ResetRedemption` parameter. PR [#1485](https://github.com/microsoftgraph/entra-powershell/pull/1485).
+    - Added `NewUserPrincipalName` parameter to `Restore-EntraDeletedDirectoryObject`. PR [#1497](https://github.com/microsoftgraph/entra-powershell/pull/1497).
 
   - **Documentation enhancements**:
     - Enhanced cmdlets examples.
     - Updated `Add-EntraDeviceRegisteredOwner` permissions.
-    - Added `ResetRedemption` parameter. PR [#1485](https://github.com/microsoftgraph/entra-powershell/pull/1485).
-    - Added `NewUserPrincipalName` parameter to `Restore-EntraDeletedDirectoryObject`. PR [#1497](https://github.com/microsoftgraph/entra-powershell/pull/1497).
 
 ## Module version history
 
