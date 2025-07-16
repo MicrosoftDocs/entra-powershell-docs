@@ -78,7 +78,7 @@ Improvements based on module usability and docs bug bash feedback:
 - [Version 1.0.9][posh-1.0.9] - **June 2025**
 
   - **New Commands**:
-    - [Get-EntraInactiveSigninUser](https://github.com/microsoftgraph/entra-powershell/pull/1495)
+    - [Get-EntraInactiveSigninUser](/powershell/module/microsoft.entra/get-entrainactivesigninuser) to retrieve users without an interactive sign-in since a specified number of days ago.
   
   - **Bug Fixes and command improvements**:
     - Fixed Visibility parameter validation in `Set-EntraGroup`. PR [#1488](https://github.com/microsoftgraph/entra-powershell/pull/1488).
