@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 02/12/2025  
 ms.author: jomondi  
 author: omondiatieno  
-manager: celested  
+manager: mwongerapk  
 ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to manage and remove stale devices using Microsoft Entra PowerShell so that I can focus resources on active devices, maintain compliance, and ensure efficient device management. 

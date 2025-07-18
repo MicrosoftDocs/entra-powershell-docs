@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 02/20/2025
 ms.author: jomondi  
 author: omondiatieno  
-manager: celested  
+manager: mwongerapk  
 ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to have a comprehensive guide on managing device identities using Microsoft Entra PowerShell, so that I can ensure security and compliance within my organization. 
