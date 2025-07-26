@@ -234,6 +234,6 @@ How to [Govern an application's existing users](https://learn.microsoft.com/entr
 
 ## RELATED LINKS
 
-[Get-EntraBetaServicePrincipalAppRoleAssignedTo](Get-EntraBetaServicePrincipalAppRoleAssignedTo.md)
+[Get-EntraBetaServicePrincipalAppRoleAssignedTo](../Applications/Get-EntraBetaServicePrincipalAppRoleAssignedTo.md)
 
-[New-EntraBetaServicePrincipalAppRoleAssignment](New-EntraBetaServicePrincipalAppRoleAssignment.md)
+[New-EntraBetaServicePrincipalAppRoleAssignment](../Applications/New-EntraBetaServicePrincipalAppRoleAssignment.md)
