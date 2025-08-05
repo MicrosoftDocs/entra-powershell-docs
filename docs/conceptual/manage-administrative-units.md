@@ -3,12 +3,13 @@ title: Manage administrative units
 description: Learn how to manage administrative units for more granular delegation of permissions in Microsoft Entra ID using Microsoft Entra PowerShell.
 ms.topic: how-to
 
-ms.date: 06/11/2025
+ms.date: 08/05/2025
 author: csmulligan
 manager: dougeby
 ms.author: cmulligan
 
-#Customer intent: As an IT admin managing administrative units in Microsoft Entra ID, I want to learn how .....
+#Customer intent: As an IT admin responsible for managing administrative units in Microsoft Entra ID, I want to learn how to use Microsoft Entra PowerShell to delegate permissions more granularly.
+
 ---
 # Manage administrative units
 
@@ -62,7 +63,7 @@ Add-EntraScopedRoleMembership -AdministrativeUnitId $administrativeUnit.Id -Role
 ```Output
 Id                                                                AdministrativeUnitId                 RoleId
 --                                                                --------------------                 ------
-dddddddddddd-bbbb-aaaa-bbbb-cccccccccccc aaaaaaaa-bbbb-aaaa-bbbb-cccccccccccc bbbbbbbb-1111-2222-3333-cccccccccccc
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb aaaaaaaa-bbbb-aaaa-bbbb-cccccccccccc bbbbbbbb-1111-2222-3333-cccccccccccc
 ```
 
 ## Add members to administrative units
@@ -77,9 +78,6 @@ $administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq '<admi
 $user = Get-EntraUser -UserId 'SawyerM@contoso.com'
 Add-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -MemberId $user.Id
 ```
-<!--- This script doesn't run for me: Add-EntraAdministrativeUnitMember: A parameter cannot be found that matches parameter name 'MemberId'. This works:
-Add-EntraAdministrativeUnitMember -RefObjectId '78dcd7f1-344f-4dfe-84d3-1a99f8b365d0' -AdministrativeUnitId '8d4e6cc9-0073-4799-a94b-6b1711c87633'
-It works only with user ID though, RefObjectId doesn't work with goupId--->
 
 ## Update properties of administrative units
 
@@ -95,6 +93,12 @@ Set-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id -Displa
 
 ## Clean up resources
 
+To clean up resources, you can remove scoped role memberships, administrative unit members, and the administrative unit itself.
+
+### Remove scoped role memberships
+
+Scoped role membership in Microsoft Entra ID allows you to assign administrative roles to users with permissions limited to specific administrative units. When a scoped role is removed, the user's ability to manage resources within that administrative unit is revoked. This ensures that administrative control is tightly bound to administrative unit membership and reinforces the principle of least privilege.
+
 Remove a scoped role membership from Microsoft Entra ID by running the `Remove-EntraScopedRoleMembership` cmdlet. Get the administrative unit ID with the `Get-EntraAdministrativeUnit` command. Get details of a scoped role membership for the `ScopedRoleMembershipId` parameter with the `Get-EntraScopedRoleMembership` command.
 
 ```powershell
@@ -105,6 +109,8 @@ $roleMembership = Get-EntraScopedRoleMembership -AdministrativeUnitId $administr
 Remove-EntraScopedRoleMembership -AdministrativeUnitId $administrativeUnit.Id -ScopedRoleMembershipId $roleMembership.Id
 ```
 
+### Remove administrative unit members
+
 Remove an administrative unit member from Microsoft Entra ID by running the `Remove-EntraAdministrativeUnitMember` cmdlet.
 
 ```powershell
@@ -113,6 +119,8 @@ $administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq 'Pacif
 $adminUnitMember = Get-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id | Select-Object Id, DisplayName,'@odata.type' | Where-Object {$_.DisplayName -eq 'Saywer Miller'}
 Remove-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -MemberId $adminUnitMember.Id
 ```
+
+### Remove administrative units
 
 Remove an administrative unit from Microsoft Entra ID by running the `Remove-EntraAdministrativeUnit` cmdlet.
 
