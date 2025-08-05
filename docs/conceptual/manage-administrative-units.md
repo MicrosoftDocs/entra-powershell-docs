@@ -130,13 +130,8 @@ $administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq '<admi
 Remove-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id
 ```
 
-## Related content
-
-- [Administrative units][administrative-units]
-
 <!-- Link definitions -->
 
-[administrative-units]: /powershell/module/microsoft.entra/?view=entra-powershell#administrative-units
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#privileged-role-administrator
 [installation]: installation.md
 [create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
