@@ -235,9 +235,9 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Set-AzureADUserExtension | [Set-EntraUserExtension](/powershell/module/microsoft.entra/Set-EntraUserExtension) |
 | Set-AzureADUserLicense | [Set-EntraUserLicense](/powershell/module/microsoft.entra/Set-EntraUserLicense) |
 | Set-AzureADUserManager | [Set-EntraUserManager](/powershell/module/microsoft.entra/Set-EntraUserManager) |
-| Set-AzureADUserPassword | [Set-EntraUserPassword](/powershell/module/microsoft.entra/Set-EntraUserPassword) |
+| Set-AzureADUserPassword | [Set-EntraUserPasswordProfile](/powershell/module/microsoft.entra/Set-EntraUserPasswordProfile) |
 | Set-AzureADUserThumbnailPhoto | [Set-EntraUserThumbnailPhoto](/powershell/module/microsoft.entra/Set-EntraUserThumbnailPhoto) |
-| Update-AzureADSignedInUserPassword | [Update-EntraSignedInUserPassword](/powershell/module/microsoft.entra/Update-EntraSignedInUserPassword) |
+| Update-AzureADSignedInUserPassword | [Set-EntraSignedInUserPassword](/powershell/module/microsoft.entra/Set-EntraSignedInUserPassword) |
 
 :::zone-end
 

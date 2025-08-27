@@ -1228,7 +1228,7 @@ Adds or removes licenses for a Microsoft online service to the list of assigned 
 
 Updates a user's manager.
 
-### [Set-EntraBetaUserPassword](Set-EntraBetaUserPassword.md)
+### [Set-EntraBetaUserPasswordProfile](Set-EntraBetaUserPasswordProfile.md)
 
 Sets the password of a user.
 
@@ -1248,7 +1248,7 @@ Check whether the provided script uses AzureAD commands not supported by Microso
 
 Update the properties of a delegated permission grant (oAuth2PermissionGrant object).
 
-### [Update-EntraBetaSignedInUserPassword](Update-EntraBetaSignedInUserPassword.md)
+### [Set-EntraBetaSignedInUserPassword](Set-EntraBetaSignedInUserPassword.md)
 
 Updates the password for the signed-in user.
 
