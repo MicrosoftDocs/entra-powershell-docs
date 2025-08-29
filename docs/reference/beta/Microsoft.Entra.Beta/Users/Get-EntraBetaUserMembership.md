@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Get-EntraBetaUserMembership command.
 external help file: Microsoft.Entra.Beta.Users-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 02/05/2025
@@ -16,11 +16,11 @@ title: Get-EntraBetaUserMembership
 
 # Get-EntraBetaUserMembership
 
-## Synopsis
+## SYNOPSIS
 
 Get user memberships.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Get-EntraBetaUserMembership
@@ -31,11 +31,11 @@ Get-EntraBetaUserMembership
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Get-EntraBetaUserMembership` cmdlet gets user memberships in Microsoft Entra ID.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Get user memberships
 
@@ -152,7 +152,7 @@ aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb Engineering Administrative Unit Engineering
 
 This example lists a user's administrative units. You can also use [Get-EntraBetaUserAdministrativeUnit](https://learn.microsoft.com/powershell/module/microsoft.entra.beta/get-entrabetauseradministrativeunit) for the same result.
 
-## Parameters
+## PARAMETERS
 
 ### -All
 
@@ -222,12 +222,12 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraBetaUserGroup](Get-EntraBetaUserGroup.md)

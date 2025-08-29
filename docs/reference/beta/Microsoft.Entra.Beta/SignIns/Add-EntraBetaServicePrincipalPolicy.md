@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Add-EntraBetaServicePrincipalPolicy command.
 external help file: Microsoft.Entra.Beta.SignIns-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 07/01/2024
@@ -16,11 +16,11 @@ title: Add-EntraBetaServicePrincipalPolicy
 
 # Add-EntraBetaServicePrincipalPolicy
 
-## Synopsis
+## SYNOPSIS
 
 Adds a servicePrincipal policy.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Add-EntraBetaServicePrincipalPolicy
@@ -29,11 +29,11 @@ Add-EntraBetaServicePrincipalPolicy
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Add-EntraBetaServicePrincipalPolicy` cmdlet adds a service principal policy. Specify the `Id` and `PolicyId` parameter to add a specific servicePrincipal policy.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Add a service principal policy
 
@@ -48,7 +48,7 @@ Add-EntraBetaServicePrincipalPolicy @params
 
 This example demonstrates how to add a policy to a service principal in Microsoft Entra ID.
 
-## Parameters
+## PARAMETERS
 
 ### -RefObjectId
 
@@ -86,13 +86,13 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraBetaServicePrincipalPolicy](Get-EntraBetaServicePrincipalPolicy.md)
 

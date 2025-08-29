@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Get-EntraGroupPermissionGrant command.
 external help file: Microsoft.Entra.Groups-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra
 ms.author: eunicewaweru
 ms.date: 02/08/2025
@@ -16,11 +16,11 @@ title: Get-EntraGroupPermissionGrant
 
 # Get-EntraGroupPermissionGrant
 
-## Synopsis
+## SYNOPSIS
 
 Retrieves a list of permission grants consented to for a group.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Get-EntraGroupPermissionGrant
@@ -29,11 +29,11 @@ Get-EntraGroupPermissionGrant
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 Retrieves a list of permission grants consented to for a group.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: List existing permission grants for the group
 
@@ -53,7 +53,7 @@ Permission     : Member.Read.Group
 
 This cmdlet list existing permission grants for the specified group.
 
-## Parameters
+## PARAMETERS
 
 ### -GroupId
 
@@ -91,14 +91,14 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### String
 
-## Outputs
+## OUTPUTS
 
 ### Microsoft.Open.MSGraph.Model.GetMSGroupPermissionGrantsResponse
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS

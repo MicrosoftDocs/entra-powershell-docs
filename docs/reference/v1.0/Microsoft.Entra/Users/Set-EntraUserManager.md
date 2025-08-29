@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Set-EntraUserManager command.
 external help file: Microsoft.Entra.Users-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra
 ms.author: eunicewaweru
 ms.date: 02/05/2025
@@ -16,11 +16,11 @@ title: Set-EntraUserManager
 
 # Set-EntraUserManager
 
-## Synopsis
+## SYNOPSIS
 
 Updates a user's manager.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Set-EntraUserManager
@@ -29,11 +29,11 @@ Set-EntraUserManager
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Set-EntraUserManager` cmdlet update the manager for a user in Microsoft Entra ID. Specify the `UserId` and `ManagerId` parameters to update the manager for a user in Microsoft Entra ID.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Update a user's manager
 
@@ -44,7 +44,7 @@ Set-EntraUserManager -UserId 'SawyerM@contoso.com' -ManagerId 'Manager@contoso.c
 
 This example demonstrates how to update the manager for the specified user.
 
-## Parameters
+## PARAMETERS
 
 ### -UserId
 
@@ -82,13 +82,13 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraUserManager](Get-EntraUserManager.md)
 

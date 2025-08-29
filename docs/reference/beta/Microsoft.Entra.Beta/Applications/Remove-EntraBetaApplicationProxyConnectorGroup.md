@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Remove-EntraBetaApplicationProxyConnectorGroup command.
 external help file: Microsoft.Entra.Beta.Applications-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 07/18/2024
@@ -16,11 +16,11 @@ title: Remove-EntraBetaApplicationProxyConnectorGroup
 
 # Remove-EntraBetaApplicationProxyConnectorGroup
 
-## Synopsis
+## SYNOPSIS
 
 The `Remove-EntraBetaApplicationProxyConnectorGroup` cmdlet deletes an Application Proxy Connector group.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Remove-EntraBetaApplicationProxyConnectorGroup
@@ -28,12 +28,12 @@ Remove-EntraBetaApplicationProxyConnectorGroup
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Remove-EntraBetaApplicationProxyConnectorGroup` cmdlet deletes an Application Proxy Connector Group.
 It can only be used on an empty connector group, with no connectors assigned.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Remove a specific Connector Group
 
@@ -46,7 +46,7 @@ This example removes a specific Connector Group.
 
 - `Id` parameter specifies the connector group ID.
 
-## Parameters
+## PARAMETERS
 
 ### -Id
 
@@ -69,17 +69,17 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### System.String
 
-## Outputs
+## OUTPUTS
 
 ### System.Object
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [New-EntraBetaApplicationProxyConnectorGroup](New-EntraBetaApplicationProxyConnectorGroup.md)
 

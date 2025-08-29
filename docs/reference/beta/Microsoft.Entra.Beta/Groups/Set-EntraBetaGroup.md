@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Set-EntraBetaGroup command.
 external help file: Microsoft.Entra.Beta.Groups-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 06/26/2024
@@ -16,11 +16,11 @@ title: Set-EntraBetaGroup
 
 # Set-EntraBetaGroup
 
-## Synopsis
+## SYNOPSIS
 
 Sets the properties for an existing Microsoft Entra ID group.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Set-EntraBetaGroup
@@ -38,11 +38,11 @@ Set-EntraBetaGroup
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Set-EntraBetaGroup` cmdlet sets the properties for an existing Microsoft Entra ID group. Specify the `GroupId` parameter to set the properties for an existing Microsoft Entra ID group.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Update a group display name
 
@@ -123,7 +123,7 @@ Set-EntraBetaGroup -GroupId $group.Id -MembershipRule '(user.UserType -contains 
 
 This example demonstrates how to update the membership rule processing state of a specified group in Microsoft Entra ID.
 
-## Parameters
+## PARAMETERS
 
 ### -Description
 
@@ -321,17 +321,17 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### System.String
 
-## Outputs
+## OUTPUTS
 
 ### System.Object
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraBetaGroup](Get-EntraBetaGroup.md)
 

@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Get-EntraBetaDirectoryObject  command.
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 06/26/2024
@@ -16,11 +16,11 @@ title: Get-EntraBetaDirectoryObject
 
 # Get-EntraBetaDirectoryObject
 
-## Synopsis
+## SYNOPSIS
 
 Retrieves directory objects based on a list of IDs.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Get-EntraBetaDirectoryObject 
@@ -30,11 +30,11 @@ Get-EntraBetaDirectoryObject
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Get-EntraBetaDirectoryObject` cmdlet retrieves directory objects based on a list of IDs (a list of up to 1000 GUIDs (as strings) to retrieve objects for).
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Get an object One or more object IDs
 
@@ -76,7 +76,7 @@ This example demonstrates how to retrieve objects for a specified object type.
 - `-DirectoryObjectIds` parameter specifies a list of up to 1000 GUIDs (as strings) to retrieve objects for.
 - `-ObjectTypes` parameter specifies the type of object ID.
 
-## Parameters
+## PARAMETERS
 
 ### -DirectoryObjectIds
 
@@ -130,14 +130,14 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### None
 
-## Outputs
+## OUTPUTS
 
 ### System.Object
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS

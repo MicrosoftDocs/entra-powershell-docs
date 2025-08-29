@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the New-EntraInvitation command.
 external help file: Microsoft.Entra.SignIns-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra
 ms.author: eunicewaweru
 ms.date: 06/26/2024
@@ -16,11 +16,11 @@ title: New-EntraInvitation
 
 # New-EntraInvitation
 
-## Synopsis
+## SYNOPSIS
 
 Invite a new external user to your directory.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 New-EntraInvitation
@@ -28,12 +28,13 @@ New-EntraInvitation
  [-InvitedUserType <String>]
  -InvitedUserEmailAddress <String>
  [-SendInvitationMessage <Boolean>]
+ [-ResetRedemption]
  -InviteRedirectUrl <String>
  [-InvitedUserMessageInfo <InvitedUserMessageInfo>] [-InvitedUserDisplayName <String>]
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 This cmdlet is used to invite a new external user to your directory.
 
@@ -56,7 +57,7 @@ Additionally, to reset the redemption status, the signed-in user must have the:
 - Helpdesk Administrator
 - User Administrator role
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Invite a new external user to your directory
 
@@ -153,7 +154,28 @@ Id                                   InviteRedeemUrl
 
 This example demonstrates how to invite a new external user to your directory with InvitedUserType parameter.
 
-## Parameters
+### Example 5: Reset a Redemption for an external user
+
+```powershell
+Connect-Entra -Scopes 'User.Invite.All'
+$emailAddress = 'someexternaluser@externaldomain.com'
+$sendInvitationMessage = $True
+$redirectUrl = 'https://myapps.constoso.com'
+$displayName = 'microsoftuser'
+New-EntraInvitation -InvitedUserEmailAddress $emailAddress -SendInvitationMessage $sendInvitationMessage -InviteRedirectUrl $redirectUrl -InvitedUserDisplayName $displayName -ResetRedemption
+```
+
+```Output
+Id                                   InviteRedeemUrl
+--                                   ---------------
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitations.microsoft.com%2fredeem%2f%3ftenant%3dd5aec55f-2d12-4442-8d2f-cc…
+```
+
+In this example, we show how an admin can reset the redemption for an external user in the `-InvitedUser` parameter.
+They need to pass the switch `-ResetRedemption`.
+Once reset, External user has to re-redeem the invitation to continue to access the resources.
+
+## PARAMETERS
 
 ### -InvitedUserDisplayName
 
@@ -253,6 +275,24 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ResetRedemption
+
+Indicates whether the invite redemption on an existing external user should be removed so the user can re-redeem the account.
+
+By default, this is false and should only be set when passing in a valid external user to the InvitedUser property.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -SendInvitationMessage
 
 A Boolean parameter that indicates whether or not an invitation message sent to the invited user.
@@ -273,16 +313,16 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### None
 
-## Outputs
+## OUTPUTS
 
 ### System.Object
 
-## Notes
+## NOTES
 
 - See more information - <https://learn.microsoft.com/graph/api/invitation-post>.
 
-## Related links
+## RELATED LINKS

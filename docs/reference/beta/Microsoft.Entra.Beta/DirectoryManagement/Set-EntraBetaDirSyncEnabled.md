@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Set-EntraBetaDirSyncEnabled command.
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 08/20/2024
@@ -16,11 +16,11 @@ title: Set-EntraBetaDirSyncEnabled
 
 # Set-EntraBetaDirSyncEnabled
 
-## Synopsis
+## SYNOPSIS
 
 Turns directory synchronization on or off for a company.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Set-EntraBetaDirSyncEnabled
@@ -30,7 +30,7 @@ Set-EntraBetaDirSyncEnabled
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Set-EntraBetaDirSyncEnabled` cmdlet turns directory synchronization on or off for a company.
 
@@ -40,9 +40,9 @@ Deactivating DirSync may take up to 72 hours, depending on the number of objects
 
 If you re-enable DirSync, a full synchronization will occur, which may take significant time based on the number of objects in Microsoft Entra ID.
 
-Additionally, if `BlockCloudObjectTakeoverThroughHardMatch` is enabled, re-enabling DirSync will block On-Prem to cloud object takeover/updates for all Microsoft Entra ID–mastered objects. To allow syncing of these objects, set `BlockCloudObjectTakeoverThroughHardMatch` to false.
+Additionally, if `BlockCloudObjectTakeoverThroughHardMatch` is enabled, re-enabling DirSync will block On-Prem to cloud object takeover/updates for all Microsoft Entra ID-mastered objects. To allow syncing of these objects, set `BlockCloudObjectTakeoverThroughHardMatch` to false.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Turn on directory synchronization
 
@@ -70,7 +70,7 @@ This example turns off directory synchronization for a company.
 - `-Force` Forces the command to run without asking for user confirmation.
 - `-TenantId` Specifies the unique ID of the tenant on which to perform the operation.
 
-## Parameters
+## PARAMETERS
 
 ### -EnableDirsync
 
@@ -124,10 +124,10 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS

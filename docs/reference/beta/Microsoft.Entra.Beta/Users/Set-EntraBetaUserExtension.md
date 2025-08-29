@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Set-EntraBetaUserExtension command.
 external help file: Microsoft.Entra.Beta.Users-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 03/16/2025
@@ -16,11 +16,11 @@ title: Set-EntraBetaUserExtension
 
 # Set-EntraBetaUserExtension
 
-## Synopsis
+## SYNOPSIS
 
 Updates a user's extension.
 
-## Syntax
+## SYNTAX
 
 ### SetSingle (Default)
 
@@ -41,13 +41,13 @@ Set-EntraBetaUserExtension
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Set-EntraBetaUserExtension` cmdlet updates a user's extension in Microsoft Entra ID.
 
 `Update-EntraBetaUserExtension` is an alias for `Set-EntraBetaUserExtension`.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Set the value of an extension attribute for a user
 
@@ -79,7 +79,7 @@ This example demonstrates how to update a user's extension attribute. Use `(Get-
 - `-UserId` parameter specifies the user Id (User Principal Name or UserId).
 - `-ExtensionNameValues` parameter specifies a dictionary of key-value pairs for the extension name and value pair.
 
-## Parameters
+## PARAMETERS
 
 ### -UserId
 
@@ -149,15 +149,15 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
 `Update-EntraBetaUserExtension` is an alias for `Set-EntraBetaUserExtension`.
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraBetaUser](Get-EntraBetaUser.md)
 

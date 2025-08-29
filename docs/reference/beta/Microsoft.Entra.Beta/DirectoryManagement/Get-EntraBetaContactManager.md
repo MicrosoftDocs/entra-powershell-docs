@@ -2,7 +2,7 @@
 description: This article provides details on the Get-EntraBetaContactManager command.
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 07/29/2024
@@ -15,11 +15,11 @@ title: Get-EntraBetaContactManager
 
 # Get-EntraBetaContactManager
 
-## Synopsis
+## SYNOPSIS
 
 Gets the manager of a contact.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Get-EntraBetaContactManager
@@ -28,7 +28,7 @@ Get-EntraBetaContactManager
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Get-EntraBetaContactManager` cmdlet gets the manager of a contact in Microsoft Entra ID.
 
@@ -40,7 +40,7 @@ For delegated scenarios involving work or school accounts, the signed-in user mu
 - Intune Administrator  
 - User Administrator
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Get the manager of a contact
 
@@ -54,7 +54,7 @@ The example demonstrates how to retrieve the manager of a contact. You can use t
 
 - `-OrgContactId` parameter specifies the contact Id.
 
-## Parameters
+## PARAMETERS
 
 ### -OrgContactId
 
@@ -92,12 +92,12 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraBetaContact](Get-EntraBetaContact.md)

@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Restore-EntraBetaDeletedDirectoryObject command.
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 02/08/2025
@@ -16,20 +16,21 @@ title: Restore-EntraBetaDeletedDirectoryObject
 
 # Restore-EntraBetaDeletedDirectoryObject
 
-## Synopsis
+## SYNOPSIS
 
 Restore a previously deleted object.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Restore-EntraBetaDeletedDirectoryObject
  -Id <String>
  [-AutoReconcileProxyConflict]
+ [-NewUserPrincipalName <String>]
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Restore-EntraBetaDeletedDirectoryObject` cmdlet is used to restore previously deleted objects, such as application, group, service principal, administrative unit, or user objects.
 
@@ -50,7 +51,7 @@ For delegated scenarios, the calling user needs to have at least one of the foll
 - **To restore deleted groups:** Groups Administrator.
   - However, to restore role-assignable groups, the calling user must be assigned the Privileged Role Administrator role.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Restore a deleted object with ID
 
@@ -89,7 +90,26 @@ This example shows how to restore a deleted object in Microsoft Entra ID.
 - `-Id` parameter specifies the Id of the directory object to restore.
 - `-AutoReconcileProxyConflict` parameter removes any conflicting proxy addresses while restoring a soft-deleted user whose one or more proxy addresses are currently used for an active user.
 
-## Parameters
+### Example 3: Restoring a Deleted User and assigning a new UserPrincipalName
+
+```powershell
+Connect-Entra -Scopes 'User.ReadWrite.All'
+$deletedUser = Get-EntraBetaDeletedUser -Filter "DisplayName eq 'Sawyer M'"
+Restore-EntraBetaDeletedDirectoryObject -Id $deletedUser.Id -NewUserPrincipalName 'SawyerM@contoso.com'
+```
+
+```Output
+Id                                   DeletedDateTime
+--                                   ---------------
+dddddddd-3333-4444-5555-eeeeeeeeeeee
+```
+
+This example shows how to restore a deleted object in Microsoft Entra ID.
+
+- `-Id` parameter specifies the Id of the directory object to restore.
+- `-NewUserPrincipalName` assigns a new UserPrincipalName to the restored user.
+
+## PARAMETERS
 
 ### -Id
 
@@ -123,21 +143,43 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
+### -NewUserPrincipalName
+
+The user principal name (UPN) assigned to the restored user.
+
+The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822.
+
+By convention, this UPN should map to the user's email name.
+
+The general format is "alias@domain".
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### System.String
 
-## Outputs
+## OUTPUTS
 
 ### System.Object
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Remove-EntraBetaDeletedApplication](Remove-EntraBetaDeletedApplication.md)
 

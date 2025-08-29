@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Get-EntraAccountSku command.
 external help file: Microsoft.Entra.DirectoryManagement-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra
 ms.author: eunicewaweru
 ms.date: 06/26/2024
@@ -16,11 +16,11 @@ title: Get-EntraAccountSku
 
 # Get-EntraAccountSku
 
-## Synopsis
+## SYNOPSIS
 
 Retrieves all the SKUs for a company.
 
-## Syntax
+## SYNTAX
 
 ### GetQuery (Default)
 
@@ -37,7 +37,7 @@ Get-EntraAccountSku
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Get-EntraAccountSku` retrieves the list of commercial subscriptions acquired by an organization.
 
@@ -49,7 +49,7 @@ In delegated scenarios with work or school accounts, when acting on another user
 - Global Reader  
 - Directory Readers
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Gets a list of SKUs
 
@@ -88,7 +88,7 @@ This command returns a list of SKUs for a specified tenant.
 
 - `-TenantId` parameter specifies the unique ID of the tenant.
 
-## Parameters
+## PARAMETERS
 
 ### -TenantId
 
@@ -110,10 +110,10 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS

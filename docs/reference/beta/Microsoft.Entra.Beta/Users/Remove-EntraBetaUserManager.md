@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Remove-EntraBetaUserManager command.
 external help file: Microsoft.Entra.Beta.Users-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 02/05/2025
@@ -16,11 +16,11 @@ title: Remove-EntraBetaUserManager
 
 # Remove-EntraBetaUserManager
 
-## Synopsis
+## SYNOPSIS
 
 Removes a user's manager.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Remove-EntraBetaUserManager
@@ -28,11 +28,11 @@ Remove-EntraBetaUserManager
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Remove-EntraBetaUserManager` cmdlet removes a user's manager in Microsoft Entra ID. Specify the `UserId` parameter to remove the manager for a user in Microsoft Entra ID.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Remove the manager of a user
 
@@ -54,7 +54,7 @@ Get-EntraBetaUser -UserId 'SawyerM@Contoso.com' | Remove-EntraBetaUserManager
 
 This example shows how to remove a user's manager.
 
-## Parameters
+## PARAMETERS
 
 ### -UserId
 
@@ -76,13 +76,13 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraBetaUserManager](Get-EntraBetaUserManager.md)
 

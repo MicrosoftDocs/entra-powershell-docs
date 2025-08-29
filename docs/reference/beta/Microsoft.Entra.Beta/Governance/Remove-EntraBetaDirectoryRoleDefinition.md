@@ -2,7 +2,7 @@
 description: This article provides details on the Remove-EntraBetaDirectoryRoleDefinition command.
 external help file: Microsoft.Entra.Beta.Governance-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 07/22/2024
@@ -15,11 +15,11 @@ title: Remove-EntraBetaDirectoryRoleDefinition
 
 # Remove-EntraBetaDirectoryRoleDefinition
 
-## Synopsis
+## SYNOPSIS
 
 Delete a Microsoft Entra ID Directory roleDefinition object.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Remove-EntraBetaDirectoryRoleDefinition
@@ -27,7 +27,7 @@ Remove-EntraBetaDirectoryRoleDefinition
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 Delete a Microsoft Entra ID Directory roleDefinition object by ID.
 
@@ -37,7 +37,7 @@ In delegated scenarios, the signed-in user must have either a supported Microsof
 
 - Privileged Role Administrator
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Remove a specified role definition
 
@@ -51,7 +51,7 @@ This example demonstrates how to remove the specified role definition from Micro
 
 - `-UnifiedRoleDefinitionId` parameter specifies the roleDefinition object ID.
 
-## Parameters
+## PARAMETERS
 
 ### -UnifiedRoleDefinitionId
 
@@ -73,19 +73,19 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### System.String
 
-## Outputs
+## OUTPUTS
 
 ### System.Object
 
-## Notes
+## NOTES
 
 `Remove-EntraBetaRoleDefinition` is an alias for `Remove-EntraBetaDirectoryRoleDefinition`.
 
-## Related links
+## RELATED LINKS
 
 [New-EntraBetaDirectoryRoleDefinition](New-EntraBetaDirectoryRoleDefinition.md)
 

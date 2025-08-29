@@ -2,7 +2,7 @@
 description: This article provides details on the Get-EntraAttributeSet command.
 external help file: Microsoft.Entra.DirectoryManagement-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra
 ms.author: eunicewaweru
 ms.date: 07/19/2024
@@ -15,11 +15,11 @@ title: Get-EntraAttributeSet
 
 # Get-EntraAttributeSet
 
-## Synopsis
+## SYNOPSIS
 
 Gets a list of attribute sets.
 
-## Syntax
+## SYNTAX
 
 ### GetQuery (Default)
 
@@ -36,7 +36,7 @@ Get-EntraAttributeSet
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Get-EntraAttributeSet` cmdlet gets a list of Microsoft Entra ID attribute sets.
 
@@ -49,7 +49,7 @@ In delegated scenarios with work or school accounts, the signed-in user must hav
 
 By default, other administrator roles cannot read, define, or assign custom security attributes.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Get an all attribute sets
 
@@ -84,7 +84,7 @@ This example demonstrates how to retrieve an attribute set by Id.
 
 - `AttributeSetId` parameter specifies the unique identifier for the attribute set within a tenant.
 
-## Parameters
+## PARAMETERS
 
 ### -AttributeSetId
 
@@ -124,17 +124,17 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### System.String
 
-## Outputs
+## OUTPUTS
 
 ### System.Object
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [New-EntraAttributeSet](New-EntraAttributeSet.md)
 

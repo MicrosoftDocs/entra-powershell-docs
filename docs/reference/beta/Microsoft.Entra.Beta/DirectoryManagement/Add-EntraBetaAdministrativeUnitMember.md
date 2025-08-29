@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Add-EntraBetaAdministrativeUnitMember command.
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 02/05/2025
@@ -16,11 +16,11 @@ title: Add-EntraBetaAdministrativeUnitMember
 
 # Add-EntraBetaAdministrativeUnitMember
 
-## Synopsis
+## SYNOPSIS
 
 Adds an administrative unit member.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Add-EntraBetaAdministrativeUnitMember
@@ -29,7 +29,7 @@ Add-EntraBetaAdministrativeUnitMember
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 The `Add-EntraBetaAdministrativeUnitMember` cmdlet adds a Microsoft Entra ID administrative unit member.
 
@@ -39,7 +39,7 @@ In delegated scenarios, adding a user, group, or device to an administrative uni
 
 - Privileged Role Administrator
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Add an administrative unit member
 
@@ -83,7 +83,7 @@ This example demonstrates adding an administrative unit member. Use `Get-EntraBe
 - `AdministrativeUnitId` parameter specifies the ID of an administrative unit.
 - `MemberId` parameter specifies the ID of the device you want to add as a member of the administrative unit.
 
-## Parameters
+## PARAMETERS
 
 ### -AdministrativeUnitId
 
@@ -121,13 +121,13 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraBetaAdministrativeUnitMember](Get-EntraBetaAdministrativeUnitMember.md)
 

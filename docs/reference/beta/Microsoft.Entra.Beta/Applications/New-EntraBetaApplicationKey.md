@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the New-EntraBetaApplicationKey command.
 external help file: Microsoft.Entra.Beta.Applications-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra.Beta
 ms.author: eunicewaweru
 ms.date: 07/31/2024
@@ -16,11 +16,11 @@ title: New-EntraBetaApplicationKey
 
 # New-EntraBetaApplicationKey
 
-## Synopsis
+## SYNOPSIS
 
 Adds a new key to an application.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 New-EntraBetaApplicationKey
@@ -31,11 +31,11 @@ New-EntraBetaApplicationKey
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 
 Adds a new key to an application.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Add a key credential to an application
 
@@ -58,7 +58,7 @@ This command adds a key credential to an specified application.
 - `-PasswordCredential` parameter specifies the application password credential to add.
 - `-Proof` parameter specifies the signed JWT token used as a proof of possession of the existing keys.
 
-## Parameters
+## PARAMETERS
 
 ### -KeyCredential
 
@@ -132,7 +132,7 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### String
 
@@ -140,10 +140,10 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ### Microsoft.Open.MSGraph.Model.PasswordCredential
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Remove-EntraBetaApplicationKey](Remove-EntraBetaApplicationKey.md)

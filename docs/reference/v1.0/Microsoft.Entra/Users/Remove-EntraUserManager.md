@@ -3,7 +3,7 @@ author: msewaweru
 description: This article provides details on the Remove-EntraUserManager command.
 external help file: Microsoft.Entra.Users-Help.xml
 Locale: en-US
-manager: CelesteDG
+manager: mwongerapk
 Module Name: Microsoft.Entra
 ms.author: eunicewaweru
 ms.date: 02/05/2025
@@ -16,22 +16,22 @@ title: Remove-EntraUserManager
 
 # Remove-EntraUserManager
 
-## Synopsis
+## SYNOPSIS
 
 Removes a user's manager.
 
-## Syntax
+## SYNTAX
 
 ```powershell
 Remove-EntraUserManager
  -UserId <String>
 ```
 
-## Description
+## DESCRIPTION
 
 The `Remove-EntraUserManager` cmdlet removes a user's manager in Microsoft Entra ID. Specify the `UserId` parameter to remove the manager for a user in Microsoft Entra ID.
 
-## Examples
+## EXAMPLES
 
 ### Example 1: Remove the manager of a user
 
@@ -53,7 +53,7 @@ Get-EntraUser -UserId 'SawyerM@Contoso.com' | Remove-EntraUserManager
 
 This example shows how to remove a user's manager.
 
-## Parameters
+## PARAMETERS
 
 ### -UserId
 
@@ -75,13 +75,13 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
-## Outputs
+## OUTPUTS
 
-## Notes
+## NOTES
 
-## Related links
+## RELATED LINKS
 
 [Get-EntraUserManager](Get-EntraUserManager.md)
 
