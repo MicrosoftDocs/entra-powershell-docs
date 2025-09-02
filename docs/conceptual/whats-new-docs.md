@@ -82,7 +82,7 @@ Improvements based on module usability and docs bug bash feedback:
 
   - **Cmdlet Enhancements**:
     - Updated the verb on `Update-EntraSignedInUserPassword` command to `Set-EntraSignedInUserPassword`. PR [#1516](https://github.com/microsoftgraph/entra-powershell/pull/1516)
-    - Updated the command name `Set-EntraSignedInUserPassword` to `Set-EntraUserPasswordProfile` as well as corresponding parameters. PR [#1519](https://github.com/microsoftgraph/entra-powershell/pull/1519)
+    - Updated the command name `Set-EntraUserPassword` to `Set-EntraUserPasswordProfile` and the corresponding parameters. PR [#1519](https://github.com/microsoftgraph/entra-powershell/pull/1519)
     - Removed `Microsoft.Graph.Users.Functions` dependency for performance improvement. PR [#1521](https://github.com/microsoftgraph/entra-powershell/pull/1521)
 
 ## Module version history
@@ -106,13 +106,14 @@ Improvements based on module usability and docs bug bash feedback:
   - **New Commands**:
     - [Get-EntraInactiveSigninUser](/powershell/module/microsoft.entra/get-entrainactivesigninuser) to retrieve users without an interactive sign-in since a specified number of days ago.
   
-    - **Bug Fixes and command improvements**:
+  - **Bug Fixes and command improvements**:
     - Fixed Visibility parameter validation in `Set-EntraGroup`. PR [#1488](https://github.com/microsoftgraph/entra-powershell/pull/1488).
     - Fixed `NewEntraApplicationKeyCredential`.PR [#1491](https://github.com/microsoftgraph/entra-powershell/pull/1491).
     - Fixed metadata to support new PlatyPS build pipeline. PR [#1493](https://github.com/microsoftgraph/entra-powershell/pull/1493).
     - Fixed `New-EntraBetaPrivateAccessApplication` cmdletbinding. PR [#1495](https://github.com/microsoftgraph/entra-powershell/pull/1495).
     - Added `ResetRedemption` parameter. PR [#1485](https://github.com/microsoftgraph/entra-powershell/pull/1485).
     - Added `NewUserPrincipalName` parameter to `Restore-EntraDeletedDirectoryObject`. PR [#1497](https://github.com/microsoftgraph/entra-powershell/pull/1497).
+
   - **Documentation enhancements**:
     - Enhanced examples
     - Update `Add-EntraDeviceRegisteredOwner` permissions.
