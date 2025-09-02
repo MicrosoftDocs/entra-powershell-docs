@@ -115,8 +115,7 @@ Improvements based on module usability and docs bug bash feedback:
     - Added `NewUserPrincipalName` parameter to `Restore-EntraDeletedDirectoryObject`. PR [#1497](https://github.com/microsoftgraph/entra-powershell/pull/1497).
 
   - **Documentation enhancements**:
-    - Enhanced examples
-    - Update `Add-EntraDeviceRegisteredOwner` permissions.
+    - Update `Add-EntraDeviceRegisteredOwner` permissions
 
 :::zone-end
 
