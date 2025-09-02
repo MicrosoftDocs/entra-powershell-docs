@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraBetaUserRegisteredDev
 external help file: Microsoft.Entra.Beta.Users-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Users
 ms.author: eunicewaweru
 ms.date: 02/08/2025
 ms.reviewer: stevemutungi

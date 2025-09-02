@@ -3,7 +3,7 @@ description: This article provides details on the New-EntraBetaDirectoryRoleAssi
 external help file: Microsoft.Entra.Beta.Governance-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Governance
 ms.author: eunicewaweru
 ms.date: 07/24/2024
 ms.reviewer: stevemutungi

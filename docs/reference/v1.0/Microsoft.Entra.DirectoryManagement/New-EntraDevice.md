@@ -4,7 +4,7 @@ description: This article provides details on the New-EntraDevice command.
 external help file: Microsoft.Entra.DirectoryManagement-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutungi

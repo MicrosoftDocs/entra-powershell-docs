@@ -4,7 +4,7 @@ description: Creates an object with all values from a certificate file for confi
 external help file: Microsoft.Entra.CertificateBasedAuthentication-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.CertificateBasedAuthentication
 ms.author: eunicewaweru
 ms.date: 04/13/2025
 ms.reviewer: stevemutungi

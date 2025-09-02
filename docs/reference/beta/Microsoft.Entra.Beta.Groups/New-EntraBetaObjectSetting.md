@@ -4,7 +4,7 @@ description: This article provides details on the New-EntraBetaObjectSetting com
 external help file: Microsoft.Entra.Beta.Groups-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Groups
 ms.author: eunicewaweru
 ms.date: 08/05/2024
 ms.reviewer: stevemutungi

@@ -4,7 +4,7 @@ description: This article provides details on the Reset-EntraBetaStrongAuthentic
 external help file: Microsoft.Entra.Beta.SignIns-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.SignIns
 ms.author: eunicewaweru
 ms.date: 03/20/2025
 ms.reviewer: stevemutungi

@@ -4,7 +4,7 @@ description: This article provides details on the Set-EntraSignedInUserPassword 
 external help file: Microsoft.Entra.Users-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Users
 ms.author: eunicewaweru
 ms.date: 08/20/2024
 ms.reviewer: stevemutungi

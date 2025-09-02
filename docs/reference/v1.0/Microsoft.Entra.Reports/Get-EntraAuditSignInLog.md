@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraAuditSignInLog comman
 external help file: Microsoft.Entra.Reports-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Reports
 ms.author: eunicewaweru
 ms.date: 07/15/2024
 ms.reviewer: stevemutungi

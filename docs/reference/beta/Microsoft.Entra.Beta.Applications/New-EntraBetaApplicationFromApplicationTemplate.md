@@ -4,7 +4,7 @@ description: This article provApplicationTemplateIdes details on the New-EntraBe
 external help file: Microsoft.Entra.Beta.Applications-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Applications
 ms.author: eunicewaweru
 ms.date: 02/10/2025
 ms.reviewer: stevemutungi

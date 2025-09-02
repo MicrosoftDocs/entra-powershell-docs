@@ -4,7 +4,7 @@ description: This article provides details on the Remove-EntraUserSponsor comman
 external help file: Microsoft.Entra.Users-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Users
 ms.author: eunicewaweru
 ms.date: 03/07/2025
 ms.reviewer: dbutoyi

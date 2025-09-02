@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraBetaDirectoryObjectOn
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 01/26/2025
 ms.reviewer: stevemutungi

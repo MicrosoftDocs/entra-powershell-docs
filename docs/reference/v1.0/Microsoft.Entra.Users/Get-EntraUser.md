@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraUser command.
 external help file: Microsoft.Entra.Users-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Users
 ms.author: eunicewaweru
 ms.date: 02/09/2025
 ms.reviewer: stevemutungi

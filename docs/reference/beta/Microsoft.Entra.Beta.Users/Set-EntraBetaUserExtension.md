@@ -4,7 +4,7 @@ description: This article provides details on the Set-EntraBetaUserExtension com
 external help file: Microsoft.Entra.Beta.Users-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Users
 ms.author: eunicewaweru
 ms.date: 03/16/2025
 ms.reviewer: stevemutungi

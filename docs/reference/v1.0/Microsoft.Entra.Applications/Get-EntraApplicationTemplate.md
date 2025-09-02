@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraApplicationTemplate c
 external help file: Microsoft.Entra.Applications-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Applications
 ms.author: eunicewaweru
 ms.date: 02/17/2025
 ms.reviewer: stevemutungi

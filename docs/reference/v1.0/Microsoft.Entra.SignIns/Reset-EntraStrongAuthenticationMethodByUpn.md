@@ -4,7 +4,7 @@ description: This article provides details on the Reset-EntraStrongAuthenticatio
 external help file: Microsoft.Entra.SignIns-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.SignIns
 ms.author: eunicewaweru
 ms.date: 03/20/2025
 ms.reviewer: stevemutungi

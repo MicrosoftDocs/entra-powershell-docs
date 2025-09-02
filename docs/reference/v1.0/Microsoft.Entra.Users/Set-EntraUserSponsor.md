@@ -4,7 +4,7 @@ description: This article provides details on the Set-EntraUserSponsor command.
 external help file: Microsoft.Entra.Beta.Users-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Users
 ms.author: eunicewaweru
 ms.date: 03/10/2025
 ms.reviewer: dbutoyi

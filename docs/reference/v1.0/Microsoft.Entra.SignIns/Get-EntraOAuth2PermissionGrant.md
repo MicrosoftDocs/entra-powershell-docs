@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraOAuth2PermissionGrant
 external help file: Microsoft.Entra.SignIns-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.SignIns
 ms.author: eunicewaweru
 ms.date: 10/16/2024
 ms.reviewer: stevemutungi

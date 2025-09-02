@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraContext command.
 external help file: Microsoft.Entra.Beta.Authentication-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Authentication
 ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutung

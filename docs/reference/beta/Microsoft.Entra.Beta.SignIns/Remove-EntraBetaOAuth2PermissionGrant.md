@@ -3,7 +3,7 @@ description: This article provides details on the Remove-EntraBetaOAuth2Permissi
 external help file: Microsoft.Entra.Beta.SignIns-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.SignIns
 ms.author: eunicewaweru
 ms.date: 08/09/2024
 ms.reviewer: stevemutungi

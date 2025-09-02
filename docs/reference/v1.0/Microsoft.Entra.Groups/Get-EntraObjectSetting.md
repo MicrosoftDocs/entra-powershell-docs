@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraObjectSetting command
 external help file: Microsoft.Entra.Groups-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Groups
 ms.author: eunicewaweru
 ms.date: 07/03/2024
 ms.reviewer: stevemutungi

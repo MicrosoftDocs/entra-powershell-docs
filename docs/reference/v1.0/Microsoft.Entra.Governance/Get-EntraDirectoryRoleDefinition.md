@@ -3,7 +3,7 @@ description: This article provides details on the Get-EntraDirectoryRoleDefiniti
 external help file: Microsoft.Entra.Governance-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Governance
 ms.author: eunicewaweru
 ms.date: 06/26/2024
 ms.reviewer: stevemutungi

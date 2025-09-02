@@ -4,7 +4,7 @@ description: This article provides details on the Remove-EntraBetaDeletedDirecto
 external help file: Microsoft.Entra.Beta.Applications-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 08/07/2024
 ms.reviewer: stevemutungi

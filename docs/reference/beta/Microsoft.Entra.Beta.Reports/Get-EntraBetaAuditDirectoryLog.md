@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraBetaAuditDirectoryLog
 external help file: Microsoft.Entra.Beta.Reports-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Reports
 ms.author: eunicewaweru
 ms.date: 02/08/2025
 ms.reviewer: stevemutungi

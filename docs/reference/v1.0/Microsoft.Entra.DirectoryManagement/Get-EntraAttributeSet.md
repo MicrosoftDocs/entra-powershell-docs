@@ -3,7 +3,7 @@ description: This article provides details on the Get-EntraAttributeSet command.
 external help file: Microsoft.Entra.DirectoryManagement-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 07/19/2024
 ms.reviewer: stevemutungi

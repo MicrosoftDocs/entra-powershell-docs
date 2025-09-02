@@ -4,7 +4,7 @@ description: This article provides details on the Enable-EntraBetaDirectoryRole 
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 07/19/2024
 ms.reviewer: stevemutungi

@@ -3,7 +3,7 @@ description: This article provides details on the Add-EntraDirectoryRoleMember c
 external help file: Microsoft.Entra.DirectoryManagement-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 02/06/2025
 ms.reviewer: stevemutungi

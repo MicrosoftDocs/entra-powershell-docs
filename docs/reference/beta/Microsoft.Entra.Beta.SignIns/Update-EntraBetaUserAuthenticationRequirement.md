@@ -4,7 +4,7 @@ description: This article provides details on the Update-EntraBetaUserAuthentica
 external help file: Microsoft.Entra.Beta.SignIns-help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.SignIns
 ms.author: eunicewaweru
 ms.date: 11/11/2024
 ms.reviewer: stevemutungi

@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraAuditDirectoryLog com
 external help file: Microsoft.Entra.Reports-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Reports
 ms.author: eunicewaweru
 ms.date: 02/08/2025
 ms.reviewer: stevemutungi

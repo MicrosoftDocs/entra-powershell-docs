@@ -4,7 +4,7 @@ description: This article provides details on the Remove-EntraFeatureRolloutPoli
 external help file: Microsoft.Entra.SignIns-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.SignIns
 ms.author: eunicewaweru
 ms.date: 07/22/2024
 ms.reviewer: stevemutungi

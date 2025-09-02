@@ -3,7 +3,7 @@ description: This article provides details on the Remove-EntraBetaGroupAppRoleAs
 external help file: Microsoft.Entra.Beta.Groups-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Groups
 ms.author: eunicewaweru
 ms.date: 07/26/2024
 ms.reviewer: stevemutungi

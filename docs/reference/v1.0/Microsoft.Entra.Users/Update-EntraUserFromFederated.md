@@ -4,7 +4,7 @@ description: This article provides details on the Update-EntraUserFromFederated 
 external help file: Microsoft.Entra.Users-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Users
 ms.author: eunicewaweru
 ms.date: 02/23/2025
 ms.reviewer: stevemutungi

@@ -4,7 +4,7 @@ description: This article provides details on the Update-EntraOauth2PermissionGr
 external help file: Microsoft.Entra.DirectoryManagement-help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.SignIns
 ms.author: eunicewaweru
 ms.date: 11/01/2024
 ms.reviewer: stevemutungi

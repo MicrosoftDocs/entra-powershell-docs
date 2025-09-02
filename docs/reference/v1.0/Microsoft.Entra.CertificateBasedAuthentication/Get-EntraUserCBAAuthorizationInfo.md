@@ -4,7 +4,7 @@ description: Retrieves authorization information for a Microsoft Entra ID user, 
 external help file: Microsoft.Entra.CertificateBasedAuthentication-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.CertificateBasedAuthentication
 ms.author: eunicewaweru
 ms.date: 04/13/2025
 ms.reviewer: stevemutungi

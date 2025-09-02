@@ -4,7 +4,7 @@ description: This article provides details on the New-EntraBetaUserAppRoleAssign
 external help file: Microsoft.Entra.Beta.Users-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Users
 ms.author: eunicewaweru
 ms.date: 07/25/2024
 ms.reviewer: stevemutungi

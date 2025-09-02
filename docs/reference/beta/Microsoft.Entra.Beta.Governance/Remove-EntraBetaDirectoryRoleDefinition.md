@@ -3,7 +3,7 @@ description: This article provides details on the Remove-EntraBetaDirectoryRoleD
 external help file: Microsoft.Entra.Beta.Governance-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Governance
 ms.author: eunicewaweru
 ms.date: 07/22/2024
 ms.reviewer: stevemutungi

@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraAuthenticationMethodU
 external help file: Microsoft.Entra.Reports-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.Reports
 ms.author: eunicewaweru
 ms.date: 03/23/2025
 ms.reviewer: stevemutungi

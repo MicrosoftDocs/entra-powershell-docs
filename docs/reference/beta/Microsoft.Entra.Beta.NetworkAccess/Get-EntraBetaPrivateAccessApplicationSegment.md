@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraBetaPrivateAccessAppl
 external help file: Microsoft.Entra.Beta.NetworkAccess-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.NetworkAccess
 ms.author: eunicewaweru
 ms.date: 06/26/2024
 ms.topic: reference

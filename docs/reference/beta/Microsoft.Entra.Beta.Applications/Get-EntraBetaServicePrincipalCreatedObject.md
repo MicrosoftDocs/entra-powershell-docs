@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraBetaServicePrincipalC
 external help file: Microsoft.Entra.Beta.Applications-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Applications
 ms.author: eunicewaweru
 ms.date: 07/31/2024
 ms.reviewer: stevemutungi

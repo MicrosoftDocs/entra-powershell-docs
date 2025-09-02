@@ -4,7 +4,7 @@ description: This article provides details on the New-EntraBetaAdministrativeUni
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 02/12/2025
 ms.reviewer: stevemutungi

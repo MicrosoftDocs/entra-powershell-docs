@@ -4,7 +4,7 @@ description: This article provides details on the Set-EntraCustomSecurityAttribu
 external help file: Microsoft.Entra.DirectoryManagement-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra
+Module Name: Microsoft.Entra.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 07/11/2024
 ms.reviewer: stevemutungi

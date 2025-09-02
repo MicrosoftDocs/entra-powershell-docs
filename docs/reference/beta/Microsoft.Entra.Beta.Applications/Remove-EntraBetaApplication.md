@@ -4,7 +4,7 @@ description: This article provides details on the Remove-EntraBetaApplication co
 external help file: Microsoft.Entra.Beta.Applications-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.Applications
 ms.author: eunicewaweru
 ms.date: 06/17/2024
 ms.reviewer: stevemutungi

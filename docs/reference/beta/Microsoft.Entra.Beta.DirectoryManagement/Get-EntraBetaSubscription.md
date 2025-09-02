@@ -4,7 +4,7 @@ description: This article provides details on the Get-EntraBetaSubscription comm
 external help file: Microsoft.Entra.Beta.DirectoryManagement-Help.xml
 Locale: en-US
 manager: mwongerapk
-Module Name: Microsoft.Entra.Beta
+Module Name: Microsoft.Entra.Beta.DirectoryManagement
 ms.author: eunicewaweru
 ms.date: 03/10/2025
 ms.reviewer: stevemutungi
