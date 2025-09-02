@@ -40,7 +40,7 @@ Disabling the account instantly blocks the user from accessing company resources
 ```powershell
 Connect-Entra -Scopes 'Directory.AccessAsUser.All'
 $securePassword = ConvertTo-SecureString 'Some-strong-random-password' -AsPlainText -Force
-Set-EntraUserPassword -ObjectId 'SawyerM@contoso.com' -Password $securePassword
+Set-EntraUserPasswordProfile -ObjectId 'SawyerM@contoso.com' -Password $securePassword
 ```
 
 Resetting the user's password ensures they can't use their old credentials to access company resources before their account is disabled or deleted. This process prevents unauthorized access and potential misuse of the account.

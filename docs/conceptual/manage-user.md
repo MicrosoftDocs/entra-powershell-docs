@@ -99,7 +99,7 @@ Adele Vance aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb      adelev@contoso.com
     Connect-Entra -Scopes 'Directory.AccessAsUser.All'
     $newPassword = '<strong-password>'
     $securePassword = ConvertTo-SecureString $newPassword -AsPlainText -Force
-    Set-EntraUserPassword -UserId 'SawyerM@contoso.com' -Password $securePassword
+    Set-EntraUserPasswordProfile -UserId 'SawyerM@contoso.com' -Password $securePassword
     ```
 
 1. To update the password for the signed-in user (self-serve), use this command:
@@ -108,7 +108,7 @@ Adele Vance aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb      adelev@contoso.com
     Connect-Entra -Scopes 'Directory.AccessAsUser.All'
     $currentPassword = ConvertTo-SecureString '<strong-password>' -AsPlainText -Force
     $newPassword = ConvertTo-SecureString '<strong-password>' -AsPlainText -Force
-    Update-EntraSignedInUserPassword -CurrentPassword $currentPassword -NewPassword $newPassword
+    Set-EntraSignedInUserPassword -CurrentPassword $currentPassword -NewPassword $newPassword
     ```
 
     This command allows users to change their own passwords without admin privileges.

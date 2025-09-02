@@ -1032,7 +1032,7 @@ Adds or removes licenses for a Microsoft online service to the list of assigned 
 
 Updates a user's manager.
 
-### [Set-EntraUserPassword](Set-EntraUserPassword.md)
+### [Set-EntraUserPasswordProfile](Set-EntraUserPasswordProfile.md)
 
 Sets the password of a user.
 
@@ -1052,7 +1052,7 @@ Checks if the provided script uses Azure AD commands compatible with the Microso
 
 Update the properties of a delegated permission grant (oAuth2PermissionGrant object).
 
-### [Update-EntraSignedInUserPassword](Update-EntraSignedInUserPassword.md)
+### [Set-EntraSignedInUserPassword](Set-EntraSignedInUserPassword.md)
 
 Updates the password for the signed-in user.
 
