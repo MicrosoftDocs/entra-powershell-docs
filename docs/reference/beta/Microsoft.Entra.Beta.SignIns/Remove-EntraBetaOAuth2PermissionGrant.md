@@ -86,4 +86,4 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 [Get-EntraBetaOAuth2PermissionGrant](Get-EntraBetaOAuth2PermissionGrant.md)
 
-[Get-EntraBetaServicePrincipal](Get-EntraBetaServicePrincipal.md)
+[Get-EntraBetaServicePrincipal](../Microsoft.Entra.Beta.Applications/Get-EntraBetaServicePrincipal.md)

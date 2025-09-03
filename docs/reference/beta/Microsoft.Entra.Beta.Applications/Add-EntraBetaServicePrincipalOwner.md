@@ -114,6 +114,6 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 [Get-EntraBetaServicePrincipalOwner](Get-EntraBetaServicePrincipalOwner.md)
 
-[Get-EntraBetaUser](Get-EntraBetaUser.md)
+[Get-EntraBetaUser](../Microsoft.Entra.Beta.Users/Get-EntraBetaUser.md)
 
 [Remove-EntraBetaServicePrincipalOwner](Remove-EntraBetaServicePrincipalOwner.md)
