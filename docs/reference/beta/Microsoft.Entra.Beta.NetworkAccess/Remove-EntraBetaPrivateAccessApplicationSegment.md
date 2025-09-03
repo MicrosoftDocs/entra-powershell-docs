@@ -105,4 +105,4 @@ System.Nullable\`1\[\[System. Boolean, mscorlib, Version=4.0.0.0, Culture=neutra
 
 [New-EntraBetaPrivateAccessApplicationSegment](New-EntraBetaPrivateAccessApplicationSegment.md)
 
-[Get-EntraBetaApplication](Get-EntraBetaApplication.md)
+[Get-EntraBetaApplication](../Microsoft.Entra.Beta.Applications/Get-EntraBetaApplication.md)
