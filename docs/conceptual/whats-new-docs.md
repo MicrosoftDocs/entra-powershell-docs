@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/02/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -73,7 +73,33 @@ Improvements based on module usability and docs bug bash feedback:
 
 :::zone pivot="module-version-history"
 
-## The latest (recommended) version
+## Latest (recommended) version
+
+- [Version 1.0.11][posh-1.0.11] - **August 2025**
+
+  - **Bug Fixes**:
+    - Updated cmdlet binding for `Remove-EntraBetaPrivateAccessApplicationSegment` command. PR [#1524](https://github.com/microsoftgraph/entra-powershell/pull/1524)
+
+  - **Cmdlet Enhancements**:
+    - Updated the verb on `Update-EntraSignedInUserPassword` command to `Set-EntraSignedInUserPassword`. PR [#1516](https://github.com/microsoftgraph/entra-powershell/pull/1516)
+    - Updated the command name `Set-EntraUserPassword` to `Set-EntraUserPasswordProfile` and the corresponding parameters. PR [#1519](https://github.com/microsoftgraph/entra-powershell/pull/1519)
+    - Removed `Microsoft.Graph.Users.Functions` dependency for performance improvement. PR [#1521](https://github.com/microsoftgraph/entra-powershell/pull/1521)
+
+## Module version history
+
+- [Version 1.0.10][posh-1.0.10] - **July 2025**
+
+  - **New Commands**:
+    - [New-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra/new-entraserviceprincipalkeycredential). PR [#1487](https://github.com/microsoftgraph/entra-powershell/pull/1487)
+
+  - **Bug Fixes**:
+    - Fixed `Remove-EntraUserExtension`. PR [#1509](https://github.com/microsoftgraph/entra-powershell/pull/1509)
+
+  - **Documentation enhancements**:
+    - Updates to comply with Platy PS v2 pipeline. PRs [#1498](https://github.com/microsoftgraph/entra-powershell/pull/1498), [#1501](https://github.com/microsoftgraph/entra-powershell/pull/1501), and [#1506](https://github.com/microsoftgraph/entra-powershell/pull/1506)
+
+  - **Other Enhancements**:
+    - Adding zero-trust assessments samples. PR [#1341](https://github.com/microsoftgraph/entra-powershell/pull/1341)
 
 - [Version 1.0.9][posh-1.0.9] - **June 2025**
 
@@ -89,30 +115,10 @@ Improvements based on module usability and docs bug bash feedback:
     - Added `NewUserPrincipalName` parameter to `Restore-EntraDeletedDirectoryObject`. PR [#1497](https://github.com/microsoftgraph/entra-powershell/pull/1497).
 
   - **Documentation enhancements**:
-    - Enhanced cmdlets examples.
-    - Updated `Add-EntraDeviceRegisteredOwner` permissions.
-
-## Module version history
-
-- [Version 1.0.8][posh-1.0.8] - **May 2025**
-
-  - **New Commands**:
-    - [Test-EntraScript](/powershell/module/microsoft.entra/test-entrascript)
-
-  - **Bug Fixes and command improvements**:
-    - Fixed - Sub-modules must have the same version as the root module. PR [#1464](https://github.com/microsoftgraph/entra-powershell/pull/1464).
-    - Fixed return service principals in `Get-EntraGroupOwner` response. PR [#1470](https://github.com/microsoftgraph/entra-powershell/pull/1470).
-    - Fixed OdataId uris. PR [#1480](https://github.com/microsoftgraph/entra-powershell/pull/1480).
-
-- [Version 1.0.7][posh-1.0.7] - **May 2025**
-
-  - **Bug Fixes and command improvements**:
-    - Replaced dash with hyphen in Group functions. PR [#1450](https://github.com/microsoftgraph/entra-powershell/pull/1450).
-    - Fixed `New-EntraApplication` multiple RequiredResourceAccess entries failure. PR [#1458](https://github.com/microsoftgraph/entra-powershell/pull/1458).
-    - Fixed `Get-EntraUserExtension` for parity with `Get-AzureADUserExtension`. PR [#1451](https://github.com/microsoftgraph/entra-powershell/pull/1451).
+    - Update `Add-EntraDeviceRegisteredOwner` permissions
 
 :::zone-end
 
+[posh-1.0.11]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.11
+[posh-1.0.10]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.10
 [posh-1.0.9]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.9
-[posh-1.0.8]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.8
-[posh-1.0.7]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.7
