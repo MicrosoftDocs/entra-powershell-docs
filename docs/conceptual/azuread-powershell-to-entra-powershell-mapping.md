@@ -410,7 +410,7 @@ The Microsoft Entra PowerShell module is over 98% compatible with the Azure AD a
 | Set-MsolServicePrincipal| [Set-EntraServicePrincipal](/powershell/module/microsoft.entra/Set-EntraServicePrincipal) |
 | Set-MsolUser| [Set-EntraUser](/powershell/module/microsoft.entra/Set-EntraUser) |
 | Set-MsolUserLicense| [Set-EntraUserLicense](/powershell/module/microsoft.entra/Set-EntraUserLicense) |
-| Set-MsolUserPassword| [Set-EntraUserPassword](/powershell/module/microsoft.entra/Set-EntraUserPassword) |
+| Set-MsolUserPassword| [Set-EntraUserPasswordProfile](/powershell/module/microsoft.entra/Set-EntraUserPasswordProfile) |
 | Set-MsolUserPrincipalName| [Set-EntraUser](/powershell/module/microsoft.entra/Set-EntraUser) |
 
 :::zone-end
