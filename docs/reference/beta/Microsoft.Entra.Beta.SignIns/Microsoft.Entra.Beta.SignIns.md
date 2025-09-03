@@ -85,8 +85,6 @@ Retrieve a list of a user's registered authentication methods.
 
 Retrieve the authentication method status of a user.
 
-### [Microsoft.Entra.Beta.SignIns](Microsoft.Entra.Beta.SignIns.md)
-
 ### [New-EntraBetaConditionalAccessPolicy](New-EntraBetaConditionalAccessPolicy.md)
 
 Creates a new conditional access policy in Microsoft Entra ID.

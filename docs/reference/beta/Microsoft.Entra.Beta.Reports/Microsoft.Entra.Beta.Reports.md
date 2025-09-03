@@ -40,6 +40,4 @@ List the user's registered authentication methods.
 
 Get cross-tenant user sign-in activity.
 
-### [Microsoft.Entra.Beta.Reports](Microsoft.Entra.Beta.Reports.md)
-
 

@@ -28,6 +28,4 @@ Get audit logs of sign-ins.
 
 List the user's registered authentication methods.
 
-### [Microsoft.Entra.Reports](Microsoft.Entra.Reports.md)
-
 

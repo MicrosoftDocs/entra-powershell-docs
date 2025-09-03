@@ -112,8 +112,6 @@ Get the owner of a service principal.
 
 Get credentials for a service principal.
 
-### [Microsoft.Entra.Applications](Microsoft.Entra.Applications.md)
-
 ### [New-EntraApplication](New-EntraApplication.md)
 
 Creates a new application registration in Microsoft Entra ID.

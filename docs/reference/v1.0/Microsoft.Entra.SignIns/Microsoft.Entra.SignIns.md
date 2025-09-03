@@ -60,8 +60,6 @@ Gets the trusted certificate authority.
 
 Retrieve a list of a user's registered authentication methods.
 
-### [Microsoft.Entra.SignIns](Microsoft.Entra.SignIns.md)
-
 ### [New-EntraConditionalAccessPolicy](New-EntraConditionalAccessPolicy.md)
 
 Creates a new conditional access policy in Microsoft Entra ID.

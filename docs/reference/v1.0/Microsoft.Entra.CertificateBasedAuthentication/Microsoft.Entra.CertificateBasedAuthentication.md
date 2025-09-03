@@ -24,8 +24,6 @@ Retrieves authorization information for a Microsoft Entra ID user, including cer
 
 Returns an object with the certificate values needed to configure CertificateUserIDs for Certificate-Based Authentication in Microsoft Entra ID.
 
-### [Microsoft.Entra.CertificateBasedAuthentication](Microsoft.Entra.CertificateBasedAuthentication.md)
-
 ### [Set-EntraUserCBACertificateUserId](Set-EntraUserCBACertificateUserId.md)
 
 Sets certificate-based authentication user IDs for a user in Microsoft Entra ID using a certificate file or object.

@@ -32,8 +32,6 @@ Retrieves a list of all Private Access applications, or if specified, details of
 
 Retrieves a list of all application segments associated to a Private Access application, or if specified, details of a specific application segment.
 
-### [Microsoft.Entra.Beta.NetworkAccess](Microsoft.Entra.Beta.NetworkAccess.md)
-
 ### [New-EntraBetaPrivateAccessApplication](New-EntraBetaPrivateAccessApplication.md)
 
 Creates a Private Access application and assigns a connector group to it.

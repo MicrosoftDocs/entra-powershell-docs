@@ -40,8 +40,6 @@ Retrieve information about your current session
 
 Gets global public Environments.
 
-### [Microsoft.Entra.Authentication](Microsoft.Entra.Authentication.md)
-
 ### [Revoke-EntraSignedInUserAllRefreshToken](Revoke-EntraSignedInUserAllRefreshToken.md)
 
 Invalidates the refresh tokens issued to applications for the current user.

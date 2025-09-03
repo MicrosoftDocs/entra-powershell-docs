@@ -65,8 +65,6 @@ Retrieves the lifecycle policy object to which a group belongs.
 
 Gets an object setting.
 
-### [Microsoft.Entra.Beta.Groups](Microsoft.Entra.Beta.Groups.md)
-
 ### [New-EntraBetaGroup](New-EntraBetaGroup.md)
 
 Creates a Microsoft Entra ID group.

@@ -96,8 +96,6 @@ Retrieve a user's sponsors (users or groups).
 
 Retrieve the thumbnail photo of a user.
 
-### [Microsoft.Entra.Users](Microsoft.Entra.Users.md)
-
 ### [New-EntraUser](New-EntraUser.md)
 
 Creates a Microsoft Entra ID user.

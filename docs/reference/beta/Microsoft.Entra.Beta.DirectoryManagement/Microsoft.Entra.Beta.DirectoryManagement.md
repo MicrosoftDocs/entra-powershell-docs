@@ -200,8 +200,6 @@ List the organization's commercial subscriptions.
 
 Gets the details of a tenant.
 
-### [Microsoft.Entra.Beta.DirectoryManagement](Microsoft.Entra.Beta.DirectoryManagement.md)
-
 ### [New-EntraBetaAdministrativeUnit](New-EntraBetaAdministrativeUnit.md)
 
 Creates an administrative unit.

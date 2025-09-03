@@ -24,8 +24,6 @@ Get a Microsoft Entra ID roleAssignment.
 
 Gets information about role definitions in Microsoft Entra ID.
 
-### [Microsoft.Entra.Governance](Microsoft.Entra.Governance.md)
-
 ### [New-EntraDirectoryRoleAssignment](New-EntraDirectoryRoleAssignment.md)
 
 Create a new Microsoft Entra ID roleAssignment.

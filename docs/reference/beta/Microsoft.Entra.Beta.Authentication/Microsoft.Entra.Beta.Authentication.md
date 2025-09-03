@@ -28,8 +28,6 @@ Disconnects the current session from a Microsoft Entra ID tenant.
 
 Retrieve information about your current session.
 
-### [Microsoft.Entra.Beta.Authentication](Microsoft.Entra.Beta.Authentication.md)
-
 ### [Revoke-EntraBetaSignedInUserAllRefreshToken](Revoke-EntraBetaSignedInUserAllRefreshToken.md)
 
 Invalidates the refresh tokens issued to applications for the current user.

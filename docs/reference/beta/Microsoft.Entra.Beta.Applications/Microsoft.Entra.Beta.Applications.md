@@ -148,8 +148,6 @@ Get the owner of a service principal.
 
 Get credentials for a service principal.
 
-### [Microsoft.Entra.Beta.Applications](Microsoft.Entra.Beta.Applications.md)
-
 ### [New-EntraBetaApplication](New-EntraBetaApplication.md)
 
 Creates a new application registration in Microsoft Entra ID.
