@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/02/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
