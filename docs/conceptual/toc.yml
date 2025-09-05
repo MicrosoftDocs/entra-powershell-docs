@@ -53,6 +53,8 @@ items:
     href: manage-roles.md
   - name: Grant and revoke API permissions
     href: how-to-grant-revoke-api-permissions.md    
+  - name: Grant API permissions to managed identities
+    href: grant-api-permissions-managed-identity.md
   - name: Create a custom application
     href: create-custom-application.md
   - name: Create a self-signed public certificate
