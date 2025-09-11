@@ -3,14 +3,12 @@
     "packageRoot": "reference/v1.0",
     "conceptualToc": "conceptual/toc.yml",
     "conceptualTocUrl": "/powershell/entra-powershell/toc.json",
-    "referenceTocUrl": "/powershell/module/entra-powershell/toc.json",
-    "serviceMap": "mapping/entra-serviceMapping-1.0.json"
+    "referenceTocUrl": "/powershell/module/entra-powershell/toc.json"
   },
   "entra-powershell-beta": {
     "packageRoot": "reference/beta",
     "conceptualToc": "conceptual/toc.yml",
     "conceptualTocUrl": "/powershell/entra-powershell/toc.json",
-    "referenceTocUrl": "/powershell/module/entra-powershell/toc.json",
-    "serviceMap": "mapping/entra-serviceMapping-beta.json"
+    "referenceTocUrl": "/powershell/module/entra-powershell/toc.json"
   }
 }
