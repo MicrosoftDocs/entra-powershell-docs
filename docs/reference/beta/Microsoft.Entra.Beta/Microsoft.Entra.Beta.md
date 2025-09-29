@@ -12,7 +12,7 @@ title: Microsoft.Entra.Beta
 
 ## Description
 
-This module contains cmdlets that designed to work with Microsoft.Entra.Applications.
+This module contains cmdlets that designed to work with Microsoft.Entra.Beta.
 
 ## Microsoft.Entra.Beta Cmdlets
 
@@ -22,5 +22,6 @@ Enables aliases for AzureAD commands.
 
 ### [Test-EntraScript](Test-EntraScript.md)
 
-Checks if the provided script uses Azure AD commands compatible with the Microsoft Entra PowerShell module.
+Check whether the provided script uses AzureAD commands not supported by Microsoft Entra PowerShell.
+
 
