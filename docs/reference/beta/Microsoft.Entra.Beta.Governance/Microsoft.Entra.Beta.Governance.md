@@ -51,7 +51,6 @@ Create a new Microsoft Entra ID roleAssignment.
 Create a new Microsoft Entra ID roleDefinition.
 
 ### [New-EntraBetaPrivilegedRoleAssignment](New-EntraBetaPrivilegedRoleAssignment.md)
-
 {{ Fill in the Synopsis }}
 
 ### [Remove-EntraBetaDirectoryRoleAssignment](Remove-EntraBetaDirectoryRoleAssignment.md)
@@ -71,7 +70,6 @@ Add existing application users to Microsoft Entra ID and assign them roles.
 Update an existing Microsoft Entra ID roleDefinition.
 
 ### [Set-EntraBetaPrivilegedRoleAssignmentRequest](Set-EntraBetaPrivilegedRoleAssignmentRequest.md)
-
 Update a role assignment request
 
 ### [Set-EntraBetaPrivilegedRoleSetting](Set-EntraBetaPrivilegedRoleSetting.md)
