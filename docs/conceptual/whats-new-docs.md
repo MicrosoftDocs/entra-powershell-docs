@@ -84,8 +84,8 @@ Improvements based on module usability and docs bug bash feedback:
   - **Cmdlet Enhancements**:
     - We have added the `-AppendSelected` parameter to high usage cmdlets in applications, users, and groups sub-modules. PR [#1518](https://github.com/microsoftgraph/entra-powershell/pull/1518)
     - Implemented authentication checks across all cmdlets to indicate the correct permissions in case of a failed connection using `Connect-Entra`.
-    - Updated the -Features parameter under Set-EntraDirSyncFeature command to allow processing of multiple features at once.. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
-    - Extended the Get-EntraUser command to include -PageSize parameter. PR [#1526](https://github.com/microsoftgraph/entra-powershell/pull/1526)
+    - Updated the `-Features` parameter under `Set-EntraDirSyncFeature` command to allow processing of multiple features at once.. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
+    - Extended the `Get-EntraUser` command to include `-PageSize` parameter. PR [#1526](https://github.com/microsoftgraph/entra-powershell/pull/1526)
 
 ## Module version history
 
@@ -102,7 +102,7 @@ Improvements based on module usability and docs bug bash feedback:
 - [Version 1.0.10][posh-1.0.10] - **July 2025**
 
   - **New Commands**:
-    - [New-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra/new-entraserviceprincipalkeycredential). PR [#1487](https://github.com/microsoftgraph/entra-powershell/pull/1487)
+    - [New-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra.applications/new-entraserviceprincipalkeycredential). PR [#1487](https://github.com/microsoftgraph/entra-powershell/pull/1487)
 
   - **Bug Fixes**:
     - Fixed `Remove-EntraUserExtension`. PR [#1509](https://github.com/microsoftgraph/entra-powershell/pull/1509)
