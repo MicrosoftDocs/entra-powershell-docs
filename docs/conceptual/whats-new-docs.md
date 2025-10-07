@@ -75,22 +75,34 @@ Improvements based on module usability and docs bug bash feedback:
 
 ## Latest (recommended) version
 
-- [Version 1.0.11][posh-1.0.11] - **August 2025**
+- [Version 1.0.12][posh-1.0.12] - **September 2025**
 
   - **Bug Fixes**:
-    - Updated cmdlet binding for `Remove-EntraBetaPrivateAccessApplicationSegment` command. PR [#1524](https://github.com/microsoftgraph/entra-powershell/pull/1524)
+    - Moved `Get-EntraUnsupportedCommand` to the root modules - Microsoft.Entra and Microsoft.Entra.Beta - and removed it from sub-modules to align with its usage in `Enable-EntraAzureADAlias`. PR [#1543](https://github.com/microsoftgraph/entra-powershell/pull/1543)
+    - Enabled `Enable-EntraAzureADAlias` cmdlet in the beta module. PR [#1542](https://github.com/microsoftgraph/entra-powershell/pull/1542)
+
+  - **Cmdlet Enhancements**:
+    - Added the `-AppendSelected` parameter to high usage cmdlets in applications, users, and groups sub-modules. PR [#1518](https://github.com/microsoftgraph/entra-powershell/pull/1518)
+    - Implemented authentication checks across all cmdlets to indicate the correct permissions in case of a failed connection using `Connect-Entra`.
+    - Updated the `-Features` parameter under `Set-EntraDirSyncFeature` command to allow processing of multiple features at once.. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
+    - Extended the `Get-EntraUser` command to include `-PageSize` parameter. PR [#1526](https://github.com/microsoftgraph/entra-powershell/pull/1526)
+
+## Module version history
+
+[Version 1.0.11][posh-1.0.11] - **August 2025**
+
+- **Bug Fixes**:
+  - Updated cmdlet binding for `Remove-EntraBetaPrivateAccessApplicationSegment` command. PR [#1524](https://github.com/microsoftgraph/entra-powershell/pull/1524)
 
   - **Cmdlet Enhancements**:
     - Updated the verb on `Update-EntraSignedInUserPassword` command to `Set-EntraSignedInUserPassword`. PR [#1516](https://github.com/microsoftgraph/entra-powershell/pull/1516)
     - Updated the command name `Set-EntraUserPassword` to `Set-EntraUserPasswordProfile` and the corresponding parameters. PR [#1519](https://github.com/microsoftgraph/entra-powershell/pull/1519)
     - Removed `Microsoft.Graph.Users.Functions` dependency for performance improvement. PR [#1521](https://github.com/microsoftgraph/entra-powershell/pull/1521)
 
-## Module version history
-
 - [Version 1.0.10][posh-1.0.10] - **July 2025**
 
   - **New Commands**:
-    - [New-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra/new-entraserviceprincipalkeycredential). PR [#1487](https://github.com/microsoftgraph/entra-powershell/pull/1487)
+    - [New-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra.applications/new-entraserviceprincipalkeycredential). PR [#1487](https://github.com/microsoftgraph/entra-powershell/pull/1487)
 
   - **Bug Fixes**:
     - Fixed `Remove-EntraUserExtension`. PR [#1509](https://github.com/microsoftgraph/entra-powershell/pull/1509)
@@ -101,24 +113,9 @@ Improvements based on module usability and docs bug bash feedback:
   - **Other Enhancements**:
     - Adding zero-trust assessments samples. PR [#1341](https://github.com/microsoftgraph/entra-powershell/pull/1341)
 
-- [Version 1.0.9][posh-1.0.9] - **June 2025**
-
-  - **New Commands**:
-    - [Get-EntraInactiveSigninUser](/powershell/module/microsoft.entra/get-entrainactivesigninuser) to retrieve users without an interactive sign-in since a specified number of days ago.
-  
-  - **Bug Fixes and command improvements**:
-    - Fixed Visibility parameter validation in `Set-EntraGroup`. PR [#1488](https://github.com/microsoftgraph/entra-powershell/pull/1488).
-    - Fixed `NewEntraApplicationKeyCredential`.PR [#1491](https://github.com/microsoftgraph/entra-powershell/pull/1491).
-    - Fixed metadata to support new PlatyPS build pipeline. PR [#1493](https://github.com/microsoftgraph/entra-powershell/pull/1493).
-    - Fixed `New-EntraBetaPrivateAccessApplication` cmdletbinding. PR [#1495](https://github.com/microsoftgraph/entra-powershell/pull/1495).
-    - Added `ResetRedemption` parameter. PR [#1485](https://github.com/microsoftgraph/entra-powershell/pull/1485).
-    - Added `NewUserPrincipalName` parameter to `Restore-EntraDeletedDirectoryObject`. PR [#1497](https://github.com/microsoftgraph/entra-powershell/pull/1497).
-
-  - **Documentation enhancements**:
-    - Update `Add-EntraDeviceRegisteredOwner` permissions
-
 :::zone-end
 
+[posh-1.0.12]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.12
 [posh-1.0.11]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.11
 [posh-1.0.10]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.10
-[posh-1.0.9]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.9
+
