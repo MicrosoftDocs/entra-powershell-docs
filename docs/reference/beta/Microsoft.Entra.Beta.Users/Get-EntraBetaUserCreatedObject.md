@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/08/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaUserCreatedObject
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Get-EntraBetaUserCreatedObject
 schema: 2.0.0
 title: Get-EntraBetaUserCreatedObject
 ---

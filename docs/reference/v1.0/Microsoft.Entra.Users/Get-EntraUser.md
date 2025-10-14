@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/09/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraUser
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Users/Get-EntraUser
 schema: 2.0.0
 title: Get-EntraUser
 ---
@@ -29,6 +29,7 @@ Get-EntraUser
  [-Filter <String>]
  [-All]
  [-Top <Int32>]
+ [-PageSize <Int32>]
  [-Property <String[]>]
  [<CommonParameters>]
 ```
@@ -505,6 +506,22 @@ Specifies the maximum number of records to return.
 Type: System.Int32
 Parameter Sets: GetQuery
 Aliases: Limit
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -PageSize
+
+When -PageSize is specified, the command may make multiple network calls to retrieve data in chunks (pages), continuing until it reaches the limit defined by either -Top or -All, depending on which is used.
+
+```yaml
+Type: System.Int32
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named

@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 07/03/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Set-EntraBetaAdministrativeUnit
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Set-EntraBetaAdministrativeUnit
 schema: 2.0.0
 title: Set-EntraBetaAdministrativeUnit
 ---

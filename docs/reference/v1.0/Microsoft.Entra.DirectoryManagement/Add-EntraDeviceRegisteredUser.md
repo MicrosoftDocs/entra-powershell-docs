@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Add-EntraDeviceRegisteredUser
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Add-EntraDeviceRegisteredUser
 schema: 2.0.0
 title: Add-EntraDeviceRegisteredUser
 ---
@@ -104,6 +104,6 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 [Get-EntraDeviceRegisteredUser](Get-EntraDeviceRegisteredUser.md)
 
-[Get-EntraUser](../Microsoft.Entra.Users/Get-EntraUser.md)
+[Get-EntraUser](../Users/Get-EntraUser.md)
 
 [Remove-EntraDeviceRegisteredUser](Remove-EntraDeviceRegisteredUser.md)

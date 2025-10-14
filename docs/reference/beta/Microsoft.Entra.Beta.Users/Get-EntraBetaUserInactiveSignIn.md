@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 11/08/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaUserInactiveSignIn
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Get-EntraBetaUserInactiveSignIn
 schema: 2.0.0
 title: Get-EntraBetaUserInactiveSignIn
 ---

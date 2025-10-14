@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/31/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/New-EntraBetaConditionalAccessPolicy
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.SignIns/New-EntraBetaConditionalAccessPolicy
 schema: 2.0.0
 title: New-EntraBetaConditionalAccessPolicy
 ---

@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutung
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraContext
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Authentication/Get-EntraContext
 schema: 2.0.0
 title: Get-EntraContext
 ---

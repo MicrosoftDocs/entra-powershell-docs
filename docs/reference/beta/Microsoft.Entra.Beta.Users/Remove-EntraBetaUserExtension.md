@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/17/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaUserExtension
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Remove-EntraBetaUserExtension
 schema: 2.0.0
 title: Remove-EntraBetaUserExtension
 ---

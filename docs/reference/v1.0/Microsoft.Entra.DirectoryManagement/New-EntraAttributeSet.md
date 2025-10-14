@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/19/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/New-EntraAttributeSet
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/New-EntraAttributeSet
 schema: 2.0.0
 title: New-EntraAttributeSet
 ---

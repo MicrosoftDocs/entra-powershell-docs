@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/15/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaAuditSignInLog
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Reports/Get-EntraBetaAuditSignInLog
 schema: 2.0.0
 title: Get-EntraBetaAuditSignInLog
 ---

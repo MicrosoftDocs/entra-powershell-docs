@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/25/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaUserExtension
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Get-EntraBetaUserExtension
 schema: 2.0.0
 title: Get-EntraBetaUserExtension
 ---
@@ -38,7 +38,7 @@ The `Get-EntraBetaUserExtension` cmdlet gets a user extension in Microsoft Entra
 ### Example 1: Retrieve extension attributes for a user
 
 ```powershell
-Connect-Entra -Scopes 'User.Read'
+Connect-Entra -Scopes 'User.Read.All'
 Get-EntraBetaUserExtension -UserId 'SawyerM@contoso.com'
 ```
 

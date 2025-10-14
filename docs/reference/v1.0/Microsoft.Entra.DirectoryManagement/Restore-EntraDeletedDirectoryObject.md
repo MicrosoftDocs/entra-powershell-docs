@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/08/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Restore-EntraDeletedDirectoryObject
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Restore-EntraDeletedDirectoryObject
 schema: 2.0.0
 title: Restore-EntraDeletedDirectoryObject
 ---
@@ -181,12 +181,12 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ## RELATED LINKS
 
-[Remove-EntraDeletedApplication](../Microsoft.Entra.Applications/Remove-EntraDeletedApplication.md)
+[Remove-EntraDeletedApplication](Remove-EntraDeletedApplication.md)
 
-[Restore-EntraDeletedApplication](../Microsoft.Entra.Applications/Restore-EntraDeletedApplication.md)
+[Restore-EntraDeletedApplication](Restore-EntraDeletedApplication.md)
 
 [Remove-EntraDeletedDirectoryObject](Remove-EntraDeletedDirectoryObject.md)
 
-[Get-EntraDeletedApplication](../Microsoft.Entra.Applications/Get-EntraDeletedApplication.md)
+[Get-EntraDeletedApplication](Get-EntraDeletedApplication.md)
 
 [Get-EntraDeletedDirectoryObject](Get-EntraDeletedDirectoryObject.md)

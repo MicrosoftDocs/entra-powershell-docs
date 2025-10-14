@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 08/20/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Set-EntraBetaDirSyncEnabled
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Set-EntraBetaDirSyncEnabled
 schema: 2.0.0
 title: Set-EntraBetaDirSyncEnabled
 ---

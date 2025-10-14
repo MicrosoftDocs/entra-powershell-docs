@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 04/29/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/New-EntraBetaApplication
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Applications/New-EntraBetaApplication
 schema: 2.0.0
 title: New-EntraBetaApplication
 ---

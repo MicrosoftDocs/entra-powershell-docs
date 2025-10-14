@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 08/09/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaOAuth2PermissionGrant
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.SignIns/Remove-EntraBetaOAuth2PermissionGrant
 schema: 2.0.0
 title: Remove-EntraBetaOAuth2PermissionGrant
 ---
@@ -86,4 +86,4 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 [Get-EntraBetaOAuth2PermissionGrant](Get-EntraBetaOAuth2PermissionGrant.md)
 
-[Get-EntraBetaServicePrincipal](../Microsoft.Entra.Beta.Applications/Get-EntraBetaServicePrincipal.md)
+[Get-EntraBetaServicePrincipal](../Applications/Get-EntraBetaServicePrincipal.md)

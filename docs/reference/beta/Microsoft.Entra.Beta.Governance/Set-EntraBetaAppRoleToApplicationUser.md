@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 04/10/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Set-EntraBetaAppRoleToApplicationUser
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Governance/Set-EntraBetaAppRoleToApplicationUser
 schema: 2.0.0
 title: Set-EntraBetaAppRoleToApplicationUser
 ---
@@ -234,6 +234,6 @@ How to [Govern an application's existing users](https://learn.microsoft.com/entr
 
 ## RELATED LINKS
 
-[Get-EntraBetaServicePrincipalAppRoleAssignedTo](../Microsoft.Entra.Beta.Applications/Get-EntraBetaServicePrincipalAppRoleAssignedTo.md)
+[Get-EntraBetaServicePrincipalAppRoleAssignedTo](../Applications/Get-EntraBetaServicePrincipalAppRoleAssignedTo.md)
 
-[New-EntraBetaServicePrincipalAppRoleAssignment](../Microsoft.Entra.Beta.Applications/New-EntraBetaServicePrincipalAppRoleAssignment.md)
+[New-EntraBetaServicePrincipalAppRoleAssignment](../Applications/New-EntraBetaServicePrincipalAppRoleAssignment.md)

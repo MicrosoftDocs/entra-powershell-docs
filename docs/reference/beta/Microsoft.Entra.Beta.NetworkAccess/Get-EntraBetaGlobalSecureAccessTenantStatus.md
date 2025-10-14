@@ -1,14 +1,14 @@
 ---
 author: msewaweru
 description: This article provides details on the Get-EntraBetaGlobalSecureAccessTenantStatus command.
-external help file: Microsoft.Entra.Beta.NetworkAccess-Help.xml
+external help file: Microsoft.Entra.Beta.NetworkAccess.NetworkAccess-Help.xml
 Locale: en-US
 manager: mwongerapk
 Module Name: Microsoft.Entra.Beta.NetworkAccess
 ms.author: eunicewaweru
 ms.date: 10/19/2024
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaGlobalSecureAccessTenantStatus
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.NetworkAccess/Get-EntraBetaGlobalSecureAccessTenantStatus
 reviewer: andres-canello
 schema: 2.0.0
 title: Get-EntraBetaGlobalSecureAccessTenantStatus
@@ -75,7 +75,7 @@ System.Nullable\`1\[\[System. Boolean, mscorlib, Version=4.0.0.0, Culture=neutra
 
 ## RELATED LINKS
 
-[Get-EntraBetaApplication](../Microsoft.Entra.Beta.Applications/Get-EntraBetaApplication.md)
+[Get-EntraBetaApplication](../Applications/Get-EntraBetaApplication.md)
 
 [Get-EntraBetaPrivateAccessApplicationSegment](Get-EntraBetaPrivateAccessApplicationSegment.md)
 

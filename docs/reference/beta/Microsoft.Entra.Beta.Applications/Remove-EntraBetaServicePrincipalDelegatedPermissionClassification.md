@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 08/01/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaServicePrincipalDelegatedPermissionClassification
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Applications/Remove-EntraBetaServicePrincipalDelegatedPermissionClassification
 schema: 2.0.0
 title: Remove-EntraBetaServicePrincipalDelegatedPermissionClassification
 ---

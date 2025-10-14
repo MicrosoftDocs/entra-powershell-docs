@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 08/01/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaNamedLocationPolicy
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.SignIns/Get-EntraBetaNamedLocationPolicy
 schema: 2.0.0
 title: Get-EntraBetaNamedLocationPolicy
 ---

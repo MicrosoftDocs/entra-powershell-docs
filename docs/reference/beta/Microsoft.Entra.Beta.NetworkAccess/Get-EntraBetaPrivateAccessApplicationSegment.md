@@ -1,14 +1,14 @@
 ---
 author: andres-canello
 description: This article provides details on the Get-EntraBetaPrivateAccessApplicationSegment command.
-external help file: Microsoft.Entra.Beta.NetworkAccess-Help.xml
+external help file: Microsoft.Entra.Beta.NetworkAccess.NetworkAccess-Help.xml
 Locale: en-US
 manager: mwongerapk
 Module Name: Microsoft.Entra.Beta.NetworkAccess
 ms.author: eunicewaweru
 ms.date: 06/26/2024
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaPrivateAccessApplicationSegment
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.NetworkAccess/Get-EntraBetaPrivateAccessApplicationSegment
 reviewer: andres-canello
 schema: 2.0.0
 title: Get-EntraBetaPrivateAccessApplicationSegment
@@ -126,7 +126,7 @@ System.Nullable\`1\[\[System. Boolean, mscorlib, Version=4.0.0.0, Culture=neutra
 
 ## RELATED LINKS
 
-[Get-EntraBetaApplication](../Microsoft.Entra.Beta.Applications/Get-EntraBetaApplication.md)
+[Get-EntraBetaApplication](../Applications/Get-EntraBetaApplication.md)
 
 [Remove-EntraBetaPrivateAccessApplicationSegment](Remove-EntraBetaPrivateAccessApplicationSegment.md)
 

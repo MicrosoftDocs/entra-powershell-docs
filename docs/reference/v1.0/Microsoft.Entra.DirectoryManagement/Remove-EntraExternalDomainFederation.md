@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 06/11/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Remove-EntraExternalDomainFederation
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Remove-EntraExternalDomainFederation
 schema: 2.0.0
 title: Remove-EntraExternalDomainFederation
 ---

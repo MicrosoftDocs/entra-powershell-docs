@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 06/26/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraUserDirectReport
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Users/Get-EntraUserDirectReport
 schema: 2.0.0
 title: Get-EntraUserDirectReport
 ---

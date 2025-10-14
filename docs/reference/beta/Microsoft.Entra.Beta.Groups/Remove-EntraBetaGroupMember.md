@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 06/18/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaGroupMember
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Groups/Remove-EntraBetaGroupMember
 schema: 2.0.0
 title: Remove-EntraBetaGroupMember
 ---

@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 02/08/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Add-EntraServicePrincipalOwner
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Applications/Add-EntraServicePrincipalOwner
 schema: 2.0.0
 title: Add-EntraServicePrincipalOwner
 ---
@@ -114,6 +114,6 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 [Get-EntraServicePrincipalOwner](Get-EntraServicePrincipalOwner.md)
 
-[Get-EntraUser](../Microsoft.Entra.Users/Get-EntraUser.md)
+[Get-EntraUser](../Users/Get-EntraUser.md)
 
 [Remove-EntraServicePrincipalOwner](Remove-EntraServicePrincipalOwner.md)
