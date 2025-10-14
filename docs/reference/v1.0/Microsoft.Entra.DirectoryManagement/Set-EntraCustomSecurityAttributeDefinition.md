@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/11/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Set-EntraCustomSecurityAttributeDefinition
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Set-EntraCustomSecurityAttributeDefinition
 schema: 2.0.0
 title: Set-EntraCustomSecurityAttributeDefinition
 ---

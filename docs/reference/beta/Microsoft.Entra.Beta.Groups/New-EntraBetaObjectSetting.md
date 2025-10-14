@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 08/05/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/New-EntraBetaObjectSetting
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Groups/New-EntraBetaObjectSetting
 schema: 2.0.0
 title: New-EntraBetaObjectSetting
 ---

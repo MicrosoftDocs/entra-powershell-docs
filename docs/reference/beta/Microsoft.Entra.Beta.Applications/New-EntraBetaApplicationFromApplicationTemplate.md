@@ -10,7 +10,7 @@ ms.date: 02/10/2025
 ms.reviewer: stevemutungi
 ms.service: entra
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/New-EntraBetaApplicationFromApplicationTemplate
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Applications/New-EntraBetaApplicationFromApplicationTemplate
 schema: 2.0.0
 title: New-EntraBetaApplicationFromApplicationTemplate
 ---

@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Add-EntraApplicationOwner
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Applications/Add-EntraApplicationOwner
 schema: 2.0.0
 title: Add-EntraApplicationOwner
 ---

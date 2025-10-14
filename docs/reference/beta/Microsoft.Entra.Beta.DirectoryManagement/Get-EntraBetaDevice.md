@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 06/17/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaDevice
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaDevice
 schema: 2.0.0
 title: Get-EntraBetaDevice
 ---

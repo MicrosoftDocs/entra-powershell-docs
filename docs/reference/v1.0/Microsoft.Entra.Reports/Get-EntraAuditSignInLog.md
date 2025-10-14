@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/15/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraAuditSignInLog
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Reports/Get-EntraAuditSignInLog
 schema: 2.0.0
 title: Get-EntraAuditSignInLog
 ---

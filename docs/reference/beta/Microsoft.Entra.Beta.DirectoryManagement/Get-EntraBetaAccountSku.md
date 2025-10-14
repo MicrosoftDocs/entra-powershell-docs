@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 08/19/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaAccountSku
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaAccountSku
 schema: 2.0.0
 title: Get-EntraBetaAccountSku
 ---

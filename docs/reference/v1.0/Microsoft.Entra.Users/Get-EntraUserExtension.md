@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 04/26/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraUserExtension
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Users/Get-EntraUserExtension
 schema: 2.0.0
 title: Get-EntraUserExtension
 ---

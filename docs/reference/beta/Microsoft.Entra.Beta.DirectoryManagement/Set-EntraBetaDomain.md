@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 08/09/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Set-EntraBetaDomain
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Set-EntraBetaDomain
 schema: 2.0.0
 title: Set-EntraBetaDomain
 ---

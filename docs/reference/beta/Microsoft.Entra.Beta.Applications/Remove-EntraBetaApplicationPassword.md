@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 08/02/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaApplicationPassword
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Applications/Remove-EntraBetaApplicationPassword
 schema: 2.0.0
 title: Remove-EntraBetaApplicationPassword
 ---

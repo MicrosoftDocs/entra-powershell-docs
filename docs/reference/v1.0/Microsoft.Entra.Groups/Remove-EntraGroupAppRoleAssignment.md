@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 06/26/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Remove-EntraGroupAppRoleAssignment
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Groups/Remove-EntraGroupAppRoleAssignment
 schema: 2.0.0
 title: Remove-EntraGroupAppRoleAssignment
 ---

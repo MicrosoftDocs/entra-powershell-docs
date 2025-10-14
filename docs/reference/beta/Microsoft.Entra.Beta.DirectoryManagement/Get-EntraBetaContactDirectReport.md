@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/29/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaContactDirectReport
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaContactDirectReport
 schema: 2.0.0
 title: Get-EntraBetaContactDirectReport
 ---

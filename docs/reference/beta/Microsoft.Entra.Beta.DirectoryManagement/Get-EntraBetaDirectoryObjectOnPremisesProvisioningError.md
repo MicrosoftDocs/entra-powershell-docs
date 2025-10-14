@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 01/26/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaDirectoryObjectOnPremisesProvisioningError
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaDirectoryObjectOnPremisesProvisioningError
 schema: 2.0.0
 title: Get-EntraBetaDirectoryObjectOnPremisesProvisioningError
 ---

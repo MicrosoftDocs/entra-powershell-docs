@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 04/02/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraInactiveSignInUser
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Users/Get-EntraInactiveSignInUser
 schema: 2.0.0
 title: Get-EntraInactiveSignInUser
 ---

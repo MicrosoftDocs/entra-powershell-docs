@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 07/29/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaServicePrincipalOwner
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Applications/Remove-EntraBetaServicePrincipalOwner
 schema: 2.0.0
 title: Remove-EntraBetaServicePrincipalOwner
 ---

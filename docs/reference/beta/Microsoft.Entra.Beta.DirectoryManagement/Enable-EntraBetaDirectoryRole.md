@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/19/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Enable-EntraBetaDirectoryRole
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Enable-EntraBetaDirectoryRole
 schema: 2.0.0
 title: Enable-EntraBetaDirectoryRole
 ---

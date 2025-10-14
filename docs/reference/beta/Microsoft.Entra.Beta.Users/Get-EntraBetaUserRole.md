@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 12/02/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaUserRole
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Get-EntraBetaUserRole
 schema: 2.0.0
 title: Get-EntraBetaUserRole
 ---

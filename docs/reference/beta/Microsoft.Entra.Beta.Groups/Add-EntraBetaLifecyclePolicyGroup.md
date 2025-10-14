@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/22/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Add-EntraBetaLifecyclePolicyGroup
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Groups/Add-EntraBetaLifecyclePolicyGroup
 schema: 2.0.0
 title: Add-EntraBetaLifecyclePolicyGroup
 ---

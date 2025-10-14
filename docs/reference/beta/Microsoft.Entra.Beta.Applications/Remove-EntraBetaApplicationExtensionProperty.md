@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 08/06/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaApplicationExtensionProperty
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Applications/Remove-EntraBetaApplicationExtensionProperty
 schema: 2.0.0
 title: Remove-EntraBetaApplicationExtensionProperty
 ---

@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaDeviceRegisteredOwner
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaDeviceRegisteredOwner
 schema: 2.0.0
 title: Get-EntraBetaDeviceRegisteredOwner
 ---

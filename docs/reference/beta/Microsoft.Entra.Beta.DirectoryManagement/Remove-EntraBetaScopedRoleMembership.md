@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/06/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaScopedRoleMembership
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Remove-EntraBetaScopedRoleMembership
 schema: 2.0.0
 title: Remove-EntraBetaScopedRoleMembership
 ---
