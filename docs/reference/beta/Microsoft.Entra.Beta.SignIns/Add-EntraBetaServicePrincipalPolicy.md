@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/01/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Add-EntraBetaServicePrincipalPolicy
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.SignIns/Add-EntraBetaServicePrincipalPolicy
 schema: 2.0.0
 title: Add-EntraBetaServicePrincipalPolicy
 ---

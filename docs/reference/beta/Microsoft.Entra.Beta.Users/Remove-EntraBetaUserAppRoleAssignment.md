@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/17/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Remove-EntraBetaUserAppRoleAssignment
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Remove-EntraBetaUserAppRoleAssignment
 schema: 2.0.0
 title: Remove-EntraBetaUserAppRoleAssignment
 ---

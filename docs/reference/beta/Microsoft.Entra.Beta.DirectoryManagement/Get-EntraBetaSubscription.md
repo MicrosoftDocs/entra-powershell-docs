@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 03/10/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaSubscription
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaSubscription
 schema: 2.0.0
 title: Get-EntraBetaSubscription
 ---

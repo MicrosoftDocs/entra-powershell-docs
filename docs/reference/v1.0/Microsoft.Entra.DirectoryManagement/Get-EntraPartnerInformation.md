@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 09/25/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraPartnerInformation
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Get-EntraPartnerInformation
 schema: 2.0.0
 title: Get-EntraPartnerInformation
 ---

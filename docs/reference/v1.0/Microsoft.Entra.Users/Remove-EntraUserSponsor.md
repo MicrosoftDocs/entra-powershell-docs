@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 03/07/2025
 ms.reviewer: dbutoyi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Remove-EntraUserSponsor
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Users/Remove-EntraUserSponsor
 schema: 2.0.0
 title: Remove-EntraUserSponsor
 ---

@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 03/20/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Reset-EntraBetaStrongAuthenticationMethodByUpn
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.SignIns/Reset-EntraBetaStrongAuthenticationMethodByUpn
 schema: 2.0.0
 title: Reset-EntraBetaStrongAuthenticationMethodByUpn
 ---

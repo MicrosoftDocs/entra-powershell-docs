@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 07/19/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaDirectoryRoleTemplate
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaDirectoryRoleTemplate
 schema: 2.0.0
 title: Get-EntraBetaDirectoryRoleTemplate
 ---

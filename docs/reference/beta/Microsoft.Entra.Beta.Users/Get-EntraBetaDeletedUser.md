@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 02/12/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaDeletedUser
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Get-EntraBetaDeletedUser
 schema: 2.0.0
 title: Get-EntraBetaDeletedUser
 ---

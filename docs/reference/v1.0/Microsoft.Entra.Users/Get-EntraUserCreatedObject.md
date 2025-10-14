@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/08/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraUserCreatedObject
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Users/Get-EntraUserCreatedObject
 schema: 2.0.0
 title: Get-EntraUserCreatedObject
 ---

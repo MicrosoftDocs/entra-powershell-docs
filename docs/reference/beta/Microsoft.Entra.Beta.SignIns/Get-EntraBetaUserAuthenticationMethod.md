@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 11/11/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaUserAuthenticationMethod
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.SignIns/Get-EntraBetaUserAuthenticationMethod
 schema: 2.0.0
 title: Get-EntraBetaUserAuthenticationMethod
 ---

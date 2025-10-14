@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 01/26/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraDirectoryObjectOnPremisesProvisioningError
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Get-EntraDirectoryObjectOnPremisesProvisioningError
 schema: 2.0.0
 title: Get-EntraDirectoryObjectOnPremisesProvisioningError
 ---
@@ -37,7 +37,7 @@ The `Get-EntraDirectoryObjectOnPremisesProvisioningError` returns directory sync
 ### Example 1: Get directory synchronization errors
 
 ```powershell
-Connect-Entra -Scopes 'User.Read.All', 'Directory.Read.All', 'Group.Read.All', 'Contacts.Read'
+Connect-Entra -Scopes 'User.Read.All', 'Directory.Read.All', 'Group.Read.All', 'Contacts.Read.All'
 Get-EntraDirectoryObjectOnPremisesProvisioningError | Format-Table -AutoSize
 ```
 

@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Remove-EntraContact
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Remove-EntraContact
 schema: 2.0.0
 title: Remove-EntraContact
 ---

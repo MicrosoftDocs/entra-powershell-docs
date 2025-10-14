@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 07/10/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaCustomSecurityAttributeDefinition
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaCustomSecurityAttributeDefinition
 schema: 2.0.0
 title: Get-EntraBetaCustomSecurityAttributeDefinition
 ---
@@ -55,7 +55,7 @@ In delegated scenarios with work or school accounts, the signed-in user must be 
 ### Example 1: Get a list of all custom security attribute definitions
 
 ```powershell
-Connect-Entra -Scopes 'CustomSecAttributeDefinition.Read.All, CustomSecAttributeDefinition.ReadWrite.All'
+Connect-Entra -Scopes 'CustomSecAttributeDefinition.Read.All', 'CustomSecAttributeDefinition.ReadWrite.All'
 Get-EntraBetaCustomSecurityAttributeDefinition
 ```
 
@@ -71,7 +71,7 @@ This example returns all custom security attribute definitions.
 ### Example 2: Get a specific custom security attribute definition
 
 ```powershell
-Connect-Entra -Scopes 'CustomSecAttributeDefinition.Read.All, CustomSecAttributeDefinition.ReadWrite.All'
+Connect-Entra -Scopes 'CustomSecAttributeDefinition.Read.All', 'CustomSecAttributeDefinition.ReadWrite.All'
 $attributeDefinition = Get-EntraBetaCustomSecurityAttributeDefinition | Where-Object {$_.Name -eq 'Engineering'}
 Get-EntraBetaCustomSecurityAttributeDefinition -Id $attributeDefinition.Id
 ```

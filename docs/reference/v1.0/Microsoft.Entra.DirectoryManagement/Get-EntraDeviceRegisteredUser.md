@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraDeviceRegisteredUser
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Get-EntraDeviceRegisteredUser
 schema: 2.0.0
 title: Get-EntraDeviceRegisteredUser
 ---

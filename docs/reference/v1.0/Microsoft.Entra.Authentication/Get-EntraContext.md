@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 02/05/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraContext
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Authentication/Get-EntraContext
 schema: 2.0.0
 title: Get-EntraContext
 ---
@@ -57,7 +57,7 @@ Get-EntraContext
 ```
 
 ```Output
-EntraPSModuleName     : Microsoft.Entra
+EntraPSModuleName     : Microsoft.Entra.Authentication
 EntraPSVersion        : 1.0.1
 ClientId              : 11112222-bbbb-3333-cccc-4444dddd5555
 TenantId              : aaaabbbb-0000-cccc-1111-dddd2222eeee

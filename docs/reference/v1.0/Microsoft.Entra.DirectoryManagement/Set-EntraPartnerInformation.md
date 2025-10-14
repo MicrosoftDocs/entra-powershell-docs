@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 06/26/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Set-EntraPartnerInformation
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.DirectoryManagement/Set-EntraPartnerInformation
 schema: 2.0.0
 title: Set-EntraPartnerInformation
 ---

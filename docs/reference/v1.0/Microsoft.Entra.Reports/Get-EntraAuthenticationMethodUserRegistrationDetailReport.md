@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 03/23/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/Get-EntraAuthenticationMethodUserRegistrationDetailReport
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Reports/Get-EntraAuthenticationMethodUserRegistrationDetailReport
 schema: 2.0.0
 title: Get-EntraAuthenticationMethodUserRegistrationDetailReport
 ---

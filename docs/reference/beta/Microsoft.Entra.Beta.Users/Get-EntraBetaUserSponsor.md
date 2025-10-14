@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 03/06/2025
 ms.reviewer: dbutoyi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaUserSponsor
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/Get-EntraBetaUserSponsor
 schema: 2.0.0
 title: Get-EntraBetaUserSponsor
 ---

@@ -8,7 +8,7 @@ ms.author: eunicewaweru
 ms.date: 07/26/2024
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta/Get-EntraBetaApplicationPasswordCredential
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Applications/Get-EntraBetaApplicationPasswordCredential
 schema: 2.0.0
 title: Get-EntraBetaApplicationPasswordCredential
 ---

@@ -9,7 +9,7 @@ ms.author: eunicewaweru
 ms.date: 04/26/2025
 ms.reviewer: stevemutungi
 ms.topic: reference
-online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra/New-EntraApplication
+online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Applications/New-EntraApplication
 schema: 2.0.0
 title: New-EntraApplication
 ---
