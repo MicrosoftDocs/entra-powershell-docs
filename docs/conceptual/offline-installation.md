@@ -12,6 +12,8 @@ ms.reviewer: kemunga
 #customer intent: As an IT admin, I want to learn how to install Microsoft Entra PowerShell modules in an offline environment so that I can manage Microsoft Entra resources without internet connectivity.
 ---
 
+# Install Microsoft Entra PowerShell offline
+
 In environments with restricted internet access, you might need to install Microsoft Entra PowerShell modules offline. This article explains how to set up and install the modules using downloaded package files and a local repository.
 
 Offline installation is useful in scenarios such as:
