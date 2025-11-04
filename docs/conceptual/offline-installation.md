@@ -6,7 +6,7 @@ author: msewaweru
 manager: mwongerapk
 ms.topic: how-to
 ms.date: 11/04/2024
-ms.author: mewaweru
+ms.author: eunicewaweru
 ms.reviewer: kemunga
 
 #customer intent: As an IT admin, I want to learn how to install Microsoft Entra PowerShell modules in an offline environment so that I can manage Microsoft Entra resources without internet connectivity.
