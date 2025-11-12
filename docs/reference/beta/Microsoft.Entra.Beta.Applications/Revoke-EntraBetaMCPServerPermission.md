@@ -1,5 +1,5 @@
 ---
-author: giomachar
+author: givinalis
 description: This article provides details on the Revoke-EntraBetaMCPServerPermission command.
 external help file: Microsoft.Entra.Beta.Applications-Help.xml
 Locale: en-US
