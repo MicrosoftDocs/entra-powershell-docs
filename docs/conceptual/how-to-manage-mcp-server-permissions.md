@@ -36,16 +36,16 @@ To successfully complete the steps in this article, you need:
 
 ### Scenario 1: Grant and revoke Microsoft MCP Server for Enterprise permissions to a predefined MCP client
 
-When you run the `Grant-EntraBetaMCPServerPermission` cmdlet, the system automatically provisions the predefined MCP client specified in your command.
+When you run the `Grant-EntraBetaMCPServerPermission` cmdlet, the system automatically provisions the predefined MCP client specified in your command. The predefined clients are VisualStudioCode,VisualStudio,ChatGPT and Claude.
 
 To grant Microsoft MCP Server for Enterprise permissions to a client, provide the following:
 
-1. ApplicationName — The display name of a predefined MCP client. In this article use `VisualStudioCode` and pass it as `-ApplicationName 'VisualStudioCode'` when calling the cmdlet.  
-2. Scopes — One or more MCP Server for Enterprise claim values (for example, `MCP.Device.Read.All`, `MCP.User.Read.All`). Include this parameter only when you want to grant or revoke specific permissions; omit it to grant or revoke all available permissions.
+1. **ApplicationName** — The display name of a predefined MCP client. In this article use `VisualStudioCode` and pass it as `-ApplicationName 'VisualStudioCode'` when calling the cmdlet.  
+2. **Scopes** — One or more MCP Server for Enterprise claim values (for example, `MCP.Device.Read.All`, `MCP.User.Read.All`). Include this parameter only when you want to grant or revoke specific permissions; omit it to grant or revoke all available permissions.
 
 #### Step 1: Grant all available permissions to an MCP client
 
-To grant all available permissions to an MCP client, run `Grant-EntraBetaMCPServerPermission` and specify the client (use `-ApplicationName 'VisualStudioCode'` for predefined clients).
+To grant all available permissions to an MCP client, run `Grant-EntraBetaMCPServerPermission` and specify the client.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
@@ -80,9 +80,39 @@ MCP.EntitlementManagement.Read.All
 > [!NOTE]
 > This output is truncated for readability.
 
-#### Step 2: Revoke specific scopes from the MCP client
+#### Step 2: Grant specific scopes to Visual Studio Code
 
-To revoke specific scopes from Visual Studio Code, provide the comma-separated claim values to the `-Scopes` parameter of `Revoke-EntraBetaMCPServerPermission` (for predefined clients, use -ApplicationName 'VisualStudioCode'). The cmdlet updates the existing OAuth2PermissionGrant and returns the grant object showing the remaining scopes.
+Before adding new scopes, review the client's current OAuth2 permission grant to see which scopes are already assigned—this helps avoid duplicates and unintended access. Use the commands below to inspect the current scopes.
+
+```powershell
+Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
+
+$sp = Get-EntraServicePrincipal -Filter "displayName eq 'Visual Studio Code'"
+
+$currentGrant = Get-EntraServicePrincipalOAuth2PermissionGrant -ServicePrincipalId $sp.Id | 
+    Where-Object { $_.ResourceId -eq (Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft MCP Server for Enterprise'").Id }
+
+Write-Host "Current scopes: $($currentGrant.Scope)"
+```
+
+To add additional scopes to the Visual Studio Code MCP client while preserving the currently granted scopes, run the following command. This approach is called the additive mode.
+
+```powershell
+Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
+$newScopes = @('MCP.AccessReview.Read.All', 'MCP.AdministrativeUnit.Read.All', 'MCP.Application.Read.All')
+$grant = Grant-EntraBetaMCPServerPermission -ApplicationName 'VisualStudioCode' -Scopes $newScopes
+```
+
+```output
+Operating on MCP client: Visual Studio Code
+Adding specific scopes (preserving existing grant): MCP.AccessReview.Read.All, MCP.AdministrativeUnit.Read.All, MCP.Application.Read.All
+
+✓ Successfully granted permissions to Visual Studio Code
+```
+
+#### Step 3: Revoke specific scopes from the MCP client
+
+To revoke specific scopes from Visual Studio Code, provide the comma-separated claim values to the `-Scopes` parameter of `Revoke-EntraBetaMCPServerPermission`. The cmdlet updates the existing OAuth2PermissionGrant and returns the grant object showing the remaining scopes.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
@@ -107,7 +137,7 @@ MCP.EntitlementManagement.Read.All
 MCP.GroupMember.Read.All
 ```
 
-#### Step 3: Revoke all permissions from an MCP client
+#### Step 4: Revoke all permissions from an MCP client
 
 Run the following command to revoke all Microsoft MCP Server for Enterprise permissions for Visual Studio Code. Revoking all permissions deletes the corresponding OAuth2PermissionGrant object for that service principal.
 
@@ -119,36 +149,6 @@ Revoke-EntraBetaMcpServerPermission -ApplicationName 'VisualStudioCode'
 
 ```Output
 ✓ All permissions revoked from Visual Studio Code
-```
-
-#### Step 4: Grant specific scopes to Visual Studio Code
-
-Before adding new scopes, review the client's current OAuth2 permission grant to see which scopes are already assigned—this helps avoid duplicates and unintended access. Use the commands below to inspect the current scopes.
-
-```powershell
-Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
-
-$sp = Get-EntraServicePrincipal -Filter "displayName eq 'Visual Studio Code'"
-
-$currentGrant = Get-EntraServicePrincipalOAuth2PermissionGrant -ServicePrincipalId $sp.Id | 
-    Where-Object { $_.ResourceId -eq (Get-EntraServicePrincipal -Filter "displayName eq 'Microsoft MCP Server for Enterprise'").Id }
-
-Write-Host "Current scopes: $($currentGrant.Scope)"
-```
-
-To add additional scopes to the Visual Studio Code MCP client while preserving the currently granted scopes, run the following command:
-
-```powershell
-Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
-$newScopes = @('MCP.AccessReview.Read.All', 'MCP.AdministrativeUnit.Read.All', 'MCP.Application.Read.All')
-$grant = Grant-EntraBetaMCPServerPermission -ApplicationName 'VisualStudioCode' -Scopes $newScopes
-```
-
-```output
-Operating on MCP client: Visual Studio Code
-Adding specific scopes (preserving existing grant): MCP.AccessReview.Read.All, MCP.AdministrativeUnit.Read.All, MCP.Application.Read.All
-
-✓ Successfully granted permissions to Visual Studio Code
 ```
 
 ### Scenario 2: Grant and revoke Microsoft MCP Server for Enterprise permissions to a custom MCP client
@@ -176,7 +176,7 @@ Write-Host "Custom client registered with Service Principal ID: $($sp.Id)"
 When working with custom MCP clients, provide the following information:
 
 1. **ApplicationId**: The application's client (App) ID — a GUID assigned when the app was registered. Use this value with the -ApplicationId parameter (not the service principal object ID).
-2. **Scopes**: A comma-separated list of MCP Server for Enterprise claim values (for example, MCP.Device.Read.All, MCP.User.Read.All). Include this parameter only when you want to grant or revoke specific permissions; if you omit it, the cmdlet grants or revokes all available permissions.
+2. **Scopes**: A comma-separated list of MCP Server for Enterprise claim values (for example, `MCP.Device.Read.All`, `MCP.User.Read.All`). Include this parameter only when you want to grant or revoke specific permissions; if you omit it, the cmdlet grants or revokes all available permissions.
 
 To grant all available permissions, run the following command.
 
@@ -213,7 +213,25 @@ MCP.EntitlementManagement.Read.All
 > [!NOTE]
 > Output is shortened for readability.
 
-#### Step 3: Revoke specific scopes from the custom MCP client
+#### Step 3: Grant specific scope to a custom MCP client
+
+The command adds the specified scopes to the MCP client and preserves the existing scopes. This approach is called the additive mode.
+
+```powershell
+Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
+$customCClientId = (Get-EntraApplication -Filter "displayName eq 'Custom MCP Client'").AppId
+$newScopes = @('MCP.AccessReview.Read.All', 'MCP.AdministrativeUnit.Read.All', 'MCP.Application.Read.All')
+$grant = Grant-EntraBetaMCPServerPermission -ApplicationId $customCClientId -Scopes $newScopes
+```
+
+```output
+Operating on MCP client: CustomMCPClient
+Adding specific scopes (preserving existing grant): MCP.AccessReview.Read.All, MCP.AdministrativeUnit.Read.All, MCP.Application.Read.All
+
+✓ Successfully granted permissions to CustomMCPClient
+```
+
+#### Step 4: Revoke specific scopes from the custom MCP client
 
 To revoke specific scopes from Custom MCP Client, provide the comma-separated claim values in the `Scopes` parameter. The command returns the updated OAuth2PermissionGrant object with the remaining permissions.
 
@@ -243,7 +261,7 @@ MCP.EntitlementManagement.Read.All
 MCP.GroupMember.Read.All
 ```
 
-#### Step 4: Revoke all permissions from a custom MCP client
+#### Step 5: Revoke all permissions from a custom MCP client
 
 To revoke all Microsoft MCP Server for Enterprise permissions from a custom MCP client, run the following command. Revoking all permissions deletes the OAuth2PermissionGrant for that application, preventing the client from accessing MCP-protected resources on behalf of users.
 
@@ -255,24 +273,6 @@ Revoke-EntraBetaMcpServerPermission -ApplicationId $customCClientId
 
 ```Output
 ✓ All permissions revoked from CustomMCPClient
-```
-
-#### Step 5: Grant specific scope to a custom MCP client
-
-The command adds the specified scopes to the MCP client and preserves the existing scopes. This approach is called the additive mode.
-
-```powershell
-Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
-$customCClientId = (Get-EntraApplication -Filter "displayName eq 'Custom MCP Client'").AppId
-$newScopes = @('MCP.AccessReview.Read.All', 'MCP.AdministrativeUnit.Read.All', 'MCP.Application.Read.All')
-$grant = Grant-EntraBetaMCPServerPermission -ApplicationId $customCClientId -Scopes $newScopes
-```
-
-```output
-Operating on MCP client: CustomMCPClient
-Adding specific scopes (preserving existing grant): MCP.AccessReview.Read.All, MCP.AdministrativeUnit.Read.All, MCP.Application.Read.All
-
-✓ Successfully granted permissions to CustomMCPClient
 ```
 
 ### Scenario 3: Audit MCP client permissions across your tenant
