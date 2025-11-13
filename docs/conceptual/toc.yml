@@ -52,7 +52,9 @@ items:
   - name: Manage roles
     href: manage-roles.md
   - name: Grant and revoke API permissions
-    href: how-to-grant-revoke-api-permissions.md    
+    href: how-to-grant-revoke-api-permissions.md 
+  - name: Grant and revoke MCP Server permissions
+    href: how-to-manage-mcp-server-permissions.md      
   - name: Create a custom application
     href: create-custom-application.md
   - name: Create a self-signed public certificate
