@@ -2,11 +2,11 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 09/02/2025
+ms.date: 11/13/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
-ms.reviewer: stevemutungi
+ms.reviewer: KenitoInc, givinalis
 
 zone_pivot_groups: entra-powershell-whats-new
 zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
@@ -75,19 +75,42 @@ Improvements based on module usability and docs bug bash feedback:
 
 ## Latest (recommended) version
 
-- [Version 1.0.12][posh-1.0.12] - **September 2025**
+- [Version 1.0.13][posh-1.0.13] - **November 2025**
+
+  - **New Commands**:
+    - [Grant-EntraBetaMcpServerPermission](/powershell/module/microsoft.entra.beta/grant-entrabetamcpserverpermission): Grants delegated permissions to Model Context Protocol (MCP) clients for accessing the Microsoft MCP Server for Enterprise.
+    - [Revoke-EntraBetaMcpServerPermission](/powershell/module/microsoft.entra.beta/revoke-entrabetamcpserverpermission): Revokes delegated permissions from a specified client for Microsoft MCP Server for Enterprise in Microsoft Entra ID.
+
+  - **New Parameters**:
+    - [Get-EntraContact](/powershell/module/microsoft.entra/get-entracontact) & [Get-EntraBetaContact](/powershell/module/microsoft.entra.beta/get-entrabetacontact):
+      - Added `-HasErrorsOnly` parameter to return only contacts with service provisioning errors.
+    - [Get-EntraGroup](/powershell/module/microsoft.entra/get-entragroup) & [Get-EntraBetaGroup](/powershell/module/microsoft.entra.beta/get-entrabetagroup):
+      - Added `-HasErrorsOnly` parameter to return only groups that have service provisioning errors.
+      - Added `-HasLicenseErrorsOnly` parameter to return only groups that have members with license errors.
+    - [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser) & [Get-EntraBetaUser](/powershell/module/microsoft.entra.beta/get-entrabetauser):
+      - Added `-EnabledFilter` parameter which filters users based on the state of their accounts. Valid values are `EnabledOnly` and `DisabledOnly`.
+      - Added `-HasErrorsOnly` parameter which returns only users that have one or more service provisioning or validation errors (surfaced via the `serviceProvisioningErrors` collection).
+      - Added `-LicenseReconciliationNeededOnly` parameter which returns only users whose service provisioning errors include license-related issues indicating that license reconciliation is needed (for example, insufficient licenses, dependency violations, mutually exclusive plans).
+      - Added `-Synchronized` parameter which returns only users synchronized from on-premises Active Directory (those with `onPremisesSyncEnabled eq true`). This is useful for distinguishing cloud-only identities from hybrid managed identities.
+      - Added `-UnlicensedUsersOnly` parameter which returns only users who have no assigned licenses.
 
   - **Bug Fixes**:
-    - Moved `Get-EntraUnsupportedCommand` to the root modules - Microsoft.Entra and Microsoft.Entra.Beta - and removed it from sub-modules to align with its usage in `Enable-EntraAzureADAlias`. PR [#1543](https://github.com/microsoftgraph/entra-powershell/pull/1543)
-    - Enabled `Enable-EntraAzureADAlias` cmdlet in the beta module. PR [#1542](https://github.com/microsoftgraph/entra-powershell/pull/1542)
-
-  - **Cmdlet Enhancements**:
-    - Added the `-AppendSelected` parameter to high usage cmdlets in applications, users, and groups sub-modules. PR [#1518](https://github.com/microsoftgraph/entra-powershell/pull/1518)
-    - Implemented authentication checks across all cmdlets to indicate the correct permissions in case of a failed connection using `Connect-Entra`.
-    - Updated the `-Features` parameter under `Set-EntraDirSyncFeature` command to allow processing of multiple features at once.. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
-    - Extended the `Get-EntraUser` command to include `-PageSize` parameter. PR [#1526](https://github.com/microsoftgraph/entra-powershell/pull/1526)
+    - Fixed [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser) issue where handling of guest UPNs was corrected to properly escape/quote special characters so that `user@external#EXT#@tenant.onmicrosoft.com` no longer triggers "unterminated string literal" errors.
+    - [Set-EntraUserManager](/powershell/module/microsoft.entra/set-entrausermanager) `-ManagerId` parameter type corrected from `Guid` to `String`, enabling UPN (and not just objectId) for the manager reference.
 
 ## Module version history
+
+[Version 1.0.12][posh-1.0.12] - **September 2025**
+
+- **Bug Fixes**:
+  - Moved `Get-EntraUnsupportedCommand` to the root modules - Microsoft.Entra and Microsoft.Entra.Beta - and removed it from sub-modules to align with its usage in `Enable-EntraAzureADAlias`. PR [#1543](https://github.com/microsoftgraph/entra-powershell/pull/1543)
+  - Enabled `Enable-EntraAzureADAlias` cmdlet in the beta module. PR [#1542](https://github.com/microsoftgraph/entra-powershell/pull/1542)
+
+- **Cmdlet Enhancements**:
+  - Added the `-AppendSelected` parameter to high usage cmdlets in applications, users, and groups sub-modules. PR [#1518](https://github.com/microsoftgraph/entra-powershell/pull/1518)
+  - Implemented authentication checks across all cmdlets to indicate the correct permissions in case of a failed connection using `Connect-Entra`.
+  - Updated the `-Features` parameter under `Set-EntraDirSyncFeature` command to allow processing of multiple features at once.. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
+  - Extended the `Get-EntraUser` command to include `-PageSize` parameter. PR [#1526](https://github.com/microsoftgraph/entra-powershell/pull/1526)
 
 [Version 1.0.11][posh-1.0.11] - **August 2025**
 
@@ -115,6 +138,7 @@ Improvements based on module usability and docs bug bash feedback:
 
 :::zone-end
 
+[posh-1.0.13]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.13
 [posh-1.0.12]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.12
 [posh-1.0.11]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.11
 [posh-1.0.10]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.10
