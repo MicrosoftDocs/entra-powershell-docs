@@ -293,20 +293,23 @@ $report = $allGrants | ForEach-Object {
     $clientSp = Get-EntraServicePrincipal -ServicePrincipalId $_.ClientId
     [PSCustomObject]@{
         ClientName    = $clientSp.DisplayName
-        GrantId       = $_.Id
         Scopes        = $_.Scope
         }
 }
 
-$report | Format-Table -AutoSize
+$report | Format-List
 ```
 
 ```Output
-ClientName                 GrantId                                     Scopes
-----------                 -------                                     ------
-Visual Studio Code         TEZ5OozUKUi0FwZGa6PjXKewRj-irCxMhwgvfef_ERE MCP.AccessReview.Read.All MCP.AdministrativeUnit.Read.All MCP.Application.Read.All MCP.RoleEligibilitySchedule.Read.Directory MCP.RoleManagement.Read.Directory
-M365 MCP Client for Claude GtqAPzCWxU2yO9mR8Vef4aewRj-irCxMhwgvfef_ERE MCP.User.Read.All
-Eun-MCPtest                eyAtrfTC6kGTYJjsEnjImqewRj-irCxMhwgvfef_ERE MCP.AuditLog.Read.All MCP.AuthenticationContext.Read.All MCP.Device.Read.All MCP.DirectoryRecommendations.Read.All MCP.Domain.Read.All MCP.EntitlementManagement.Read.All MCP.GroupMember.Read.All MCP.HealthMo…
+ClientName : Visual Studio Code
+Scopes     : MCP.AccessReview.Read.All MCP.AdministrativeUnit.Read.All MCP.Application.Read.All MCP.RoleEligibilitySchedule.Read.Directory MCP.RoleManagement.Read.Directory
+
+ClientName : M365 MCP Client for Claude
+Scopes     : MCP.User.Read.All
+
+ClientName : Custom MCP Client
+Scopes     : MCP.AuditLog.Read.All MCP.AuthenticationContext.Read.All MCP.Device.Read.All MCP.DirectoryRecommendations.Read.All MCP.Domain.Read.All MCP.EntitlementManagement.Read.All MCP.GroupMember.Read.All MCP.HealthMonitoringAlert.Read.All MCP.IdentityRiskEvent.Read.All
+             MCP.IdentityRiskyServicePrincipal.Read.All MCP.IdentityRiskyUser.Read.All MCP.LicenseAssignment.Read.All MCP.LifecycleWorkflows-CustomExt.Read.All MCP.LifecycleWorkflows-Reports.Read.All MCP.LifecycleWorkflows-Workflow.Read.All
 ```
 
 ## Related content
