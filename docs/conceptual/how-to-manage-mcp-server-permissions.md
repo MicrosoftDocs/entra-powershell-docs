@@ -311,7 +311,7 @@ Eun-MCPtest                eyAtrfTC6kGTYJjsEnjImqewRj-irCxMhwgvfef_ERE MCP.Audit
 
 - [Manage apps][manage-apps]
 - [Grant and revoke API permissions][grant-revoke-api]
-- [OAuth2PermissionGrant resource type](https://learn.microsoft.com/graph/api/resources/oauth2permissiongrant)
+- [OAuth2PermissionGrant resource type](/graph/api/resources/oauth2permissiongrant)
 
 <!-- links -->
 [install]: installation.md
