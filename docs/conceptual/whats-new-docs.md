@@ -82,12 +82,12 @@ Improvements based on module usability and docs bug bash feedback:
     - [Revoke-EntraBetaMcpServerPermission](/powershell/module/microsoft.entra.beta/revoke-entrabetamcpserverpermission): Revokes delegated permissions from a specified client for Microsoft MCP Server for Enterprise in Microsoft Entra ID.
 
   - **New Parameters**:
-    - [Get-EntraContact](/powershell/module/microsoft.entra/get-entracontact) & [Get-EntraBetaContact](/powershell/module/microsoft.entra.beta/get-entrabetacontact):
+    - [Get-EntraContact](/powershell/module/Microsoft.Entra.DirectoryManagement/Get-EntraContact) & [Get-EntraBetaContact](/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaContact):
       - Added `-HasErrorsOnly` parameter to return only contacts with service provisioning errors.
-    - [Get-EntraGroup](/powershell/module/microsoft.entra/get-entragroup) & [Get-EntraBetaGroup](/powershell/module/microsoft.entra.beta/get-entrabetagroup):
+    - [Get-EntraGroup](/powershell/module/Microsoft.Entra.Groups/Get-EntraGroup) & [Get-EntraBetaGroup](/powershell/module/Microsoft.Entra.Beta.Groups/Get-EntraBetaGroup):
       - Added `-HasErrorsOnly` parameter to return only groups that have service provisioning errors.
       - Added `-HasLicenseErrorsOnly` parameter to return only groups that have members with license errors.
-    - [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser) & [Get-EntraBetaUser](/powershell/module/microsoft.entra.beta/get-entrabetauser):
+    - [Get-EntraUser](/powershell/module/Microsoft.Entra.Users/Get-EntraUser) & [Get-EntraBetaUser](/powershell/module/Microsoft.Entra.Beta.Users/Get-EntraBetaUser):
       - Added `-EnabledFilter` parameter which filters users based on the state of their accounts. Valid values are `EnabledOnly` and `DisabledOnly`.
       - Added `-HasErrorsOnly` parameter which returns only users that have one or more service provisioning or validation errors (surfaced via the `serviceProvisioningErrors` collection).
       - Added `-LicenseReconciliationNeededOnly` parameter which returns only users whose service provisioning errors include license-related issues indicating that license reconciliation is needed (for example, insufficient licenses, dependency violations, mutually exclusive plans).
@@ -95,8 +95,8 @@ Improvements based on module usability and docs bug bash feedback:
       - Added `-UnlicensedUsersOnly` parameter which returns only users who have no assigned licenses.
 
   - **Bug Fixes**:
-    - Fixed [Get-EntraUser](/powershell/module/microsoft.entra/get-entrauser) issue where handling of guest UPNs was corrected to properly escape/quote special characters so that `user@external#EXT#@tenant.onmicrosoft.com` no longer triggers "unterminated string literal" errors.
-    - [Set-EntraUserManager](/powershell/module/microsoft.entra/set-entrausermanager) `-ManagerId` parameter type corrected from `Guid` to `String`, enabling UPN (and not just objectId) for the manager reference.
+    - Fixed [Get-EntraUser](/powershell/module/Microsoft.Entra.Users/Get-EntraUser) issue where handling of guest UPNs was corrected to properly escape/quote special characters so that `user@external#EXT#@tenant.onmicrosoft.com` no longer triggers "unterminated string literal" errors.
+    - [Set-EntraUserManager](/powershell/module/Microsoft.Entra.Users/Set-EntraUserManager) `-ManagerId` parameter type corrected from `Guid` to `String`, enabling UPN (and not just objectId) for the manager reference.
 
 ## Module version history
 
