@@ -174,5 +174,5 @@ A common challenge when writing automation scripts is the management of secrets,
 [manage-groups]: manage-groups.md
 [manage-users]: manage-user.md
 [manage-apps]: manage-apps.md
-[get-entracontext]: /powershell/module/microsoft.entra/get-entracontext
-[new-entraserviceprincipalpasswordcredential]: /powershell/module/microsoft.entra/new-entraserviceprincipalpasswordcredential
+[get-entracontext]: /powershell/module/microsoft.entra.authentication/get-entracontext
+[new-entraserviceprincipalpasswordcredential]: /powershell/module/microsoft.entra.applications/new-entraserviceprincipalpasswordcredential
