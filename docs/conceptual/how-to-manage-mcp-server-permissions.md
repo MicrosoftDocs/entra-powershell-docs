@@ -82,7 +82,7 @@ MCP.EntitlementManagement.Read.All
 
 #### Step 2: Grant specific scopes to Visual Studio Code
 
-Before adding new scopes, review the client's current OAuth2 permission grant to see which scopes are already assigned—this helps avoid duplicates and unintended access. Use the commands below to inspect the current scopes.
+Before adding new scopes, review the client's current OAuth2 permission grant to see which scopes are already assigned—this helps avoid duplicates and unintended access. Use the following commands to inspect the current scopes.
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
