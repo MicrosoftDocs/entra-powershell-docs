@@ -198,12 +198,12 @@ When all permissions are revoked, the permission grant is deleted and the cmdlet
 
 ## RELATED LINKS
 
-[Get-MgBetaServicePrincipal](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.applications/get-mgbetaserviceprincipal)
+[Get-EntraBetaServicePrincipal](Get-EntraBetaServicePrincipal.md)
 
-[Get-MgBetaOauth2PermissionGrant](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.identity.signins/get-mgbetaoauth2permissiongrant)
+[Get-EntraBetaOauth2PermissionGrant](../Microsoft.Entra.Beta.SignIns/Get-EntraBetaOAuth2PermissionGrant.md)
 
-[Update-MgBetaOauth2PermissionGrant](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.identity.signins/update-mgbetaoauth2permissiongrant)
+[Update-EntraBetaOauth2PermissionGrant](../Microsoft.Entra.Beta.SignIns/Update-EntraBetaOauth2PermissionGrant.md)
 
-[Remove-MgBetaOauth2PermissionGrant](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.identity.signins/remove-mgbetaoauth2permissiongrant)
+[Remove-EntraBetaOauth2PermissionGrant](../Microsoft.Entra.Beta.SignIns/Remove-EntraBetaOAuth2PermissionGrant.md)
 
 [OAuth2PermissionGrant resource type](https://learn.microsoft.com/graph/api/resources/oauth2permissiongrant)

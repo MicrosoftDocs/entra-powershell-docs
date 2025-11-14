@@ -241,16 +241,16 @@ The scopes string is normalized by sorting and de-duplicating the provided scope
 
 ## RELATED LINKS
 
-[Get-MgBetaServicePrincipal](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.applications/get-mgbetaserviceprincipal)
+[Get-EntraBetaServicePrincipal](Get-EntraBetaServicePrincipal.md)
 
-[New-MgBetaServicePrincipal](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.applications/new-mgbetaserviceprincipal)
+[New-EntraBetaServicePrincipal](New-EntraBetaServicePrincipal.md)
 
-[Get-MgBetaOauth2PermissionGrant](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.identity.signins/get-mgbetaoauth2permissiongrant)
+[Get-EntraBetaOauth2PermissionGrant](../Microsoft.Entra.Beta.SignIns/Get-EntraBetaOAuth2PermissionGrant.md)
 
-[New-MgBetaOauth2PermissionGrant](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.identity.signins/new-mgbetaoauth2permissiongrant)
+[New-EntraBetaOauth2PermissionGrant](../Microsoft.Entra.Beta.SignIns/New-EntraBetaOauth2PermissionGrant.md)
 
-[Update-MgBetaOauth2PermissionGrant](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.identity.signins/update-mgbetaoauth2permissiongrant)
+[Update-EntraBetaOauth2PermissionGrant](../Microsoft.Entra.Beta.SignIns/Update-EntraBetaOauth2PermissionGrant.md)
 
-[Remove-MgBetaOauth2PermissionGrant](https://learn.microsoft.com/powershell/module/microsoft.graph.beta.identity.signins/remove-mgbetaoauth2permissiongrant)
+[Remove-EntraBetaOauth2PermissionGrant](../Microsoft.Entra.Beta.SignIns/Remove-EntraBetaOAuth2PermissionGrant.md)
 
 [OAuth2PermissionGrant resource type](https://learn.microsoft.com/graph/api/resources/oauth2permissiongrant)
