@@ -52,7 +52,7 @@ Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'Delega
 
 $grant = Grant-EntraBetaMcpServerPermission -ApplicationName 'VisualStudioCode'
 
-$grant.Scope split ' ' | ForEach-Object {
+$grant.Scope -split ' ' | ForEach-Object {
     [pscustomobject]@{ Scope = $_ }
 } | Format-Table
 ```
@@ -118,7 +118,7 @@ To revoke specific scopes from Visual Studio Code, provide the comma-separated c
 Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
 $result = Revoke-EntraBetaMCPServerPermission -ApplicationName 'VisualStudioCode' -Scopes 'MCP.AccessReview.Read.All', 'MCP.AdministrativeUnit.Read.All', 'MCP.Application.Read.All'
 
-$result.Scope split ' ' | ForEach-Object {
+$result.Scope -split ' ' | ForEach-Object {
     [pscustomobject]@{ Scope = $_ }
 } | Format-Table
 ```
@@ -185,7 +185,7 @@ Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'Delega
 $customCClientId = (Get-EntraApplication -Filter "displayName eq 'Custom MCP Client'").AppId
 $grant = Grant-EntraBetaMcpServerPermission -ApplicationId $customCClientId
 
-$grant.Scope split ' ' | ForEach-Object {
+$grant.Scope -split ' ' | ForEach-Object {
     [pscustomobject]@{ Scope = $_ }
 } | Format-Table
 ```
@@ -242,7 +242,7 @@ $customCClientId = (Get-EntraApplication -Filter "displayName eq 'Custom MCP Cli
 $removeScopes = @('MCP.AccessReview.Read.All', 'MCP.AdministrativeUnit.Read.All', 'MCP.Application.Read.All')
 $result = Revoke-EntraBetaMCPServerPermission -ApplicationId $customCClientId -Scopes $removeScopes
 
-$result.Scope split ' ' | ForEach-Object {
+$result.Scope -split ' ' | ForEach-Object {
     [pscustomobject]@{ Scope = $_ }
 } | Format-Table
 ```
