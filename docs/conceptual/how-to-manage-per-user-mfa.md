@@ -116,6 +116,6 @@ Update-EntraBetaUserAuthenticationRequirement -UserId '<user@contoso.com>' -PerU
 <!-- links -->
 [authentication-policy-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#authentication-policy-administrator
 [global-reader]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#global-reader
-[update-entrabetaUserauthenticationrequirement]: /powershell/module/microsoft.entra.beta/update-entrabetauserauthenticationrequirement
+[update-entrabetaUserauthenticationrequirement]: /powershell/module/microsoft.entra.beta.signins/update-entrabetauserauthenticationrequirement
 [configure-authentication-methods]: /graph/authenticationmethods-get-started
 [reset-entrastrongauthenticationaethodbyupn]: /powershell/module/microsoft.entra.signins/reset-entrastrongauthenticationmethodbyupn
