@@ -64,7 +64,7 @@ This example revokes all Microsoft MCP Server for Enterprise permissions from Vi
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
-$result = Revoke-EntraBetaMCPServerPermission -ApplicationName 'VisualStudioCode' -Scopes 'MCP.User.Read.All', 'MCP.Directory.Read.All'
+$result = Revoke-EntraBetaMCPServerPermission -ApplicationName 'VisualStudioCode' -Scopes 'MCP.User.Read.All', 'MCP.Application.Read.All'
 ```
 
 This example revokes specific scopes from Visual Studio Code client and returns the updated OAuth2PermissionGrant object with remaining permissions.
@@ -106,15 +106,6 @@ if ($null -eq $completeResult) {
 ```
 
 This example demonstrates the different return values: an OAuth2PermissionGrant object for partial revocation and null for complete revocation.
-
-### Example 6: Use WhatIf to preview changes
-
-```powershell
-Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
-Revoke-EntraBetaMCPServerPermission -ApplicationName 'VisualStudioCode' -WhatIf
-```
-
-This example shows what permissions would be revoked without actually making the changes.
 
 ## PARAMETERS
 

@@ -90,21 +90,21 @@ This example grants all available delegated permissions (illustrative subset sho
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
-$grant = Grant-EntraBetaMcpServerPermission -ApplicationName 'VisualStudioCode' -Scopes 'MCP.User.Read.All', 'MCP.Mail.Read.All'
+$grant = Grant-EntraBetaMcpServerPermission -ApplicationName 'VisualStudioCode' -Scopes 'MCP.User.Read.All', 'MCP.AccessReview.Read.All'
 $grant.Scope
 ```
 
 ```Output
 Operating on MCP client: Visual Studio Code
-Adding specific scopes (preserving existing grant): MCP.Mail.Read.All, MCP.User.Read.All
+Adding specific scopes (preserving existing grant): MCP.AccessReview.Read.All, MCP.User.Read.All
 
 ✓ Successfully granted permissions to Visual Studio Code
   Grant ID: dddddddd-eeee-ffff-4444-555555555555
 
-MCP.Files.Read.All MCP.Mail.Read.All MCP.User.Read.All
+MCP.AdministrativeUnit.Read.All MCP.AccessReview.Read.All MCP.User.Read.All
 ```
 
-This example adds specific scopes (MCP.Mail.Read.All and MCP.User.Read.All) to Visual Studio Code's existing grant. Note that the existing MCP.Files.Read.All scope is preserved (additive mode).
+This example adds specific scopes (MCP.AccessReview.Read.All and MCP.User.Read.All) to Visual Studio Code's existing grant. Note that the existing MCP.AdministrativeUnit.Read.All scope is preserved (additive mode).
 
 ### Example 3: Grant permissions to a custom MCP client
 
@@ -117,7 +117,7 @@ Write-Host "Grant created with ID: $($grant.Id)"
 
 ```Output
 Operating on MCP client: Custom MCP Client
-Granting all available scopes: MCP.Files.Read.All MCP.Mail.Read.All MCP.User.Read.All
+Granting all available scopes: MCP.AdministrativeUnit.Read.All MCP.AccessReview.Read.All MCP.User.Read.All
 
 ✓ Successfully granted permissions to Custom MCP Client
   Grant ID: eeeeeeee-ffff-aaaa-5555-666666666666
@@ -131,20 +131,20 @@ This example grants all available permissions (illustrative subset) to a custom 
 
 ```powershell
 Connect-Entra -Scopes 'Application.ReadWrite.All', 'Directory.Read.All', 'DelegatedPermissionGrant.ReadWrite.All'
-$grant = Grant-EntraBetaMcpServerPermission -ApplicationName 'Claude' -Scopes 'MCP.User.Read.All', 'MCP.Files.Read.All'
+$grant = Grant-EntraBetaMcpServerPermission -ApplicationName 'Claude' -Scopes 'MCP.User.Read.All', 'MCP.AdministrativeUnit.Read.All'
 $grant | Select-Object Id, ClientId, ResourceId, ConsentType, Scope
 ```
 
 ```Output
 Operating on MCP client: Claude
-Adding specific scopes (preserving existing grant): MCP.Files.Read.All, MCP.User.Read.All
+Adding specific scopes (preserving existing grant): MCP.AdministrativeUnit.Read.All, MCP.User.Read.All
 
 ✓ Successfully granted permissions to Claude
   Grant ID: ffffffff-aaaa-bbbb-6666-777777777777
 
 Id                                   ClientId         ResourceId       ConsentType   Scope
 --                                   --------         ----------       -----------   -----
-ffffffff-aaaa-bbbb-6666-777777777777 claude-sp-id     resource-sp-id   AllPrincipals MCP.Files.Read.All MCP.User.Read.All
+ffffffff-aaaa-bbbb-6666-777777777777 claude-sp-id     resource-sp-id   AllPrincipals MCP.AdministrativeUnit.Read.All MCP.User.Read.All
 ```
 
 This example adds specific scopes to M365 MCP Client for Claude in additive mode and displays selected properties of the returned OAuth2PermissionGrant object.
