@@ -41,7 +41,7 @@ The following steps will guide you through restoring deleted groups.
 
 ### Step 1: Find deleted groups
 
-Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup) cmdlet to find deleted groups.
+Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra.groups/get-entradeletedgroup) cmdlet to find deleted groups.
 
 ```powershell
 Connect-Entra -Scopes 'Group.Read.All'
@@ -337,16 +337,16 @@ Get-EntraDeletedAdministrativeUnit -Filter "displayName eq 'Pacific Administrati
 
 For more examples visit the following articles:
 
-- [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/get-entradeleteddirectoryobject)
+- [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra.directorymanagement/get-entradeleteddirectoryobject)
 - [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject]
 
 <!-- Link definitions -->
 
-[restore-entradeleteddirectoryobject]: /powershell/module/microsoft.entra/restore-entradeleteddirectoryobject
-[get-entradeletedapplication]: /powershell/module/microsoft.entra/get-entradeletedapplication
-[get-entradeletedserviceprincipal]: /powershell/module/microsoft.entra/get-entradeletedserviceprincipal
-[get-entradeleteduser]: /powershell/module/microsoft.entra/get-entradeleteduser
-[get-entradeletedadministrativeunit]: /powershell/module/microsoft.entra/get-entradeletedadministrativeunit
+[restore-entradeleteddirectoryobject]: /powershell/module/microsoft.entra.directorymanagement/restore-entradeleteddirectoryobject
+[get-entradeletedapplication]: /powershell/module/microsoft.entra.applications/get-entradeletedapplication
+[get-entradeletedserviceprincipal]: /powershell/module/microsoft.entra.applications/get-entradeletedserviceprincipal
+[get-entradeleteduser]: /powershell/module/microsoft.entra.users/get-entradeleteduser
+[get-entradeletedadministrativeunit]: /powershell/module/microsoft.entra.directorymanagement/get-entradeletedadministrativeunit
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#application-administrator
 [cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#cloud-application-administrator
 [hybrid-identity-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#hybrid-identity-administrator

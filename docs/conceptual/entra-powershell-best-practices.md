@@ -138,7 +138,7 @@ Get-EntraUser -Top 1 -Debug 5>> <your-log-filepath>
 [create-a-custom-app]: create-custom-application.md
 [outputStreamLink]: /powershell/module/microsoft.powershell.core/about/about_redirection#redirectable-output-streams
 [redirectOperatorLink]: /powershell/module/microsoft.powershell.core/about/about_redirection#powershell-redirection-operators
-[disconnect-entra]: /powershell/module/microsoft.entra/disconnect-entra
+[disconnect-entra]: /powershell/module/microsoft.entra.authentication/disconnect-entra
 [request-permissions]: /azure/active-directory/develop/active-directory-v2-scopes
 [consent-types]: /azure/active-directory/develop/v2-permissions-and-consent#consent-types
 [overview]: overview.md
