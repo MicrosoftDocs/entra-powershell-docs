@@ -233,6 +233,6 @@ $appsWithExpiringKeys | Format-Table DisplayName, AppId, CertificateDisplayName,
 <!-- link references -->
 
 [manage-groups]: manage-groups.md
-[set-entraapplication]: /powershell/module/microsoft.entra/set-entraapplication
+[set-entraapplication]: /powershell/module/microsoft.entra.applications/set-entraapplication
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
 [app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator

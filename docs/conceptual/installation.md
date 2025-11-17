@@ -210,4 +210,4 @@ To remove the module, run the command:
 [execution-policies]: /powershell/module/microsoft.powershell.core/about/about_execution_policies
 [install-module]: /powershell/module/powershellget/install-module
 [posh-gallery]: https://www.powershellgallery.com/packages/Microsoft.Entra
-[Connect-Entra]: /powershell/module/microsoft.entra/connect-entra
+[Connect-Entra]: /powershell/module/microsoft.entra.authentication/connect-entra

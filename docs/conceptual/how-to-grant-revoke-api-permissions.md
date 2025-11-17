@@ -361,7 +361,7 @@ Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $clientService
 <!-- links -->
 [interactive-consent]: /azure/active-directory/manage-apps/consent-and-permissions-overview
 [install]: installation.md
-[new-entraserviceprincipal]: /powershell/module/microsoft.entra/new-entraserviceprincipal
+[new-entraserviceprincipal]: /powershell/module/microsoft.entra.applications/new-entraserviceprincipal
 [privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
 [cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator

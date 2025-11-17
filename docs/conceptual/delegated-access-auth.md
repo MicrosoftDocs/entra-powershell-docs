@@ -133,4 +133,4 @@ For a detailed guide on troubleshooting common errors, see the [Troubleshooting 
 [manage-groups]: manage-groups.md
 [manage-users]: manage-user.md
 [manage-apps]: manage-apps.md
-[Connect-Entra]: /powershell/module/microsoft.entra/connect-entra
+[Connect-Entra]: /powershell/module/microsoft.entra.authentication/connect-entra
