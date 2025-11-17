@@ -1,5 +1,5 @@
 ---
-title: Manage Microsoft MCP Server for Enterprise permissions
+title: Manage Microsoft MCP Server for Enterprise Permissions
 description: Learn how to grant and revoke Microsoft MCP Server for Enterprise permissions to MCP clients using Microsoft Entra PowerShell.
 
 ms.topic: how-to
