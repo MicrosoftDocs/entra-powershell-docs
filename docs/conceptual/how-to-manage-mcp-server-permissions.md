@@ -36,7 +36,7 @@ To successfully complete the steps in this article, you need:
 
 ### Scenario 1: Grant and revoke Microsoft MCP Server for Enterprise permissions to a predefined MCP client
 
-When you run the `Grant-EntraBetaMCPServerPermission` cmdlet, the system automatically provisions the predefined MCP client specified in your command. The predefined clients are VisualStudioCode,VisualStudio,ChatGPT and Claude.
+When you run the `Grant-EntraBetaMCPServerPermission` cmdlet, the system automatically provisions the predefined MCP client specified in your command. The predefined clients are VisualStudioCode, VisualStudio, ChatGPT, and Claude.
 
 To grant Microsoft MCP Server for Enterprise permissions to a client, provide the following:
 
