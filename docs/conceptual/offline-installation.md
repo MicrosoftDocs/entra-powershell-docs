@@ -5,7 +5,7 @@ description: "Learn how to install the Microsoft Entra PowerShell module in offl
 author: msewaweru
 manager: mwongerapk
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/17/2024
 ms.author: eunicewaweru
 ms.reviewer: kemunga
 
@@ -47,7 +47,7 @@ Microsoft Entra PowerShell modules depend on specific Microsoft Graph PowerShell
 > [!IMPORTANT]
 > You must install these dependencies on a machine with internet access first, or obtain the dependency modules through your organization's approved software distribution method.
 
-Run the following script to install the required Microsoft Graph PowerShell dependencies:
+Run the following script to install the required Microsoft Graph PowerShell dependencies. Microsoft Entra PowerShell currently  supports version **2.25.0**.
 
 ```powershell
 # Define the required Graph modules version
