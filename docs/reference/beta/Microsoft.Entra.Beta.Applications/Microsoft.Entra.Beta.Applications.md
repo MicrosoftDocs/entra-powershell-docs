@@ -104,6 +104,10 @@ Retrieves the list of previously deleted service principals.
 
 Gets the password Single-Sign-On (SSO) credentials.
 
+### [Grant-EntraBetaMcpServerPermission](Grant-EntraBetaMcpServerPermission.md)
+
+Grants delegated permissions to a Model Context Protocol (MCP) client for Microsoft MCP Server for Enterprise.
+
 ### [Get-EntraBetaServicePrincipal](Get-EntraBetaServicePrincipal.md)
 
 Gets a service principal.
@@ -279,6 +283,10 @@ Removes a password credential from a service principal.
 ### [Restore-EntraBetaDeletedApplication](Restore-EntraBetaDeletedApplication.md)
 
 Restores a previously deleted application.
+
+### [Revoke-EntraBetaMCPServerPermission](Revoke-EntraBetaMCPServerPermission.md)
+
+Revokes Microsoft MCP Server for Enterprise permissions from specified clients.
 
 ### [Select-EntraBetaGroupIdsServicePrincipalIsMemberOf](Select-EntraBetaGroupIdsServicePrincipalIsMemberOf.md)
 
