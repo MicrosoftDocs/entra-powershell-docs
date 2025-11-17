@@ -264,10 +264,10 @@ if (Test-Path $galleryPath) {
 
 | Issue | Cause | Solution |
 |-------|--------|----------|
-| "Module not found in repository" | nupkg files not copied to local gallery | Verify files are in the correct gallery path |
-| "Dependencies not installed" | Graph PowerShell modules missing | Install required Graph modules first |
-| "Access denied" | Insufficient permissions | Run PowerShell as Administrator |
-| "Repository not trusted" | Local repository not marked as trusted | Use `-Force` parameter or set installation policy to Trusted |
+| **Module not found in repository** | nupkg files not copied to local gallery | Verify files are in the correct gallery path |
+| **Dependencies not installed** | Graph PowerShell modules missing | Install required Microsoft Graph PowerShell modules first |
+| **Access denied** | Insufficient permissions | Run PowerShell as Administrator |
+| **Repository not trusted** | Local repository not marked as trusted | Use `-Force` parameter or set installation policy to Trusted |
 
 ### Verify local repository contents
 
@@ -286,13 +286,6 @@ To understand what dependencies a module requires:
 # Get module dependencies
 Find-Module -Name "Microsoft.Entra.Users" -Repository $localGallery | Select-Object -ExpandProperty Dependencies
 ```
-
-## Security considerations
-
-- **Verify package integrity**: Ensure the nupkg files are from official Microsoft releases
-- **Use trusted sources**: Only download packages from the official GitHub releases page
-- **Network security**: Even in offline environments, authentication to Microsoft Entra requires network connectivity
-- **Permissions**: Use the principle of least privilege when setting up local repositories
 
 ## Next steps
 
