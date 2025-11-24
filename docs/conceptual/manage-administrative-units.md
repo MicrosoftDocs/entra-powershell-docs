@@ -3,10 +3,11 @@ title: Manage administrative units
 description: Learn how to manage administrative units for more granular delegation of permissions in Microsoft Entra ID using Microsoft Entra PowerShell.
 ms.topic: how-to
 
-ms.date: 08/05/2025
+ms.date: 11/24/2025
 author: csmulligan
 manager: dougeby
 ms.author: cmulligan
+ms.reviewer: eunicewaweru
 
 #Customer intent: As an IT admin responsible for managing administrative units in Microsoft Entra ID, I want to learn how to use Microsoft Entra PowerShell to delegate permissions more granularly.
 
@@ -26,7 +27,7 @@ This article shows you how to use Microsoft Entra PowerShell to manage administr
 ## Prerequisites
 
 - A Microsoft Entra user account. If you don't have one, [create an account for free][create-account].
-- At least the [Privileged Role Administrator][application-administrator] role. 
+- At least the [Privileged Role Administrator][privileged-role-administrator] role. 
 - Microsoft Entra PowerShell module. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
 ## Create administrative units
@@ -41,12 +42,15 @@ New-EntraAdministrativeUnit -DisplayName 'Pacific Administrative Unit' -Descript
 ```
 
 ```Output
-DeletedDateTime Id                                   Description DisplayName IsMemberManagementRestricted Visibility
---------------- --                                   ----------- ----------- ---------------------------- ----------
-                bbbbbbbb-1111-2222-3333-cccccccccccc Pacific Administrative Unit     test111     False
+DeletedDateTime Id                                   Description                           DisplayName                IsMemberManagementRestricted Membersh
+                                                                                                                                                   ipRule
+--------------- --                                   -----------                           -----------                ---------------------------- --------
+                bbbbbbbb-1111-2222-3333-cccccccccccc Administrative Unit for Africa region Africa Administrative Unit
 ```
 
 ## Assign roles to administrative units
+
+Scoped role membership in Microsoft Entra ID allows you to assign administrative roles to users with permissions limited to specific administrative units.
 
 Assign scoped role membership to an administrative unit by using the `Add-EntraScopedRoleMembership` cmdlet. The following example shows how to add a user to a role in an administrative unit.
 
@@ -61,8 +65,8 @@ Add-EntraScopedRoleMembership -AdministrativeUnitId $administrativeUnit.Id -Role
 ```
 
 ```Output
-Id                                                                AdministrativeUnitId                 RoleId
---                                                                --------------------                 ------
+Id                                   AdministrativeUnitId                 RoleId
+--                                   --------------------                 ------
 aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb aaaaaaaa-bbbb-aaaa-bbbb-cccccccccccc bbbbbbbb-1111-2222-3333-cccccccccccc
 ```
 
@@ -97,7 +101,7 @@ To clean up resources, you can remove scoped role memberships, administrative un
 
 ### Remove scoped role memberships
 
-Scoped role membership in Microsoft Entra ID allows you to assign administrative roles to users with permissions limited to specific administrative units. When a scoped role is removed, the user's ability to manage resources within that administrative unit is revoked. This ensures that administrative control is tightly bound to administrative unit membership and reinforces the principle of least privilege.
+When a scoped role is removed, the user's ability to manage resources within that administrative unit is revoked. This ensures that administrative control is tightly bound to administrative unit membership and reinforces the principle of least privilege.
 
 Remove a scoped role membership from Microsoft Entra ID by running the `Remove-EntraScopedRoleMembership` cmdlet. Get the administrative unit ID with the `Get-EntraAdministrativeUnit` command. Get details of a scoped role membership for the `ScopedRoleMembershipId` parameter with the `Get-EntraScopedRoleMembership` command.
 
@@ -132,9 +136,9 @@ Remove-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id
 
 <!-- Link definitions -->
 
-[application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#privileged-role-administrator
+[privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#privileged-role-administrator
 [installation]: installation.md
-[create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[create-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 
 
 
