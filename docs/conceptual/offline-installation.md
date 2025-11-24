@@ -29,7 +29,7 @@ Before you begin, ensure you have:
 - **PowerShell 5.1 or higher** (PowerShell 7+ recommended)
 - **Administrative privileges** on the target machine
 - **Access to download location** with internet connectivity to download the required files
-- **Signed nupkg files** from the Microsoft Entra PowerShell releases
+- **Signed nupkg files** from the [Microsoft Entra PowerShell releases page](https://github.com/microsoftgraph/entra-powershell/releases).
 
 ## Overview of the offline installation process
 
@@ -40,7 +40,7 @@ The offline installation process involves the following main steps:
 3. Download and place nupkg files in the local repository
 4. Install Microsoft Entra modules from the local repository
 
-## Step 1: Install Microsoft Graph PowerShell dependencies
+## Install Microsoft Graph PowerShell dependencies
 
 Microsoft Entra PowerShell modules depend on specific Microsoft Graph PowerShell modules. These dependencies are automatically installed when installing from the PowerShell Gallery, but in offline scenarios, you need to install them manually.
 
@@ -73,7 +73,7 @@ foreach ($moduleName in $graphModules) {
 }
 ```
 
-## Step 2: Set up a local PowerShell repository
+## Set up a local PowerShell repository
 
 Create a local PowerShell repository where you'll store the Microsoft Entra PowerShell module packages.
 
@@ -109,15 +109,15 @@ PSGallery                 Untrusted            https://www.powershellgallery.com
 __LocalGallery__          Trusted              C:\LocalPowerShellGallery
 ```
 
-## Step 3: Download and place nupkg files
+## Download and place nupkg files
 
 ### Download nupkg files
 
 1. Navigate to the [Microsoft Entra PowerShell releases page](https://github.com/microsoftgraph/entra-powershell/releases) on GitHub.
 
-2. Choose the version you want to install (for example, [v1.0.11](https://github.com/microsoftgraph/entra-powershell/releases/tag/v1.0.11)).
+1. Choose the version you want to install (for example, [v1.0.11](https://github.com/microsoftgraph/entra-powershell/releases/tag/v1.0.11)).
 
-3. In the **Assets** section, download the required nupkg files based on your needs:
+1. In the **Assets** section, download the required nupkg files based on your needs:
 
    **For v1.0 modules only:**
    - `Microsoft.Entra.1.0.11.nupkg`
@@ -194,7 +194,7 @@ After installing the dependent modules, you can optionally install the root modu
 Install-Module -Name 'Microsoft.Entra' -Repository $localGallery -AllowClobber -Verbose
 ```
 
-## Step 5: Verify installation
+## Verify installation
 
 Verify that the modules were installed successfully:
 
