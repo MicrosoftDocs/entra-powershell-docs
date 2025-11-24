@@ -65,9 +65,9 @@ Add-EntraScopedRoleMembership -AdministrativeUnitId $administrativeUnit.Id -Role
 ```
 
 ```Output
-Id                                   AdministrativeUnitId                 RoleId
---                                   --------------------                 ------
-aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb aaaaaaaa-bbbb-aaaa-bbbb-cccccccccccc bbbbbbbb-1111-2222-3333-cccccccccccc
+Id                                         AdministrativeUnitId                 RoleId
+--                                         --------------------                 ------
+Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2   aaaaaaaa-bbbb-aaaa-bbbb-cccccccccccc bbbbbbbb-1111-2222-3333-cccccccccccc
 ```
 
 ## Add members to administrative units
