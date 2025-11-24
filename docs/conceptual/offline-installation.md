@@ -150,7 +150,7 @@ foreach ($file in $nupkgFiles) {
 }
 ```
 
-## Step 4: Install Microsoft Entra modules
+## Step 4: Install Microsoft Entra PowerShell modules
 
 ### Install individual modules
 
