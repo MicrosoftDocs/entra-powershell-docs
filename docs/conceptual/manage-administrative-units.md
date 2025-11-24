@@ -45,7 +45,7 @@ New-EntraAdministrativeUnit -DisplayName 'Pacific Administrative Unit' -Descript
 DeletedDateTime Id                                   Description                           DisplayName                IsMemberManagementRestricted Membersh
                                                                                                                                                    ipRule
 --------------- --                                   -----------                           -----------                ---------------------------- --------
-                bbbbbbbb-1111-2222-3333-cccccccccccc Administrative Unit for Africa region Africa Administrative Unit
+                bbbbbbbb-1111-2222-3333-cccccccccccc Administrative Unit for Pacific region Pacific Administrative Unit
 ```
 
 ## Assign roles to administrative units
@@ -106,7 +106,7 @@ When a scoped role is removed, the user's ability to manage resources within tha
 Remove a scoped role membership from Microsoft Entra ID by running the `Remove-EntraScopedRoleMembership` cmdlet. Get the administrative unit ID with the `Get-EntraAdministrativeUnit` command. Get details of a scoped role membership for the `ScopedRoleMembershipId` parameter with the `Get-EntraScopedRoleMembership` command.
 
 ```powershell
-Connect-Entra -Scopes 'RoleManagement.Read.Directory'
+Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
 $role = Get-EntraDirectoryRole -Filter "DisplayName eq 'Helpdesk Administrator'" 
 $administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq 'Pacific Administrative Unit'"
 $roleMembership = Get-EntraScopedRoleMembership -AdministrativeUnitId $administrativeUnit.Id | Where-Object {$_.RoleId -eq $role.Id}
@@ -118,9 +118,9 @@ Remove-EntraScopedRoleMembership -AdministrativeUnitId $administrativeUnit.Id -S
 Remove an administrative unit member from Microsoft Entra ID by running the `Remove-EntraAdministrativeUnitMember` cmdlet.
 
 ```powershell
-Connect-Entra -Scopes 'AdministrativeUnit.Read.All'
+Connect-Entra -Scopes 'AdministrativeUnit.ReadWrite.All'
 $administrativeUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq 'Pacific Administrative Unit'"
-$adminUnitMember = Get-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id | Select-Object Id, DisplayName,'@odata.type' | Where-Object {$_.DisplayName -eq 'Saywer Miller'}
+$adminUnitMember = Get-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id | Select-Object Id, DisplayName,'@odata.type' | Where-Object {$_.DisplayName -eq 'Sawyer Miller'}
 Remove-EntraAdministrativeUnitMember -AdministrativeUnitId $administrativeUnit.Id -MemberId $adminUnitMember.Id
 ```
 
