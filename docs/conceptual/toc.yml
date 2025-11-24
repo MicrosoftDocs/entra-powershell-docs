@@ -45,6 +45,8 @@ items:
       href: manage-stale-devices.md
   - name: Manage groups
     href: manage-groups.md
+  - name: Manage administrative units
+    href: manage-administrative-units.md
   - name: Manage apps
     href: manage-apps.md
   - name: Manage user and group assignment
