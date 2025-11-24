@@ -75,39 +75,39 @@ foreach ($moduleName in $graphModules) {
 
 ## Set up a local PowerShell repository
 
-Create a local PowerShell repository where you'll store the Microsoft Entra PowerShell module packages.
+1. Create a local PowerShell repository where you'll store the Microsoft Entra PowerShell module packages.
 
-```powershell
-# Define local gallery settings
-$localGallery = '__LocalGallery__'
-$galleryPath = 'C:\LocalPowerShellGallery'
+    ```powershell
+    # Define local gallery settings
+    $localGallery = '__LocalGallery__'
+    $galleryPath = 'C:\LocalPowerShellGallery'
+    
+    # Create the gallery directory if it doesn't exist
+    if (-not(Test-Path $galleryPath)) {
+        Write-Host "Creating local gallery directory: $galleryPath" -ForegroundColor Yellow
+        $null = New-Item -Path $galleryPath -ItemType Directory
+    }
+    
+    # Register the local repository
+    Write-Host "Registering local PowerShell repository: $localGallery" -ForegroundColor Green
+    $null = Register-PSRepository -Name $localGallery -SourceLocation $galleryPath -ScriptSourceLocation $galleryPath -InstallationPolicy Trusted
+    ```
 
-# Create the gallery directory if it doesn't exist
-if (-not(Test-Path $galleryPath)) {
-    Write-Host "Creating local gallery directory: $galleryPath" -ForegroundColor Yellow
-    $null = New-Item -Path $galleryPath -ItemType Directory
-}
+1. Verify that the local repository was created successfully:
 
-# Register the local repository
-Write-Host "Registering local PowerShell repository: $localGallery" -ForegroundColor Green
-$null = Register-PSRepository -Name $localGallery -SourceLocation $galleryPath -ScriptSourceLocation $galleryPath -InstallationPolicy Trusted
-```
-
-Verify that the local repository was created successfully:
-
-```powershell
-# Display all registered repositories
-Get-PSRepository
-```
-
-You should see output similar to:
-
-```output
-Name                      InstallationPolicy   SourceLocation
-----                      ------------------   --------------
-PSGallery                 Untrusted            https://www.powershellgallery.com/api/v2
-__LocalGallery__          Trusted              C:\LocalPowerShellGallery
-```
+    ```powershell
+    # Display all registered repositories
+    Get-PSRepository
+    ```
+    
+    You should see output similar to:
+    
+    ```output
+    Name                      InstallationPolicy   SourceLocation
+    ----                      ------------------   --------------
+    PSGallery                 Untrusted            https://www.powershellgallery.com/api/v2
+    __LocalGallery__          Trusted              C:\LocalPowerShellGallery
+    ```
 
 ## Download and place nupkg files
 
