@@ -219,7 +219,7 @@ Version      Name                                            Repository         
 1.0.11       Microsoft.Entra.Users                           __LocalGallery__     Microsoft Entra PowerShell
 ```
 
-## Testing the installation
+## Test the installation
 
 Test that the modules work correctly by connecting to Microsoft Entra:
 
