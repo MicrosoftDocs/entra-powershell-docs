@@ -5,7 +5,7 @@ description: Learn how to install the Microsoft Entra PowerShell module in offli
 author: msewaweru
 manager: mwongerapk
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 11/24/2025
 ms.author: eunicewaweru
 ms.reviewer: kemunga
 
