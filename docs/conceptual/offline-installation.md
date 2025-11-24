@@ -1,11 +1,11 @@
 ---
-title: "Install Microsoft Entra PowerShell offline"
-description: "Learn how to install the Microsoft Entra PowerShell module in offline environments using nupkg files and a local gallery."
+title: Install Microsoft Entra PowerShell offline
+description: Learn how to install the Microsoft Entra PowerShell module in offline environments using nupkg files and a local gallery.
 
 author: msewaweru
 manager: mwongerapk
 ms.topic: how-to
-ms.date: 11/17/2024
+ms.date: 11/17/2025
 ms.author: eunicewaweru
 ms.reviewer: kemunga
 
@@ -33,7 +33,7 @@ Before you begin, ensure you have:
 
 ## Overview of the offline installation process
 
-The offline installation process involves these main steps:
+The offline installation process involves the following main steps:
 
 1. Install Microsoft Graph PowerShell dependencies
 2. Set up a local PowerShell repository
