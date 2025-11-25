@@ -13,6 +13,8 @@ items:
   items:
   - name: Install the module
     href: installation.md
+  - name: Install the module offline
+    href: offline-installation.md
   - name: Navigate the module
     href: navigate-entraps.md
   - name: Authenticate
