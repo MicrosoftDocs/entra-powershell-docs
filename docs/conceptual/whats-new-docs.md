@@ -78,8 +78,8 @@ Improvements based on module usability and docs bug bash feedback:
 - [Version 1.1.0][posh-1.1.0] - **December 2025**
 
   - **Features**:
-    - Removed version pinning of MS Graph PowerShell modules from 2.25.0 to allow users to use the latest version of the module without any version restriction.
-    - Added sample scripts on how to apply batch operations in Graph API calls with the goal of performance improvement on operations involving a lot of API calls.
+    - Removed version pinning of Microsoft Graph PowerShell modules from version `2.25.0` to allow users to use the latest version of the module without any version restriction.
+    - Added sample scripts on how to apply batch operations in Graph API calls for performance improvement on operations involving a lot of API calls.
 
   - **New Parameters**:
     - [Get-EntraDevice](/powershell/module/Microsoft.Entra.DirectoryManagement/Get-EntraDevice) & [Get-EntraBetaDevice](/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaDevice):
