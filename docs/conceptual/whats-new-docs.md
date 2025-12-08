@@ -120,8 +120,6 @@ Improvements based on module usability and docs bug bash feedback:
     - Fixed [Get-EntraUser](/powershell/module/Microsoft.Entra.Users/Get-EntraUser) issue where handling of guest UPNs was corrected to properly escape/quote special characters so that `user@external#EXT#@tenant.onmicrosoft.com` no longer triggers "unterminated string literal" errors.
     - [Set-EntraUserManager](/powershell/module/Microsoft.Entra.Users/Set-EntraUserManager) `-ManagerId` parameter type corrected from `Guid` to `String`, enabling UPN (and not just objectId) for the manager reference.
 
-## Module version history
-
 [Version 1.0.12][posh-1.0.12] - **September 2025**
 
 - **Bug Fixes**:
