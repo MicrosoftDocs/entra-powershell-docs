@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 11/13/2025
+ms.date: 12/08/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -75,7 +75,29 @@ Improvements based on module usability and docs bug bash feedback:
 
 ## Latest (recommended) version
 
-- [Version 1.0.13][posh-1.0.13] - **November 2025**
+- [Version 1.1.0][posh-1.1.0] - **December 2025**
+
+  - **Features**:
+    - Removed version pinning of Microsoft Graph PowerShell modules from version `2.25.0` to allow users to use the latest version of the module without any version restriction.
+    - Added sample scripts on how to apply batch operations in Graph API calls for performance improvement on operations involving a lot of API calls.
+
+  - **New Parameters**:
+    - [Get-EntraDevice](/powershell/module/Microsoft.Entra.DirectoryManagement/Get-EntraDevice) & [Get-EntraBetaDevice](/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaDevice):
+      - Added `-LogonTimeBefore` parameter to filter devices with last sign-in before a specified date.
+      - Added `-Stale` parameter to filter devices that haven't signed in for 2 months or more.
+      - Added `-NonCompliant` parameter to filter devices that are not compliant with organizational policies.
+      - Added `-IsManaged` parameter to filter devices based on whether they are managed by a Mobile Device Management (MDM) solution.
+      - Added `-JoinType` parameter to filter devices by join type: MicrosoftEntraJoined, MicrosoftEntraHybridJoined, or MicrosoftEntraRegistered.
+    - [Get-EntraServicePrincipal](/powershell/module/Microsoft.Entra.Applications/Get-EntraServicePrincipal) & [Get-EntraBetaServicePrincipal](/powershell/module/Microsoft.Entra.Beta.Applications/Get-EntraBetaServicePrincipal):
+      - Added `-AssignmentRequired` parameter to filter by whether user assignment is required to access the application. When set to `$true`, returns only service principals where user assignment is required. When set to `$false`, returns only service principals where user assignment is not required.
+      - Added `-ApplicationType` parameter to filter by application type such as: AppProxyApps, EnterpriseApps, ManagedIdentity and MicrosoftApps.
+
+  - **Bug Fixes**:
+    - Fixed an issue where Microsoft.Entra.Beta.Applications module was experiencing a parsing issue in PowerShell 5.1.
+
+## Module version history
+
+[Version 1.0.13][posh-1.0.13] - **November 2025**
 
   - **New Commands**:
     - [Grant-EntraBetaMcpServerPermission](/powershell/module/microsoft.entra.beta.applications/grant-entrabetamcpserverpermission): Grants delegated permissions to Model Context Protocol (MCP) clients for accessing the Microsoft MCP Server for Enterprise.
@@ -97,8 +119,6 @@ Improvements based on module usability and docs bug bash feedback:
   - **Bug Fixes**:
     - Fixed [Get-EntraUser](/powershell/module/Microsoft.Entra.Users/Get-EntraUser) issue where handling of guest UPNs was corrected to properly escape/quote special characters so that `user@external#EXT#@tenant.onmicrosoft.com` no longer triggers "unterminated string literal" errors.
     - [Set-EntraUserManager](/powershell/module/Microsoft.Entra.Users/Set-EntraUserManager) `-ManagerId` parameter type corrected from `Guid` to `String`, enabling UPN (and not just objectId) for the manager reference.
-
-## Module version history
 
 [Version 1.0.12][posh-1.0.12] - **September 2025**
 
@@ -122,24 +142,13 @@ Improvements based on module usability and docs bug bash feedback:
     - Updated the command name `Set-EntraUserPassword` to `Set-EntraUserPasswordProfile` and the corresponding parameters. PR [#1519](https://github.com/microsoftgraph/entra-powershell/pull/1519)
     - Removed `Microsoft.Graph.Users.Functions` dependency for performance improvement. PR [#1521](https://github.com/microsoftgraph/entra-powershell/pull/1521)
 
-- [Version 1.0.10][posh-1.0.10] - **July 2025**
 
-  - **New Commands**:
-    - [New-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra.applications/new-entraserviceprincipalkeycredential). PR [#1487](https://github.com/microsoftgraph/entra-powershell/pull/1487)
-
-  - **Bug Fixes**:
-    - Fixed `Remove-EntraUserExtension`. PR [#1509](https://github.com/microsoftgraph/entra-powershell/pull/1509)
-
-  - **Documentation enhancements**:
-    - Updates to comply with Platy PS v2 pipeline. PRs [#1498](https://github.com/microsoftgraph/entra-powershell/pull/1498), [#1501](https://github.com/microsoftgraph/entra-powershell/pull/1501), and [#1506](https://github.com/microsoftgraph/entra-powershell/pull/1506)
-
-  - **Other Enhancements**:
-    - Adding zero-trust assessments samples. PR [#1341](https://github.com/microsoftgraph/entra-powershell/pull/1341)
 
 :::zone-end
 
+[posh-1.1.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.1.0
 [posh-1.0.13]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.13
 [posh-1.0.12]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.12
 [posh-1.0.11]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.11
-[posh-1.0.10]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.10
+
 
