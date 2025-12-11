@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 12/08/2025
+ms.date: 12/11/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -23,6 +23,15 @@ This article lists all new articles that were added or had significant updates i
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### November 2025
+
+#### New articles
+
+- [Install Microsoft Entra PowerShell offline](offline-installation.md) - Learn how to install the Microsoft Entra PowerShell module in offline environments using nupkg files and a local repository.
+- [Manage administrative units](manage-administrative-units.md) - Learn how to manage administrative units for granular delegation of permissions in Microsoft Entra ID.
+- [Manage Microsoft MCP Server for Enterprise permissions](how-to-manage-mcp-server-permissions.md) - Learn how to grant and revoke delegated permissions for MCP clients to access enterprise resources through Microsoft MCP Server.
+
 
 ### June 2025
 
@@ -49,25 +58,6 @@ This article lists all new articles that were added or had significant updates i
 - [Manage users](manage-user.md) - Refined code snippets to improve readability and ensure alignment with best practices.
 - [Manage user licenses using Microsoft Entra PowerShell](how-to-manage-user-licenses.md) - Improved metadata and keywords for better search engine visibility.
 
-### February 2025
-
-#### Updated articles
-
-Improvements based on module usability and docs bug bash feedback:
-
-- [Create a custom application](create-custom-application.md)
-- [Grant and revoke API permissions programmatically](how-to-grant-revoke-api-permissions.md)
-- [Install Microsoft Entra PowerShell](installation.md)
-- [Manage apps](manage-apps.md)
-- [Manage devices](manage-devices.md)
-- [Manage groups](manage-groups.md)
-- [Manage roles](manage-roles.md)
-- [Manage stale devices](manage-stale-devices.md)
-- [Manage users](manage-user.md)
-- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md)
-- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md)
-- [Recover deleted data](recover-deleted-data.md)
-- [Use app-only authentication](app-only-access-auth.md)
 
 :::zone-end
 
