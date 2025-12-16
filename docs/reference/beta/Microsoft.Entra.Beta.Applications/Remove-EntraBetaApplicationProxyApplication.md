@@ -44,7 +44,7 @@ Remove-EntraBetaApplicationProxyApplication -ApplicationId 'aaaaaaaa-0000-1111-2
 
 This example removes a Proxy Application.
 
-- `ApplicationId` parameter specifies the application ID.
+- `ApplicationId` parameter specifies the application object ID.
 
 ### Example 2: Remove a Proxy Application, and remove it from Microsoft Entra ID completely
 
@@ -55,14 +55,14 @@ Remove-EntraBetaApplicationProxyApplication -ApplicationId 'aaaaaaaa-0000-1111-2
 
 This example removes a Proxy Application, and removes it from Microsoft Entra ID completely.
 
-- `ApplicationId` parameter specifies the application ID.  
+- `ApplicationId` parameter specifies the application object ID.  
 - `RemoveADApplication` parameter specifies the user confirmation to delete application completely.
 
 ## PARAMETERS
 
 ### -ApplicationId
 
-The unique application ID of the application.
+The unique application object ID of the application.
 This ApplicationId can be found using the `Get-EntraBetaApplication` command.
 You can also find this ApplicationId in the Microsoft by navigating to Microsoft Entra ID > App registrations > All applications. Select your application. This will takes you to the application's overview page. Use the ObjectId on that page.
 
