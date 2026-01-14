@@ -158,8 +158,8 @@ This cmdlet requires the following Microsoft Graph permissions:
 
 ## RELATED LINKS
 
-[New-EntraBetaAgentIDForAgentIdentityBlueprint](New-EntraBetaAgentIDForAgentIdentityBlueprint.md)
+[New-EntraBetaAgentIDForAgentIdentityBlueprint](../Microsoft.Entra.Beta.Applications/New-EntraBetaAgentIDForAgentIdentityBlueprint.md)
 
-[New-EntraBetaAgentIdentityBlueprint](New-EntraBetaAgentIdentityBlueprint.md)
+[New-EntraBetaAgentIdentityBlueprint](../Microsoft.Entra.Beta.Applications/New-EntraBetaAgentIdentityBlueprint.md)
 
-[Invoke-EntraBetaAgentIdInteractive](Invoke-EntraBetaAgentIdInteractive.md)
+[Invoke-EntraBetaAgentIdInteractive](../Microsoft.Entra.Beta.Applications/Invoke-EntraBetaAgentIdInteractive.md)
