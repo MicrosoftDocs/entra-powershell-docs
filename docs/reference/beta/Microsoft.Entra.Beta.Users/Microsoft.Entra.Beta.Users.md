@@ -96,6 +96,10 @@ Retrieve a user's sponsors (users or groups).
 
 Retrieve the thumbnail photo of a user.
 
+### [New-EntraBetaAgentIDUserForAgentId](New-EntraBetaAgentIDUserForAgentId.md)
+
+Creates a new Agent User using an Agent Identity.
+
 ### [New-EntraBetaUser](New-EntraBetaUser.md)
 
 Creates a Microsoft Entra ID user.

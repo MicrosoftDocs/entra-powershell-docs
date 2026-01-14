@@ -24,6 +24,30 @@ Adds an owner to an application.
 
 Adds an application policy.
 
+### [Add-EntraBetaClientSecretToAgentIdentityBlueprint](Add-EntraBetaClientSecretToAgentIdentityBlueprint.md)
+
+Adds a client secret to the current Agent Identity Blueprint.
+
+### [Add-EntraBetaInheritablePermissionsToAgentIdentityBlueprint](Add-EntraBetaInheritablePermissionsToAgentIdentityBlueprint.md)
+
+Adds inheritable permissions to Agent Identity Blueprints.
+
+### [Add-EntraBetaPermissionsToInheritToAgentIdentityBlueprintPrincipal](Add-EntraBetaPermissionsToInheritToAgentIdentityBlueprintPrincipal.md)
+
+Opens admin consent page in browser for Agent Identity Blueprint Principal to inherit permissions.
+
+### [Add-EntraBetaPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal](Add-EntraBetaPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal.md)
+
+Grants permission to create Agent Users to the Agent Identity Blueprint Principal.
+
+### [Add-EntraBetaRedirectURIToAgentIdentityBlueprint](Add-EntraBetaRedirectURIToAgentIdentityBlueprint.md)
+
+Adds a web redirect URI to the current Agent Identity Blueprint.
+
+### [Add-EntraBetaScopeToAgentIdentityBlueprint](Add-EntraBetaScopeToAgentIdentityBlueprint.md)
+
+Adds an OAuth2 permission scope to the current Agent Identity Blueprint.
+
 ### [Add-EntraBetaServicePrincipalDelegatedPermissionClassification](Add-EntraBetaServicePrincipalDelegatedPermissionClassification.md)
 
 Add a classification for a delegated permission.
@@ -31,6 +55,14 @@ Add a classification for a delegated permission.
 ### [Add-EntraBetaServicePrincipalOwner](Add-EntraBetaServicePrincipalOwner.md)
 
 Add an owner (user or service principal) to a service principal.
+
+### [Get-EntraBetaAgentIdentity](Get-EntraBetaAgentIdentity.md)
+
+Gets an Agent Identity by its ID.
+
+### [Get-EntraBetaAgentIdentityToken](Get-EntraBetaAgentIdentityToken.md)
+
+Acquires an access token for an agent identity using client credentials.
 
 ### [Get-EntraBetaApplication](Get-EntraBetaApplication.md)
 
@@ -104,10 +136,6 @@ Retrieves the list of previously deleted service principals.
 
 Gets the password Single-Sign-On (SSO) credentials.
 
-### [Grant-EntraBetaMcpServerPermission](Grant-EntraBetaMcpServerPermission.md)
-
-Grants delegated permissions to a Model Context Protocol (MCP) client for Microsoft MCP Server for Enterprise.
-
 ### [Get-EntraBetaServicePrincipal](Get-EntraBetaServicePrincipal.md)
 
 Gets a service principal.
@@ -151,6 +179,26 @@ Get the owner of a service principal.
 ### [Get-EntraBetaServicePrincipalPasswordCredential](Get-EntraBetaServicePrincipalPasswordCredential.md)
 
 Get credentials for a service principal.
+
+### [Grant-EntraBetaMcpServerPermission](Grant-EntraBetaMcpServerPermission.md)
+
+Grants delegated permissions to a Model Context Protocol (MCP) client for Microsoft MCP Server for Enterprise.
+
+### [Invoke-EntraBetaAgentIdInteractive](Invoke-EntraBetaAgentIdInteractive.md)
+
+Interactive cmdlet to create and configure an Agent ID.
+
+### [New-EntraBetaAgentIdentityBlueprint](New-EntraBetaAgentIdentityBlueprint.md)
+
+Creates a new Agent Identity Blueprint.
+
+### [New-EntraBetaAgentIdentityBlueprintPrincipal](New-EntraBetaAgentIdentityBlueprintPrincipal.md)
+
+Creates a service principal for the Agent Identity Blueprint.
+
+### [New-EntraBetaAgentIDForAgentIdentityBlueprint](New-EntraBetaAgentIDForAgentIdentityBlueprint.md)
+
+Creates a new Agent Identity using an Agent Identity Blueprint.
 
 ### [New-EntraBetaApplication](New-EntraBetaApplication.md)
 
