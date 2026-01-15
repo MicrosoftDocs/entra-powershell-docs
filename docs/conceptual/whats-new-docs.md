@@ -65,7 +65,31 @@ This article lists all new articles that were added or had significant updates i
 
 ## Latest (recommended) version
 
-- [Version 1.1.0][posh-1.1.0] - **December 2025**
+- [Version 1.2.0][posh-1.2.0] - **January 2026**
+
+  - **Features**:
+    - Migrated the `AgentId` command set from MSIdentityTools into the entra-powershell repository, delivering a production-ready implementation for managing Agent Identity Blueprints and Agent Identities in Microsoft Entra ID.
+
+  - **New Commands**:
+    - New-EntraBetaAgentIdentityBlueprint: Creates a new Agent Identity Blueprint with sponsors and owners.
+    - Add-EntraBetaClientSecretToAgentIdentityBlueprint: Adds a 90-day client secret to a blueprint with retry logic.
+    - Add-EntraBetaInheritablePermissionsToAgentIdentityBlueprint: Configures Microsoft Graph permissions and consent flows.
+    - Add-EntraBetaScopeToAgentIdentityBlueprint: Adds OAuth2 permission scopes to a blueprint.
+    - Add-EntraBetaRedirectURIToAgentIdentityBlueprint: Adds web redirect URIs for authentication callbacks.
+    - New-EntraBetaAgentIDForAgentIdentityBlueprint: Creates agent identities under a blueprint using stored credentials.
+    - New-EntraBetaAgentIDUserForAgentId: Creates agent users with auto-generated UPN and mailNickname.
+    - Get-EntraBetaAgentIdentityToken: Acquires tokens for multiple authentication modes (app-only, OBO, user).
+    - Invoke-EntraBetaAgentIdInteractive: Launches an interactive wizard for Agent ID setup.
+    - Connect-AgentIdentityBlueprint: Authenticates using stored blueprint credentials.
+    - Get-SponsorsAndOwners: Prompts and validates sponsors and owners for blueprints.
+
+  - **Bug Fixes**:
+    - Enabled support for the `-PreAuthorizedApplications` parameter in the `Set-EntraBetaApplication` cmdlet, enabling users to configure pre-authorized applications for an Entra application.
+    - The `InvitedUser` and `InvitedUserMessageInfo` parameter types have been updated. `New-EntraBetaInvitation` commands now use interfaces from `Microsoft.Graph.Beta.PowerShell.Models`, while `New-EntraInvitation` commands use interfaces from `Microsoft.Graph.PowerShell.Models`.
+
+## Module version history
+
+[Version 1.1.0][posh-1.1.0] - **December 2025**
 
   - **Features**:
     - Removed version pinning of Microsoft Graph PowerShell modules from version `2.25.0` to allow users to use the latest version of the module without any version restriction.
@@ -84,8 +108,6 @@ This article lists all new articles that were added or had significant updates i
 
   - **Bug Fixes**:
     - Fixed an issue where Microsoft.Entra.Beta.Applications module was experiencing a parsing issue in PowerShell 5.1.
-
-## Module version history
 
 [Version 1.0.13][posh-1.0.13] - **November 2025**
 
@@ -122,23 +144,9 @@ This article lists all new articles that were added or had significant updates i
   - Updated the `-Features` parameter under `Set-EntraDirSyncFeature` command to allow processing of multiple features at once.. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
   - Extended the `Get-EntraUser` command to include `-PageSize` parameter. PR [#1526](https://github.com/microsoftgraph/entra-powershell/pull/1526)
 
-[Version 1.0.11][posh-1.0.11] - **August 2025**
-
-- **Bug Fixes**:
-  - Updated cmdlet binding for `Remove-EntraBetaPrivateAccessApplicationSegment` command. PR [#1524](https://github.com/microsoftgraph/entra-powershell/pull/1524)
-
-  - **Cmdlet Enhancements**:
-    - Updated the verb on `Update-EntraSignedInUserPassword` command to `Set-EntraSignedInUserPassword`. PR [#1516](https://github.com/microsoftgraph/entra-powershell/pull/1516)
-    - Updated the command name `Set-EntraUserPassword` to `Set-EntraUserPasswordProfile` and the corresponding parameters. PR [#1519](https://github.com/microsoftgraph/entra-powershell/pull/1519)
-    - Removed `Microsoft.Graph.Users.Functions` dependency for performance improvement. PR [#1521](https://github.com/microsoftgraph/entra-powershell/pull/1521)
-
-
-
 :::zone-end
 
+[posh-1.2.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.2.0
 [posh-1.1.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.1.0
 [posh-1.0.13]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.13
 [posh-1.0.12]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.12
-[posh-1.0.11]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.11
-
-
