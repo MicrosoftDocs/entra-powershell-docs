@@ -86,7 +86,7 @@ The resource application ID as a GUID. Defaults to Microsoft Graph (00000003-000
 This parameter accepts either a GUID object or a string that can be converted to a GUID.
 
 ```yaml
-Type: System.Guid
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
