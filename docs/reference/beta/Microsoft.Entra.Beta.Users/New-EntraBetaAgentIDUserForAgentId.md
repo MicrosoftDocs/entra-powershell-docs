@@ -5,6 +5,8 @@ external help file: Microsoft.Entra.Beta.Users-Help.xml
 Locale: en-US
 Module Name: Microsoft.Entra.Beta.Users
 ms.author: giomachar
+manager: paodero
+ms.reviewer: msewaweru
 ms.date: 12/17/2024
 ms.topic: reference
 online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Beta.Users/New-EntraBetaAgentIDUserForAgentId

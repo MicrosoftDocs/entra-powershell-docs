@@ -8,7 +8,7 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.Beta.Governance
 ---
-# Microsoft.Entra.Beta.Governance Module v1.1
+# Microsoft.Entra.Beta.Governance Module v1.2
 
 ## Description
 

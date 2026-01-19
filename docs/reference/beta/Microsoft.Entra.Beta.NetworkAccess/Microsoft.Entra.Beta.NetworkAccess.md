@@ -8,7 +8,7 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.Beta.NetworkAccess
 ---
-# Microsoft.Entra.Beta.NetworkAccess Module v1.1
+# Microsoft.Entra.Beta.NetworkAccess Module v1.2
 
 ## Description
 

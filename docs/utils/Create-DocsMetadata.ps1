@@ -44,7 +44,7 @@ title: $subModuleName
 "@
 
             $metadataContent = $header + "`n"
-            $metadataContent += "# $subModuleName Module v1.1`n`n"
+            $metadataContent += "# $subModuleName Module v1.2`n`n"
             $metadataContent += "## Description`n`n"
             $metadataContent += "This module contains cmdlets that designed to work with $subModuleName.`n`n"
             $metadataContent += "## $subModuleName Cmdlets`n`n"
