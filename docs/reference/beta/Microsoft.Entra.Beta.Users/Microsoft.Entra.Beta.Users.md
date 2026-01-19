@@ -8,7 +8,7 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.Beta.Users
 ---
-# Microsoft.Entra.Beta.Users Module v1.1
+# Microsoft.Entra.Beta.Users Module v1.2
 
 ## Description
 
@@ -95,6 +95,10 @@ Retrieve a user's sponsors (users or groups).
 ### [Get-EntraBetaUserThumbnailPhoto](Get-EntraBetaUserThumbnailPhoto.md)
 
 Retrieve the thumbnail photo of a user.
+
+### [New-EntraBetaAgentIDUserForAgentId](New-EntraBetaAgentIDUserForAgentId.md)
+
+Creates a new Agent User using an Agent Identity.
 
 ### [New-EntraBetaUser](New-EntraBetaUser.md)
 
