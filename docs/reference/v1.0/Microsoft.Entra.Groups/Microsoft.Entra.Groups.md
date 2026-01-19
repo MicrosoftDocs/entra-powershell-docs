@@ -8,7 +8,7 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.Groups
 ---
-# Microsoft.Entra.Groups Module v1.1
+# Microsoft.Entra.Groups Module v1.2
 
 ## Description
 
