@@ -71,17 +71,19 @@ This article lists all new articles that were added or had significant updates i
     - Migrated the `AgentId` command set from MSIdentityTools into the entra-powershell repository, delivering a production-ready implementation for managing Agent Identity Blueprints and Agent Identities in Microsoft Entra ID.
 
   - **New Commands**:
-    - New-EntraBetaAgentIdentityBlueprint: Creates a new Agent Identity Blueprint with sponsors and owners.
-    - Add-EntraBetaClientSecretToAgentIdentityBlueprint: Adds a 90-day client secret to a blueprint with retry logic.
-    - Add-EntraBetaInheritablePermissionsToAgentIdentityBlueprint: Configures Microsoft Graph permissions and consent flows.
-    - Add-EntraBetaScopeToAgentIdentityBlueprint: Adds OAuth2 permission scopes to a blueprint.
-    - Add-EntraBetaRedirectURIToAgentIdentityBlueprint: Adds web redirect URIs for authentication callbacks.
-    - New-EntraBetaAgentIDForAgentIdentityBlueprint: Creates agent identities under a blueprint using stored credentials.
-    - New-EntraBetaAgentIDUserForAgentId: Creates agent users with auto-generated UPN and mailNickname.
-    - Get-EntraBetaAgentIdentityToken: Acquires tokens for multiple authentication modes (app-only, OBO, user).
-    - Invoke-EntraBetaAgentIdInteractive: Launches an interactive wizard for Agent ID setup.
-    - Connect-AgentIdentityBlueprint: Authenticates using stored blueprint credentials.
-    - Get-SponsorsAndOwners: Prompts and validates sponsors and owners for blueprints.
+    - [Add-EntraBetaClientSecretToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetaclientsecrettoagentidentityblueprint): Adds a 90-day client secret to a blueprint with retry logic.
+    - [Add-EntraBetaInheritablePermissionsToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetainheritablepermissionstoagentidentityblueprint): Configures Microsoft Graph permissions and consent flows.
+    - [Add-EntraBetaPermissionsToInheritToAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.beta.applications/add-entrabetapermissionstoinherittoagentidentityblueprintprincipal): Opens admin consent page in browser for Agent Identity Blueprint Principal to inherit permissions.
+    - [Add-EntraBetaPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.beta.applications/add-entrabetapermissiontocreateagentuserstoagentidentityblueprintprincipal): Grants permission to create Agent Users to the Agent Identity Blueprint Principal.
+    - [Add-EntraBetaRedirectURIToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetaredirecturitoagentidentityblueprint): Adds web redirect URIs for authentication callbacks.
+    - [Add-EntraBetaScopeToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetascopetoagentidentityblueprint): Adds OAuth2 permission scopes to a blueprint.
+    - [Get-EntraBetaAgentIdentity](/powershell/module/microsoft.entra.beta.applications/get-entrabetaagentidentity): Gets an Agent Identity by its ID.
+    - [Get-EntraBetaAgentIdentityToken](/powershell/module/microsoft.entra.beta.applications/get-entrabetaagentidentitytoken): Acquires tokens for multiple authentication modes (app-only, OBO, user).
+    - [Invoke-EntraBetaAgentIdInteractive](/powershell/module/microsoft.entra.beta.applications/invoke-entrabetaagentidinteractive): Launches an interactive wizard for Agent ID setup.
+    - [New-EntraBetaAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/new-entrabetaagentidentityblueprint): Creates a new Agent Identity Blueprint with sponsors and owners.
+    - [New-EntraBetaAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.beta.applications/new-entrabetaagentidentityblueprintprincipal): Creates a service principal for the Agent Identity Blueprint.
+    - [New-EntraBetaAgentIDForAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/new-entrabetaagentidforagentidentityblueprint): Creates agent identities under a blueprint using stored credentials.
+    - [New-EntraBetaAgentIDUserForAgentId](/powershell/module/microsoft.entra.beta.users/new-entrabetaagentiduserforagentid): Creates agent users with auto-generated UPN and mailNickname.
 
   - **Bug Fixes**:
     - Enabled support for the `-PreAuthorizedApplications` parameter in the `Set-EntraBetaApplication` cmdlet, enabling users to configure pre-authorized applications for an Entra application.
