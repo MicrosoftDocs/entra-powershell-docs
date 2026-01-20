@@ -18,7 +18,7 @@ keywords: Microsoft Entra powershell, entra-powershell, manage entra resources u
 
 # What's new in Microsoft Entra PowerShell
 
-This article lists all new articles that were added or had significant updates in the last month. It also lists the new features in the Microsoft Entra PowerShell module to manage Microsoft Entra resources.
+This article lists new articles and significant updates from the last month. It also lists the new features in the Microsoft Entra PowerShell module to manage Microsoft Entra resources.
 
 :::zone pivot="whats-new-in-docs"
 
@@ -28,7 +28,7 @@ This article lists all new articles that were added or had significant updates i
 
 #### New articles
 
-- [Install Microsoft Entra PowerShell offline](offline-installation.md) - Learn how to install the Microsoft Entra PowerShell module in offline environments using nupkg files and a local repository.
+- [Install Microsoft Entra PowerShell offline](offline-installation.md) - Learn how to install the Microsoft Entra PowerShell module in offline environments by using nupkg files and a local repository.
 - [Manage administrative units](manage-administrative-units.md) - Learn how to manage administrative units for granular delegation of permissions in Microsoft Entra ID.
 - [Manage Microsoft MCP Server for Enterprise permissions](how-to-manage-mcp-server-permissions.md) - Learn how to grant and revoke delegated permissions for MCP clients to access enterprise resources through Microsoft MCP Server.
 
@@ -44,13 +44,13 @@ This article lists all new articles that were added or had significant updates i
 
 #### Updated articles
 
-- [Manage guest accounts using Microsoft Entra PowerShell](manage-guest-users.md) - Add examples for managing guest sponsors
+- [Manage guest accounts using Microsoft Entra PowerShell](manage-guest-users.md) - Add examples for managing guest sponsors.
 
 ### April 2025
 
 #### New articles
 
-- [Offboard users](offboard-user.md) - Learn to offboard users by invalidating sessions, resetting passwords, and removing device ownership.
+- [Offboard users](offboard-user.md) - Learn how to offboard users by invalidating sessions, resetting passwords, and removing device ownership.
 
 #### Updated articles
 
@@ -68,7 +68,7 @@ This article lists all new articles that were added or had significant updates i
 - [Version 1.2.0][posh-1.2.0] - **January 2026**
 
   - **Features**:
-    - Migrated the `AgentId` command set from MSIdentityTools into the entra-powershell repository, delivering a production-ready implementation for managing Agent Identity Blueprints and Agent Identities in Microsoft Entra ID.
+    - Migrated the `Agent ID` command set from Microsoft Identity Tools PowerShell module into Microsoft Entra Powershell, delivering a production-ready implementation for managing Agent identity blueprints and Agent identities in Microsoft Entra ID.
 
   - **New Commands**:
     - [Add-EntraBetaClientSecretToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetaclientsecrettoagentidentityblueprint): Adds a 90-day client secret to a blueprint with retry logic.
@@ -87,7 +87,7 @@ This article lists all new articles that were added or had significant updates i
 
   - **Bug Fixes**:
     - Enabled support for the `-PreAuthorizedApplications` parameter in the `Set-EntraBetaApplication` cmdlet, enabling users to configure pre-authorized applications for an Entra application.
-    - The `InvitedUser` and `InvitedUserMessageInfo` parameter types have been updated. `New-EntraBetaInvitation` commands now use interfaces from `Microsoft.Graph.Beta.PowerShell.Models`, while `New-EntraInvitation` commands use interfaces from `Microsoft.Graph.PowerShell.Models`.
+    - Updated the `InvitedUser` and `InvitedUserMessageInfo` parameter types. `New-EntraBetaInvitation` commands now use interfaces from `Microsoft.Graph.Beta.PowerShell.Models`, while `New-EntraInvitation` commands use interfaces from `Microsoft.Graph.PowerShell.Models`.
 
 ## Module version history
 
