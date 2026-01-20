@@ -68,7 +68,7 @@ This article lists new articles and significant updates from the last month. It 
 - [Version 1.2.0][posh-1.2.0] - **January 2026**
 
   - **Features**:
-    - Migrated the `Agent ID` command set from Microsoft Identity Tools PowerShell module into Microsoft Entra Powershell, delivering a production-ready implementation for managing Agent identity blueprints and Agent identities in Microsoft Entra ID.
+    - Migrated the `Agent ID` cmdlet set from Microsoft Identity Tools PowerShell module into Microsoft Entra Powershell, delivering a production-ready implementation for managing Agent identity blueprints and Agent identities in Microsoft Entra ID.
 
   - **New Commands**:
     - [Add-EntraBetaClientSecretToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetaclientsecrettoagentidentityblueprint): Adds a 90-day client secret to a blueprint with retry logic.
