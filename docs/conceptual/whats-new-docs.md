@@ -143,7 +143,7 @@ This article lists all new articles that were added or had significant updates i
 - **Cmdlet Enhancements**:
   - Added the `-AppendSelected` parameter to high usage cmdlets in applications, users, and groups sub-modules. PR [#1518](https://github.com/microsoftgraph/entra-powershell/pull/1518)
   - Implemented authentication checks across all cmdlets to indicate the correct permissions in case of a failed connection using `Connect-Entra`.
-  - Updated the `-Features` parameter under `Set-EntraDirSyncFeature` command to allow processing of multiple features at once.. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
+  - Updated the `-Features` parameter under `Set-EntraDirSyncFeature` command to allow processing of multiple features at once. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
   - Extended the `Get-EntraUser` command to include `-PageSize` parameter. PR [#1526](https://github.com/microsoftgraph/entra-powershell/pull/1526)
 
 :::zone-end
