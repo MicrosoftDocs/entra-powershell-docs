@@ -3,7 +3,7 @@ title: Manage Microsoft MCP Server for Enterprise Permissions
 description: Learn how to grant and revoke Microsoft MCP Server for Enterprise permissions to MCP clients using Microsoft Entra PowerShell.
 
 ms.topic: how-to
-ms.date: 11/13/2024
+ms.date: 11/13/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -322,7 +322,6 @@ Scopes     : MCP.AuditLog.Read.All MCP.AuthenticationContext.Read.All MCP.Device
 [install]: installation.md
 [manage-apps]: manage-apps.md
 [grant-revoke-api]: how-to-grant-revoke-api-permissions.md
-[best-practices]: entra-powershell-best-practices.md
 [privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
 [cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
