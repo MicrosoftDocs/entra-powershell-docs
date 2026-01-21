@@ -17,18 +17,17 @@ zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
 # Install Microsoft Entra PowerShell
 
-Installing the module helps IT professionals efficiently manage Microsoft Entra resources. It ensures seamless integration and functionality across various platforms, enhancing their ability to automate and streamline administrative tasks.
+The Microsoft Entra PowerShell module enables IT professionals to efficiently manage Microsoft Entra resources, ensuring seamless integration and functionality across various platforms. This module enhances your ability to automate and streamline administrative tasks.
 
 In this article, you learn how to install, verify, update, and troubleshoot the Microsoft Entra PowerShell module across the different operating systems.
 
 The Microsoft Entra PowerShell module is split into two modules, each with submodules that can be installed separately. The two main modules are:
 
-- **Microsoft.Entra** - the general availability or `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
-- **Microsoft.Entra.Beta** - the `Beta` version of Microsoft Entra PowerShell. It points to Microsoft Graph Beta and Microsoft Graph PowerShell SDK Beta resources.
+- **Microsoft.Entra** - the general availability and `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
+- **Microsoft.Entra.Beta** - the `Beta` and preview version of Microsoft Entra PowerShell. It points to Microsoft Graph Beta and Microsoft Graph PowerShell SDK Beta resources.
 
-A supported version of
 [PowerShell version 7 or higher](/powershell/scripting/install/installing-powershell-on-windows) is
-the recommended version of PowerShell for use with the Microsoft Entra PowerShell module on all platforms
+recommended for use with the Microsoft Entra PowerShell module on all platforms
 including Windows, Linux, and macOS.
 
 :::zone pivot="windows"
@@ -99,7 +98,7 @@ This article explains how to install the module on Linux.
 
 - Install a supported version of [PowerShell version 7 or higher](/powershell/scripting/install/installing-powershell-on-linux)
 
-- Install [Microsoft Graph PowerShell SDK module dependencies](troubleshooting.md#missing-dependencies) if not installed.
+- If needed, install the [Microsoft Graph PowerShell SDK module dependencies](troubleshooting.md#missing-dependencies).
 
 ## Installation on Linux
 
@@ -161,7 +160,7 @@ After the installation is completed, you can verify the installed submodules, th
 | Error             | Cause                     | Workaround                      |
 |-------------------|---------------------------|---------------------------------|
 | Install-Module: A parameter can't be found that matches parameter name AllowPrerelease. | You're using an older version of Install-Module.  | To upgrade, follow this [guide](troubleshooting.md#installation-issues). The issue applies to Windows platform only.  |
-| Dependent module 'module-name' isn't installed on this computer. To use the current module 'Microsoft.Entra,' ensure that its dependent module 'module-name' is installed. | Microsoft Entra PowerShell dependencies aren't installed  | To install, use [this script](troubleshooting.md#missing-dependencies) |
+| Dependent module 'module-name' isn't installed on this computer. To use the current module 'Microsoft.Entra,' ensure that its dependent module 'module-name' is installed. | Microsoft Entra PowerShell dependencies are not installed  | To install, use [this script](troubleshooting.md#missing-dependencies) |
 | Cmdlets already exist on the system |        | Add `-AllowClobber` parameter: `Install-Module -Name Microsoft.Entra -Repository PSGallery -Force -AllowClobber`  |
 | The following commands are already available on this system: 'Enable-EntraAzureADAlias,Get-EntraUnsupportedCommand,Test-EntraScript' | There's a conflict when either `Beta` or `v1.0` is already installed  | To resolve the issue, [uninstall](installation.md#uninstall-the-module) the offending module version.  |
 
@@ -173,7 +172,7 @@ To start managing your Microsoft Entra resources with the Microsoft Entra PowerS
 
 [!INCLUDE [dependencies](../includes/sign-in.md)]
 
-Use your Microsoft Entra sign-in credentials to log into the sign-in window that opens.
+Use your Microsoft Entra credentials to sign in to the sign-in window that opens.
 
 You need to repeat this step for every new PowerShell session you start.
 
