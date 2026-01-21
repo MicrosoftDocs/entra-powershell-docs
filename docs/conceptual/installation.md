@@ -92,8 +92,6 @@ Installing specific modules is ideal for automation scenarios such as using Azur
 
 ## Install Microsoft Entra PowerShell on Linux
 
-This article explains how to install the module on Linux.
-
 ## Prerequisites on Linux
 
 - Install a supported version of [PowerShell version 7 or higher](/powershell/scripting/install/installing-powershell-on-linux)
@@ -186,7 +184,7 @@ First, verify the module version and location using the guidance in the [verify 
 
 ### Update to the latest version
 
-Use [Update-Module][update-module] to update to the latest version of the Microsoft Entra PowerShell.
+Use [Update-Module][update-module] to update to the latest version of the Microsoft Entra PowerShell module.
 
 [!INCLUDE [dependencies](../includes/update-entrapowershell-module.md)]
 
