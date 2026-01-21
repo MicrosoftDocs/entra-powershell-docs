@@ -23,8 +23,8 @@ In this article, you learn how to install, verify, update, and troubleshoot the 
 
 The Microsoft Entra PowerShell module is split into two modules, each with submodules that can be installed separately. The two main modules are:
 
-- **Microsoft.Entra** - the general availability and `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
-- **Microsoft.Entra.Beta** - the `Beta` and preview version of Microsoft Entra PowerShell. It points to Microsoft Graph Beta and Microsoft Graph PowerShell SDK Beta resources.
+- **Microsoft.Entra** - the general availability or `v1.0` version of Microsoft Entra PowerShell. It points to Microsoft Graph v1.0 and Microsoft Graph PowerShell SDK v1.0 resources.
+- **Microsoft.Entra.Beta** - the `Beta` or preview version of Microsoft Entra PowerShell. It points to Microsoft Graph Beta and Microsoft Graph PowerShell SDK Beta resources.
 
 [PowerShell version 7 or higher](/powershell/scripting/install/installing-powershell-on-windows) is
 recommended for use with the Microsoft Entra PowerShell module on all platforms
