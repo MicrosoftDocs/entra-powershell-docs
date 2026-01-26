@@ -257,7 +257,7 @@ PublisherDomain : Contoso.com
 ### Create a service principal for the application
 
 ```powershell
-$application = Get-EntraApplication -Filter "DisplayName eq 'My application'"
+$application = Get-EntraApplication -Filter "displayName eq 'My application'"
 New-EntraServicePrincipal -AppId $application.AppId | 
   Format-List Id, DisplayName, AppId, SignInAudience
 ```

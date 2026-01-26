@@ -20,7 +20,7 @@ Multi-Factor Authentication (MFA) is a key security feature that helps protect u
 To successfully complete the steps in this article, you need:
 
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
+- Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell](installation.md) guide.
 - To use Microsoft Entra PowerShell, you need one of the following roles:
   - [Authentication Policy Administrator][authentication-policy-administrator]
   - [Global Reader][global-reader]
