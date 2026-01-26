@@ -71,6 +71,7 @@ ConsumedUnits        : 3
 ```
 
 The output shows important license information:
+
 - `SkuPartNumber`: The unique identifier of your license plan (for example, 'EMS' for Enterprise Mobility + Security)
 - `Enabled`: Total number of purchased licenses available for this plan
 - `ConsumedUnits`: Number of licenses currently assigned to users
@@ -254,7 +255,7 @@ $licenses = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicenses
 $licenses.AddLicenses = $license1, $license2
 
 # Assign the licenses to each user
-foreach ($user in $users$users) {
+foreach ($user in $users) {
  Set-EntraUserLicense -UserId $user -AssignedLicenses $licenses
 }
 ```
