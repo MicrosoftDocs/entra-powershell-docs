@@ -56,7 +56,7 @@ This example updates the specified groupLifecyclePolicy in Microsoft Entra ID.
 - `-GroupLifecyclePolicyId` parameter specifies the ID of the Lifecycle Policy to be modified.
 - `-GroupLifetimeInDays` parameter specifies the lifetime of the groups in the policy to 200 days. The GroupLifetimeInDays represents the number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.
 - `-AlternateNotificationEmails` parameter specifies the email address that receives notifications about the policy. Multiple email address can be defined by separating email address with a semicolon.
-- `-ManagedGroupTypes` parameter specifies which office 365 groups the policy applies to. Possible values are `All`, `Selected`, or `None`.  
+- `-ManagedGroupTypes` parameter specifies which Microsoft 365 groups the policy applies to. Possible values are `All`, `Selected`, or `None`.  
 In this case, 'All' suggests that the policy manages all types of groups.
 
 ## PARAMETERS
@@ -112,11 +112,11 @@ Accept wildcard characters: False
 
 ### -ManagedGroupTypes
 
-Allows the admin to select which office 365 groups the policy applies to.
+Allows the admin to select which Microsoft 365 groups the policy applies to.
 
 - "None" will create the policy in a disabled state.
-- "All" will apply the policy to every Office 365 group in the tenant.
-- "Selected" will allow the admin to choose specific Office 365 groups that the policy applies to.
+- "All" will apply the policy to every Microsoft 365 group in the tenant.
+- "Selected" will allow the admin to choose specific Microsoft 365 groups that the policy applies to.
 
 ```yaml
 Type: System.String

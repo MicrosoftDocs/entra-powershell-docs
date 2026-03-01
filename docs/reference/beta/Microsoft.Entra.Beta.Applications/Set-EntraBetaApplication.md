@@ -144,7 +144,7 @@ The `AllowedMemberTypes` can take the values:
 Defines custom behavior that a consuming service can use to call an app in specific contexts.
 For example, applications that can render file streams might set the addIns property for its "FileHandler" functionality.
 
-This lets services like Office 365 call the application in the context of a document the user is working on.
+This lets services like Microsoft 365 call the application in the context of a document the user is working on.
 
 ```yaml
 Type: System.Collections.Generic.List`1[Microsoft.Open.MSGraph.Model.AddIn]
