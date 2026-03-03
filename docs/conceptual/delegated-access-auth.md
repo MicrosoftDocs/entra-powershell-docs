@@ -121,7 +121,7 @@ For a detailed guide on troubleshooting common errors, see the [Troubleshooting 
 <!-- link references -->
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
 [app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
-[entra-id-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[entra-id-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [install]: installation.md
 [authorization-code-flow]: /entra/identity-platform/v2-oauth2-auth-code-flow
 [device-code-flow]: /entra/identity-platform/v2-oauth2-device-code

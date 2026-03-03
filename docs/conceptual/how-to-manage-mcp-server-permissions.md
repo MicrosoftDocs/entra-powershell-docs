@@ -24,7 +24,7 @@ In this article, you learn how to grant and revoke delegated permissions for MCP
 
 To successfully complete the steps in this article, you need:
 
-- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Microsoft Entra PowerShell installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
 - One of the following roles to manage Microsoft MCP Server for Enterprise permissions:
   - [Cloud Application Administrator][cloud-application-administrator]
