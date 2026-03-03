@@ -138,7 +138,7 @@ Remove-EntraAdministrativeUnit -AdministrativeUnitId $administrativeUnit.Id
 
 [privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#privileged-role-administrator
 [installation]: installation.md
-[create-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[create-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 
 
 

@@ -347,6 +347,6 @@ Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 [installation]: installation.md
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator
 [tutorial-groups]: manage-groups.md
-[create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[create-acount]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [manage-licenses]: how-to-manage-user-licenses.md
 [manage-devices]: manage-devices.md

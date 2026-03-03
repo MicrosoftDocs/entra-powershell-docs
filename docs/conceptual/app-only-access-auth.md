@@ -165,7 +165,7 @@ A common challenge when writing automation scripts is the management of secrets,
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
 [app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
 [client-cred-flow]: /entra/identity-platform/v2-oauth2-client-creds-grant-flow
-[entra-id-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[entra-id-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [installation]: installation.md
 [self-signed-cert]: /entra/identity-platform/howto-create-self-signed-certificate
 [create-custom-application]: create-custom-application.md
