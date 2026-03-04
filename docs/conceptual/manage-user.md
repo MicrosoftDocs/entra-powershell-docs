@@ -21,7 +21,7 @@ The user resource provides a straightforward way for you to access and manipulat
 
 To manage users with Microsoft Entra PowerShell, you need:
 
-- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-acount].
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-account].
 - At least the [Cloud Application Administrator][cloud-app-admin] role.
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
@@ -345,8 +345,8 @@ Kez Michael    eeeeeeee-4444-5555-6666-ffffffffffff      KezM@contoso.com
 <!-- link references -->
 
 [installation]: installation.md
-[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator
+[cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
 [tutorial-groups]: manage-groups.md
-[create-acount]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
+[create-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [manage-licenses]: how-to-manage-user-licenses.md
 [manage-devices]: manage-devices.md
