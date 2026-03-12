@@ -37,7 +37,7 @@ To recover deleted data with Microsoft Entra PowerShell, you need:
 The following steps will guide you through restoring deleted groups.
 
 > [!NOTE]
-> Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups can't be restored.
+> Only Unified Groups (also known as Microsoft 365 Groups) can be restored; Security groups can't be restored.
 
 ### Step 1: Find deleted groups
 

@@ -48,7 +48,7 @@ In delegated scenarios, the signed-in user must have a supported Microsoft Entra
 - SharePoint Administrator (includes hidden members)
 - Intune Administrator (includes hidden members)
 - Teams Administrator (includes hidden members)
-- Yammer Administrator (includes hidden members)
+- Viva Engage Administrator (includes hidden members)
 
 To list members of a hidden group, the `Member.Read.Hidden` permission is also required.
 

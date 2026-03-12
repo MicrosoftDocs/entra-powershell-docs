@@ -56,7 +56,7 @@ Get-EntraBetaDeletedGroup
 
 This cmdlet retrieves soft-deleted groups from a directory. When a group is deleted, it is soft deleted and can be recovered within 30 days. After 30 days, the group is permanently deleted and cannot be recovered.
 
-Please note that soft delete currently applies only to Unified Groups (also known as Office 365 Groups).
+Please note that soft delete currently applies only to Unified Groups (also known as Microsoft 365 Groups).
 
 ## EXAMPLES
 
