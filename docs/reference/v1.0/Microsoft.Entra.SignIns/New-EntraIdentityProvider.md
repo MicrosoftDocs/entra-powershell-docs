@@ -35,11 +35,11 @@ New-EntraIdentityProvider
 
 The `New-EntraIdentityProvider` cmdlet is used to configure an identity provider in the directory.
 
-Adding an identity provider will allow users to sign up for or sign into applications secured by Microsoft Entra ID B2C using the identity provider.
+Adding an identity provider will allow users to sign up for or sign into applications secured by Azure AD B2C using the identity provider.
 
-Configuring an identity provider in your Microsoft Entra ID tenant also enables future B2B guest scenarios.
+Configuring an identity provider in your Microsoft Entra tenant also enables future B2B guest scenarios.
 
-For example, an organization has resources in Office 365 that needs to be shared with a Gmail user. The Gmail user will use their Google account credentials to authenticate and access the documents.
+For example, an organization has resources in Microsoft 365 that needs to be shared with a Gmail user. The Gmail user will use their Google account credentials to authenticate and access the documents.
 
 The current set of identity providers can be:
 

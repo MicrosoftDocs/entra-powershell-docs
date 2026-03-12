@@ -38,7 +38,7 @@ When a group or application is deleted, it is initially soft deleted and can be 
 
 **Notes:**
 
-- Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups cannot be restored.
+- Only Unified Groups (also known as Microsoft 365 Groups) can be restored; Security groups cannot be restored.
 - Restoring an application does not automatically restore its associated service principal. You must explicitly use this cmdlet to restore the deleted service principal.
 
 For delegated scenarios, the calling user needs to have at least one of the following Microsoft Entra roles:
