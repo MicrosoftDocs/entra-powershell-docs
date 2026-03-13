@@ -12,7 +12,7 @@ ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-grant-api-permissions
 zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
-#Customer intent: As a developer, I want to learn how to grant and revoke API permissions for an app using Microsoft Entra PowerShel, and bypass the interactive consent prompt available on the Microsoft Entra Admin center.
+#Customer intent: As a developer, I want to learn how to grant and revoke API permissions for an app using Microsoft Entra PowerShell, and bypass the interactive consent prompt available on the Microsoft Entra Admin center.
 ---
 
 # Grant and revoke API permissions using Microsoft Entra PowerShell
