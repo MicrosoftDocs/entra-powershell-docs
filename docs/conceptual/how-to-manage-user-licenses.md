@@ -25,14 +25,14 @@ Microsoft Entra services require licenses for access. Using PowerShell, you can 
 2. Sign in as a user with the [License Administrator](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#license-administrator) role. You need `User.ReadWrite.All` and `Organization.Read.All` permissions. Run this command to set them:
 
     ```powershell
-    Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All'
+    Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All','LicenseAssignment.Read.All'
     ```
 
 3. Make sure your users have a location assigned. To find users without a `UsageLocation`, run:
 
     ```powershell
     Connect-Entra -Scopes 'User.ReadWrite.All'
-    $users = Get-EntraUser | Where-Object { $_.UsageLocation -eq $null -and $_.UserType -eq 'Member' }
+    $users = Get-EntraUser -All | Where-Object { $_.UsageLocation -eq $null -and $_.UserType -eq 'Member' }
     $users | Select-Object Id, DisplayName, UserPrincipalName, UsageLocation
     ```
 
@@ -44,12 +44,12 @@ Microsoft Entra services require licenses for access. Using PowerShell, you can 
 
 ## Review available Microsoft Entra license plans and usage
 
-To see your available license plans, run the `Get-EntraSubscribedSku` cmdlet. You need the `Organization.Read.All` permission.
+To see your available license plans, run the `Get-EntraSubscribedSku` cmdlet. You need the `Organization.Read.All` and `LicenseAssignment.Read.All` permissions.
 
 To check your current licensing plans, available licenses, and consumption status, run:
 
 ```powershell
-Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All'
+Connect-Entra -Scopes 'User.ReadWrite.All','Organization.Read.All','LicenseAssignment.Read.All'
 Get-EntraSubscribedSku | Select-Object -Property Sku*, ConsumedUnits -ExpandProperty PrepaidUnits
 ```
 
@@ -66,7 +66,7 @@ ConsumedUnits        : 3
 
 The output shows important license information:
 
-- `SkuPartNumber`: The unique identifier of your license plan (for example, 'EMS' for Enterprise Mobility + Security)
+- `SkuPartNumber`: The name of your license plan (for example, 'EMS' for Enterprise Mobility + Security)
 - `Enabled`: Total number of purchased licenses available for this plan
 - `ConsumedUnits`: Number of licenses currently assigned to users
 - `LockedOut`, `Suspended`, `Warning`: Status indicators for license health monitoring
@@ -79,7 +79,7 @@ To find all users who have a particular license assigned, use this two-step proc
 2. Filter your user list to find those with matching licenses
 
 ```powershell
-Connect-Entra -Scopes 'Organization.Read.All'
+Connect-Entra -Scopes 'Organization.Read.All','LicenseAssignment.Read.All'
 
 # Get the SKU ID for EMSPREMIUM license plan
 $skuId = (Get-EntraSubscribedSku | Where-Object { $_.SkuPartNumber -eq 'EMSPREMIUM' }).SkuId
@@ -212,7 +212,7 @@ $licensesToAssign = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLi
 foreach ($license in $sourceUserLicenses) {
     $assignedLicense = New-Object -TypeName Microsoft.Open.AzureAD.Model.AssignedLicense
     $assignedLicense.SkuId = $license.SkuId
-    $licensesToAssign.AddLicenses= $assignedLicense
+    $licensesToAssign.AddLicenses = $assignedLicense
     Set-EntraUserLicense -UserId $targetUser.Id -AssignedLicenses $licensesToAssign
 }
 ```
