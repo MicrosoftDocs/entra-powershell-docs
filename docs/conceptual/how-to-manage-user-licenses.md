@@ -5,7 +5,7 @@ description: "Learn how to review, assign, and remove Microsoft Entra user licen
 author: msewaweru
 manager: mwongerapk
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 03/18/2026
 ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 ms.custom: msecd-doc-authoring-106
