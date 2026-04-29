@@ -5,9 +5,9 @@ description: "This article describes versioning, release cadence, and breaking c
 ms.topic: concept-article
 ms.date: 01/23/2025
 
-author: omondiatieno
+author: msewaweru
 manager: mwongerapk
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
 #customer intent: As a Microsoft Entra PowerShell user, I want to understand the versioning, release cadence, and breaking changes policies so that I can plan and manage updates to my production environment effectively and minimize the risk of disruptions caused by breaking changes.

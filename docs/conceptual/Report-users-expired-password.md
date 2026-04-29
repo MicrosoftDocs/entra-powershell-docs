@@ -1,8 +1,8 @@
 ---
 title: Generate a password expiration report using Microsoft Entra PowerShell
 description: Learn how to use Microsoft Entra PowerShell to generate a detailed password expiration report for licensed Entra ID users, with CSV output and customization options.
-author: omondiatieno
-ms.author: jomondi
+author: msewaweru
+ms.author: eunicewaweru
 manager: mwongerapk
 ms.date: 06/20/2025
 ms.topic: how-to
