@@ -310,4 +310,4 @@ Ensure to replace `$env:UserProfile` with the path where you want to save the fi
 [intune-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#intune-administrator  
 [windows-365-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#windows-365-administrator
 [installation]: installation.md
-[free-entra-id]: https://azure.microsoft.com/free/entra-id
+[free-entra-id]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
