@@ -4,9 +4,9 @@ description: "Learn how to use the delegated access method of authentication to 
 
 ms.topic: how-to
 ms.date: 10/05/2024
-author: omondiatieno
+author: msewaweru
 manager: mwongerapk
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
 #customer intent: As a Microsoft Entra PowerShell user, I want to understand the delegated access method of authentication, so that I can securely sign in to Microsoft Graph and manage my resources.

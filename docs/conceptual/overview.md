@@ -3,9 +3,9 @@ title: What is Microsoft Entra PowerShell?
 description: "Learn about the features of Microsoft Entra PowerShell that help you derive insights and analytics, and build unique, intelligent apps in Microsoft Entra ID."
 ms.topic: overview
 ms.date: 02/12/2025
-author: omondiatieno
+author: msewaweru
 manager: mwongerapk
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to learn about Microsoft Entra PowerShell, so that I can get started with using the module.

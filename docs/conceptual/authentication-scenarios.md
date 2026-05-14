@@ -4,9 +4,9 @@ description: Learn about Microsoft Entra PowerShell's sign-in scenarios for vari
 
 ms.topic: concept-article
 ms.date: 06/24/2025
-author: omondiatieno
+author: msewaweru
 manager: mwongerapk
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
 #customer intent: As a Microsoft Entra PowerShell user, I want to understand the different authentication options available, so that I can securely connect to Microsoft Graph and manage my Microsoft Entra ID resources.

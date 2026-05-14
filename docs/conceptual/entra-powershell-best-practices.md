@@ -4,9 +4,9 @@ description: "Learn how to optimize performance, enhance security, and ensure sc
 
 ms.topic: concept-article
 ms.date: 02/12/2025
-author: omondiatieno
+author: msewaweru
 manager: mwongerapk
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to understand the best practices when interacting with Microsoft Entra PowerShell module for improved performance and security posture.

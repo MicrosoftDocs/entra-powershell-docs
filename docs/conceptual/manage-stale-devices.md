@@ -3,8 +3,8 @@ title: Manage stale devices
 description: Learn how to manage and remove stale devices using Microsoft Entra PowerShell. This guide covers detection, cleanup processes, and best practices for efficient device management and compliance.
 ms.topic: how-to  
 ms.date: 02/12/2025  
-ms.author: jomondi  
-author: omondiatieno  
+ms.author: eunicewaweru  
+author: msewaweru  
 manager: mwongerapk  
 ms.reviewer: stevemutungi
 
