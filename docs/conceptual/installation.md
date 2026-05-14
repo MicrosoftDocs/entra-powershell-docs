@@ -2,11 +2,11 @@
 title: "Install Microsoft Entra PowerShell"
 description: "Learn how to install the Microsoft Entra PowerShell module."
 
-author: omondiatieno
+author: msewaweru
 manager: mwongerapk
 ms.topic: how-to
 ms.date: 02/09/2025
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-install-win-linux-macos
 zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json

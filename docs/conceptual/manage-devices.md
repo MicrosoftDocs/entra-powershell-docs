@@ -4,8 +4,8 @@ description: Learn how to use Microsoft Entra PowerShell to manage device identi
 ms.topic: how-to  
 
 ms.date: 02/20/2025
-ms.author: jomondi  
-author: omondiatieno  
+ms.author: eunicewaweru  
+author: msewaweru  
 manager: mwongerapk  
 ms.reviewer: stevemutungi
 

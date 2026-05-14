@@ -2,11 +2,11 @@
 title: "Use app-only authentication"
 description: "Learn how to use app-only authentication to enable non-interactive scenarios with the Microsoft Entra PowerShell module."
 
-author: omondiatieno
+author: msewaweru
 manager: mwongerapk
 ms.topic: how-to
 ms.date: 02/11/2025
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 
 #customer intent: As an IT admin, I want to authenticate with Microsoft Entra ID using app-only access, so that I can perform non-interactive operations, using the Microsoft Entra PowerShell module to manage Microsoft Entra resources.

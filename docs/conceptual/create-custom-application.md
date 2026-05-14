@@ -4,9 +4,9 @@ description: "Learn how to create a custom application that you can use to authe
 
 ms.topic: how-to
 ms.date: 02/11/2025
-author: omondiatieno
+author: msewaweru
 manager: mwongerapk
-ms.author: jomondi
+ms.author: eunicewaweru
 ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-create-custom-app
 zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
