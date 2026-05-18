@@ -8,7 +8,7 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.Beta.Reports
 ---
-# Microsoft.Entra.Beta.Reports Module v1.2
+# Microsoft.Entra.Beta.Reports Module v1.3
 
 ## Description
 

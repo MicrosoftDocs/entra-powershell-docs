@@ -8,7 +8,7 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.Applications
 ---
-# Microsoft.Entra.Applications Module v1.2
+# Microsoft.Entra.Applications Module v1.3
 
 ## Description
 
@@ -20,6 +20,30 @@ This module contains cmdlets that designed to work with Microsoft.Entra.Applicat
 
 Adds an owner to an application.
 
+### [Add-EntraClientSecretToAgentIdentityBlueprint](Add-EntraClientSecretToAgentIdentityBlueprint.md)
+
+Adds a client secret to the current Agent Identity Blueprint.
+
+### [Add-EntraInheritablePermissionsToAgentIdentityBlueprint](Add-EntraInheritablePermissionsToAgentIdentityBlueprint.md)
+
+Adds inheritable permissions (scopes, roles, or both) to the current Agent Identity Blueprint for a specified resource application.
+
+### [Add-EntraPermissionsToInheritToAgentIdentityBlueprintPrincipal](Add-EntraPermissionsToInheritToAgentIdentityBlueprintPrincipal.md)
+
+Opens admin consent page in browser for Agent Identity Blueprint Principal to inherit permissions.
+
+### [Add-EntraPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal](Add-EntraPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal.md)
+
+Grants permission to create Agent Users to the Agent Identity Blueprint Principal.
+
+### [Add-EntraRequiredResourceAccessToAgentIdentityBlueprint](Add-EntraRequiredResourceAccessToAgentIdentityBlueprint.md)
+
+Adds required resource access (API permissions) to an Agent Identity Blueprint application.
+
+### [Add-EntraScopeToAgentIdentityBlueprint](Add-EntraScopeToAgentIdentityBlueprint.md)
+
+Adds an OAuth2 permission scope to the current Agent Identity Blueprint.
+
 ### [Add-EntraServicePrincipalDelegatedPermissionClassification](Add-EntraServicePrincipalDelegatedPermissionClassification.md)
 
 Add a classification for a delegated permission.
@@ -27,6 +51,18 @@ Add a classification for a delegated permission.
 ### [Add-EntraServicePrincipalOwner](Add-EntraServicePrincipalOwner.md)
 
 Add an owner (user or service principal) to a service principal.
+
+### [Get-EntraAgentIdentity](Get-EntraAgentIdentity.md)
+
+Gets an Agent Identity by its ID, or lists all Agent Identities for an Agent Identity Blueprint.
+
+### [Get-EntraAgentIdentityBlueprint](Get-EntraAgentIdentityBlueprint.md)
+
+Gets an Agent Identity Blueprint by its ID.
+
+### [Get-EntraAgentIdentityBlueprintPrincipal](Get-EntraAgentIdentityBlueprintPrincipal.md)
+
+Gets an Agent Identity Blueprint Service Principal by its ID.
 
 ### [Get-EntraApplication](Get-EntraApplication.md)
 
@@ -112,6 +148,22 @@ Get the owner of a service principal.
 
 Get credentials for a service principal.
 
+### [Invoke-EntraAgentIdInteractive](Invoke-EntraAgentIdInteractive.md)
+
+Interactive cmdlet to create and configure an Agent ID.
+
+### [New-EntraAgentIdentityBlueprint](New-EntraAgentIdentityBlueprint.md)
+
+Creates a new Agent Identity Blueprint.
+
+### [New-EntraAgentIdentityBlueprintPrincipal](New-EntraAgentIdentityBlueprintPrincipal.md)
+
+Creates a service principal for the Agent Identity Blueprint.
+
+### [New-EntraAgentIDForAgentIdentityBlueprint](New-EntraAgentIDForAgentIdentityBlueprint.md)
+
+Creates a new Agent Identity using an Agent Identity Blueprint.
+
 ### [New-EntraApplication](New-EntraApplication.md)
 
 Creates a new application registration in Microsoft Entra ID.
@@ -155,6 +207,14 @@ Creates a password credential for a service principal.
 ### [New-EntraServicePrincipalPasswordCredential](New-EntraServicePrincipalPasswordCredential.md)
 
 Creates a password credential for a service principal.
+
+### [Remove-EntraAgentIdentity](Remove-EntraAgentIdentity.md)
+
+Deletes an Agent Identity by its ID, or deletes all Agent Identities (and their Agent Users) associated with an Agent Identity Blueprint.
+
+### [Remove-EntraAgentIdentityBlueprint](Remove-EntraAgentIdentityBlueprint.md)
+
+Deletes an Agent Identity Blueprint and all its associated Agent Identities and Agent Users.
 
 ### [Remove-EntraApplication](Remove-EntraApplication.md)
 
