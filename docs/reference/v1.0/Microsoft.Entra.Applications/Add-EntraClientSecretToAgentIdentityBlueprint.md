@@ -99,4 +99,4 @@ The client secret is valid for 90 days by default. The secret text (`SecretText`
 
 [New-EntraAgentIdentityBlueprint](New-EntraAgentIdentityBlueprint.md)
 
-[Add-EntraBetaClientSecretToAgentIdentityBlueprint](../../../entra-powershell-beta/Applications/Add-EntraBetaClientSecretToAgentIdentityBlueprint.md)
+[Add-EntraBetaClientSecretToAgentIdentityBlueprint](../../beta/Microsoft.Entra.Beta.Applications/Add-EntraBetaClientSecretToAgentIdentityBlueprint.md)

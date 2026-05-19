@@ -147,6 +147,6 @@ This cmdlet requires the following Microsoft Graph permissions:
 
 [New-EntraAgentUserForAgentId](New-EntraAgentUserForAgentId.md)
 
-[Get-EntraAgentIdentity](../Applications/Get-EntraAgentIdentity.md)
+[Get-EntraAgentIdentity](../Microsoft.Entra.Applications/Get-EntraAgentIdentity.md)
 
-[Get-EntraAgentIdentityBlueprint](../Applications/Get-EntraAgentIdentityBlueprint.md)
+[Get-EntraAgentIdentityBlueprint](../Microsoft.Entra.Applications/Get-EntraAgentIdentityBlueprint.md)

@@ -104,4 +104,4 @@ The cmdlet stores state in module-scoped variables (such as `$script:CurrentAgen
 
 [New-EntraAgentIDForAgentIdentityBlueprint](New-EntraAgentIDForAgentIdentityBlueprint.md)
 
-[New-EntraAgentUserForAgentId](../Users/New-EntraAgentUserForAgentId.md)
+[New-EntraAgentUserForAgentId](../Microsoft.Entra.Users/New-EntraAgentUserForAgentId.md)

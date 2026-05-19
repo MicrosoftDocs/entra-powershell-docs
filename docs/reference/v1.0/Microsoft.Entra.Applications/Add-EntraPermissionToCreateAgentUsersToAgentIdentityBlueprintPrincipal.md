@@ -129,4 +129,4 @@ The specific app role assigned is `AgentIdUser.ReadWrite.IdentityParentedBy` (ID
 
 [New-EntraAgentIdentityBlueprintPrincipal](New-EntraAgentIdentityBlueprintPrincipal.md)
 
-[Add-EntraBetaPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal](../../../entra-powershell-beta/Applications/Add-EntraBetaPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal.md)
+[Add-EntraBetaPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal](../../beta/Microsoft.Entra.Beta.Applications/Add-EntraBetaPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal.md)

@@ -214,4 +214,4 @@ When using `-AgentId`, the cmdlet first queries for all Agent Users associated w
 
 [Get-EntraAgentUser](Get-EntraAgentUser.md)
 
-[Get-EntraAgentIdentity](../Applications/Get-EntraAgentIdentity.md)
+[Get-EntraAgentIdentity](../Microsoft.Entra.Applications/Get-EntraAgentIdentity.md)

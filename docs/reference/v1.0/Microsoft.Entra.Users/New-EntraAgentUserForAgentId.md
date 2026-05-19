@@ -196,6 +196,6 @@ The `-UserPrincipalName` parameter validates input against the pattern `^[#a-zA-
 
 ## RELATED LINKS
 
-[New-EntraAgentIDForAgentIdentityBlueprint](New-EntraAgentIDForAgentIdentityBlueprint.md)
+[New-EntraAgentIDForAgentIdentityBlueprint](../Microsoft.Entra.Applications/New-EntraAgentIDForAgentIdentityBlueprint.md)
 
-[New-EntraAgentIdentityBlueprint](New-EntraAgentIdentityBlueprint.md)
+[New-EntraAgentIdentityBlueprint](../Microsoft.Entra.Applications/New-EntraAgentIdentityBlueprint.md)

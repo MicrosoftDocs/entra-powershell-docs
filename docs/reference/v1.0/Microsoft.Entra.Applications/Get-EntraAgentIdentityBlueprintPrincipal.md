@@ -126,5 +126,3 @@ This cmdlet requires the following Microsoft Graph permissions:
 [New-EntraAgentIdentityBlueprint](New-EntraAgentIdentityBlueprint.md)
 
 [Get-EntraAgentIdentityBlueprint](Get-EntraAgentIdentityBlueprint.md)
-
-[Get-EntraBetaAgentIdentityBlueprintPrincipal](../../../entra-powershell-beta/Applications/Get-EntraBetaAgentIdentityBlueprintPrincipal.md)

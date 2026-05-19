@@ -165,5 +165,3 @@ The cmdlet merges new permissions with existing required resource access entries
 ## RELATED LINKS
 
 [New-EntraAgentIdentityBlueprint](New-EntraAgentIdentityBlueprint.md)
-
-[Add-EntraBetaRequiredResourceAccessToAgentIdentityBlueprint](../../../entra-powershell-beta/Applications/Add-EntraBetaRequiredResourceAccessToAgentIdentityBlueprint.md)

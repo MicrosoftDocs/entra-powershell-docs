@@ -176,4 +176,4 @@ When the blueprint has many Agent Identities, the cmdlet supports pagination to 
 
 [Remove-EntraAgentIdentity](Remove-EntraAgentIdentity.md)
 
-[Remove-EntraAgentUser](../Users/Remove-EntraAgentUser.md)
+[Remove-EntraAgentUser](../Microsoft.Entra.Users/Remove-EntraAgentUser.md)

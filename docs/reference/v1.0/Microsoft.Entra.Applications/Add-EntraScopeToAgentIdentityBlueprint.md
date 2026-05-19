@@ -159,4 +159,4 @@ The scope is created with type "User" and is enabled by default. The cmdlet merg
 
 [New-EntraAgentIdentityBlueprint](New-EntraAgentIdentityBlueprint.md)
 
-[Add-EntraBetaScopeToAgentIdentityBlueprint](../../../entra-powershell-beta/Applications/Add-EntraBetaScopeToAgentIdentityBlueprint.md)
+[Add-EntraBetaScopeToAgentIdentityBlueprint](../../beta/Microsoft.Entra.Beta.Applications/Add-EntraBetaScopeToAgentIdentityBlueprint.md)

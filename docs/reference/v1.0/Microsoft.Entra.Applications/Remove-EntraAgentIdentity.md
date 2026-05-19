@@ -209,6 +209,6 @@ When using `-AgentIdentityBlueprintId`, the cmdlet supports pagination to handle
 
 [New-EntraAgentIDForAgentIdentityBlueprint](New-EntraAgentIDForAgentIdentityBlueprint.md)
 
-[Remove-EntraAgentUser](../Users/Remove-EntraAgentUser.md)
+[Remove-EntraAgentUser](../Microsoft.Entra.Users/Remove-EntraAgentUser.md)
 
 [Get-EntraAgentIdentityBlueprint](Get-EntraAgentIdentityBlueprint.md)
