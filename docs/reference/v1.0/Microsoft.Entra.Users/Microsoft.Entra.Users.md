@@ -8,13 +8,17 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.Users
 ---
-# Microsoft.Entra.Users Module v1.2
+# Microsoft.Entra.Users Module v1.3
 
 ## Description
 
 This module contains cmdlets that designed to work with Microsoft.Entra.Users.
 
 ## Microsoft.Entra.Users Cmdlets
+
+### [Get-EntraAgentUser](Get-EntraAgentUser.md)
+
+Gets an Agent User by its ID, or lists all Agent Users connected to an Agent Identity.
 
 ### [Get-EntraDeletedUser](Get-EntraDeletedUser.md)
 
@@ -96,6 +100,10 @@ Retrieve a user's sponsors (users or groups).
 
 Retrieve the thumbnail photo of a user.
 
+### [New-EntraAgentUserForAgentId](New-EntraAgentUserForAgentId.md)
+
+Creates a new Agent User using an Agent Identity.
+
 ### [New-EntraUser](New-EntraUser.md)
 
 Creates a Microsoft Entra ID user.
@@ -103,6 +111,10 @@ Creates a Microsoft Entra ID user.
 ### [New-EntraUserAppRoleAssignment](New-EntraUserAppRoleAssignment.md)
 
 Assigns a user to an application role.
+
+### [Remove-EntraAgentUser](Remove-EntraAgentUser.md)
+
+Deletes an Agent User by its ID, or deletes all Agent Users associated with an Agent Identity.
 
 ### [Remove-EntraUser](Remove-EntraUser.md)
 
