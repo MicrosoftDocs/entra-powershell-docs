@@ -7,7 +7,7 @@ Module Name: Microsoft.Entra.Users
 ms.author: giomachar
 manager: paodero
 ms.reviewer: msewaweru
-ms.date: 04/26/2026
+ms.date: 05/18/2026
 ms.topic: reference
 online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Users/Get-EntraAgentUser
 schema: 2.0.0

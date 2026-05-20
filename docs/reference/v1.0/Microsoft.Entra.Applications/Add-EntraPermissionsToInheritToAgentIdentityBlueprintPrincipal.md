@@ -7,7 +7,7 @@ Module Name: Microsoft.Entra.Applications
 ms.author: giomachar
 manager: paodero
 ms.reviewer: msewaweru
-ms.date: 12/17/2024
+ms.date: 05/18/2026
 ms.topic: reference
 online version: https://learn.microsoft.com/powershell/module/Microsoft.Entra.Applications/Add-EntraPermissionsToInheritToAgentIdentityBlueprintPrincipal
 schema: 2.0.0
