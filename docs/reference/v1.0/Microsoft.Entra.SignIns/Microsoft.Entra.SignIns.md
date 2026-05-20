@@ -8,7 +8,7 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.SignIns
 ---
-# Microsoft.Entra.SignIns Module v1.2
+# Microsoft.Entra.SignIns Module v1.3
 
 ## Description
 

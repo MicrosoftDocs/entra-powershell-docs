@@ -8,7 +8,7 @@ ms.date: 5/29/2024
 schema: 2.0.0
 title: Microsoft.Entra.Beta.Applications
 ---
-# Microsoft.Entra.Beta.Applications Module v1.2
+# Microsoft.Entra.Beta.Applications Module v1.3
 
 ## Description
 
