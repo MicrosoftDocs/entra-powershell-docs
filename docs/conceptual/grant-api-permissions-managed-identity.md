@@ -26,7 +26,7 @@ To successfully complete the steps in this article, you need:
 - Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
 - An Azure resource with either a system-assigned or user-assigned managed identity enabled.
 - To grant API permissions to managed identities, you need one of the following roles:
-  - [Privileged Role Administrator][privileged-role-administrator]
+  - [Privileged Role Administrator][privileged-role-administrator] (required when granting permissions to Microsoft Graph or other Microsoft first-party applications)
   - [Application Administrator][application-administrator]
   - [Cloud Application Administrator][cloud-application-administrator]
 
@@ -100,6 +100,7 @@ Follow these steps to grant Microsoft Graph API permissions to your managed iden
 
    ```powershell
    $params = @{
+       ServicePrincipalId = $managedIdentitySP.Id
        PrincipalId = $managedIdentitySP.Id
        ResourceId = $graphServicePrincipal.Id
        AppRoleId = $appRole.Id
