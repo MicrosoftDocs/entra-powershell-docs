@@ -21,11 +21,11 @@ Managing guest accounts effectively is crucial for maintaining the security and 
 
 To manage guest users with Microsoft Entra PowerShell, you need:
 
-- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-acount].
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free][create-account].
 - One of the following roles:
   - [User Administrator][user-admin]
   - [Guest Inviter][guest-inviter]
-  - [External Identity Provider Administrator][-external-identity-provider-admin]
+  - [External Identity Provider Administrator][external-identity-provider-admin]
 - Microsoft Entra PowerShell module installed. Follow the [Install the Microsoft Entra PowerShell module][installation] guide to install the module.
 
 ## Invite guest user accounts
@@ -199,8 +199,8 @@ First identify the guest user and send a new invitation: This resets the redempt
 ```powershell
 Connect-Entra -Scopes 'User.Invite.All'
 
-$user = Get-MgUser -Filter "startsWith(mail, 'johndoe@gmail.com')"
-New-MgInvitation `
+$user = Get-EntraUser -Filter "startsWith(mail, 'johndoe@gmail.com')"
+New-EntraInvitation `
     -InvitedUserEmailAddress $user.Mail `
     -InviteRedirectUrl "https://myapps.contoso.com" `
     -ResetRedemption `
@@ -291,7 +291,7 @@ Get-EntraUser -Filter "userType eq 'Guest' and createdDateTime le $age" -All | R
 <!-- link references -->
 
 [installation]: installation.md
-[create-acount]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[user-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator
-[-external-identity-provider-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#external-identity-provider-administrator
+[create-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
+[user-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#user-administrator
+[external-identity-provider-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#external-identity-provider-administrator
 [guest-inviter]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#guest-inviter

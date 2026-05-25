@@ -128,6 +128,6 @@ Write-Host ("CSV output file written to {0}" -f $CSVOutputFile)
 <!-- link references -->
 
 [installation]: installation.md
-[create-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[create-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator

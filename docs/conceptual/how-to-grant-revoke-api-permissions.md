@@ -12,7 +12,7 @@ ms.reviewer: stevemutungi
 zone_pivot_groups: entra-powershell-grant-api-permissions
 zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
 
-#Customer intent: As a developer, I want to learn how to grant and revoke API permissions for an app using Microsoft Entra PowerShel, and bypass the interactive consent prompt available on the Microsoft Entra Admin center.
+#Customer intent: As a developer, I want to learn how to grant and revoke API permissions for an app using Microsoft Entra PowerShell, and bypass the interactive consent prompt available on the Microsoft Entra Admin center.
 ---
 
 # Grant and revoke API permissions using Microsoft Entra PowerShell
@@ -25,7 +25,7 @@ In this article, you learn how to grant and revoke API permissions and app roles
 
 To successfully complete the steps in this article, you need:
 
-- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
 - To use Microsoft Entra PowerShell, you need one of the following roles:
   - [Privileged Role Administrator][privileged-role-administrator]
@@ -257,7 +257,7 @@ PublisherDomain : Contoso.com
 ### Create a service principal for the application
 
 ```powershell
-$application = Get-EntraApplication -Filter "DisplayName eq 'My application'"
+$application = Get-EntraApplication -Filter "displayName eq 'My application'"
 New-EntraServicePrincipal -AppId $application.AppId | 
   Format-List Id, DisplayName, AppId, SignInAudience
 ```
@@ -361,7 +361,7 @@ Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $clientService
 <!-- links -->
 [interactive-consent]: /azure/active-directory/manage-apps/consent-and-permissions-overview
 [install]: installation.md
-[new-entraserviceprincipal]: /powershell/module/microsoft.entra/new-entraserviceprincipal
+[new-entraserviceprincipal]: /powershell/module/microsoft.entra.applications/new-entraserviceprincipal
 [privileged-role-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
 [cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator

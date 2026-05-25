@@ -231,8 +231,8 @@ For more connection options, see the [Connect-Entra][connect-entra-command] comm
 [privileged-role-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#privileged-role-administrator
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
 [app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator
-[connect-entra-command]: /powershell/module/microsoft.entra/connect-entra
-[entraid-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[connect-entra-command]: /powershell/module/microsoft.entra.authentication/connect-entra
+[entraid-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [app-only-auth]: app-only-access-auth.md
 [delegated-auth]: delegated-access-auth.md
 [auth-scenarios]: authentication-scenarios.md

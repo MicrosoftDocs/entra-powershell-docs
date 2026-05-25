@@ -2,11 +2,11 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 09/02/2025
+ms.date: 12/11/2025
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
-ms.reviewer: stevemutungi
+ms.reviewer: KenitoInc, givinalis
 
 zone_pivot_groups: entra-powershell-whats-new
 zone_pivot_group_filename: entra-powershell/zone-pivot-groups.json
@@ -18,11 +18,20 @@ keywords: Microsoft Entra powershell, entra-powershell, manage entra resources u
 
 # What's new in Microsoft Entra PowerShell
 
-This article lists all new articles that were added or had significant updates in the last month. It also lists the new features in the Microsoft Entra PowerShell module to manage Microsoft Entra resources.
+This article lists new articles and significant updates from the last month. It also lists the new features in the Microsoft Entra PowerShell module to manage Microsoft Entra resources.
 
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### November 2025
+
+#### New articles
+
+- [Install Microsoft Entra PowerShell offline](offline-installation.md) - Learn how to install the Microsoft Entra PowerShell module in offline environments by using nupkg files and a local repository.
+- [Manage administrative units](manage-administrative-units.md) - Learn how to manage administrative units for granular delegation of permissions in Microsoft Entra ID.
+- [Manage Microsoft MCP Server for Enterprise permissions](how-to-manage-mcp-server-permissions.md) - Learn how to grant and revoke delegated permissions for MCP clients to access enterprise resources through Microsoft MCP Server.
+
 
 ### June 2025
 
@@ -35,13 +44,13 @@ This article lists all new articles that were added or had significant updates i
 
 #### Updated articles
 
-- [Manage guest accounts using Microsoft Entra PowerShell](manage-guest-users.md) - Add examples for managing guest sponsors
+- [Manage guest accounts using Microsoft Entra PowerShell](manage-guest-users.md) - Add examples for managing guest sponsors.
 
 ### April 2025
 
 #### New articles
 
-- [Offboard users](offboard-user.md) - Learn to offboard users by invalidating sessions, resetting passwords, and removing device ownership.
+- [Offboard users](offboard-user.md) - Learn how to offboard users by invalidating sessions, resetting passwords, and removing device ownership.
 
 #### Updated articles
 
@@ -49,25 +58,6 @@ This article lists all new articles that were added or had significant updates i
 - [Manage users](manage-user.md) - Refined code snippets to improve readability and ensure alignment with best practices.
 - [Manage user licenses using Microsoft Entra PowerShell](how-to-manage-user-licenses.md) - Improved metadata and keywords for better search engine visibility.
 
-### February 2025
-
-#### Updated articles
-
-Improvements based on module usability and docs bug bash feedback:
-
-- [Create a custom application](create-custom-application.md)
-- [Grant and revoke API permissions programmatically](how-to-grant-revoke-api-permissions.md)
-- [Install Microsoft Entra PowerShell](installation.md)
-- [Manage apps](manage-apps.md)
-- [Manage devices](manage-devices.md)
-- [Manage groups](manage-groups.md)
-- [Manage roles](manage-roles.md)
-- [Manage stale devices](manage-stale-devices.md)
-- [Manage users](manage-user.md)
-- [Microsoft Entra PowerShell best practices](entra-powershell-best-practices.md)
-- [Navigate the Microsoft Entra PowerShell module](navigate-entraps.md)
-- [Recover deleted data](recover-deleted-data.md)
-- [Use app-only authentication](app-only-access-auth.md)
 
 :::zone-end
 
@@ -75,50 +65,90 @@ Improvements based on module usability and docs bug bash feedback:
 
 ## Latest (recommended) version
 
-- [Version 1.0.11][posh-1.0.11] - **August 2025**
+- [Version 1.2.0][posh-1.2.0] - **January 2026**
+
+  - **Features**:
+    - Migrated the `Agent ID` cmdlet set from Microsoft Identity Tools PowerShell module into Microsoft Entra Powershell, delivering a production-ready implementation for managing Agent identity blueprints and Agent identities in Microsoft Entra ID.
+
+  - **New Commands**:
+    - [Add-EntraBetaClientSecretToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetaclientsecrettoagentidentityblueprint): Adds a 90-day client secret to a blueprint with retry logic.
+    - [Add-EntraBetaInheritablePermissionsToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetainheritablepermissionstoagentidentityblueprint): Configures Microsoft Graph permissions and consent flows.
+    - [Add-EntraBetaPermissionsToInheritToAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.beta.applications/add-entrabetapermissionstoinherittoagentidentityblueprintprincipal): Opens admin consent page in browser for Agent Identity Blueprint Principal to inherit permissions.
+    - [Add-EntraBetaPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.beta.applications/add-entrabetapermissiontocreateagentuserstoagentidentityblueprintprincipal): Grants permission to create Agent Users to the Agent Identity Blueprint Principal.
+    - [Add-EntraBetaRedirectURIToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetaredirecturitoagentidentityblueprint): Adds web redirect URIs for authentication callbacks.
+    - [Add-EntraBetaScopeToAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/add-entrabetascopetoagentidentityblueprint): Adds OAuth2 permission scopes to a blueprint.
+    - [Get-EntraBetaAgentIdentity](/powershell/module/microsoft.entra.beta.applications/get-entrabetaagentidentity): Gets an Agent Identity by its ID.
+    - [Get-EntraBetaAgentIdentityToken](/powershell/module/microsoft.entra.beta.applications/get-entrabetaagentidentitytoken): Acquires tokens for multiple authentication modes (app-only, OBO, user).
+    - [Invoke-EntraBetaAgentIdInteractive](/powershell/module/microsoft.entra.beta.applications/invoke-entrabetaagentidinteractive): Launches an interactive wizard for Agent ID setup.
+    - [New-EntraBetaAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/new-entrabetaagentidentityblueprint): Creates a new Agent Identity Blueprint with sponsors and owners.
+    - [New-EntraBetaAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.beta.applications/new-entrabetaagentidentityblueprintprincipal): Creates a service principal for the Agent Identity Blueprint.
+    - [New-EntraBetaAgentIDForAgentIdentityBlueprint](/powershell/module/microsoft.entra.beta.applications/new-entrabetaagentidforagentidentityblueprint): Creates agent identities under a blueprint using stored credentials.
+    - [New-EntraBetaAgentIDUserForAgentId](/powershell/module/microsoft.entra.beta.users/new-entrabetaagentiduserforagentid): Creates agent users with auto-generated UPN and mailNickname.
 
   - **Bug Fixes**:
-    - Updated cmdlet binding for `Remove-EntraBetaPrivateAccessApplicationSegment` command. PR [#1524](https://github.com/microsoftgraph/entra-powershell/pull/1524)
-
-  - **Cmdlet Enhancements**:
-    - Updated the verb on `Update-EntraSignedInUserPassword` command to `Set-EntraSignedInUserPassword`. PR [#1516](https://github.com/microsoftgraph/entra-powershell/pull/1516)
-    - Updated the command name `Set-EntraUserPassword` to `Set-EntraUserPasswordProfile` and the corresponding parameters. PR [#1519](https://github.com/microsoftgraph/entra-powershell/pull/1519)
-    - Removed `Microsoft.Graph.Users.Functions` dependency for performance improvement. PR [#1521](https://github.com/microsoftgraph/entra-powershell/pull/1521)
+    - Enabled support for the `-PreAuthorizedApplications` parameter in the `Set-EntraBetaApplication` cmdlet, enabling users to configure pre-authorized applications for an Entra application.
+    - Updated the `InvitedUser` and `InvitedUserMessageInfo` parameter types. `New-EntraBetaInvitation` commands now use interfaces from `Microsoft.Graph.Beta.PowerShell.Models`, while `New-EntraInvitation` commands use interfaces from `Microsoft.Graph.PowerShell.Models`.
 
 ## Module version history
 
-- [Version 1.0.10][posh-1.0.10] - **July 2025**
+[Version 1.1.0][posh-1.1.0] - **December 2025**
 
-  - **New Commands**:
-    - [New-EntraServicePrincipalKeyCredential](/powershell/module/microsoft.entra/new-entraserviceprincipalkeycredential). PR [#1487](https://github.com/microsoftgraph/entra-powershell/pull/1487)
+  - **Features**:
+    - Removed version pinning of Microsoft Graph PowerShell modules from version `2.25.0` to allow users to use the latest version of the module without any version restriction.
+    - Added sample scripts on how to apply batch operations in Graph API calls for performance improvement on operations involving a lot of API calls.
+
+  - **New Parameters**:
+    - [Get-EntraDevice](/powershell/module/Microsoft.Entra.DirectoryManagement/Get-EntraDevice) & [Get-EntraBetaDevice](/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaDevice):
+      - Added `-LogonTimeBefore` parameter to filter devices with last sign-in before a specified date.
+      - Added `-Stale` parameter to filter devices that haven't signed in for 2 months or more.
+      - Added `-NonCompliant` parameter to filter devices that are not compliant with organizational policies.
+      - Added `-IsManaged` parameter to filter devices based on whether they are managed by a Mobile Device Management (MDM) solution.
+      - Added `-JoinType` parameter to filter devices by join type: MicrosoftEntraJoined, MicrosoftEntraHybridJoined, or MicrosoftEntraRegistered.
+    - [Get-EntraServicePrincipal](/powershell/module/Microsoft.Entra.Applications/Get-EntraServicePrincipal) & [Get-EntraBetaServicePrincipal](/powershell/module/Microsoft.Entra.Beta.Applications/Get-EntraBetaServicePrincipal):
+      - Added `-AssignmentRequired` parameter to filter by whether user assignment is required to access the application. When set to `$true`, returns only service principals where user assignment is required. When set to `$false`, returns only service principals where user assignment is not required.
+      - Added `-ApplicationType` parameter to filter by application type such as: AppProxyApps, EnterpriseApps, ManagedIdentity and MicrosoftApps.
 
   - **Bug Fixes**:
-    - Fixed `Remove-EntraUserExtension`. PR [#1509](https://github.com/microsoftgraph/entra-powershell/pull/1509)
+    - Fixed an issue where Microsoft.Entra.Beta.Applications module was experiencing a parsing issue in PowerShell 5.1.
 
-  - **Documentation enhancements**:
-    - Updates to comply with Platy PS v2 pipeline. PRs [#1498](https://github.com/microsoftgraph/entra-powershell/pull/1498), [#1501](https://github.com/microsoftgraph/entra-powershell/pull/1501), and [#1506](https://github.com/microsoftgraph/entra-powershell/pull/1506)
-
-  - **Other Enhancements**:
-    - Adding zero-trust assessments samples. PR [#1341](https://github.com/microsoftgraph/entra-powershell/pull/1341)
-
-- [Version 1.0.9][posh-1.0.9] - **June 2025**
+[Version 1.0.13][posh-1.0.13] - **November 2025**
 
   - **New Commands**:
-    - [Get-EntraInactiveSigninUser](/powershell/module/microsoft.entra/get-entrainactivesigninuser) to retrieve users without an interactive sign-in since a specified number of days ago.
-  
-  - **Bug Fixes and command improvements**:
-    - Fixed Visibility parameter validation in `Set-EntraGroup`. PR [#1488](https://github.com/microsoftgraph/entra-powershell/pull/1488).
-    - Fixed `NewEntraApplicationKeyCredential`.PR [#1491](https://github.com/microsoftgraph/entra-powershell/pull/1491).
-    - Fixed metadata to support new PlatyPS build pipeline. PR [#1493](https://github.com/microsoftgraph/entra-powershell/pull/1493).
-    - Fixed `New-EntraBetaPrivateAccessApplication` cmdletbinding. PR [#1495](https://github.com/microsoftgraph/entra-powershell/pull/1495).
-    - Added `ResetRedemption` parameter. PR [#1485](https://github.com/microsoftgraph/entra-powershell/pull/1485).
-    - Added `NewUserPrincipalName` parameter to `Restore-EntraDeletedDirectoryObject`. PR [#1497](https://github.com/microsoftgraph/entra-powershell/pull/1497).
+    - [Grant-EntraBetaMcpServerPermission](/powershell/module/microsoft.entra.beta.applications/grant-entrabetamcpserverpermission): Grants delegated permissions to Model Context Protocol (MCP) clients for accessing the Microsoft MCP Server for Enterprise.
+    - [Revoke-EntraBetaMcpServerPermission](/powershell/module/microsoft.entra.beta.applications/revoke-entrabetamcpserverpermission): Revokes delegated permissions from a specified client for Microsoft MCP Server for Enterprise in Microsoft Entra ID.
 
-  - **Documentation enhancements**:
-    - Update `Add-EntraDeviceRegisteredOwner` permissions
+  - **New Parameters**:
+    - [Get-EntraContact](/powershell/module/Microsoft.Entra.DirectoryManagement/Get-EntraContact) & [Get-EntraBetaContact](/powershell/module/Microsoft.Entra.Beta.DirectoryManagement/Get-EntraBetaContact):
+      - Added `-HasErrorsOnly` parameter to return only contacts with service provisioning errors.
+    - [Get-EntraGroup](/powershell/module/Microsoft.Entra.Groups/Get-EntraGroup) & [Get-EntraBetaGroup](/powershell/module/Microsoft.Entra.Beta.Groups/Get-EntraBetaGroup):
+      - Added `-HasErrorsOnly` parameter to return only groups that have service provisioning errors.
+      - Added `-HasLicenseErrorsOnly` parameter to return only groups that have members with license errors.
+    - [Get-EntraUser](/powershell/module/Microsoft.Entra.Users/Get-EntraUser) & [Get-EntraBetaUser](/powershell/module/Microsoft.Entra.Beta.Users/Get-EntraBetaUser):
+      - Added `-EnabledFilter` parameter which filters users based on the state of their accounts. Valid values are `EnabledOnly` and `DisabledOnly`.
+      - Added `-HasErrorsOnly` parameter which returns only users that have one or more service provisioning or validation errors (surfaced via the `serviceProvisioningErrors` collection).
+      - Added `-LicenseReconciliationNeededOnly` parameter which returns only users whose service provisioning errors include license-related issues indicating that license reconciliation is needed (for example, insufficient licenses, dependency violations, mutually exclusive plans).
+      - Added `-Synchronized` parameter which returns only users synchronized from on-premises Active Directory (those with `onPremisesSyncEnabled eq true`). This is useful for distinguishing cloud-only identities from hybrid managed identities.
+      - Added `-UnlicensedUsersOnly` parameter which returns only users who have no assigned licenses.
+
+  - **Bug Fixes**:
+    - Fixed [Get-EntraUser](/powershell/module/Microsoft.Entra.Users/Get-EntraUser) issue where handling of guest UPNs was corrected to properly escape/quote special characters so that `user@external#EXT#@tenant.onmicrosoft.com` no longer triggers "unterminated string literal" errors.
+    - [Set-EntraUserManager](/powershell/module/Microsoft.Entra.Users/Set-EntraUserManager) `-ManagerId` parameter type corrected from `Guid` to `String`, enabling UPN (and not just objectId) for the manager reference.
+
+[Version 1.0.12][posh-1.0.12] - **September 2025**
+
+- **Bug Fixes**:
+  - Moved `Get-EntraUnsupportedCommand` to the root modules - Microsoft.Entra and Microsoft.Entra.Beta - and removed it from sub-modules to align with its usage in `Enable-EntraAzureADAlias`. PR [#1543](https://github.com/microsoftgraph/entra-powershell/pull/1543)
+  - Enabled `Enable-EntraAzureADAlias` cmdlet in the beta module. PR [#1542](https://github.com/microsoftgraph/entra-powershell/pull/1542)
+
+- **Cmdlet Enhancements**:
+  - Added the `-AppendSelected` parameter to high usage cmdlets in applications, users, and groups sub-modules. PR [#1518](https://github.com/microsoftgraph/entra-powershell/pull/1518)
+  - Implemented authentication checks across all cmdlets to indicate the correct permissions in case of a failed connection using `Connect-Entra`.
+  - Updated the `-Features` parameter under `Set-EntraDirSyncFeature` command to allow processing of multiple features at once. PR [#1527](https://github.com/microsoftgraph/entra-powershell/pull/1527)
+  - Extended the `Get-EntraUser` command to include `-PageSize` parameter. PR [#1526](https://github.com/microsoftgraph/entra-powershell/pull/1526)
 
 :::zone-end
 
-[posh-1.0.11]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.11
-[posh-1.0.10]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.10
-[posh-1.0.9]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.9
+[posh-1.2.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.2.0
+[posh-1.1.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.1.0
+[posh-1.0.13]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.13
+[posh-1.0.12]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.12

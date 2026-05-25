@@ -47,14 +47,14 @@ This command shows the installed Microsoft Entra PowerShell module, its version,
 Name                                Version InstalledLocation
 ----                                ------- -----------------
 Microsoft.Entra.Beta                    1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta\1.0.1
-MicrosoftEntra.Beta.Applications        1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Applications\1.0.1
-MicrosoftEntra.Beta.Authentication      1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Authentication\1.0.1
-MicrosoftEntra.Beta.DirectoryManagement 1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.DirectoryManagement\1.0.1
-MicrosoftEntra.Beta.Governance          1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Governance\1.0.1
-MicrosoftEntra.Beta.Groups              1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Groups\1.0.1
-MicrosoftEntra.Beta.Reports             1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Reports\1.0.1
-MicrosoftEntra.Beta.SignIns             1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.SignIns\1.0.1
-MicrosoftEntra.Beta.Users               1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Users\1.0.1
+Microsoft.Entra.Beta.Applications        1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Applications\1.0.1
+Microsoft.Entra.Beta.Authentication      1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Authentication\1.0.1
+Microsoft.Entra.Beta.DirectoryManagement 1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.DirectoryManagement\1.0.1
+Microsoft.Entra.Beta.Governance          1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Governance\1.0.1
+Microsoft.Entra.Beta.Groups              1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Groups\1.0.1
+Microsoft.Entra.Beta.Reports             1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Reports\1.0.1
+Microsoft.Entra.Beta.SignIns             1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.SignIns\1.0.1
+Microsoft.Entra.Beta.Users               1.0.1   <PowerShell-Path>\PowerShell\Modules\Microsoft.Entra.Beta.Users\1.0.1
 ```
 
 To verify if a specific submodule for example, `Users` is installed, run:

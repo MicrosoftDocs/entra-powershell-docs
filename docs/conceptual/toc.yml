@@ -13,6 +13,8 @@ items:
   items:
   - name: Install the module
     href: installation.md
+  - name: Install the module offline
+    href: offline-installation.md
   - name: Navigate the module
     href: navigate-entraps.md
   - name: Authenticate
@@ -45,6 +47,8 @@ items:
       href: manage-stale-devices.md
   - name: Manage groups
     href: manage-groups.md
+  - name: Manage administrative units
+    href: manage-administrative-units.md
   - name: Manage apps
     href: manage-apps.md
   - name: Manage user and group assignment
@@ -52,9 +56,11 @@ items:
   - name: Manage roles
     href: manage-roles.md
   - name: Grant and revoke API permissions
-    href: how-to-grant-revoke-api-permissions.md    
+    href: how-to-grant-revoke-api-permissions.md
   - name: Grant API permissions to managed identities
     href: grant-api-permissions-managed-identity.md
+  - name: Grant and revoke MCP Server permissions
+    href: how-to-manage-mcp-server-permissions.md
   - name: Create a custom application
     href: create-custom-application.md
   - name: Create a self-signed public certificate

@@ -21,7 +21,7 @@ This article explains how to find and recover deleted data using Microsoft Entra
 
 To recover deleted data with Microsoft Entra PowerShell, you need:
 
-- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Microsoft Entra PowerShell module installed. Follow the [Install Microsoft Entra PowerShell module](installation.md) guide to install the module.
 - One of the following roles:
   - [Groups Administrator][groups-administrator] to restore deleted groups
@@ -37,11 +37,11 @@ To recover deleted data with Microsoft Entra PowerShell, you need:
 The following steps will guide you through restoring deleted groups.
 
 > [!NOTE]
-> Only Unified Groups (also known as Office 365 Groups) can be restored; Security groups can't be restored.
+> Only Unified Groups (also known as Microsoft 365 Groups) can be restored; Security groups can't be restored.
 
 ### Step 1: Find deleted groups
 
-Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra/get-entradeletedgroup) cmdlet to find deleted groups.
+Use the [Get-EntraDeletedGroup](/powershell/module/microsoft.entra.groups/get-entradeletedgroup) cmdlet to find deleted groups.
 
 ```powershell
 Connect-Entra -Scopes 'Group.Read.All'
@@ -337,16 +337,16 @@ Get-EntraDeletedAdministrativeUnit -Filter "displayName eq 'Pacific Administrati
 
 For more examples visit the following articles:
 
-- [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra/get-entradeleteddirectoryobject)
+- [Get-EntraDeletedDirectoryObject](/powershell/module/microsoft.entra.directorymanagement/get-entradeleteddirectoryobject)
 - [Restore-EntraDeletedDirectoryObject][restore-entradeleteddirectoryobject]
 
 <!-- Link definitions -->
 
-[restore-entradeleteddirectoryobject]: /powershell/module/microsoft.entra/restore-entradeleteddirectoryobject
-[get-entradeletedapplication]: /powershell/module/microsoft.entra/get-entradeletedapplication
-[get-entradeletedserviceprincipal]: /powershell/module/microsoft.entra/get-entradeletedserviceprincipal
-[get-entradeleteduser]: /powershell/module/microsoft.entra/get-entradeleteduser
-[get-entradeletedadministrativeunit]: /powershell/module/microsoft.entra/get-entradeletedadministrativeunit
+[restore-entradeleteddirectoryobject]: /powershell/module/microsoft.entra.directorymanagement/restore-entradeleteddirectoryobject
+[get-entradeletedapplication]: /powershell/module/microsoft.entra.applications/get-entradeletedapplication
+[get-entradeletedserviceprincipal]: /powershell/module/microsoft.entra.applications/get-entradeletedserviceprincipal
+[get-entradeleteduser]: /powershell/module/microsoft.entra.users/get-entradeleteduser
+[get-entradeletedadministrativeunit]: /powershell/module/microsoft.entra.directorymanagement/get-entradeletedadministrativeunit
 [application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#application-administrator
 [cloud-application-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#cloud-application-administrator
 [hybrid-identity-administrator]: /entra/identity/role-based-access-control/permissions-reference?toc=%2Fpowershell%2Fentra-powershell%2Ftoc.json&bc=%2Fpowershell%2Fentra-powershell%2Fbreadcrumb%2Ftoc.json#hybrid-identity-administrator

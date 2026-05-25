@@ -24,7 +24,7 @@ In this article, you learn how to manage app registrations and service principal
 
 To manage apps with Microsoft Entra PowerShell, you need:
 
-- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - One of the following roles:
   - [Cloud Application Administrator][cloud-app-admin]
   - [Application Administrator][app-admin]
@@ -233,6 +233,6 @@ $appsWithExpiringKeys | Format-Table DisplayName, AppId, CertificateDisplayName,
 <!-- link references -->
 
 [manage-groups]: manage-groups.md
-[set-entraapplication]: /powershell/module/microsoft.entra/set-entraapplication
+[set-entraapplication]: /powershell/module/microsoft.entra.applications/set-entraapplication
 [cloud-app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#cloud-application-administrator
 [app-admin]: /entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json#application-administrator

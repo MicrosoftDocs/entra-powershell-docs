@@ -2,7 +2,7 @@
 
 Thank you for your interest in Microsoft Entra PowerShell documentation!
 
-This guide covers some general topics related to contribution and refers to our [contributor guide][contibutor-guide] for more detailed explanations when required.
+This guide covers some general topics related to contribution and refers to our [contributor guide][contributor-guide] for more detailed explanations when required.
 
 ## Code of Conduct
 
@@ -20,7 +20,7 @@ Submit bugs and suggestions by selecting the "👍🏾Feedback" control below th
 
 ### Edit in GitHub
 
-Follow the guidance for [editing documentation in the browser][quick-edits]in our contributor guide.
+Follow the guidance for [editing documentation in the browser][quick-edits] in our contributor guide.
 
 ## Pull requests
 
@@ -29,7 +29,7 @@ Review the guidance for [pull request processing][pull-request-processing] in ou
  <!-- link references -->
 [overview-page]: https://learn.microsoft.com/powershell/entra-powershell/overview
 [entra-public-docs]: https://github.com/MicrosoftDocs/entra-powershell-docs
-[contibutor-guide]: https://learn.microsoft.com/contribute/content
+[contributor-guide]: https://learn.microsoft.com/contribute/content
 [quick-edits]: https://learn.microsoft.com/contribute/content/how-to-write-quick-edits
 [code-of-conduct]: https://opensource.microsoft.com/codeofconduct/
 [code-conduct-faq]: https://opensource.microsoft.com/codeofconduct/faq/
