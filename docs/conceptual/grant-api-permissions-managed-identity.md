@@ -1,6 +1,6 @@
 ---
-title: "Grant API permissions to managed identities"
-description: "Learn how to grant Microsoft Graph API permissions to system-assigned and user-assigned managed identities using Microsoft Entra PowerShell."
+title: "Grant and revoke API permissions to managed identities"
+description: "Learn how to grant and revoke Microsoft Graph API permissions for system-assigned and user-assigned managed identities using Microsoft Entra PowerShell."
 
 ms.topic: how-to
 ms.date: 05/25/2026
@@ -12,11 +12,11 @@ ms.reviewer: stevemutungi
 #Customer intent: As an administrator, I want to learn how to grant API permissions to managed identities using Microsoft Entra PowerShell so that my Azure resources can access Microsoft Graph APIs without managing credentials.
 ---
 
-# Grant API permissions to managed identities
+# Grant and revoke API permissions to managed identities
 
 Managed identities provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication. When your Azure resources need to access Microsoft Graph APIs, you can grant the necessary API permissions directly to the managed identity's service principal. This eliminates the need to store credentials in your code or configuration files.
 
-In this article, you learn how to grant Microsoft Graph API permissions to both system-assigned and user-assigned managed identities using Microsoft Entra PowerShell.
+In this article, you learn how to grant and revoke Microsoft Graph API permissions for both system-assigned and user-assigned managed identities using Microsoft Entra PowerShell.
 
 ## Prerequisites
 
@@ -122,9 +122,9 @@ Follow these steps to grant Microsoft Graph API permissions to your managed iden
    }
    ```
 
-## Clean up resources
+## Revoke API permissions from a managed identity
 
-If you need to remove permissions from a managed identity, you can delete the app role assignment:
+If you need to remove permissions from a managed identity, delete the app role assignment:
 
 ```powershell
 $assignmentToRemove = Get-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $managedIdentitySP.Id | 
