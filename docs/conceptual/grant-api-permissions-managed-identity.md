@@ -3,7 +3,7 @@ title: "Grant API permissions to managed identities"
 description: "Learn how to grant Microsoft Graph API permissions to system-assigned and user-assigned managed identities using Microsoft Entra PowerShell."
 
 ms.topic: how-to
-ms.date: 09/05/2025
+ms.date: 05/25/2026
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -42,8 +42,8 @@ Follow these steps to grant Microsoft Graph API permissions to your managed iden
    Connect-Entra -Scopes "Application.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
    ```
 
-   >[!CAUTION]
-   >The `AppRoleAssignment.ReadWrite.All` permission allows an app or service to manage permission grants and elevate privileges for any app, user, or group in your organization. Only grant this permission to trusted administrators.
+   > [!CAUTION]
+   > The `AppRoleAssignment.ReadWrite.All` permission allows an app or service to manage permission grants and elevate privileges for any app, user, or group in your organization. Only grant this permission to trusted administrators.
 
 1. **Identify the managed identity service principal**
 
@@ -55,20 +55,27 @@ Follow these steps to grant Microsoft Graph API permissions to your managed iden
    $managedIdentityName = "MyAzureVM"
    $managedIdentitySP = Get-EntraServicePrincipal -Filter "displayName eq '$managedIdentityName' and servicePrincipalType eq 'ManagedIdentity'"
 
-   if ($managedIdentitySP) {
-       Write-Host "Found managed identity service principal:"
-       Write-Host "Display Name: $($managedIdentitySP.DisplayName)"
-       Write-Host "Object ID: $($managedIdentitySP.Id)"
-   } else {
-       Write-Host "Managed identity service principal not found."
+   if (-not $managedIdentitySP) {
+       Write-Error "Managed identity service principal '$managedIdentityName' not found." -ErrorAction Stop
    }
+
+   Write-Host "Found managed identity service principal:"
+   Write-Host "Display Name: $($managedIdentitySP.DisplayName)"
+   Write-Host "Object ID: $($managedIdentitySP.Id)"
    ```
+
+   > [!NOTE]
+   > If the filter returns multiple results (for example, when multiple managed identities share the same display name), use the object ID to identify the correct service principal: `Get-EntraServicePrincipal -ServicePrincipalId '<object-id>'`.
 
    For user-assigned managed identities, use the managed identity name:
 
    ```powershell
    $userAssignedMIName = "MyUserAssignedMI"
    $managedIdentitySP = Get-EntraServicePrincipal -Filter "displayName eq '$userAssignedMIName' and servicePrincipalType eq 'ManagedIdentity'"
+
+   if (-not $managedIdentitySP) {
+       Write-Error "Managed identity service principal '$userAssignedMIName' not found." -ErrorAction Stop
+   }
    ```
 
 1. **Get the Microsoft Graph service principal**
@@ -110,9 +117,9 @@ Follow these steps to grant Microsoft Graph API permissions to your managed iden
    Write-Host "Current app role assignments for $($managedIdentitySP.DisplayName):"
    foreach ($assignment in $assignments) {
        $resource = Get-EntraServicePrincipal -ServicePrincipalId $assignment.ResourceId
-       $appRole = $resource.AppRoles | Where-Object { $_.Id -eq $assignment.AppRoleId }
+       $assignedRole = $resource.AppRoles | Where-Object { $_.Id -eq $assignment.AppRoleId }
        Write-Host "- Resource: $($resource.DisplayName)"
-       Write-Host "  Permission: $($appRole.Value)"
+       Write-Host "  Permission: $($assignedRole.Value)"
    }
    ```
 
@@ -130,7 +137,7 @@ if ($assignmentToRemove) {
 }
 ```
 
-## Next steps
+## Related content
 
 - [Authenticate with app-only access][app-only-access-auth]
 - [Grant and revoke API permissions][grant-revoke-api-permissions]
