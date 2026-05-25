@@ -126,15 +126,41 @@ Follow these steps to grant Microsoft Graph API permissions to your managed iden
 
 If you need to remove permissions from a managed identity, delete the app role assignment:
 
-```powershell
-$assignmentToRemove = Get-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $managedIdentitySP.Id | 
-    Where-Object { $_.AppRoleId -eq $appRole.Id -and $_.ResourceId -eq $graphServicePrincipal.Id }
+1. **Identify the permission to remove**
 
-if ($assignmentToRemove) {
-    Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $managedIdentitySP.Id -AppRoleAssignmentId $assignmentToRemove.Id
-    Write-Host "Successfully removed permission: $($appRole.Value)"
-}
-```
+   Find the specific app role assignment to revoke:
+
+   ```powershell
+   $assignmentToRemove = Get-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $managedIdentitySP.Id |
+       Where-Object { $_.AppRoleId -eq $appRole.Id -and $_.ResourceId -eq $graphServicePrincipal.Id }
+   ```
+
+1. **Remove the app role assignment**
+
+   ```powershell
+   if ($assignmentToRemove) {
+       Remove-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $managedIdentitySP.Id -AppRoleAssignmentId $assignmentToRemove.Id
+       Write-Host "Successfully removed permission: $($appRole.Value)"
+   }
+   ```
+
+1. **Verify the permission was removed**
+
+   Confirm that no assignments remain for the revoked permission:
+
+   ```powershell
+   $remainingAssignments = Get-EntraServicePrincipalAppRoleAssignment -ServicePrincipalId $managedIdentitySP.Id
+   if ($remainingAssignments) {
+       Write-Host "Remaining permissions for $($managedIdentitySP.DisplayName):"
+       foreach ($assignment in $remainingAssignments) {
+           $resource = Get-EntraServicePrincipal -ServicePrincipalId $assignment.ResourceId
+           $assignedRole = $resource.AppRoles | Where-Object { $_.Id -eq $assignment.AppRoleId }
+           Write-Host "- $($assignedRole.Value) on $($resource.DisplayName)"
+       }
+   } else {
+       Write-Host "No app role assignments remain for $($managedIdentitySP.DisplayName)."
+   }
+   ```
 
 ## Related content
 
