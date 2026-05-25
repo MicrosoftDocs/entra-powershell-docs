@@ -20,8 +20,6 @@ In this article, you learn how to grant Microsoft Graph API permissions to both 
 
 ## Prerequisites
 
-To successfully complete the steps in this article, you need:
-
 - A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Microsoft Entra PowerShell is installed. To install the module, follow the [Install the Microsoft Entra PowerShell][install] guide.
 - An Azure resource with either a system-assigned or user-assigned managed identity enabled.
