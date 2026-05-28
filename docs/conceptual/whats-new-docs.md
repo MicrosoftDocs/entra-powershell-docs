@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 12/11/2025
+ms.date: 05/28/2026
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -65,7 +65,38 @@ This article lists new articles and significant updates from the last month. It 
 
 ## Latest (recommended) version
 
-- [Version 1.2.0][posh-1.2.0] - **January 2026**
+- [Version 1.3.0][posh-1.3.0] - **May 2026**
+
+  - **Features**:
+    - Promoted the `Agent ID` cmdlet set to General Availability (GA) in the `Microsoft.Entra` (v1.0) module, providing a production-ready experience for managing Agent identity blueprints, Agent identities, and Agent users in Microsoft Entra ID.
+
+  - **New Commands**:
+    - [Add-EntraClientSecretToAgentIdentityBlueprint](/powershell/module/microsoft.entra.applications/add-entraclientsecrettoagentidentityblueprint): Adds a client secret to an Agent Identity Blueprint.
+    - [Add-EntraInheritablePermissionsToAgentIdentityBlueprint](/powershell/module/microsoft.entra.applications/add-entrainheritablepermissionstoagentidentityblueprint): Configures Microsoft Graph permissions and consent flows.
+    - [Add-EntraPermissionsToInheritToAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.applications/add-entrapermissionstoinherittoagentidentityblueprintprincipal): Adds permissions to inherit to the Agent Identity Blueprint Principal.
+    - [Add-EntraPermissionToCreateAgentUsersToAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.applications/add-entrapermissiontocreateagentuserstoagentidentityblueprintprincipal): Grants permission to create Agent Users to the Agent Identity Blueprint Principal.
+    - [Add-EntraRequiredResourceAccessToAgentIdentityBlueprint](/powershell/module/microsoft.entra.applications/add-entrarequiredresourceaccesstoagentidentityblueprint): Adds required resource access to an Agent Identity Blueprint.
+    - [Add-EntraScopeToAgentIdentityBlueprint](/powershell/module/microsoft.entra.applications/add-entrascopetoagentidentityblueprint): Adds OAuth2 permission scopes to a blueprint.
+    - [Get-EntraAgentIdentity](/powershell/module/microsoft.entra.applications/get-entraagentidentity): Gets an Agent Identity by its ID.
+    - [Get-EntraAgentIdentityBlueprint](/powershell/module/microsoft.entra.applications/get-entraagentidentityblueprint): Retrieves an existing Agent Identity Blueprint.
+    - [Get-EntraAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.applications/get-entraagentidentityblueprintprincipal): Retrieves the service principal for an Agent Identity Blueprint.
+    - [Get-EntraAgentUser](/powershell/module/microsoft.entra.users/get-entraagentuser): Retrieves an Agent User.
+    - [Invoke-EntraAgentIdInteractive](/powershell/module/microsoft.entra.applications/invoke-entraagentidinteractive): Launches an interactive wizard for Agent ID setup.
+    - [New-EntraAgentIdentityBlueprint](/powershell/module/microsoft.entra.applications/new-entraagentidentityblueprint): Creates a new Agent Identity Blueprint with sponsors and owners.
+    - [New-EntraAgentIdentityBlueprintPrincipal](/powershell/module/microsoft.entra.applications/new-entraagentidentityblueprintprincipal): Creates a service principal for an Agent Identity Blueprint.
+    - [New-EntraAgentIDForAgentIdentityBlueprint](/powershell/module/microsoft.entra.applications/new-entraagentidforagentidentityblueprint): Creates agent identities under a blueprint.
+    - [New-EntraAgentUserForAgentId](/powershell/module/microsoft.entra.users/new-entraagentuserforagentid): Creates Agent Users with auto-generated UPN and mailNickname.
+    - [Remove-EntraAgentIdentity](/powershell/module/microsoft.entra.applications/remove-entraagentidentity): Deletes an Agent Identity.
+    - [Remove-EntraAgentIdentityBlueprint](/powershell/module/microsoft.entra.applications/remove-entraagentidentityblueprint): Deletes an Agent Identity Blueprint.
+    - [Remove-EntraAgentUser](/powershell/module/microsoft.entra.users/remove-entraagentuser): Deletes an Agent User.
+
+  - **Other Changes**:
+    - Removed the deprecated `AzureAD` module dependency from the build pipeline.
+    - Added contributor testing and local build documentation.
+
+## Module version history
+
+[Version 1.2.0][posh-1.2.0] - **January 2026**
 
   - **Features**:
     - Migrated the `Agent ID` cmdlet set from Microsoft Identity Tools PowerShell module into Microsoft Entra Powershell, delivering a production-ready implementation for managing Agent identity blueprints and Agent identities in Microsoft Entra ID.
@@ -88,8 +119,6 @@ This article lists new articles and significant updates from the last month. It 
   - **Bug Fixes**:
     - Enabled support for the `-PreAuthorizedApplications` parameter in the `Set-EntraBetaApplication` cmdlet, enabling users to configure pre-authorized applications for an Entra application.
     - Updated the `InvitedUser` and `InvitedUserMessageInfo` parameter types. `New-EntraBetaInvitation` commands now use interfaces from `Microsoft.Graph.Beta.PowerShell.Models`, while `New-EntraInvitation` commands use interfaces from `Microsoft.Graph.PowerShell.Models`.
-
-## Module version history
 
 [Version 1.1.0][posh-1.1.0] - **December 2025**
 
@@ -148,6 +177,7 @@ This article lists new articles and significant updates from the last month. It 
 
 :::zone-end
 
+[posh-1.3.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.3.0
 [posh-1.2.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.2.0
 [posh-1.1.0]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.1.0
 [posh-1.0.13]: https://www.powershellgallery.com/packages/Microsoft.Entra/1.0.13
