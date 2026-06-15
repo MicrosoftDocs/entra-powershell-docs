@@ -2,7 +2,7 @@
 title: What is new in Microsoft Entra PowerShell
 description: "Learn about the latest features of Microsoft Entra PowerShell."
 ms.topic: overview
-ms.date: 05/28/2026
+ms.date: 06/15/2026
 author: msewaweru
 manager: mwongerapk
 ms.author: eunicewaweru
@@ -23,6 +23,12 @@ This article lists new articles and significant updates from the last month. It 
 :::zone pivot="whats-new-in-docs"
 
 ## What's new in docs
+
+### May 2026
+
+#### New articles
+
+- [Grant and revoke API permissions to managed identities](grant-api-permissions-managed-identity.md) - Learn how to grant and revoke Microsoft Graph API permissions for system-assigned and user-assigned managed identities using Microsoft Entra PowerShell.
 
 ### November 2025
 
@@ -45,19 +51,6 @@ This article lists new articles and significant updates from the last month. It 
 #### Updated articles
 
 - [Manage guest accounts using Microsoft Entra PowerShell](manage-guest-users.md) - Add examples for managing guest sponsors.
-
-### April 2025
-
-#### New articles
-
-- [Offboard users](offboard-user.md) - Learn how to offboard users by invalidating sessions, resetting passwords, and removing device ownership.
-
-#### Updated articles
-
-- [Manage guest users](manage-guest-users.md) - Refined code snippets to improve readability and ensure alignment with best practices.
-- [Manage users](manage-user.md) - Refined code snippets to improve readability and ensure alignment with best practices.
-- [Manage user licenses using Microsoft Entra PowerShell](how-to-manage-user-licenses.md) - Improved metadata and keywords for better search engine visibility.
-
 
 :::zone-end
 
