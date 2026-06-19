@@ -1,20 +1,22 @@
 ---
 title: Manage roles
-description: Learn to assign roles to users using Microsoft Entra PowerShell, with guidance on both standard role assignments and those involving Privileged Identity Management (PIM).
+description: Learn how to find, assign, scope, and clean up Microsoft Entra roles for users, groups, and service principals using Microsoft Entra PowerShell.
 
 author: csmulligan
 manager: mwongerapk
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 05/28/2026
 ms.author: cmulligan
 ms.reviewer: stevemutungi
+ms.custom: msecd-doc-authoring-1012
+ai-usage: ai-assisted
 
-#Customer intent: As an IT admin managing roles and users in Microsoft Entra ID, I want to learn how to assign a role to a user with Microsoft Entra PowerShell.
+#Customer intent: As an IT admin managing roles and users in Microsoft Entra ID, I want to learn how to assign a role to a user, group, or service principal with Microsoft Entra PowerShell so that I can grant each identity only the permissions it needs.
 ---
 
 # Manage roles
 
-In this article, you learn how to manage roles using Microsoft Entra PowerShell. A role in Microsoft Entra defines permissions that control access to resources like users, groups, and applications. Roles are assigned to users or groups to grant permissions to perform specific tasks.
+In this article, you learn how to manage roles using Microsoft Entra PowerShell. A role in Microsoft Entra defines permissions that control access to resources like users, groups, and applications. You assign roles to users, groups, or service principals to grant the permissions they need to perform specific tasks. You can also scope each assignment to the entire directory, an administrative unit, or a specific application registration so that the role only applies where it's needed.
 
 ## Prerequisites
 
@@ -63,6 +65,42 @@ Id                                            PrincipalId                       
 ```
 
 The `PrincipalId` specifies the account the role is assigned to, and the `RoleDefinitionId` specifies the role assigned to the account.
+
+### Find role assignments for a specific user
+
+To audit the roles assigned to a specific user, filter the role assignments by the user's object ID.
+
+```powershell
+Connect-Entra -Scopes 'RoleManagement.Read.Directory', 'User.Read.All'
+$user = Get-EntraUser -UserId 'markus@contoso.com'
+Get-EntraDirectoryRoleAssignment -All | Where-Object { $_.PrincipalId -eq $user.Id }
+```
+
+```Output
+Id                                   PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScopeId
+--                                   -----------                          ----------------                     ---------------- ----------
+00001111-aaaa-2222-bbbb-3333cccc4444 bbbbbbbb-1111-2222-3333-cccccccccccc a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /
+```
+
+The output shows role assignment IDs, but not the role display names. To resolve role names from each `RoleDefinitionId`, pipe the assignments through `Get-EntraDirectoryRoleDefinition`.
+
+```powershell
+$assignments = Get-EntraDirectoryRoleAssignment -All | Where-Object { $_.PrincipalId -eq $user.Id }
+foreach ($assignment in $assignments) {
+    $roleDef = Get-EntraDirectoryRoleDefinition -UnifiedRoleDefinitionId $assignment.RoleDefinitionId
+    [PSCustomObject]@{
+        RoleName = $roleDef.DisplayName
+        Scope    = $assignment.DirectoryScopeId
+    }
+}
+```
+
+```Output
+RoleName               Scope
+--------               -----
+Helpdesk Administrator /
+User Administrator     /administrativeUnits/aaaaaaaa-bbbb-cccc-1111-222222222222
+```
 
 ## Assign roles
 
@@ -113,7 +151,8 @@ This command creates a new role assignment in Microsoft Entra ID.
 
 - The`-DirectoryScopeId` parameter specifies the scope of the directory over which the role assignment is effective. The `/` value typically represents the root scope, meaning the role assignment is applicable across the entire directory.
 
-<!--Do we have a cmdlet similar to New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest to assign the role as eligible? For PIM?  https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/manage-roles-portal -->
+> [!NOTE]
+> The steps in this section create a permanent (active) role assignment. To grant a user time-bound or just-in-time access through Privileged Identity Management (PIM), see [Microsoft Entra PowerShell cmdlets for Privileged Identity Management](/powershell/module/microsoft.entra.governance).
 
 ### Assign roles to groups
 
@@ -153,6 +192,116 @@ To simplify role management, you can assign Microsoft Entra roles to a group ins
     Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
     New-EntraDirectoryRoleAssignment -RoleDefinitionId $directoryRole.Id -PrincipalId $group.Id -DirectoryScopeId '/'
     ```
+
+### Assign roles to service principals
+
+You can assign Microsoft Entra roles to a service principal, including a managed identity, so that an application can perform directory tasks on its own behalf without a signed-in user.
+
+1. Use [Get-EntraServicePrincipal](/powershell/module/microsoft.entra.applications/get-entraserviceprincipal) to retrieve the service principal.
+
+    ```powershell
+    Connect-Entra -Scopes 'Application.Read.All'
+    $servicePrincipal = Get-EntraServicePrincipal -Filter "DisplayName eq 'My Application'"
+    ```
+
+    ```Output
+    DisplayName    Id                                   AppId                                SignInAudience ServicePrincipalType
+    -----------    --                                   -----                                -------------- --------------------
+    My Application cccccccc-dddd-eeee-3333-444444444444 44445555-eeee-6666-ffff-7777aaaa8888 AzureADMyOrg   Application
+    ```
+
+1. Get the role ID you want to assign.
+
+    ```powershell
+    Connect-Entra -Scopes 'RoleManagement.Read.Directory'
+    $directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Directory Readers'"
+    ```
+
+1. Assign the role to the service principal.
+
+    ```powershell
+    Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
+    New-EntraDirectoryRoleAssignment -RoleDefinitionId $directoryRole.Id -PrincipalId $servicePrincipal.Id -DirectoryScopeId '/'
+    ```
+
+    ```Output
+    Id                                       PrincipalId                          RoleDefinitionId                     DirectoryScopeId AppScopeId
+    --                                       -----------                          ----------------                     ---------------- ----------
+    A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u          cccccccc-dddd-eeee-3333-444444444444 a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /
+    ```
+
+### Assign roles with administrative unit scope
+
+You can restrict a role assignment to a specific administrative unit instead of the entire directory. The role's permissions then apply only to the users, groups, or devices that belong to that administrative unit, which helps you follow the principle of least privilege. To learn more about administrative units, see [Administrative units in Microsoft Entra ID](/entra/identity/role-based-access-control/administrative-units).
+
+1. Retrieve the principal (user, group, or service principal) and the administrative unit.
+
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All', 'AdministrativeUnit.Read.All'
+    $user = Get-EntraUser -UserId 'markus@contoso.com'
+    $adminUnit = Get-EntraAdministrativeUnit -Filter "DisplayName eq 'Seattle Admin Unit'"
+    ```
+
+1. Get the role definition.
+
+    ```powershell
+    Connect-Entra -Scopes 'RoleManagement.Read.Directory'
+    $directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'User Administrator'"
+    ```
+
+1. Assign the role with the administrative unit scope.
+
+    ```powershell
+    Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
+    $directoryScopeId = '/administrativeUnits/' + $adminUnit.Id
+    New-EntraDirectoryRoleAssignment -RoleDefinitionId $directoryRole.Id -PrincipalId $user.Id -DirectoryScopeId $directoryScopeId
+    ```
+
+    ```Output
+    Id                                       PrincipalId                          RoleDefinitionId                     DirectoryScopeId                                          AppScopeId
+    --                                       -----------                          ----------------                     ----------------                                          ----------
+    A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u          bbbbbbbb-1111-2222-3333-cccccccccccc a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /administrativeUnits/aaaaaaaa-bbbb-cccc-1111-222222222222
+    ```
+
+The user now has the *User Administrator* role only within the specified administrative unit.
+
+### Assign roles with application scope
+
+You can scope a role assignment to a single application registration so that the principal can manage only that application. Use this scope when, for example, you want a developer to manage their own app registration without granting them tenant-wide *Application Administrator* permissions.
+
+1. Retrieve the user and the application registration.
+
+    ```powershell
+    Connect-Entra -Scopes 'User.Read.All', 'Application.Read.All'
+    $user = Get-EntraUser -UserId 'markus@contoso.com'
+    $application = Get-EntraApplication -Filter "DisplayName eq 'My Web App'"
+    ```
+
+1. Get the role definition.
+
+    ```powershell
+    Connect-Entra -Scopes 'RoleManagement.Read.Directory'
+    $directoryRole = Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Application Administrator'"
+    ```
+
+1. Assign the role scoped to the application.
+
+    ```powershell
+    Connect-Entra -Scopes 'RoleManagement.ReadWrite.Directory'
+    $directoryScopeId = '/' + $application.Id
+    New-EntraDirectoryRoleAssignment -RoleDefinitionId $directoryRole.Id -PrincipalId $user.Id -DirectoryScopeId $directoryScopeId
+    ```
+
+    ```Output
+    Id                                       PrincipalId                          RoleDefinitionId                     DirectoryScopeId                      AppScopeId
+    --                                       -----------                          ----------------                     ----------------                      ----------
+    A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u          bbbbbbbb-1111-2222-3333-cccccccccccc a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1 /dddddddd-eeee-ffff-4444-555555555555
+    ```
+
+The user now has the *Application Administrator* role only for the specified application registration.
+
+> [!NOTE]
+> The two scope formats have different semantics. A scope of `/{id}` (used for application scope) means the principal can manage *that object itself*. A scope of `/administrativeUnits/{id}` means the principal can manage the *members* of the administrative unit (based on the assigned role), not the administrative unit itself. For more information, see [Assign Microsoft Entra roles at different scopes](/entra/identity/role-based-access-control/assign-roles-different-scopes).
 
 ## Create a custom role
 
@@ -211,7 +360,10 @@ Get-EntraDirectoryRoleDefinition -Filter "DisplayName eq 'Custom Application Rea
 
 ## Related content
 
-To view the complete list of all cmdlets for managing roles, see [Microsoft Entra PowerShell cmdlets for role management](/powershell/module/microsoft.entra.governance).
+- [Microsoft Entra PowerShell cmdlets for role management](/powershell/module/microsoft.entra.governance)
+- [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference?toc=/powershell/entra-powershell/toc.json&bc=/powershell/entra-powershell/breadcrumb/toc.json)
+- [Administrative units in Microsoft Entra ID](/entra/identity/role-based-access-control/administrative-units)
+- [Assign Microsoft Entra roles at different scopes](/entra/identity/role-based-access-control/assign-roles-different-scopes)
 
 <!-- link references -->
 
