@@ -46,7 +46,7 @@ In addition to delegated permissions, the signed-in user must belong to at least
 ### Example 1: Get all cross-tenant sign-in events
 
 ```powershell
-Connect-Entra -Scopes 'AuditLog.Read.All', 'CrossTenantInfo.ReadBasic.All'
+Connect-Entra -Scopes 'AuditLog.Read.All', 'CrossTenantInformation.ReadBasic.All'
 Get-EntraBetaCrossTenantAccessActivity
 ```
 
